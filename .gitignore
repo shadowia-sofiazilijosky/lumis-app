@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# claude code harness state
+.claude/
+
+# next.js
+apps/web/.next/
+apps/web/out/
+
+# nest / build output
+apps/api/dist/
+
+# turbo
+.turbo/
+
+# env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# misc
+.DS_Store
+*.pem
+coverage/
+
+# prisma
+apps/api/prisma/*.db

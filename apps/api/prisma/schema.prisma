@@ -1,0 +1,258 @@
+// Prisma schema — Lumis
+// https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------- Enums ----------
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ThemePreference {
+  LIGHT
+  DARK
+  SYSTEM
+}
+
+enum ReaderTheme {
+  LIGHT
+  DARK
+  SEPIA
+}
+
+enum BookFormat {
+  PDF
+  EPUB
+  MOBI
+  CBR
+  CBZ
+  TXT
+}
+
+enum ShelfArrangement {
+  SPINE // lomo
+  COVER // portada de frente
+}
+
+enum ReadingStatus {
+  TBR
+  READING
+  PAUSED
+  FINISHED
+  REREAD
+  ABANDONED
+}
+
+enum HighlightColor {
+  YELLOW
+  PINK
+  GREEN
+  BLUE
+}
+
+// ---------- Models ----------
+
+model User {
+  id              String          @id @default(cuid())
+  email           String          @unique
+  passwordHash    String          @map("password_hash")
+  displayName     String          @map("display_name")
+  avatarUrl       String?         @map("avatar_url")
+  role            Role            @default(USER)
+  themePreference ThemePreference @default(SYSTEM) @map("theme_preference")
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+
+  refreshTokens   RefreshToken[]
+  books           Book[]
+  shelves         Shelf[]
+  reviews         Review[]
+  readingProgress ReadingProgress[]
+  highlights      Highlight[]
+  notes           Note[]
+  spotifyAccount  SpotifyAccount?
+
+  @@map("users")
+}
+
+// Hashed refresh tokens, so rotation/revocation doesn't depend on trusting the JWT alone.
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @map("token_hash")
+  expiresAt DateTime  @map("expires_at")
+  revokedAt DateTime? @map("revoked_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model Book {
+  id                   String     @id @default(cuid())
+  ownerId              String     @map("owner_id")
+  owner                User       @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  title                String
+  author               String?
+  format               BookFormat
+  originalFileUrl      String     @map("original_file_url")
+  coverImageUrl        String?    @map("cover_image_url")
+  normalizedContentUrl String?    @map("normalized_content_url") // paginated HTML/image layer used by the reader
+  pageCount            Int?       @map("page_count")
+  fileSizeBytes        Int?       @map("file_size_bytes")
+  metadata             Json? // format-specific extras: isbn, publisher, language, etc.
+  createdAt            DateTime   @default(now()) @map("created_at")
+  updatedAt            DateTime   @updatedAt @map("updated_at")
+
+  shelves         BookShelf[]
+  reviews         Review[]
+  readingProgress ReadingProgress[]
+  highlights      Highlight[]
+  notes           Note[]
+
+  @@index([ownerId])
+  @@map("books")
+}
+
+model Shelf {
+  id                 String           @id @default(cuid())
+  ownerId            String           @map("owner_id")
+  owner              User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  name               String
+  genre              String?
+  arrangement        ShelfArrangement @default(SPINE)
+  backgroundColor    String?          @map("background_color")
+  backgroundImageUrl String?          @map("background_image_url")
+  decorations        Json             @default("[]") // [{ type: "plant" | "light" | ..., variant, x, y, rotation }]
+  spotifyPlaylistId  String?          @map("spotify_playlist_id")
+  spotifyPlaylistUrl String?          @map("spotify_playlist_url")
+  sortOrder          Int              @default(0) @map("sort_order")
+  createdAt          DateTime         @default(now()) @map("created_at")
+  updatedAt          DateTime         @updatedAt @map("updated_at")
+
+  books BookShelf[]
+
+  @@index([ownerId])
+  @@map("shelves")
+}
+
+// Many-to-many join between Book and Shelf, carrying per-shelf layout position.
+model BookShelf {
+  id       String   @id @default(cuid())
+  bookId   String   @map("book_id")
+  book     Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  shelfId  String   @map("shelf_id")
+  shelf    Shelf    @relation(fields: [shelfId], references: [id], onDelete: Cascade)
+  position Json? // { slot } or { x, y } depending on the shelf's arrangement
+  addedAt  DateTime @default(now()) @map("added_at")
+
+  @@unique([bookId, shelfId])
+  @@index([shelfId])
+  @@index([bookId])
+  @@map("book_shelves")
+}
+
+// One review/rating record per user+book. "Reread" just updates status + dates in place (MVP scope).
+model Review {
+  id            String        @id @default(cuid())
+  userId        String        @map("user_id")
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId        String        @map("book_id")
+  book          Book          @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  status        ReadingStatus @default(TBR)
+  rating        Int? // 1-5 stars
+  spicyRating   Int?          @map("spicy_rating") // 1-5 chiles
+  romanceRating Int?          @map("romance_rating") // 1-5 corazones
+  bodyRichText  Json?         @map("body_rich_text")
+  startedAt     DateTime?     @map("started_at")
+  finishedAt    DateTime?     @map("finished_at")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  @@unique([userId, bookId])
+  @@index([bookId])
+  @@map("reviews")
+}
+
+// The exact resume position ("bookmark"), separate from Review's opinion/status data.
+model ReadingProgress {
+  id              String      @id @default(cuid())
+  userId          String      @map("user_id")
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId          String      @map("book_id")
+  book            Book        @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  currentPage     Int         @default(0) @map("current_page")
+  currentLocator  Json?       @map("current_locator") // fine-grained position within the page (e.g. EPUB CFI-like offset)
+  progressPercent Float       @default(0) @map("progress_percent")
+  readerTheme     ReaderTheme @default(LIGHT) @map("reader_theme")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  @@unique([userId, bookId])
+  @@map("reading_progress")
+}
+
+model Highlight {
+  id           String         @id @default(cuid())
+  userId       String         @map("user_id")
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId       String         @map("book_id")
+  book         Book           @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  color        HighlightColor
+  pageIndex    Int            @map("page_index")
+  startOffset  Int            @map("start_offset")
+  endOffset    Int            @map("end_offset")
+  selectedText String         @map("selected_text")
+  createdAt    DateTime       @default(now()) @map("created_at")
+
+  notes Note[]
+
+  @@index([bookId, userId])
+  @@map("highlights")
+}
+
+// A post-it anchored to a page position; can optionally hang off a highlight.
+model Note {
+  id          String     @id @default(cuid())
+  userId      String     @map("user_id")
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId      String     @map("book_id")
+  book        Book       @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  highlightId String?    @map("highlight_id")
+  highlight   Highlight? @relation(fields: [highlightId], references: [id], onDelete: SetNull)
+  pageIndex   Int        @map("page_index")
+  offset      Int
+  body        String
+  colorTag    String?    @map("color_tag") // post-it variant
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+
+  @@index([bookId, userId])
+  @@map("notes")
+}
+
+model SpotifyAccount {
+  id            String   @id @default(cuid())
+  userId        String   @unique @map("user_id")
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  spotifyUserId String   @map("spotify_user_id")
+  accessToken   String   @map("access_token")
+  refreshToken  String   @map("refresh_token")
+  expiresAt     DateTime @map("expires_at")
+  scope         String
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("spotify_accounts")
+}
