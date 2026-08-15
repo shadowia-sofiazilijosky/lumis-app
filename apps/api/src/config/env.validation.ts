@@ -18,7 +18,8 @@ const envSchema = z.object({
 
   SUPABASE_URL: z.string().optional(),
   SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
-  SUPABASE_STORAGE_BUCKET: z.string().optional(),
+  SUPABASE_STORAGE_BUCKET: z.string().default('books'),
+  MAX_UPLOAD_SIZE_MB: z.coerce.number().default(100),
 
   SPOTIFY_CLIENT_ID: z.string().optional(),
   SPOTIFY_CLIENT_SECRET: z.string().optional(),

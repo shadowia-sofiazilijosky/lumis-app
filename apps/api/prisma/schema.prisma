@@ -106,8 +106,8 @@ model Book {
   title                String
   author               String?
   format               BookFormat
-  originalFileUrl      String     @map("original_file_url")
-  coverImageUrl        String?    @map("cover_image_url")
+  originalFileKey      String     @map("original_file_key") // path within the private Supabase Storage bucket
+  coverImageKey        String?    @map("cover_image_key") // path within the private bucket; signed URLs are generated on read
   normalizedContentUrl String?    @map("normalized_content_url") // paginated HTML/image layer used by the reader
   pageCount            Int?       @map("page_count")
   fileSizeBytes        Int?       @map("file_size_bytes")
