@@ -6,17 +6,9 @@ import {
   ComicArchiveReader,
   RarComicArchiveReader,
   ZipComicArchiveReader,
+  listComicPageNames,
 } from './comic-archive-reader';
 import { ParsedBookMetadata } from './book-parser.interface';
-
-const IMAGE_EXTENSIONS = new Set([
-  '.jpg',
-  '.jpeg',
-  '.png',
-  '.gif',
-  '.webp',
-  '.bmp',
-]);
 
 const IMAGE_CONTENT_TYPES: Record<string, string> = {
   '.jpg': 'image/jpeg',
@@ -53,11 +45,7 @@ export class ComicParserService {
         : await RarComicArchiveReader.create(buffer);
 
     const entryNames = reader.listEntryNames();
-    const pageNames = entryNames
-      .filter((name) => IMAGE_EXTENSIONS.has(extname(name).toLowerCase()))
-      .sort((a, b) =>
-        a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }),
-      );
+    const pageNames = listComicPageNames(reader);
 
     const comicInfoName = entryNames.find(
       (name) => basename(name).toLowerCase() === 'comicinfo.xml',

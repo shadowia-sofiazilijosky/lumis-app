@@ -1,11 +1,35 @@
 import AdmZip from 'adm-zip';
 import { createExtractorFromData } from 'node-unrar-js';
 import type { Extractor } from 'node-unrar-js';
+import { extname } from 'node:path';
+
+const IMAGE_EXTENSIONS = new Set([
+  '.jpg',
+  '.jpeg',
+  '.png',
+  '.gif',
+  '.webp',
+  '.bmp',
+]);
 
 /** Common read interface over a CBZ (zip) or CBR (rar) archive. */
 export interface ComicArchiveReader {
   listEntryNames(): string[];
   readEntry(name: string): Buffer | undefined;
+}
+
+/**
+ * The ordered list of page image names for a comic archive — shared by
+ * ingestion (cover + page count) and the Reader (page-by-number lookup) so
+ * both agree on exactly the same ordering.
+ */
+export function listComicPageNames(reader: ComicArchiveReader): string[] {
+  return reader
+    .listEntryNames()
+    .filter((name) => IMAGE_EXTENSIONS.has(extname(name).toLowerCase()))
+    .sort((a, b) =>
+      a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }),
+    );
 }
 
 export class ZipComicArchiveReader implements ComicArchiveReader {

@@ -53,6 +53,20 @@ export class SupabaseStorageService implements OnModuleInit {
     }
   }
 
+  async download(path: string): Promise<Buffer> {
+    const { data, error } = await this.client.storage
+      .from(this.bucket)
+      .download(path);
+
+    if (error || !data) {
+      throw new Error(
+        `No se pudo descargar el archivo de Supabase Storage: ${error?.message}`,
+      );
+    }
+
+    return Buffer.from(await data.arrayBuffer());
+  }
+
   async remove(paths: string[]): Promise<void> {
     if (paths.length === 0) return;
 
