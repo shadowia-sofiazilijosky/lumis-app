@@ -214,6 +214,9 @@ model Highlight {
   startOffset  Int            @map("start_offset")
   endOffset    Int            @map("end_offset")
   selectedText String         @map("selected_text")
+  // EPUB-only: authoritative anchor for reflowable content (pageIndex/startOffset/
+  // endOffset are non-authoritative placeholders there — see epub-reader.tsx).
+  cfi          String?
   createdAt    DateTime       @default(now()) @map("created_at")
 
   notes Note[]
@@ -235,6 +238,8 @@ model Note {
   offset      Int
   body        String
   colorTag    String?    @map("color_tag") // post-it variant
+  // EPUB-only: authoritative anchor for reflowable content — see Highlight.cfi.
+  cfi         String?
   createdAt   DateTime   @default(now()) @map("created_at")
   updatedAt   DateTime   @updatedAt @map("updated_at")
 

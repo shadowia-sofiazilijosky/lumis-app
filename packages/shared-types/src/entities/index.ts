@@ -3,3 +3,5 @@ export * from "./book.entity";
 export * from "./position.entity";
 export * from "./shelf.entity";
 export * from "./reading-progress.entity";
+export * from "./highlight.entity";
+export * from "./note.entity";

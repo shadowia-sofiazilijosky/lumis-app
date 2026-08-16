@@ -7,6 +7,8 @@ import { validateEnv } from './config/env.validation';
 import { PrismaModule } from './database/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { BooksModule } from './modules/books/books.module';
+import { HighlightsModule } from './modules/highlights/highlights.module';
+import { NotesModule } from './modules/notes/notes.module';
 import { ReaderModule } from './modules/reader/reader.module';
 import { ReadingProgressModule } from './modules/reading-progress/reading-progress.module';
 import { ShelvesModule } from './modules/shelves/shelves.module';
@@ -25,6 +27,8 @@ import { SupabaseStorageModule } from './storage/supabase-storage.module';
     ShelvesModule,
     ReaderModule,
     ReadingProgressModule,
+    HighlightsModule,
+    NotesModule,
   ],
   controllers: [AppController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
