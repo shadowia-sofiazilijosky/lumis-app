@@ -7,6 +7,13 @@ import {
   setAuthCookies,
 } from "./auth-cookies";
 
+/** Server-only: current access token, refreshing it first if missing. Used by routes that need a raw token (e.g. to proxy binary responses) instead of `authenticatedApiFetch`'s JSON-only wrapper. */
+export async function getValidAccessToken(): Promise<string | undefined> {
+  const accessToken = await getAccessToken();
+  if (accessToken) return accessToken;
+  return refreshAccessToken();
+}
+
 async function refreshAccessToken(): Promise<string | undefined> {
   const refreshToken = await getRefreshToken();
   if (!refreshToken) return undefined;

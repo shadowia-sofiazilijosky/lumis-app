@@ -1,0 +1,103 @@
+"use client";
+
+import { ReaderTheme } from "@lumis/shared-types";
+import Link from "next/link";
+import { READER_THEME_LABELS } from "../api/reader-client";
+import { useAutoHideControls } from "../hooks/use-auto-hide-controls";
+import { useReaderStore } from "../store/reader-store";
+
+interface ReaderControlsProps {
+  bookId: string;
+  title: string;
+  onPrev: () => void;
+  onNext: () => void;
+  canGoPrev: boolean;
+  canGoNext: boolean;
+  pageLabel: string;
+}
+
+const THEME_ORDER: ReaderTheme[] = [
+  ReaderTheme.LIGHT,
+  ReaderTheme.DARK,
+  ReaderTheme.SEPIA,
+];
+
+export function ReaderControls({
+  bookId,
+  title,
+  onPrev,
+  onNext,
+  canGoPrev,
+  canGoNext,
+  pageLabel,
+}: ReaderControlsProps) {
+  useAutoHideControls();
+
+  const controlsVisible = useReaderStore((state) => state.controlsVisible);
+  const theme = useReaderStore((state) => state.theme);
+  const setTheme = useReaderStore((state) => state.setTheme);
+  const toggleControls = useReaderStore((state) => state.toggleControls);
+
+  return (
+    <>
+      <div
+        className="reader-tap-zones"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          className="reader-tap-zone reader-tap-zone-prev"
+          aria-label="Página anterior"
+          onClick={onPrev}
+          disabled={!canGoPrev}
+        />
+        <button
+          type="button"
+          className="reader-tap-zone reader-tap-zone-center"
+          aria-label="Mostrar u ocultar controles"
+          onClick={toggleControls}
+        />
+        <button
+          type="button"
+          className="reader-tap-zone reader-tap-zone-next"
+          aria-label="Página siguiente"
+          onClick={onNext}
+          disabled={!canGoNext}
+        />
+      </div>
+
+      <header
+        className={`reader-topbar ${controlsVisible ? "reader-controls-visible" : ""}`}
+      >
+        <Link href={`/library/${bookId}`} className="reader-close">
+          ← Volver
+        </Link>
+        <h1 className="reader-title">{title}</h1>
+        <div className="reader-theme-switch">
+          {THEME_ORDER.map((option) => (
+            <button
+              key={option}
+              type="button"
+              className={option === theme ? "reader-theme-active" : "secondary"}
+              onClick={() => setTheme(option)}
+            >
+              {READER_THEME_LABELS[option]}
+            </button>
+          ))}
+        </div>
+      </header>
+
+      <footer
+        className={`reader-bottombar ${controlsVisible ? "reader-controls-visible" : ""}`}
+      >
+        <button type="button" onClick={onPrev} disabled={!canGoPrev}>
+          ‹ Anterior
+        </button>
+        <span className="reader-page-label">{pageLabel}</span>
+        <button type="button" onClick={onNext} disabled={!canGoNext}>
+          Siguiente ›
+        </button>
+      </footer>
+    </>
+  );
+}

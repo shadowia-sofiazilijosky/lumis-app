@@ -1,6 +1,7 @@
 "use client";
 
-import type { BookDetail } from "@lumis/shared-types";
+import { BookFormat, type BookDetail } from "@lumis/shared-types";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { deleteBook, fetchBookDetail } from "../api/books-client";
@@ -99,9 +100,14 @@ export function BookDetailView({ bookId }: { bookId: string }) {
           </a>
         )}
 
-        <button type="button" onClick={handleDelete} disabled={isDeleting}>
-          {isDeleting ? "Borrando…" : "Borrar libro"}
-        </button>
+        <div className="book-detail-actions">
+          {book.format !== BookFormat.MOBI && (
+            <Link href={`/read/${book.id}`}>Leer</Link>
+          )}
+          <button type="button" onClick={handleDelete} disabled={isDeleting}>
+            {isDeleting ? "Borrando…" : "Borrar libro"}
+          </button>
+        </div>
       </div>
     </article>
   );
