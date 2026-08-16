@@ -1,8 +1,10 @@
 "use client";
 
 import { ReaderTheme } from "@lumis/shared-types";
-import type { Book, Rendition } from "epubjs";
+import type { Book, Contents, Rendition } from "epubjs";
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
+import { HIGHLIGHT_COLOR_HEX, deleteHighlight } from "../api/annotations-client";
+import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore } from "../store/reader-store";
 import { PageFlip } from "./page-flip";
 
@@ -17,7 +19,24 @@ function applyEpubTheme(rendition: Rendition, theme: ReaderTheme) {
   rendition.themes.default({ body: { background: palette.background, color: palette.color } });
 }
 
+/** Translates a click inside the epub.js iframe to outer-document (viewport) coordinates. */
+function toOuterRect(event: MouseEvent): DOMRect {
+  const target = event.target as HTMLElement | null;
+  const frame = target?.ownerDocument?.defaultView?.frameElement as
+    | HTMLIFrameElement
+    | null
+    | undefined;
+  const frameRect = frame?.getBoundingClientRect();
+  return new DOMRect(
+    event.clientX + (frameRect?.left ?? 0),
+    event.clientY + (frameRect?.top ?? 0),
+    0,
+    0,
+  );
+}
+
 interface EpubReaderProps {
+  bookId: string;
   fileUrl: string;
   initialLocator: unknown;
 }
@@ -32,16 +51,24 @@ interface EpubLocation {
 }
 
 export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
-  function EpubReader({ fileUrl, initialLocator }, ref) {
+  function EpubReader({ bookId, fileUrl, initialLocator }, ref) {
     const containerRef = useRef<HTMLDivElement>(null);
     const bookRef = useRef<Book | null>(null);
     const renditionRef = useRef<Rendition | null>(null);
+    const appliedAnnotationsRef = useRef<Set<string>>(new Set());
     const [flipTick, setFlipTick] = useState(0);
+    const [renditionReady, setRenditionReady] = useState(false);
 
     const flipDirection = useReaderStore((state) => state.flipDirection);
     const theme = useReaderStore((state) => state.theme);
     const goToLocator = useReaderStore((state) => state.goToLocator);
     const setTotalPages = useReaderStore((state) => state.setTotalPages);
+
+    const highlights = useAnnotationsStore((state) => state.highlights);
+    const notes = useAnnotationsStore((state) => state.notes);
+    const removeHighlightLocal = useAnnotationsStore((state) => state.removeHighlightLocal);
+    const setPendingSelection = useAnnotationsStore((state) => state.setPendingSelection);
+    const openExistingNote = useAnnotationsStore((state) => state.openExistingNote);
 
     useImperativeHandle(ref, () => ({
       next: () => renditionRef.current?.next(),
@@ -58,6 +85,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
         const book = ePub(fileUrl);
         bookRef.current = book;
         setTotalPages(null);
+        appliedAnnotationsRef.current = new Set();
 
         const rendition = book.renderTo(containerRef.current, {
           width: "100%",
@@ -68,6 +96,28 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
         renditionRef.current = rendition;
         applyEpubTheme(rendition, theme);
 
+        // epub.js renders 'mark' annotations as a bare, unstyled <a> inside
+        // each section's iframe — style it into a small pin here, since our
+        // page's own CSS can't reach across the iframe boundary.
+        rendition.hooks.content.register((contents: Contents) => {
+          contents.addStylesheetRules(
+            {
+              'a[ref="epubjs-mk"]': {
+                display: "inline-block",
+                width: "14px",
+                height: "14px",
+                "border-radius": "50%",
+                background: "#8c2f39",
+                border: "2px solid #fff",
+                "box-shadow": "0 1px 3px rgba(0,0,0,0.4)",
+                cursor: "pointer",
+                transform: "translate(-4px, -4px)",
+              },
+            },
+            "lumis-note-mark",
+          );
+        });
+
         rendition.on("relocated", (location: EpubLocation) => {
           setFlipTick((tick) => tick + 1);
           goToLocator(
@@ -76,13 +126,40 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
           );
         });
 
+        rendition.on("selected", (cfiRange: string, contents: Contents) => {
+          const selection = contents.window.getSelection();
+          const text = selection?.toString().trim() ?? "";
+          if (!text || !selection || selection.rangeCount === 0) return;
+
+          const domRange = selection.getRangeAt(0);
+          const rect = domRange.getBoundingClientRect();
+          const frame = contents.window.frameElement as HTMLIFrameElement | null;
+          const frameRect = frame?.getBoundingClientRect();
+
+          setPendingSelection({
+            pageIndex: contents.sectionIndex,
+            startOffset: 0,
+            endOffset: text.length,
+            text,
+            cfi: cfiRange,
+            rect: new DOMRect(
+              rect.left + (frameRect?.left ?? 0),
+              rect.top + (frameRect?.top ?? 0),
+              rect.width,
+              rect.height,
+            ),
+          });
+        });
+
         const startCfi =
           typeof initialLocator === "string" ? initialLocator : undefined;
         await rendition.display(startCfi);
+        if (!cancelled) setRenditionReady(true);
       })();
 
       return () => {
         cancelled = true;
+        setRenditionReady(false);
         renditionRef.current?.destroy();
         bookRef.current?.destroy();
         renditionRef.current = null;
@@ -96,6 +173,51 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
     useEffect(() => {
       if (renditionRef.current) applyEpubTheme(renditionRef.current, theme);
     }, [theme]);
+
+    // Applies highlights/notes (CFI-anchored ones only) as epub.js's own
+    // annotation overlays — it persists and re-injects these across section
+    // re-renders on its own, so each CFI only needs to be added once.
+    useEffect(() => {
+      const rendition = renditionRef.current;
+      if (!rendition || !renditionReady) return;
+
+      for (const highlight of highlights) {
+        if (!highlight.cfi) continue;
+        const key = `highlight:${highlight.cfi}`;
+        if (appliedAnnotationsRef.current.has(key)) continue;
+        appliedAnnotationsRef.current.add(key);
+
+        rendition.annotations.highlight(
+          highlight.cfi,
+          {},
+          async () => {
+            if (!window.confirm("¿Quitar este resaltado?")) return;
+            rendition.annotations.remove(highlight.cfi!, "highlight");
+            removeHighlightLocal(highlight.id);
+            await deleteHighlight(bookId, highlight.id);
+          },
+          "epub-highlight",
+          {
+            fill: HIGHLIGHT_COLOR_HEX[highlight.color],
+            "fill-opacity": "0.35",
+            "mix-blend-mode": "multiply",
+          },
+        );
+      }
+
+      for (const note of notes) {
+        if (!note.cfi) continue;
+        const key = `note:${note.cfi}`;
+        if (appliedAnnotationsRef.current.has(key)) continue;
+        appliedAnnotationsRef.current.add(key);
+
+        // epub.js ignores className/styles for "mark" annotations — the pin
+        // look comes from the stylesheet rule injected via hooks.content above.
+        rendition.annotations.mark(note.cfi, {}, (event: MouseEvent) =>
+          openExistingNote(note.id, toOuterRect(event)),
+        );
+      }
+    }, [highlights, notes, renditionReady, bookId, removeHighlightLocal, openExistingNote]);
 
     return (
       <PageFlip flipKey={flipTick} direction={flipDirection}>

@@ -4,6 +4,7 @@ import { ReaderTheme } from "@lumis/shared-types";
 import Link from "next/link";
 import { READER_THEME_LABELS } from "../api/reader-client";
 import { useAutoHideControls } from "../hooks/use-auto-hide-controls";
+import { useTapToToggleControls } from "../hooks/use-tap-to-toggle-controls";
 import { useReaderStore } from "../store/reader-store";
 
 interface ReaderControlsProps {
@@ -14,6 +15,8 @@ interface ReaderControlsProps {
   canGoPrev: boolean;
   canGoNext: boolean;
   pageLabel: string;
+  /** PDF/EPUB/TXT: text must stay selectable, so an opaque tap-zone overlay can't be used here. */
+  textSelectable: boolean;
 }
 
 const THEME_ORDER: ReaderTheme[] = [
@@ -30,8 +33,10 @@ export function ReaderControls({
   canGoPrev,
   canGoNext,
   pageLabel,
+  textSelectable,
 }: ReaderControlsProps) {
   useAutoHideControls();
+  useTapToToggleControls(textSelectable);
 
   const controlsVisible = useReaderStore((state) => state.controlsVisible);
   const theme = useReaderStore((state) => state.theme);
@@ -40,31 +45,33 @@ export function ReaderControls({
 
   return (
     <>
-      <div
-        className="reader-tap-zones"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <button
-          type="button"
-          className="reader-tap-zone reader-tap-zone-prev"
-          aria-label="Página anterior"
-          onClick={onPrev}
-          disabled={!canGoPrev}
-        />
-        <button
-          type="button"
-          className="reader-tap-zone reader-tap-zone-center"
-          aria-label="Mostrar u ocultar controles"
-          onClick={toggleControls}
-        />
-        <button
-          type="button"
-          className="reader-tap-zone reader-tap-zone-next"
-          aria-label="Página siguiente"
-          onClick={onNext}
-          disabled={!canGoNext}
-        />
-      </div>
+      {!textSelectable && (
+        <div
+          className="reader-tap-zones"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <button
+            type="button"
+            className="reader-tap-zone reader-tap-zone-prev"
+            aria-label="Página anterior"
+            onClick={onPrev}
+            disabled={!canGoPrev}
+          />
+          <button
+            type="button"
+            className="reader-tap-zone reader-tap-zone-center"
+            aria-label="Mostrar u ocultar controles"
+            onClick={toggleControls}
+          />
+          <button
+            type="button"
+            className="reader-tap-zone reader-tap-zone-next"
+            aria-label="Página siguiente"
+            onClick={onNext}
+            disabled={!canGoNext}
+          />
+        </div>
+      )}
 
       <header
         className={`reader-topbar ${controlsVisible ? "reader-controls-visible" : ""}`}

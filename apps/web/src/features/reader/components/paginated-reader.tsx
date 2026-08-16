@@ -1,21 +1,27 @@
 "use client";
 
 import { BookFormat } from "@lumis/shared-types";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchTextPage, pageImageUrl, type TextPage } from "../api/reader-client";
 import { useReaderStore } from "../store/reader-store";
 import { PageFlip } from "./page-flip";
+import { TextAnnotationLayer } from "./text-annotation-layer";
 
 interface PaginatedReaderProps {
   bookId: string;
   format: typeof BookFormat.CBR | typeof BookFormat.CBZ | typeof BookFormat.TXT;
 }
 
-/** Renders the backend-paginated formats (CBR/CBZ page images, TXT page text). */
+/**
+ * Renders the backend-paginated formats: TXT gets real DOM text (selectable,
+ * highlightable) and CBR/CBZ get a page image — there's no text to select on
+ * a raster comic page, so those formats don't get the annotation layer.
+ */
 export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
   const currentPage = useReaderStore((state) => state.currentPage);
   const flipDirection = useReaderStore((state) => state.flipDirection);
   const [loadedPage, setLoadedPage] = useState<TextPage | null>(null);
+  const textPageRef = useRef<HTMLDivElement>(null);
 
   const isText = format === BookFormat.TXT;
   const text = loadedPage?.pageNumber === currentPage ? loadedPage.text : null;
@@ -34,12 +40,18 @@ export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
   return (
     <PageFlip flipKey={currentPage} direction={flipDirection}>
       {isText ? (
-        <div className="text-reader-page">
+        <div ref={textPageRef} className="text-reader-page">
           {text
             ? text
                 .split("\n\n")
                 .map((paragraph, index) => <p key={index}>{paragraph}</p>)
             : <p>Cargando…</p>}
+          <TextAnnotationLayer
+            bookId={bookId}
+            pageIndex={currentPage - 1}
+            containerRef={textPageRef}
+            refreshKey={`${currentPage}-${text ? "loaded" : "loading"}`}
+          />
         </div>
       ) : (
         // eslint-disable-next-line @next/next/no-img-element -- proxied page image, not a static asset

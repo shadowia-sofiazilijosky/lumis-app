@@ -3,15 +3,18 @@
 import { BookFormat, type BookDetail } from "@lumis/shared-types";
 import { useEffect, useRef, useState } from "react";
 import { fetchBookDetail } from "@/features/books/api/books-client";
+import { useLoadAnnotations } from "../hooks/use-annotations";
 import {
   useAutosaveReadingProgress,
   useLoadReadingProgress,
 } from "../hooks/use-reading-progress";
 import { useReaderStore } from "../store/reader-store";
 import { EpubReader, type EpubReaderHandle } from "./epub-reader";
+import { NotePopover } from "./note-popover";
 import { PaginatedReader } from "./paginated-reader";
 import { PdfReader } from "./pdf-reader";
 import { ReaderControls } from "./reader-controls";
+import { SelectionToolbar } from "./selection-toolbar";
 
 export function ReaderShell({ bookId }: { bookId: string }) {
   const [book, setBook] = useState<BookDetail | null>(null);
@@ -22,6 +25,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
 
   useLoadReadingProgress(bookId);
   useAutosaveReadingProgress(bookId);
+  useLoadAnnotations(bookId);
 
   const theme = useReaderStore((state) => state.theme);
   const currentPage = useReaderStore((state) => state.currentPage);
@@ -93,6 +97,10 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const pageLabel = isEpub
     ? `${progressPercent}%`
     : `Página ${currentPage}${totalPages ? ` / ${totalPages}` : ""}`;
+  const textSelectable =
+    currentBook.format === BookFormat.PDF ||
+    currentBook.format === BookFormat.EPUB ||
+    currentBook.format === BookFormat.TXT;
 
   return (
     <div className={`reader-shell reader-theme-${theme.toLowerCase()}`}>
@@ -104,14 +112,20 @@ export function ReaderShell({ bookId }: { bookId: string }) {
         canGoPrev={canGoPrev}
         canGoNext={canGoNext}
         pageLabel={pageLabel}
+        textSelectable={textSelectable}
       />
 
       <div className="reader-viewport">
         {currentBook.format === BookFormat.PDF && fileUrl && (
-          <PdfReader fileUrl={fileUrl} />
+          <PdfReader bookId={bookId} fileUrl={fileUrl} />
         )}
         {isEpub && fileUrl && (
-          <EpubReader ref={epubRef} fileUrl={fileUrl} initialLocator={locator} />
+          <EpubReader
+            ref={epubRef}
+            bookId={bookId}
+            fileUrl={fileUrl}
+            initialLocator={locator}
+          />
         )}
         {(currentBook.format === BookFormat.CBR ||
           currentBook.format === BookFormat.CBZ ||
@@ -119,6 +133,9 @@ export function ReaderShell({ bookId }: { bookId: string }) {
           <PaginatedReader bookId={bookId} format={currentBook.format} />
         )}
       </div>
+
+      <SelectionToolbar bookId={bookId} />
+      <NotePopover bookId={bookId} />
     </div>
   );
 }
