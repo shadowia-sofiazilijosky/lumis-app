@@ -47,3 +47,216 @@ a {
     color-scheme: dark;
   }
 }
+
+/* --- Shelves editor --- */
+
+.shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.shelf-card {
+  display: block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d98695;
+  background-color: #f7e6e6;
+  color: #3b2226;
+}
+
+.shelf-editor-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.save-status {
+  font-size: 0.85rem;
+  color: #8c2f39;
+}
+
+.shelf-settings-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.shelf-settings-panel div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.shelf-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.decoration-palette {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.decoration-palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c9a08a;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: grab;
+  font-size: 0.75rem;
+}
+
+.shelf-canvas-outer {
+  width: 100%;
+  max-width: 1000px;
+  border: 1px solid #c9a08a;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.shelf-canvas-inner {
+  position: relative;
+  background-color: #f7e6e6;
+  background-size: cover;
+  background-position: center;
+}
+
+.shelf-plank {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12%;
+  background-color: #8c2f39;
+}
+
+.shelf-book-spine,
+.shelf-book-cover {
+  position: absolute;
+  border: none;
+  cursor: grab;
+  touch-action: none;
+}
+
+.shelf-book-spine {
+  width: 28px;
+  height: 140px;
+  background-color: #8c2f39;
+  color: #f2dede;
+  writing-mode: vertical-rl;
+  font-size: 0.7rem;
+  padding: 0.4rem 0.2rem;
+  border-radius: 2px;
+}
+
+.shelf-book-cover {
+  width: 70px;
+  height: 100px;
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #c9a08a;
+}
+
+.shelf-book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shelf-book-cover-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 0.65rem;
+  padding: 0.25rem;
+  color: #3b2226;
+}
+
+.shelf-book-drag-preview {
+  padding: 0.5rem;
+  background: #8c2f39;
+  color: #f2dede;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.shelf-decoration-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.shelf-decoration-item {
+  border: none;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+  padding: 0;
+}
+
+.shelf-decoration-remove {
+  border: none;
+  background: transparent;
+  color: #8c2f39;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.shelf-book-picker {
+  border: 1px solid #c9a08a;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.shelf-book-picker ul {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.shelf-book-picker li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+.shelf-list-view ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.shelf-list-view li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0e0e0;
+}
+
+.nudge-controls {
+  display: inline-flex;
+  gap: 0.15rem;
+}
+
+.nudge-controls button {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid #c9a08a;
+  background: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
