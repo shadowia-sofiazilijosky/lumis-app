@@ -9,3 +9,18 @@ export interface BookSummary {
   pageCount: number | null;
   coverUrl: string | null;
 }
+
+/** Full book shape for the Library grid/detail views. */
+export interface BookDetail {
+  id: string;
+  title: string;
+  author: string | null;
+  format: BookFormat;
+  pageCount: number | null;
+  fileSizeBytes: number | null;
+  metadata: Record<string, unknown> | null;
+  fileUrl: string | null;
+  coverUrl: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
