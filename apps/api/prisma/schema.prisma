@@ -132,7 +132,8 @@ model Shelf {
   name               String
   genre              String?
   arrangement        ShelfArrangement @default(SPINE)
-  backgroundColor    String?          @map("background_color")
+  shelfColor         String?          @map("shelf_color") // the bookcase/furniture color
+  backgroundColor    String?          @map("background_color") // the wall/backdrop behind it
   backgroundImageUrl String?          @map("background_image_url")
   decorations        Json             @default("[]") // [{ type: "plant" | "light" | ..., variant, x, y, rotation }]
   spotifyPlaylistId  String?          @map("spotify_playlist_id")
@@ -154,7 +155,7 @@ model BookShelf {
   book     Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
   shelfId  String   @map("shelf_id")
   shelf    Shelf    @relation(fields: [shelfId], references: [id], onDelete: Cascade)
-  position Json? // { slot } or { x, y } depending on the shelf's arrangement
+  position Json? // { x, y, rotation? } — freeform placement on the shelf's canvas
   addedAt  DateTime @default(now()) @map("added_at")
 
   @@unique([bookId, shelfId])

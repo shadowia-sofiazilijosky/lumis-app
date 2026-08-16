@@ -32,7 +32,7 @@ export class SupabaseStorageService implements OnModuleInit {
   onModuleInit(): void {
     if (!this.configService.get<string>('SUPABASE_URL')) {
       this.logger.warn(
-        'SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY no están configurados — la subida de libros va a fallar hasta que se completen en .env.',
+        'SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY no están configurados — las funciones que usan storage van a fallar hasta que se completen en .env.',
       );
     }
   }

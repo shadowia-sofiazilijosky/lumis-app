@@ -2,6 +2,7 @@ import { NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Book, BookFormat } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
+import { SupabaseStorageService } from '../../storage/supabase-storage.service';
 import { BooksService } from './books.service';
 import { ComicParserService } from './parsers/comic-parser.service';
 import { EpubParserService } from './parsers/epub-parser.service';
@@ -9,7 +10,6 @@ import { FormatDetectorService } from './parsers/format-detector.service';
 import { MobiParserService } from './parsers/mobi-parser.service';
 import { PdfParserService } from './parsers/pdf-parser.service';
 import { TxtParserService } from './parsers/txt-parser.service';
-import { SupabaseStorageService } from './storage/supabase-storage.service';
 
 const mockBook: Book = {
   id: 'book-1',

@@ -3,6 +3,7 @@ import { Book, BookFormat, Prisma } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
 import { extname } from 'node:path';
 import { PrismaService } from '../../database/prisma.service';
+import { SupabaseStorageService } from '../../storage/supabase-storage.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import {
@@ -15,7 +16,6 @@ import { FormatDetectorService } from './parsers/format-detector.service';
 import { MobiParserService } from './parsers/mobi-parser.service';
 import { PdfParserService } from './parsers/pdf-parser.service';
 import { TxtParserService } from './parsers/txt-parser.service';
-import { SupabaseStorageService } from './storage/supabase-storage.service';
 
 export interface UploadedBookFile {
   buffer: Buffer;
