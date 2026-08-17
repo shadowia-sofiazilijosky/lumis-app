@@ -82,7 +82,12 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
         const ePub = (await import("epubjs")).default;
         if (!containerRef.current || cancelled) return;
 
-        const book = ePub(fileUrl);
+        // openAs must be explicit: epub.js sniffs the extension from the URL's
+        // last "." to decide how to open it, and Supabase's signed URL query
+        // string (?token=<jwt>) has dots of its own — the sniff finds one of
+        // those instead of ".epub", silently falls back to "directory" mode,
+        // and every request 404s. Force it so the archive path is used.
+        const book = ePub(fileUrl, { openAs: "epub" });
         bookRef.current = book;
         setTotalPages(null);
         appliedAnnotationsRef.current = new Set();

@@ -1202,3 +1202,66 @@ html[data-theme="light"] {
 .rich-text-content ul {
   padding-left: 1.5rem;
 }
+
+/* --- Mobile --- */
+
+@media (max-width: 640px) {
+  header {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding: 0.85rem 4rem 0.85rem 1rem;
+  }
+
+  .header-greeting {
+    display: none;
+  }
+
+  header nav {
+    gap: 0.85rem;
+  }
+
+  main {
+    padding: 1.25rem 1rem;
+  }
+
+  .theme-toggle {
+    top: 0.7rem;
+    right: 0.85rem;
+    width: 2.15rem;
+    height: 2.15rem;
+    font-size: 1rem;
+  }
+
+  .book-detail {
+    gap: 1.25rem;
+  }
+
+  .book-detail-cover {
+    width: 160px;
+  }
+
+  .shelf-editor-header {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .shelf-create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    max-width: 320px;
+  }
+
+  .review-editor-ratings {
+    gap: 1rem;
+  }
+
+  main.auth-page {
+    max-width: 100%;
+  }
+
+  main.auth-page form {
+    padding: 1.5rem;
+  }
+}

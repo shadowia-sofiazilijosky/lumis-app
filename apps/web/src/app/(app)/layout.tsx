@@ -20,7 +20,7 @@ export default async function AppLayout({
           <Link href="/library">Biblioteca</Link>
           <Link href="/shelves">Estanterías</Link>
         </nav>
-        <span>Hola, {user.displayName}</span>
+        <span className="header-greeting">Hola, {user.displayName}</span>
         <LogoutButton />
       </header>
       <main>{children}</main>

@@ -42,7 +42,7 @@ export function ShelfList() {
 
   return (
     <div>
-      <form onSubmit={handleCreate}>
+      <form className="shelf-create-form" onSubmit={handleCreate}>
         <label htmlFor="new-shelf-name">Nueva estantería</label>
         <input
           id="new-shelf-name"
