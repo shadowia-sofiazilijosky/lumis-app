@@ -11,6 +11,7 @@ import { HighlightsModule } from './modules/highlights/highlights.module';
 import { NotesModule } from './modules/notes/notes.module';
 import { ReaderModule } from './modules/reader/reader.module';
 import { ReadingProgressModule } from './modules/reading-progress/reading-progress.module';
+import { ReviewsModule } from './modules/reviews/reviews.module';
 import { ShelvesModule } from './modules/shelves/shelves.module';
 import { UsersModule } from './modules/users/users.module';
 import { SupabaseStorageModule } from './storage/supabase-storage.module';
@@ -29,6 +30,7 @@ import { SupabaseStorageModule } from './storage/supabase-storage.module';
     ReadingProgressModule,
     HighlightsModule,
     NotesModule,
+    ReviewsModule,
   ],
   controllers: [AppController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],

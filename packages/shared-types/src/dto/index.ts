@@ -3,3 +3,4 @@ export * from "./shelf.dto";
 export * from "./reading-progress.dto";
 export * from "./highlight.dto";
 export * from "./note.dto";
+export * from "./review.dto";

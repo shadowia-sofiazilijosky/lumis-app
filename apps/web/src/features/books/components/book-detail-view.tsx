@@ -4,6 +4,7 @@ import { BookFormat, type BookDetail } from "@lumis/shared-types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ReviewEditor } from "@/features/reviews/components/review-editor";
 import { deleteBook, fetchBookDetail } from "../api/books-client";
 
 function formatFileSize(bytes: number): string {
@@ -63,52 +64,56 @@ export function BookDetailView({ bookId }: { bookId: string }) {
   }
 
   return (
-    <article className="book-detail">
-      <div className="book-detail-cover">
-        {book.coverUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL
-          <img src={book.coverUrl} alt="" />
-        ) : (
-          <span className="book-card-format-badge">{book.format}</span>
-        )}
-      </div>
-
-      <div className="book-detail-info">
-        <h1>{book.title}</h1>
-        {book.author && <p className="book-detail-author">{book.author}</p>}
-
-        <dl>
-          <dt>Formato</dt>
-          <dd>{book.format}</dd>
-          {book.pageCount !== null && (
-            <>
-              <dt>Páginas</dt>
-              <dd>{book.pageCount}</dd>
-            </>
+    <>
+      <article className="book-detail">
+        <div className="book-detail-cover">
+          {book.coverUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL
+            <img src={book.coverUrl} alt="" />
+          ) : (
+            <span className="book-card-format-badge">{book.format}</span>
           )}
-          {book.fileSizeBytes !== null && (
-            <>
-              <dt>Tamaño</dt>
-              <dd>{formatFileSize(book.fileSizeBytes)}</dd>
-            </>
-          )}
-        </dl>
-
-        {book.fileUrl && (
-          <a href={book.fileUrl} target="_blank" rel="noreferrer">
-            Descargar original
-          </a>
-        )}
-
-        <div className="book-detail-actions">
-          {book.format !== BookFormat.MOBI && (
-            <Link href={`/read/${book.id}`}>Leer</Link>
-          )}
-          <button type="button" onClick={handleDelete} disabled={isDeleting}>
-            {isDeleting ? "Borrando…" : "Borrar libro"}
-          </button>
         </div>
-      </div>
-    </article>
+
+        <div className="book-detail-info">
+          <h1>{book.title}</h1>
+          {book.author && <p className="book-detail-author">{book.author}</p>}
+
+          <dl>
+            <dt>Formato</dt>
+            <dd>{book.format}</dd>
+            {book.pageCount !== null && (
+              <>
+                <dt>Páginas</dt>
+                <dd>{book.pageCount}</dd>
+              </>
+            )}
+            {book.fileSizeBytes !== null && (
+              <>
+                <dt>Tamaño</dt>
+                <dd>{formatFileSize(book.fileSizeBytes)}</dd>
+              </>
+            )}
+          </dl>
+
+          {book.fileUrl && (
+            <a href={book.fileUrl} target="_blank" rel="noreferrer">
+              Descargar original
+            </a>
+          )}
+
+          <div className="book-detail-actions">
+            {book.format !== BookFormat.MOBI && (
+              <Link href={`/read/${book.id}`}>Leer</Link>
+            )}
+            <button type="button" onClick={handleDelete} disabled={isDeleting}>
+              {isDeleting ? "Borrando…" : "Borrar libro"}
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <ReviewEditor bookId={book.id} />
+    </>
   );
 }
