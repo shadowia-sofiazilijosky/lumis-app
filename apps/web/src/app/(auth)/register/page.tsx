@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function RegisterPage() {
   return (
-    <main>
+    <main className="auth-page">
       <h1>Crear cuenta</h1>
       <RegisterForm />
       <p>

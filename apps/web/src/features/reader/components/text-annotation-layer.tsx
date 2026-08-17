@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, type RefObject } from "react";
+import type { HighlightColor } from "@lumis/shared-types";
+import { useEffect, useLayoutEffect, useMemo, useState, type RefObject } from "react";
 import { deleteHighlight } from "../api/annotations-client";
 import { getOffsetsFromRange, rectsForOffsets } from "../lib/text-range";
 import { useAnnotationsStore } from "../store/annotations-store";
@@ -11,6 +12,18 @@ interface TextAnnotationLayerProps {
   containerRef: RefObject<HTMLElement | null>;
   /** Bump whenever the underlying text content is re-rendered, so overlay rects are recomputed. */
   refreshKey: string | number;
+}
+
+interface HighlightMark {
+  key: string;
+  id: string;
+  color: HighlightColor;
+  rect: DOMRect;
+}
+
+interface NotePin {
+  id: string;
+  rect: DOMRect;
 }
 
 /**
@@ -70,33 +83,43 @@ export function TextAnnotationLayer({
     [notes, pageIndex],
   );
 
-  const highlightMarks = useMemo(() => {
+  const [highlightMarks, setHighlightMarks] = useState<HighlightMark[]>([]);
+  const [notePins, setNotePins] = useState<NotePin[]>([]);
+
+  // Overlay rects come from DOM layout (Range.getClientRects()), which can
+  // only be read after commit — this is exactly the "read layout, then
+  // setState before paint" case useLayoutEffect exists for, not something
+  // derivable during render.
+  useLayoutEffect(() => {
     const container = containerRef.current;
-    if (!container) return [];
-    return pageHighlights.flatMap((highlight) =>
-      rectsForOffsets(container, highlight.startOffset, highlight.endOffset).map(
-        (rect, index) => ({
-          key: `${highlight.id}-${index}`,
-          id: highlight.id,
-          color: highlight.color,
-          rect,
-        }),
+    if (!container) {
+      setHighlightMarks([]);
+      setNotePins([]);
+      return;
+    }
+
+    setHighlightMarks(
+      pageHighlights.flatMap((highlight) =>
+        rectsForOffsets(container, highlight.startOffset, highlight.endOffset).map(
+          (rect, index) => ({
+            key: `${highlight.id}-${index}`,
+            id: highlight.id,
+            color: highlight.color,
+            rect,
+          }),
+        ),
       ),
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- refreshKey deliberately forces recompute after layout changes
-  }, [containerRef, pageHighlights, refreshKey]);
 
-  const notePins = useMemo(() => {
-    const container = containerRef.current;
-    if (!container) return [];
-    return pageNotes
-      .map((note) => {
-        const rects = rectsForOffsets(container, note.offset, note.offset + 1);
-        return rects[0] ? { id: note.id, rect: rects[0] } : null;
-      })
-      .filter((pin) => pin !== null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerRef, pageNotes, refreshKey]);
+    setNotePins(
+      pageNotes
+        .map((note) => {
+          const rects = rectsForOffsets(container, note.offset, note.offset + 1);
+          return rects[0] ? { id: note.id, rect: rects[0] } : null;
+        })
+        .filter((pin): pin is NotePin => pin !== null),
+    );
+  }, [containerRef, pageHighlights, pageNotes, refreshKey]);
 
   async function handleDeleteHighlight(id: string) {
     if (!window.confirm("¿Quitar este resaltado?")) return;

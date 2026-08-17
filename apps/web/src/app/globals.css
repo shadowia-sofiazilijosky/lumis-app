@@ -8,11 +8,19 @@
   --border: #d98695;
   --danger: #8c2f39;
 
-  --font-heading: Georgia, "Times New Roman", serif;
+  --font-heading: var(--font-lora), Georgia, "Times New Roman", serif;
+
+  /* Cozy "reading nook" scale — soft, rounded, warm-tinted shadows instead of flat/harsh ones. */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.85rem;
+  --radius-lg: 1.25rem;
+  --shadow-sm: 0 2px 8px rgba(59, 34, 38, 0.1);
+  --shadow-md: 0 6px 20px rgba(59, 34, 38, 0.16);
+  --shadow-lg: 0 12px 36px rgba(59, 34, 38, 0.22);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #1f1315;
     --surface: #2c1a1e;
     --foreground: #f2dede;
@@ -22,6 +30,18 @@
     --border: #6e1f2b;
     --danger: #c98a94;
   }
+}
+
+/* Explicit override via the ThemeToggle — wins over the OS preference in both directions. */
+:root[data-theme="dark"] {
+  --background: #1f1315;
+  --surface: #2c1a1e;
+  --foreground: #f2dede;
+  --primary: #b8925a;
+  --primary-foreground: #1f1315;
+  --accent: #c98a94;
+  --border: #6e1f2b;
+  --danger: #c98a94;
 }
 
 html {
@@ -64,6 +84,8 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--foreground);
   margin-bottom: 0.5rem;
 }
@@ -84,15 +106,21 @@ textarea {
 input,
 select,
 textarea {
-  padding: 0.5rem 0.6rem;
+  padding: 0.55rem 0.75rem;
   border: 1px solid var(--border);
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   background: var(--surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--primary);
@@ -101,11 +129,18 @@ a:focus-visible {
 
 button {
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.1rem;
   border: 1px solid var(--primary);
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   background: var(--primary);
   color: var(--primary-foreground);
+  font-weight: 500;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+button:hover:not(:disabled) {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 button:disabled {
@@ -125,7 +160,7 @@ main {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 header {
@@ -133,14 +168,101 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1rem 4.25rem 1rem 1.5rem;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 30;
 }
 
 header nav {
   display: flex;
+  gap: 1.25rem;
+}
+
+header nav a {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border: none;
+  padding: 0.25rem 0;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 0.8rem;
+  right: 1.25rem;
+  z-index: 40;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  line-height: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Auth --- */
+
+main.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 2rem);
+  max-width: 440px;
+  margin: 0 auto;
   gap: 1rem;
+  text-align: center;
+}
+
+main.auth-page h1 {
+  margin-bottom: 0;
+}
+
+main.auth-page form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: left;
+}
+
+main.auth-page form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+main.auth-page label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+main.auth-page form button {
+  margin-top: 0.25rem;
+}
+
+main.auth-page [role="alert"] {
+  color: var(--danger);
+  font-size: 0.9rem;
 }
 
 /* --- Library --- */
@@ -151,10 +273,11 @@ header nav {
   gap: 1rem;
   align-items: flex-end;
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .book-upload-form div {
@@ -197,17 +320,29 @@ header nav {
 .book-card {
   display: block;
   color: var(--foreground);
+  transition: transform 0.15s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
 }
 
 .book-card-cover {
   aspect-ratio: 2 / 3;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease;
+}
+
+.book-card:hover .book-card-cover {
+  box-shadow: var(--shadow-md);
 }
 
 .book-card-cover img {
@@ -241,13 +376,14 @@ header nav {
 .book-detail-cover {
   width: 220px;
   aspect-ratio: 2 / 3;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: var(--shadow-md);
 }
 
 .book-detail-cover img {
@@ -291,22 +427,33 @@ header nav {
 .book-detail-actions a {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.1rem;
   border: 1px solid var(--primary);
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   background: var(--primary);
   color: var(--primary-foreground);
+  font-weight: 500;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .book-detail-actions a:hover {
   text-decoration: none;
-  opacity: 0.9;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
+  html:not([data-theme="light"]) {
     color-scheme: dark;
   }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
 }
 
 /* --- Shelves editor --- */
@@ -321,10 +468,18 @@ header nav {
 .shelf-card {
   display: block;
   padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d98695;
-  background-color: #f7e6e6;
-  color: #3b2226;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--foreground);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shelf-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
 }
 
 .shelf-editor-header {
@@ -336,7 +491,7 @@ header nav {
 
 .save-status {
   font-size: 0.85rem;
-  color: #8c2f39;
+  color: var(--primary);
 }
 
 .shelf-settings-panel {
@@ -370,9 +525,9 @@ header nav {
   align-items: center;
   gap: 0.25rem;
   padding: 0.5rem;
-  border: 1px solid #c9a08a;
-  border-radius: 0.5rem;
-  background: #fff;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
   cursor: grab;
   font-size: 0.75rem;
 }
@@ -380,14 +535,15 @@ header nav {
 .shelf-canvas-outer {
   width: 100%;
   max-width: 1000px;
-  border: 1px solid #c9a08a;
-  border-radius: 0.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
 .shelf-canvas-inner {
   position: relative;
-  background-color: #f7e6e6;
+  background-color: var(--background);
   background-size: cover;
   background-position: center;
 }
@@ -398,7 +554,7 @@ header nav {
   right: 0;
   bottom: 0;
   height: 12%;
-  background-color: #8c2f39;
+  background-color: var(--primary);
 }
 
 .shelf-book-spine,
@@ -412,8 +568,8 @@ header nav {
 .shelf-book-spine {
   width: 28px;
   height: 140px;
-  background-color: #8c2f39;
-  color: #f2dede;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   writing-mode: vertical-rl;
   font-size: 0.7rem;
   padding: 0.4rem 0.2rem;
@@ -424,9 +580,10 @@ header nav {
   width: 70px;
   height: 100px;
   padding: 0;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  background-color: #c9a08a;
+  background-color: var(--accent);
+  box-shadow: var(--shadow-sm);
 }
 
 .shelf-book-cover img {
@@ -442,14 +599,14 @@ header nav {
   height: 100%;
   font-size: 0.65rem;
   padding: 0.25rem;
-  color: #3b2226;
+  color: var(--foreground);
 }
 
 .shelf-book-drag-preview {
   padding: 0.5rem;
-  background: #8c2f39;
-  color: #f2dede;
-  border-radius: 4px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 6px;
   font-size: 0.75rem;
 }
 
@@ -469,15 +626,15 @@ header nav {
 .shelf-decoration-remove {
   border: none;
   background: transparent;
-  color: #8c2f39;
+  color: var(--primary);
   font-size: 0.85rem;
   line-height: 1;
   cursor: pointer;
 }
 
 .shelf-book-picker {
-  border: 1px solid #c9a08a;
-  border-radius: 0.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
   padding: 0.75rem;
   margin-bottom: 1rem;
 }
@@ -505,7 +662,7 @@ header nav {
   align-items: center;
   gap: 0.75rem;
   padding: 0.4rem 0;
-  border-bottom: 1px solid #f0e0e0;
+  border-bottom: 1px solid var(--border);
 }
 
 .nudge-controls {
@@ -516,9 +673,9 @@ header nav {
 .nudge-controls button {
   width: 1.75rem;
   height: 1.75rem;
-  border: 1px solid #c9a08a;
-  background: #fff;
-  border-radius: 3px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -727,7 +884,7 @@ header nav {
   max-width: 100%;
   max-height: 100%;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 .reader-theme-dark .pdf-reader-canvas {
@@ -744,7 +901,7 @@ header nav {
   max-height: 900px;
   background: var(--reader-surface);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -764,7 +921,7 @@ header nav {
   padding: 2.5rem 2rem;
   background: var(--reader-surface);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   line-height: 1.75;
   font-size: 1.05rem;
 }
@@ -858,8 +1015,8 @@ header nav {
   padding: 0.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   transform: translateX(-50%);
 }
 
@@ -927,4 +1084,121 @@ header nav {
 .note-popover-actions button {
   padding: 0.35rem 0.7rem;
   font-size: 0.85rem;
+}
+
+/* --- Reviews --- */
+
+.review-editor {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.review-editor-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.review-editor-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.review-editor-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.review-editor-ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.rating-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rating-picker-label {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.rating-picker-icons {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.rating-picker-icon {
+  background: transparent;
+  border: none;
+  padding: 0.1rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  opacity: 0.3;
+  filter: grayscale(1);
+  transition: transform 0.12s ease, opacity 0.12s ease, filter 0.12s ease;
+}
+
+.rating-picker-icon:hover {
+  transform: scale(1.15);
+  opacity: 0.7;
+}
+
+.rating-picker-icon-filled {
+  opacity: 1;
+  filter: none;
+}
+
+.rich-text-editor {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.rich-text-toolbar {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.rich-text-toolbar button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  border-radius: var(--radius-sm);
+}
+
+.rich-text-content {
+  min-height: 140px;
+  padding: 0.85rem 1rem;
+  line-height: 1.6;
+  outline: none;
+}
+
+.rich-text-content:empty::before {
+  content: attr(data-placeholder);
+  opacity: 0.5;
+}
+
+.rich-text-content ul {
+  padding-left: 1.5rem;
 }

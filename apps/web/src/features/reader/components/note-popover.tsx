@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   HIGHLIGHT_COLOR_HEX,
   createNote,
@@ -27,19 +27,12 @@ export function NotePopover({ bookId }: { bookId: string }) {
     ? notes.find((note) => note.id === openNoteId)
     : undefined;
 
+  // The parent gives this component `key={openNoteId}`, so it fully remounts
+  // whenever a different note (or a fresh "new" compose) opens — these
+  // initial values are never stale, no reset effect needed.
   const [body, setBody] = useState(existingNote?.body ?? "");
   const [colorTag, setColorTag] = useState(existingNote?.colorTag ?? "YELLOW");
   const [saving, setSaving] = useState(false);
-
-  // NotePopover stays mounted across opens — reset the editor whenever a
-  // *different* note (or a fresh "new" compose) opens, since useState's
-  // initial value only applies on first mount, not on subsequent opens.
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => {
-    setBody(existingNote?.body ?? "");
-    setColorTag(existingNote?.colorTag ?? "YELLOW");
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on openNoteId only: a new id/"new" is exactly the reset trigger
-  }, [openNoteId]);
 
   if (openNoteId === null) return null;
   if (isNew && !pendingSelection) return null;

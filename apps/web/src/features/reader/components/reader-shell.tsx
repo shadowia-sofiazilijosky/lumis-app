@@ -8,6 +8,7 @@ import {
   useAutosaveReadingProgress,
   useLoadReadingProgress,
 } from "../hooks/use-reading-progress";
+import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore } from "../store/reader-store";
 import { EpubReader, type EpubReaderHandle } from "./epub-reader";
 import { NotePopover } from "./note-popover";
@@ -34,6 +35,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const progressPercent = useReaderStore((state) => state.progressPercent);
   const goToPage = useReaderStore((state) => state.goToPage);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
+  const openNoteId = useAnnotationsStore((state) => state.openNoteId);
 
   useEffect(() => {
     let cancelled = false;
@@ -135,7 +137,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
       </div>
 
       <SelectionToolbar bookId={bookId} />
-      <NotePopover bookId={bookId} />
+      <NotePopover key={openNoteId ?? "closed"} bookId={bookId} />
     </div>
   );
 }

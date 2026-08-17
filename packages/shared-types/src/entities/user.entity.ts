@@ -1,4 +1,5 @@
 import { Role } from "../enums/role.enum";
+import { ThemePreference } from "../enums/theme-preference.enum";
 
 /** User as it comes over the wire (JSON) — dates are ISO strings, no passwordHash. */
 export interface PublicUser {
@@ -7,7 +8,7 @@ export interface PublicUser {
   displayName: string;
   avatarUrl: string | null;
   role: Role;
-  themePreference: "LIGHT" | "DARK" | "SYSTEM";
+  themePreference: ThemePreference;
   createdAt: string;
   updatedAt: string;
 }

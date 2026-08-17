@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '@prisma/client';
+import { ThemePreference, User } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 
 export type PublicUser = Omit<User, 'passwordHash'>;
@@ -22,6 +22,13 @@ export class UsersService {
     displayName: string;
   }): Promise<User> {
     return this.prisma.user.create({ data });
+  }
+
+  updateThemePreference(
+    id: string,
+    themePreference: ThemePreference,
+  ): Promise<User> {
+    return this.prisma.user.update({ where: { id }, data: { themePreference } });
   }
 
   toPublic(user: User): PublicUser {

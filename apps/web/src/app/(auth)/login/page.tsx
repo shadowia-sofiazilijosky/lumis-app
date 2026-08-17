@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function LoginPage() {
   return (
-    <main>
+    <main className="auth-page">
       <h1>Iniciar sesión</h1>
       <LoginForm />
       <p>
