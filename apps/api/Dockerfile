@@ -5,6 +5,11 @@
 # resolve @lumis/shared-types.
 FROM node:22-slim
 
+# fonts-liberation: @napi-rs/canvas (PDF cover thumbnails) needs at least one
+# real system font available to rasterize text — node:22-slim ships none.
+RUN apt-get update && apt-get install -y --no-install-recommends fonts-liberation \
+  && rm -rf /var/lib/apt/lists/*
+
 RUN corepack enable && corepack prepare pnpm@9.15.9 --activate
 
 WORKDIR /app
