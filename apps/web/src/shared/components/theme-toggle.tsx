@@ -21,12 +21,19 @@ function getServerOsScheme(): ThemeMode {
   return "light";
 }
 
+interface ThemeToggleProps {
+  initialTheme: ThemeMode | null;
+  /** "floating" (default): fixed circle, used by (app)/(auth) layouts. "inline": a plain button meant to sit inside a navbar. */
+  variant?: "floating" | "inline";
+}
+
 /**
- * Global light/dark toggle, rendered once from the root layout so it's
- * available on every screen — including the (auth) login/register pages,
- * which have no header of their own.
+ * Global light/dark toggle. Each layout that needs one mounts its own copy
+ * (floating in (app)/(auth), inline inside SiteHeader for the marketing
+ * pages) rather than one shared instance from the root layout, so marketing
+ * pages don't end up with two toggles fighting for the same corner.
  */
-export function ThemeToggle({ initialTheme }: { initialTheme: ThemeMode | null }) {
+export function ThemeToggle({ initialTheme, variant = "floating" }: ThemeToggleProps) {
   // No cookie yet (first-ever visit): fall back to — and stay live-synced
   // with — the OS preference via useSyncExternalStore, rather than guessing
   // once in an effect. The page itself already follows prefers-color-scheme
@@ -52,7 +59,7 @@ export function ThemeToggle({ initialTheme }: { initialTheme: ThemeMode | null }
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className={variant === "floating" ? "theme-toggle" : "theme-toggle-inline"}
       onClick={toggle}
       aria-label="Cambiar entre modo claro y oscuro"
     >

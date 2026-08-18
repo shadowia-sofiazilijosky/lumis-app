@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import { AuthProvider } from "@/features/auth/components/auth-provider";
-import { ThemeToggle } from "@/shared/components/theme-toggle";
 import { getThemeCookie } from "@/shared/lib/theme-cookie";
 import "./globals.css";
 
@@ -37,7 +36,6 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${lora.variable}`}
     >
       <body>
-        <ThemeToggle initialTheme={theme} />
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

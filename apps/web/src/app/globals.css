@@ -1510,3 +1510,240 @@ html[data-theme="light"] {
     width: 16px;
   }
 }
+
+/* --- Site header / footer (public pages: /, /about, /terms, /privacy) --- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+}
+
+.site-header-solid {
+  position: relative;
+  z-index: 10;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.site-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  color: #f2dede;
+}
+
+.site-header-logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.site-header-logo:hover {
+  text-decoration: none;
+}
+
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.site-header-link {
+  font-size: 0.9rem;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.site-header-link:hover {
+  opacity: 1;
+}
+
+.site-header-btn-primary,
+.site-header-btn-secondary {
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.site-header-btn-primary:hover,
+.site-header-btn-secondary:hover {
+  text-decoration: none;
+}
+
+.site-header-solid .site-header-btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary);
+}
+
+.site-header-solid .site-header-btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.site-header-overlay .site-header-btn-primary {
+  background: linear-gradient(135deg, #d98695 0%, #8c2f39 100%);
+  color: #fdf2f2;
+  border: 1px solid transparent;
+}
+
+.site-header-overlay .site-header-btn-secondary {
+  background: transparent;
+  color: #e8b4bd;
+  border: 1px solid rgba(217, 134, 149, 0.6);
+}
+
+.theme-toggle-inline {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  opacity: 0.8;
+  font-size: 1rem;
+  line-height: 1;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.theme-toggle-inline:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--foreground);
+  padding: 3rem 1.5rem 2rem;
+}
+
+.site-footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.site-footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.site-footer-col h3 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.site-footer-col a {
+  font-size: 0.9rem;
+  color: var(--foreground);
+  opacity: 0.75;
+}
+
+.site-footer-col a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.site-footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.site-footer-tagline {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin: 0.35rem 0 1rem;
+}
+
+.site-footer-copyright {
+  font-size: 0.78rem;
+  opacity: 0.55;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .site-header-nav {
+    gap: 0.7rem;
+    justify-content: center;
+  }
+
+  .site-header {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* --- Prose pages (/about, /terms, /privacy) --- */
+
+.prose-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.prose-page h1 {
+  margin-bottom: 0.4rem;
+}
+
+.prose-page h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.prose-page p,
+.prose-page li {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  opacity: 0.88;
+}
+
+.prose-page ul {
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.prose-page a {
+  font-weight: 500;
+}
+
+.prose-updated {
+  opacity: 0.55 !important;
+  font-size: 0.88rem;
+  margin-bottom: 2rem !important;
+}
