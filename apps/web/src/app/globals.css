@@ -546,6 +546,8 @@ html[data-theme="light"] {
   background-color: var(--background);
   background-size: cover;
   background-position: center;
+  box-shadow: inset 0 40px 60px -40px rgba(20, 10, 10, 0.35),
+    inset 0 -20px 40px -30px rgba(20, 10, 10, 0.3);
 }
 
 .shelf-plank {
@@ -555,6 +557,34 @@ html[data-theme="light"] {
   bottom: 0;
   height: 12%;
   background-color: var(--primary);
+  /* Wood grain: fine streaks running the length of the shelf, plus a
+     top-lit/bottom-shadowed gradient so the plank reads as a rounded,
+     physical board rather than a flat color bar. */
+  background-image: repeating-linear-gradient(
+      89deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      91deg,
+      rgba(255, 255, 255, 0.07) 0px,
+      rgba(255, 255, 255, 0.07) 2px,
+      transparent 2px,
+      transparent 11px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.18) 0%,
+      transparent 18%,
+      transparent 65%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  /* Casts the shelf forward, off the wall behind it — the 2.5D depth cue. */
+  box-shadow: 0 -10px 16px -6px rgba(20, 10, 10, 0.4),
+    0 6px 14px rgba(20, 10, 10, 0.45);
 }
 
 .shelf-book-spine,
@@ -569,11 +599,20 @@ html[data-theme="light"] {
   width: 28px;
   height: 140px;
   background-color: var(--primary);
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.22) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
   color: var(--primary-foreground);
   writing-mode: vertical-rl;
   font-size: 0.7rem;
   padding: 0.4rem 0.2rem;
   border-radius: 2px;
+  /* Lifts the spine off the shelf/wall behind it — light from upper-left. */
+  box-shadow: 3px 4px 6px rgba(20, 10, 10, 0.4);
 }
 
 .shelf-book-cover {
@@ -583,7 +622,7 @@ html[data-theme="light"] {
   border-radius: 6px;
   overflow: hidden;
   background-color: var(--accent);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 3px 5px 8px rgba(20, 10, 10, 0.4);
 }
 
 .shelf-book-cover img {
@@ -621,6 +660,9 @@ html[data-theme="light"] {
   cursor: grab;
   touch-action: none;
   padding: 0;
+  /* drop-shadow (not box-shadow) follows the icon's actual silhouette,
+     matching the same "resting on the shelf" lift as books/planks. */
+  filter: drop-shadow(2px 3px 4px rgba(20, 10, 10, 0.35));
 }
 
 .shelf-decoration-remove {
