@@ -1,4 +1,4 @@
-import { BookOpen, Check, Moon, Sparkles } from "lucide-react";
+import { BookOpen, Check, Moon, Sparkles, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/shared/components/site-footer";
@@ -46,6 +46,14 @@ const READER_CHECKLIST = [
   "Efecto de página realista",
   "Resaltados y notas",
   "Sincronización en la nube",
+];
+
+const CTA_STARS = [
+  { top: "12%", left: "48%" },
+  { top: "28%", left: "88%" },
+  { top: "68%", left: "10%" },
+  { top: "78%", left: "62%" },
+  { top: "45%", left: "6%" },
 ];
 
 export function LandingPage() {
@@ -144,18 +152,47 @@ export function LandingPage() {
 
       <section className="landing-final-cta">
         <div className="landing-final-cta-card">
-          <Moon size={22} className="landing-final-cta-icon" aria-hidden="true" />
-          <h2>
-            Crea tu espacio, cuenta tu historia.
-            <br />
-            <em>Empieza tu biblioteca hoy.</em>
-          </h2>
-          <Link href="/register" className="landing-cta-primary">
-            Comenzar mi biblioteca <span aria-hidden="true">→</span>
-          </Link>
-          <p className="landing-final-cta-fineprint">
-            Sin tarjeta de crédito. Gratis para empezar.
-          </p>
+          <Image
+            src="/assets/landing/ornamento-floral.png"
+            alt=""
+            width={677}
+            height={369}
+            aria-hidden="true"
+            className="landing-final-cta-ornament landing-final-cta-ornament-tl"
+          />
+          <Image
+            src="/assets/landing/ornamento-floral.png"
+            alt=""
+            width={677}
+            height={369}
+            aria-hidden="true"
+            className="landing-final-cta-ornament landing-final-cta-ornament-br"
+          />
+
+          {CTA_STARS.map((pos, index) => (
+            <Star
+              key={index}
+              size={12}
+              className="landing-final-cta-star"
+              style={{ top: pos.top, left: pos.left, animationDelay: `${index * 0.4}s` }}
+              aria-hidden="true"
+            />
+          ))}
+
+          <div className="landing-final-cta-content">
+            <Moon size={22} className="landing-final-cta-icon" aria-hidden="true" />
+            <h2>
+              Crea tu espacio, cuenta tu historia.
+              <br />
+              <em>Empieza tu biblioteca hoy.</em>
+            </h2>
+            <Link href="/register" className="landing-cta-primary">
+              Comenzar mi biblioteca <span aria-hidden="true">→</span>
+            </Link>
+            <p className="landing-final-cta-fineprint">
+              Sin tarjeta de crédito. Gratis para empezar.
+            </p>
+          </div>
         </div>
       </section>
 
