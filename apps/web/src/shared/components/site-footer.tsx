@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const CONTACT_EMAIL = "sofiazilijosky@gmail.com";
@@ -8,7 +9,13 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer-grid">
         <div className="site-footer-col">
-          <p className="site-footer-brand">Lumis</p>
+          <Image
+            src="/assets/landing/logo-lumis-full.png"
+            alt="Lumis"
+            width={669}
+            height={373}
+            className="site-footer-logo-image"
+          />
           <p className="site-footer-tagline">Tu rincón de lectura, a tu manera.</p>
           <p className="site-footer-copyright">
             © 2026 Lumis. Todos los derechos reservados.

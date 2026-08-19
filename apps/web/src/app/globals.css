@@ -1384,19 +1384,17 @@ html[data-theme="light"] {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 8rem 2rem 4rem;
+  padding: 11rem clamp(1.5rem, 6vw, 5rem) 4rem;
 }
 
 .landing-hero-v2-text {
-  max-width: 580px;
+  max-width: 660px;
 }
 
 .landing-hero-v2-title {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: clamp(3.2rem, 6vw, 4.6rem);
+  font-size: clamp(3.6rem, 7vw, 5.4rem);
   line-height: 1.08;
   color: var(--landing-cream);
   margin: 0 0 1.5rem;
@@ -1408,11 +1406,11 @@ html[data-theme="light"] {
 }
 
 .landing-hero-v2-subtitle {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1.35rem;
+  line-height: 1.55;
   color: var(--landing-grey-light);
   margin: 0 0 2rem;
-  max-width: 44ch;
+  max-width: 46ch;
 }
 
 .landing-hero-v2-actions {
@@ -1428,11 +1426,11 @@ html[data-theme="light"] {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
+  padding: 1.1rem 2.2rem;
   border-radius: 999px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
@@ -1475,7 +1473,7 @@ html[data-theme="light"] {
 
 @media (max-width: 900px) {
   .landing-hero-v2-content {
-    padding: 9rem 1.5rem 3rem;
+    padding: 13rem 1.5rem 3rem;
     text-align: center;
   }
 
@@ -1674,7 +1672,7 @@ html[data-theme="light"] {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 1.25rem 2rem;
+  padding: 0.75rem 2rem;
 }
 
 .site-header-solid {
@@ -1709,7 +1707,7 @@ html[data-theme="light"] {
 }
 
 .site-header-logo-image {
-  height: 5.75rem;
+  height: 8.5rem;
   width: auto;
 }
 
@@ -1810,12 +1808,10 @@ html[data-theme="light"] {
   text-decoration: underline;
 }
 
-.site-footer-brand {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--landing-cream);
-  margin: 0;
+.site-footer-logo-image {
+  height: 3rem;
+  width: auto;
+  margin-bottom: 0.25rem;
 }
 
 .site-footer-tagline {
@@ -1850,7 +1846,7 @@ html[data-theme="light"] {
   }
 
   .site-header-logo-image {
-    height: 4.25rem;
+    height: 6rem;
   }
 }
 
