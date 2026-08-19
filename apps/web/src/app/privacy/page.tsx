@@ -1,17 +1,14 @@
 import { SiteFooter } from "@/shared/components/site-footer";
 import { SiteHeader } from "@/shared/components/site-header";
-import { getThemeCookie } from "@/shared/lib/theme-cookie";
 
 export const metadata = {
   title: "Política de privacidad — Lumis",
 };
 
-export default async function PrivacyPage() {
-  const theme = await getThemeCookie();
-
+export default function PrivacyPage() {
   return (
     <>
-      <SiteHeader initialTheme={theme} variant="solid" />
+      <SiteHeader variant="solid" />
       <main className="prose-page">
         <h1>Política de Privacidad</h1>
         <p className="prose-updated">Última actualización: 18 de agosto de 2026</p>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useState, useSyncExternalStore } from "react";
 import { THEME_COOKIE, type ThemeMode } from "../lib/theme-cookie-names";
 
@@ -23,17 +24,13 @@ function getServerOsScheme(): ThemeMode {
 
 interface ThemeToggleProps {
   initialTheme: ThemeMode | null;
-  /** "floating" (default): fixed circle, used by (app)/(auth) layouts. "inline": a plain button meant to sit inside a navbar. */
-  variant?: "floating" | "inline";
 }
 
 /**
- * Global light/dark toggle. Each layout that needs one mounts its own copy
- * (floating in (app)/(auth), inline inside SiteHeader for the marketing
- * pages) rather than one shared instance from the root layout, so marketing
- * pages don't end up with two toggles fighting for the same corner.
+ * Global light/dark toggle. Only mounted in (app)/(auth) layouts — the
+ * public marketing site keeps a fixed cozy palette with no toggle at all.
  */
-export function ThemeToggle({ initialTheme, variant = "floating" }: ThemeToggleProps) {
+export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
   // No cookie yet (first-ever visit): fall back to — and stay live-synced
   // with — the OS preference via useSyncExternalStore, rather than guessing
   // once in an effect. The page itself already follows prefers-color-scheme
@@ -59,11 +56,11 @@ export function ThemeToggle({ initialTheme, variant = "floating" }: ThemeToggleP
   return (
     <button
       type="button"
-      className={variant === "floating" ? "theme-toggle" : "theme-toggle-inline"}
+      className="theme-toggle"
       onClick={toggle}
       aria-label="Cambiar entre modo claro y oscuro"
     >
-      {theme === "dark" ? "☀️" : "🌙"}
+      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
     </button>
   );
 }

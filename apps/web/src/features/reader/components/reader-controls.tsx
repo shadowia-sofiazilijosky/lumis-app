@@ -1,6 +1,7 @@
 "use client";
 
 import { ReaderTheme } from "@lumis/shared-types";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { READER_THEME_LABELS } from "../api/reader-client";
 import { useAutoHideControls } from "../hooks/use-auto-hide-controls";
@@ -77,7 +78,7 @@ export function ReaderControls({
         className={`reader-topbar ${controlsVisible ? "reader-controls-visible" : ""}`}
       >
         <Link href={`/library/${bookId}`} className="reader-close">
-          ← Volver
+          <ChevronLeft size={16} /> Volver
         </Link>
         <h1 className="reader-title">{title}</h1>
         <div className="reader-theme-switch">
@@ -98,11 +99,11 @@ export function ReaderControls({
         className={`reader-bottombar ${controlsVisible ? "reader-controls-visible" : ""}`}
       >
         <button type="button" onClick={onPrev} disabled={!canGoPrev}>
-          ‹ Anterior
+          <ChevronLeft size={16} /> Anterior
         </button>
         <span className="reader-page-label">{pageLabel}</span>
         <button type="button" onClick={onNext} disabled={!canGoNext}>
-          Siguiente ›
+          Siguiente <ChevronRight size={16} />
         </button>
       </footer>
     </>

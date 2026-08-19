@@ -1,17 +1,14 @@
 import { SiteFooter } from "@/shared/components/site-footer";
 import { SiteHeader } from "@/shared/components/site-header";
-import { getThemeCookie } from "@/shared/lib/theme-cookie";
 
 export const metadata = {
   title: "Sobre Lumis",
 };
 
-export default async function AboutPage() {
-  const theme = await getThemeCookie();
-
+export default function AboutPage() {
   return (
     <>
-      <SiteHeader initialTheme={theme} variant="solid" />
+      <SiteHeader variant="solid" />
       <main className="prose-page">
         <h1>Sobre Lumis</h1>
 

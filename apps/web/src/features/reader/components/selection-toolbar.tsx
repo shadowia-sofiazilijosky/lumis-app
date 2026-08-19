@@ -1,6 +1,7 @@
 "use client";
 
 import { HighlightColor } from "@lumis/shared-types";
+import { X } from "lucide-react";
 import { HIGHLIGHT_COLOR_HEX, createHighlight } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
 
@@ -65,7 +66,7 @@ export function SelectionToolbar({ bookId }: { bookId: string }) {
         aria-label="Cerrar"
         onClick={() => setPendingSelection(null)}
       >
-        ×
+        <X size={14} />
       </button>
     </div>
   );

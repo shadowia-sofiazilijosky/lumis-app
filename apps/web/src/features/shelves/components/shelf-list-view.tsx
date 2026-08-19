@@ -1,6 +1,7 @@
 "use client";
 
 import type { ShelfWithBooks } from "@lumis/shared-types";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from "lucide-react";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../lib/canvas";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 
@@ -19,24 +20,24 @@ function NudgeControls({ label, onNudge }: NudgeControlsProps) {
   return (
     <div className="nudge-controls" role="group" aria-label={`Mover ${label}`}>
       <button type="button" onClick={() => onNudge(0, -NUDGE_STEP)} aria-label="Mover arriba">
-        ↑
+        <ArrowUp size={14} />
       </button>
       <button type="button" onClick={() => onNudge(0, NUDGE_STEP)} aria-label="Mover abajo">
-        ↓
+        <ArrowDown size={14} />
       </button>
       <button
         type="button"
         onClick={() => onNudge(-NUDGE_STEP, 0)}
         aria-label="Mover a la izquierda"
       >
-        ←
+        <ArrowLeft size={14} />
       </button>
       <button
         type="button"
         onClick={() => onNudge(NUDGE_STEP, 0)}
         aria-label="Mover a la derecha"
       >
-        →
+        <ArrowRight size={14} />
       </button>
     </div>
   );

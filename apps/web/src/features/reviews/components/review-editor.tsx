@@ -1,6 +1,7 @@
 "use client";
 
 import { ReadingStatus } from "@lumis/shared-types";
+import { Flame, Heart, Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { READING_STATUS_LABELS, fetchReview, saveReview } from "../api/reviews-client";
 import { RatingPicker } from "./rating-picker";
@@ -141,19 +142,22 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
       <div className="review-editor-ratings">
         <RatingPicker
           label="Calificación"
-          icon="⭐"
+          icon={Star}
+          tone="star"
           value={rating}
           onChange={markDirty(setRating)}
         />
         <RatingPicker
           label="Spicy"
-          icon="🌶️"
+          icon={Flame}
+          tone="spicy"
           value={spicyRating}
           onChange={markDirty(setSpicyRating)}
         />
         <RatingPicker
           label="Romance"
-          icon="❤️"
+          icon={Heart}
+          tone="romance"
           value={romanceRating}
           onChange={markDirty(setRomanceRating)}
         />
