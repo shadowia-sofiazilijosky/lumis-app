@@ -1556,10 +1556,10 @@ html[data-theme="light"] {
   max-width: 100%;
   object-fit: contain;
   margin-bottom: 0.5rem;
-  filter: sepia(1) saturate(2.4) hue-rotate(-8deg) brightness(0.85) contrast(1.1)
-    drop-shadow(0 0 6px rgba(139, 94, 60, 0.85))
-    drop-shadow(0 0 14px rgba(139, 94, 60, 0.55))
-    drop-shadow(0 0 26px rgba(139, 94, 60, 0.3));
+  filter: sepia(1) saturate(5) hue-rotate(-30deg) brightness(0.55) contrast(1.4)
+    drop-shadow(0 0 6px rgba(139, 94, 60, 0.9))
+    drop-shadow(0 0 14px rgba(139, 94, 60, 0.6))
+    drop-shadow(0 0 26px rgba(139, 94, 60, 0.35));
 }
 
 .landing-feature h3 {
@@ -1594,13 +1594,22 @@ html[data-theme="light"] {
 .landing-ritmo-bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    100deg,
-    rgba(31, 22, 17, 0.96) 0%,
-    rgba(31, 22, 17, 0.88) 32%,
-    rgba(31, 22, 17, 0.55) 58%,
-    rgba(31, 22, 17, 0.2) 80%
-  );
+  background:
+    linear-gradient(
+      100deg,
+      rgba(31, 22, 17, 0.96) 0%,
+      rgba(31, 22, 17, 0.88) 30%,
+      rgba(31, 22, 17, 0.55) 55%,
+      rgba(31, 22, 17, 0.2) 75%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(31, 22, 17, 0.55) 70%,
+      rgba(31, 22, 17, 0.97) 92%,
+      var(--landing-bg-dark) 100%
+    );
 }
 
 .landing-ritmo-content {
@@ -1608,19 +1617,18 @@ html[data-theme="light"] {
   z-index: 2;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 6rem clamp(1.5rem, 6vw, 5rem);
+  padding: 6rem clamp(1.25rem, 3vw, 2.5rem);
 }
 
 .landing-ritmo-inner {
-  max-width: 560px;
+  max-width: 620px;
   text-align: left;
 }
 
 .landing-spark {
   color: var(--landing-gold);
   margin: 0 0 0.5rem;
-  display: flex;
-  justify-content: flex-start;
+  display: inline-flex;
   animation: landing-twinkle 2.4s ease-in-out infinite;
 }
 
@@ -1632,10 +1640,10 @@ html[data-theme="light"] {
 .landing-ritmo-title {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-  line-height: 1.15;
+  font-size: clamp(2.8rem, 5.5vw, 3.8rem);
+  line-height: 1.12;
   color: var(--landing-cream);
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
 }
 
 .landing-ritmo-title em {
@@ -1644,10 +1652,10 @@ html[data-theme="light"] {
 }
 
 .landing-ritmo-subtitle {
-  font-size: 1.15rem;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  line-height: 1.55;
   color: var(--landing-grey-light);
-  margin: 0 0 2.25rem;
+  margin: 0 0 2.5rem;
 }
 
 .landing-ritmo-checklist {
@@ -1655,7 +1663,7 @@ html[data-theme="light"] {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.1rem;
   margin: 0;
   padding: 0;
 }
@@ -1665,7 +1673,7 @@ html[data-theme="light"] {
   align-items: center;
   gap: 0.75rem;
   color: var(--landing-border-cream);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
 }
 
 .landing-ritmo-check {
@@ -1683,8 +1691,9 @@ html[data-theme="light"] {
 /* --- Final CTA --- */
 
 .landing-final-cta {
-  background: var(--landing-bg-dark);
-  padding: 0 1.5rem 5rem;
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1.5rem 5rem;
 }
 
 .landing-final-cta-card {
@@ -1731,14 +1740,14 @@ html[data-theme="light"] {
 }
 
 .landing-final-cta-ornament-tl {
-  top: 4px;
-  left: 4px;
+  top: 32px;
+  left: 40px;
   transform: rotate(-90deg);
 }
 
 .landing-final-cta-ornament-br {
-  bottom: 4px;
-  right: 4px;
+  bottom: 32px;
+  right: 40px;
   transform: scaleX(-1) rotate(-90deg);
 }
 
