@@ -1340,11 +1340,12 @@ html[data-theme="light"] {
   --landing-card-dark: #2b1b11;
   --landing-cream: #f5ede0;
   --landing-gold: #d4a44c;
+  --landing-gold-bright: #f0be4a;
   --landing-gold-ink: #2b1b11;
   --landing-grey-light: #ded4c4;
   --landing-grey-muted: #b3a695;
   --landing-border-cream: #e8dcc8;
-  --landing-features-bg: #f5eee1;
+  --landing-features-bg: #e7dfd0;
   --landing-features-title: #3b2a1e;
   --landing-features-desc: #5c4a3a;
 }
@@ -1460,14 +1461,17 @@ html[data-theme="light"] {
 .landing-hero-v2-formats {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  color: var(--landing-grey-light);
+  gap: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--landing-gold-bright);
   margin: 0;
 }
 
 .landing-hero-v2-formats svg {
-  color: var(--landing-gold);
+  color: var(--landing-gold-bright);
+  width: 1.5em;
+  height: 1.5em;
   flex-shrink: 0;
 }
 
@@ -1526,7 +1530,7 @@ html[data-theme="light"] {
   max-width: 100%;
   object-fit: contain;
   margin-bottom: 0.5rem;
-  filter: saturate(2) contrast(1.15);
+  filter: saturate(3.2) contrast(1.3) brightness(0.92);
 }
 
 .landing-feature h3 {
@@ -1631,13 +1635,13 @@ html[data-theme="light"] {
 
 .landing-final-cta-card {
   position: relative;
-  max-width: 640px;
+  max-width: 1040px;
   margin: 0 auto;
   text-align: center;
   background: var(--landing-card-dark);
-  border: 1.5px solid var(--landing-gold);
-  padding: 3rem 2rem;
-  --bevel: 18px;
+  border: 3px solid var(--landing-gold-bright);
+  padding: 3.5rem 3rem;
+  --bevel: 20px;
   clip-path: polygon(
     var(--bevel) 0,
     calc(100% - var(--bevel)) 0,
@@ -1648,6 +1652,10 @@ html[data-theme="light"] {
     0 calc(100% - var(--bevel)),
     0 var(--bevel)
   );
+  /* box-shadow gets clipped away by clip-path (nothing paints outside the
+     clip region), so the glow uses drop-shadow instead — filters apply
+     after clipping and correctly wrap the beveled outline. */
+  filter: drop-shadow(0 0 18px rgba(240, 190, 74, 0.55)) drop-shadow(0 0 40px rgba(240, 190, 74, 0.3));
 }
 
 .landing-final-cta-content {

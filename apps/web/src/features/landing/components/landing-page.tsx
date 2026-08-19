@@ -97,7 +97,7 @@ export function LandingPage() {
             </div>
 
             <p className="landing-hero-v2-formats">
-              <BookOpen size={16} aria-hidden="true" />
+              <BookOpen size={22} aria-hidden="true" />
               Compatible con PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT y más.
             </p>
           </div>
