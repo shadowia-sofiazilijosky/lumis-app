@@ -7,26 +7,36 @@ import { SiteHeader } from "@/shared/components/site-header";
 const FEATURES = [
   {
     icon: "/assets/landing/icon-estanteria.png",
+    width: 612,
+    height: 408,
     title: "Estanterías personalizables",
     description: "Decora y organiza tus libros como quieras.",
   },
   {
     icon: "/assets/landing/icon-libro.png",
+    width: 612,
+    height: 408,
     title: "Lector universal",
     description: "Lee tus archivos en cualquier formato con una experiencia inmersiva.",
   },
   {
     icon: "/assets/landing/icon-diario.png",
+    width: 408,
+    height: 612,
     title: "Registra tu lectura",
     description: "Fechas, notas, reseñas, tags y estados de lectura.",
   },
   {
     icon: "/assets/landing/icon-spicy-romance.png",
+    width: 612,
+    height: 408,
     title: "Spicy & Romance",
     description: "Califica el nivel de picante y romance de tus historias.",
   },
   {
     icon: "/assets/landing/icon-modo-noche.png",
+    width: 612,
+    height: 408,
     title: "Modo claro y oscuro",
     description: "Elegí tu ambiente favorito para leer.",
   },
@@ -42,9 +52,21 @@ export function LandingPage() {
   return (
     <>
       <section className="landing-hero-v2">
+        <div className="landing-hero-v2-bg" aria-hidden="true">
+          <Image
+            src="/assets/landing/landing-bg.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+          <div className="landing-hero-v2-bg-overlay" />
+        </div>
+
         <SiteHeader variant="overlay" />
 
-        <div className="landing-hero-v2-inner">
+        <div className="landing-hero-v2-content">
           <div className="landing-hero-v2-text">
             <h1 className="landing-hero-v2-title">
               Tu biblioteca,
@@ -71,18 +93,6 @@ export function LandingPage() {
               Compatible con PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT y más.
             </p>
           </div>
-
-          <div className="landing-hero-v2-image" aria-hidden="true">
-            <Image
-              src="/assets/landing/landing-bg.jpg"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
-            />
-            <div className="landing-hero-v2-image-fade" />
-          </div>
         </div>
       </section>
 
@@ -93,8 +103,8 @@ export function LandingPage() {
               <Image
                 src={feature.icon}
                 alt=""
-                width={40}
-                height={40}
+                width={feature.width}
+                height={feature.height}
                 className="landing-feature-icon"
               />
               <h3>{feature.title}</h3>
