@@ -1499,6 +1499,32 @@ html[data-theme="light"] {
       rgba(31, 22, 17, 0.95) 100%
     );
   }
+
+  .landing-ritmo-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .landing-ritmo-inner {
+    max-width: none;
+    text-align: center;
+  }
+
+  .landing-spark {
+    justify-content: center;
+  }
+
+  .landing-ritmo-checklist {
+    margin: 0 auto;
+  }
+
+  .landing-ritmo-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(31, 22, 17, 0.65) 0%,
+      rgba(31, 22, 17, 0.85) 40%,
+      rgba(31, 22, 17, 0.96) 100%
+    );
+  }
 }
 
 /* --- Features strip --- */
@@ -1530,7 +1556,10 @@ html[data-theme="light"] {
   max-width: 100%;
   object-fit: contain;
   margin-bottom: 0.5rem;
-  filter: saturate(3.2) contrast(1.3) brightness(0.92);
+  filter: sepia(1) saturate(2.4) hue-rotate(-8deg) brightness(0.85) contrast(1.1)
+    drop-shadow(0 0 6px rgba(139, 94, 60, 0.85))
+    drop-shadow(0 0 14px rgba(139, 94, 60, 0.55))
+    drop-shadow(0 0 26px rgba(139, 94, 60, 0.3));
 }
 
 .landing-feature h3 {
@@ -1551,22 +1580,47 @@ html[data-theme="light"] {
 /* --- "Lee a tu ritmo" --- */
 
 .landing-ritmo {
-  background: var(--landing-bg-dark);
+  position: relative;
+  overflow: hidden;
   color: var(--landing-cream);
-  padding: 5rem 1.5rem;
+}
+
+.landing-ritmo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.landing-ritmo-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(31, 22, 17, 0.96) 0%,
+    rgba(31, 22, 17, 0.88) 32%,
+    rgba(31, 22, 17, 0.55) 58%,
+    rgba(31, 22, 17, 0.2) 80%
+  );
+}
+
+.landing-ritmo-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem clamp(1.5rem, 6vw, 5rem);
 }
 
 .landing-ritmo-inner {
   max-width: 560px;
-  margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .landing-spark {
   color: var(--landing-gold);
   margin: 0 0 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   animation: landing-twinkle 2.4s ease-in-out infinite;
 }
 
@@ -1679,13 +1733,13 @@ html[data-theme="light"] {
 .landing-final-cta-ornament-tl {
   top: 4px;
   left: 4px;
-  transform: rotate(-8deg);
+  transform: rotate(-90deg);
 }
 
 .landing-final-cta-ornament-br {
   bottom: 4px;
   right: 4px;
-  transform: scaleX(-1) scaleY(-1);
+  transform: scaleX(-1) rotate(-90deg);
 }
 
 .landing-final-cta-star {

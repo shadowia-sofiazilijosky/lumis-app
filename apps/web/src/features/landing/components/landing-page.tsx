@@ -123,30 +123,43 @@ export function LandingPage() {
       </section>
 
       <section className="landing-ritmo">
-        <div className="landing-ritmo-inner">
-          <p className="landing-spark" aria-hidden="true">
-            <Sparkles size={22} />
-          </p>
-          <h2 className="landing-ritmo-title">
-            Lee a tu ritmo.
-            <br />
-            <em>Donde quieras.</em>
-          </h2>
-          <p className="landing-ritmo-subtitle">
-            Guardá tu progreso automáticamente, resaltá tus partes favoritas,
-            tomá notas y volvé justo donde lo dejaste, en cualquier
-            dispositivo.
-          </p>
-          <ul className="landing-ritmo-checklist">
-            {READER_CHECKLIST.map((item) => (
-              <li key={item}>
-                <span className="landing-ritmo-check" aria-hidden="true">
-                  <Check size={14} strokeWidth={3} />
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div className="landing-ritmo-bg" aria-hidden="true">
+          <Image
+            src="/assets/landing/lee-tu-ritmo-bg.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+          <div className="landing-ritmo-bg-overlay" />
+        </div>
+
+        <div className="landing-ritmo-content">
+          <div className="landing-ritmo-inner">
+            <p className="landing-spark" aria-hidden="true">
+              <Sparkles size={22} />
+            </p>
+            <h2 className="landing-ritmo-title">
+              Lee a tu ritmo.
+              <br />
+              <em>Donde quieras.</em>
+            </h2>
+            <p className="landing-ritmo-subtitle">
+              Guardá tu progreso automáticamente, resaltá tus partes
+              favoritas, tomá notas y volvé justo donde lo dejaste, en
+              cualquier dispositivo.
+            </p>
+            <ul className="landing-ritmo-checklist">
+              {READER_CHECKLIST.map((item) => (
+                <li key={item}>
+                  <span className="landing-ritmo-check" aria-hidden="true">
+                    <Check size={14} strokeWidth={3} />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
