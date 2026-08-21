@@ -58,7 +58,7 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
         >
           {view === "canvas" ? "Ver como lista" : "Ver como estantería"}
         </button>
-        <button type="button" onClick={handleDelete}>
+        <button type="button" className="danger" onClick={handleDelete}>
           Borrar estantería
         </button>
       </header>

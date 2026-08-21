@@ -21,6 +21,8 @@ import { DecorationPalette } from "./decoration-palette";
 import { ShelfBookItem } from "./shelf-book-item";
 import { ShelfDecorationItem } from "./shelf-decoration-item";
 
+const DEFAULT_SHELF_COLOR = "#8c2f39";
+
 type DragData =
   | { kind: "book"; bookId: string }
   | { kind: "decoration"; decorationId: string }
@@ -44,6 +46,7 @@ function DroppableCanvas({
   containerRef,
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
+  const selectBook = useShelfEditorStore((state) => state.selectBook);
 
   return (
     <div
@@ -62,16 +65,25 @@ function DroppableCanvas({
             ? `url(${shelf.backgroundImageUrl})`
             : undefined,
         }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) selectBook(null);
+        }}
       >
+        {/* The chosen "furniture color" tints the real wood-grain texture
+            via multiply blend, instead of painting a flat color over it —
+            the grain/shadows stay visible underneath. */}
         <div
-          className="shelf-plank"
-          style={{ backgroundColor: shelf.shelfColor ?? undefined }}
+          className="shelf-color-overlay"
+          style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
           aria-hidden="true"
         />
+
+        <div className="shelf-plank" aria-hidden="true" />
 
         {shelf.books.map((entry) => (
           <ShelfBookItem
             key={entry.bookId}
+            shelfId={shelf.id}
             bookId={entry.bookId}
             book={entry.book}
             position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}

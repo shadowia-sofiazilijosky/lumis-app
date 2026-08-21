@@ -21,7 +21,9 @@ export class PdfParserService implements BookParser {
 
     const cover = await this.renderCover(buffer).catch((error: Error) => {
       // A thumbnail is a nice-to-have — never fail the whole upload over it.
-      this.logger.warn(`No se pudo generar la portada del PDF: ${error.message}`);
+      this.logger.warn(
+        `No se pudo generar la portada del PDF: ${error.message}`,
+      );
       return null;
     });
 

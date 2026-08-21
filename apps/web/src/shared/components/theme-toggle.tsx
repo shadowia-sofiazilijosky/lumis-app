@@ -24,13 +24,15 @@ function getServerOsScheme(): ThemeMode {
 
 interface ThemeToggleProps {
   initialTheme: ThemeMode | null;
+  /** "floating" (default): fixed circle in a corner. "inline": sits in normal document flow (e.g. the profile page's preferences list). */
+  variant?: "floating" | "inline";
 }
 
 /**
- * Global light/dark toggle. Only mounted in (app)/(auth) layouts — the
+ * Global light/dark toggle. Mounted inline in the profile page — the
  * public marketing site keeps a fixed cozy palette with no toggle at all.
  */
-export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
+export function ThemeToggle({ initialTheme, variant = "floating" }: ThemeToggleProps) {
   // No cookie yet (first-ever visit): fall back to — and stay live-synced
   // with — the OS preference via useSyncExternalStore, rather than guessing
   // once in an effect. The page itself already follows prefers-color-scheme
@@ -56,7 +58,7 @@ export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className={variant === "floating" ? "theme-toggle" : "theme-toggle-inline"}
       onClick={toggle}
       aria-label="Cambiar entre modo claro y oscuro"
     >

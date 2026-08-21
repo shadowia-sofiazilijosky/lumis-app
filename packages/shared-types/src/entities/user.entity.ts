@@ -1,3 +1,4 @@
+import { FontPreference } from "../enums/font-preference.enum";
 import { Role } from "../enums/role.enum";
 import { ThemePreference } from "../enums/theme-preference.enum";
 
@@ -9,6 +10,7 @@ export interface PublicUser {
   avatarUrl: string | null;
   role: Role;
   themePreference: ThemePreference;
+  fontPreference: FontPreference;
   createdAt: string;
   updatedAt: string;
 }

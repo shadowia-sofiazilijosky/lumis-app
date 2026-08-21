@@ -106,7 +106,12 @@ export function BookDetailView({ bookId }: { bookId: string }) {
             {book.format !== BookFormat.MOBI && (
               <Link href={`/read/${book.id}`}>Leer</Link>
             )}
-            <button type="button" onClick={handleDelete} disabled={isDeleting}>
+            <button
+              type="button"
+              className="danger"
+              onClick={handleDelete}
+              disabled={isDeleting}
+            >
               {isDeleting ? "Borrando…" : "Borrar libro"}
             </button>
           </div>

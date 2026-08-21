@@ -13,16 +13,16 @@ export class UsersController {
     @CurrentUser() user: AuthenticatedUser,
     @Body() dto: UpdateUserDto,
   ): Promise<PublicUser> {
-    if (dto.themePreference === undefined) {
+    if (dto.themePreference === undefined && dto.fontPreference === undefined) {
       const current = await this.usersService.findById(user.userId);
       if (!current) throw new NotFoundException('Usuario no encontrado.');
       return this.usersService.toPublic(current);
     }
 
-    const updated = await this.usersService.updateThemePreference(
-      user.userId,
-      dto.themePreference,
-    );
+    const updated = await this.usersService.updatePreferences(user.userId, {
+      themePreference: dto.themePreference,
+      fontPreference: dto.fontPreference,
+    });
     return this.usersService.toPublic(updated);
   }
 }

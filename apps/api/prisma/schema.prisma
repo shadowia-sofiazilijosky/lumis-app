@@ -24,6 +24,13 @@ enum ThemePreference {
   SYSTEM
 }
 
+enum FontPreference {
+  LORA // serif clásica
+  PLAYFAIR_DISPLAY // serif decorativa/editorial
+  INTER // sans-serif moderna
+  CAVEAT // manuscrita/cálida
+}
+
 enum ReaderTheme {
   LIGHT
   DARK
@@ -70,6 +77,7 @@ model User {
   avatarUrl       String?         @map("avatar_url")
   role            Role            @default(USER)
   themePreference ThemePreference @default(SYSTEM) @map("theme_preference")
+  fontPreference  FontPreference  @default(LORA) @map("font_preference")
   createdAt       DateTime        @default(now()) @map("created_at")
   updatedAt       DateTime        @updatedAt @map("updated_at")
 

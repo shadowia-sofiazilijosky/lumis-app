@@ -18,6 +18,7 @@ const mockUser: User = {
   avatarUrl: null,
   role: Role.USER,
   themePreference: 'SYSTEM',
+  fontPreference: 'LORA',
   createdAt: new Date(),
   updatedAt: new Date(),
 };

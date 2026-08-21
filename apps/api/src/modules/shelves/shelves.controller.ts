@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -9,8 +10,13 @@ import {
   Patch,
   Post,
   Put,
+  UnsupportedMediaTypeException,
+  UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { Shelf } from '@prisma/client';
+import { memoryStorage } from 'multer';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import type { AuthenticatedUser } from '../auth/types/authenticated-user.type';
 import { AddBookToShelfDto } from './dto/add-book-to-shelf.dto';
@@ -19,6 +25,9 @@ import { UpdateShelfDto } from './dto/update-shelf.dto';
 import { UpdateShelfLayoutDto } from './dto/update-shelf-layout.dto';
 import { ShelvesService } from './shelves.service';
 import type { ShelfListItem, ShelfWithBooks } from './shelves.service';
+
+const SPINE_IMAGE_MAX_SIZE_BYTES = 15 * 1024 * 1024;
+const ALLOWED_SPINE_IMAGE_TYPES = new Set(['image/jpeg', 'image/png']);
 
 @Controller('shelves')
 export class ShelvesController {
@@ -81,6 +90,40 @@ export class ShelvesController {
     @Param('bookId') bookId: string,
   ): Promise<void> {
     await this.shelvesService.removeBook(user.userId, id, bookId);
+  }
+
+  @Post(':id/books/:bookId/spine-image')
+  @UseInterceptors(
+    FileInterceptor('file', {
+      storage: memoryStorage(),
+      limits: { fileSize: SPINE_IMAGE_MAX_SIZE_BYTES },
+      fileFilter: (_req, file, callback) => {
+        if (!ALLOWED_SPINE_IMAGE_TYPES.has(file.mimetype)) {
+          callback(
+            new UnsupportedMediaTypeException(
+              'La foto del lomo debe ser JPG o PNG.',
+            ),
+            false,
+          );
+          return;
+        }
+        callback(null, true);
+      },
+    }),
+  )
+  uploadSpineImage(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('id') id: string,
+    @Param('bookId') bookId: string,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    if (!file) {
+      throw new BadRequestException('Falta la imagen del lomo.');
+    }
+    return this.shelvesService.uploadSpineImage(user.userId, id, bookId, {
+      buffer: file.buffer,
+      mimetype: file.mimetype,
+    });
   }
 
   @Put(':id/layout')

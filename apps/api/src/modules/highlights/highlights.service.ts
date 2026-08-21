@@ -7,10 +7,7 @@ import { CreateHighlightDto } from './dto/create-highlight.dto';
 export class HighlightsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAllForBook(
-    ownerId: string,
-    bookId: string,
-  ): Promise<Highlight[]> {
+  async findAllForBook(ownerId: string, bookId: string): Promise<Highlight[]> {
     await this.getOwnedBookOrThrow(ownerId, bookId);
 
     return this.prisma.highlight.findMany({

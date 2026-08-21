@@ -30,7 +30,12 @@ export async function apiFetch<T>(
   const isJson = response.headers
     .get("content-type")
     ?.includes("application/json");
-  const body = isJson ? await response.json() : undefined;
+  // `null` (not `undefined`) — a route handler doing
+  // `NextResponse.json(await apiFetch(...))` would otherwise crash, since
+  // `undefined` isn't valid JSON (NestJS sends an empty, content-type-less
+  // body for a controller method that resolves to `null`, e.g. "no reading
+  // progress yet").
+  const body = isJson ? await response.json() : null;
 
   if (!response.ok) {
     throw new ApiError(response.status, body);

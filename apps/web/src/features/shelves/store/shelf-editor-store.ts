@@ -17,10 +17,17 @@ interface ShelfEditorState {
   decorations: ShelfDecoration[];
   hasUnsavedChanges: boolean;
   saveStatus: SaveStatus;
+  selectedBookId: string | null;
 
   loadShelf: (shelf: ShelfWithBooks) => void;
   patchShelfMeta: (patch: Partial<ShelfWithBooks>) => void;
   moveBook: (bookId: string, position: Position) => void;
+  setBookRotation: (bookId: string, rotation: number) => void;
+  setBookCustomSpineImage: (
+    bookId: string,
+    customSpineImageKey: string,
+    customSpineImageUrl: string | null,
+  ) => void;
   addBookLocally: (entry: ShelfBookEntry) => void;
   removeBookLocally: (bookId: string) => void;
   addDecoration: (decoration: ShelfDecoration) => void;
@@ -28,6 +35,7 @@ interface ShelfEditorState {
   removeDecoration: (id: string) => void;
   setSaveStatus: (status: SaveStatus) => void;
   markSaved: () => void;
+  selectBook: (bookId: string | null) => void;
 }
 
 export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
@@ -36,6 +44,7 @@ export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
   decorations: [],
   hasUnsavedChanges: false,
   saveStatus: "idle",
+  selectedBookId: null,
 
   loadShelf: (shelf) => {
     const bookPositions: Record<string, Position> = {};
@@ -61,6 +70,29 @@ export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
       bookPositions: { ...state.bookPositions, [bookId]: position },
       hasUnsavedChanges: true,
     })),
+
+  setBookRotation: (bookId, rotation) =>
+    set((state) => ({
+      bookPositions: {
+        ...state.bookPositions,
+        [bookId]: { ...(state.bookPositions[bookId] ?? { x: 0, y: 0 }), rotation },
+      },
+      hasUnsavedChanges: true,
+    })),
+
+  setBookCustomSpineImage: (bookId, customSpineImageKey, customSpineImageUrl) =>
+    set((state) => ({
+      bookPositions: {
+        ...state.bookPositions,
+        [bookId]: {
+          ...(state.bookPositions[bookId] ?? { x: 0, y: 0 }),
+          customSpineImageKey,
+          customSpineImageUrl: customSpineImageUrl ?? undefined,
+        },
+      },
+    })),
+
+  selectBook: (bookId) => set({ selectedBookId: bookId }),
 
   addBookLocally: (entry) =>
     set((state) => {

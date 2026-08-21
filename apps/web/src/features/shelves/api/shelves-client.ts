@@ -85,6 +85,28 @@ export function removeBookFromShelf(
   });
 }
 
+export function uploadSpineImage(
+  shelfId: string,
+  bookId: string,
+  file: File,
+): Promise<{ customSpineImageKey: string; customSpineImageUrl: string | null }> {
+  const formData = new FormData();
+  formData.append("file", file);
+  return fetch(`/api/shelves/${shelfId}/books/${bookId}/spine-image`, {
+    method: "POST",
+    body: formData,
+  }).then(async (response) => {
+    const data = await response.json().catch(() => null);
+    if (!response.ok) {
+      throw new ShelfRequestError(
+        response.status,
+        data?.message ?? "No pudimos subir la foto.",
+      );
+    }
+    return data;
+  });
+}
+
 export function saveShelfLayout(
   shelfId: string,
   input: UpdateShelfLayoutInput,

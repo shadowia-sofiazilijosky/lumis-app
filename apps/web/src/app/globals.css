@@ -1,11 +1,14 @@
+/* Same identity as the landing page: dark brown / gold / cream / rose,
+   Lora serif for headings. Light and dark app modes are two readings of
+   that one palette rather than a separate color scheme. */
 :root {
-  --background: #f7e6e6;
-  --surface: #ffffff;
-  --foreground: #3b2226;
-  --primary: #8c2f39;
-  --primary-foreground: #f7e6e6;
-  --accent: #c9a08a;
-  --border: #d98695;
+  --background: #f5ede0;
+  --surface: #fffdf9;
+  --foreground: #2b1b11;
+  --primary: #d4a44c;
+  --primary-foreground: #2b1b11;
+  --accent: #d98695;
+  --border: #e8dcc8;
   --danger: #8c2f39;
 
   --font-heading: var(--font-lora), Georgia, "Times New Roman", serif;
@@ -14,34 +17,47 @@
   --radius-sm: 0.5rem;
   --radius-md: 0.85rem;
   --radius-lg: 1.25rem;
-  --shadow-sm: 0 2px 8px rgba(59, 34, 38, 0.1);
-  --shadow-md: 0 6px 20px rgba(59, 34, 38, 0.16);
-  --shadow-lg: 0 12px 36px rgba(59, 34, 38, 0.22);
+  --shadow-sm: 0 2px 8px rgba(43, 27, 17, 0.1);
+  --shadow-md: 0 6px 20px rgba(43, 27, 17, 0.16);
+  --shadow-lg: 0 12px 36px rgba(43, 27, 17, 0.22);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background: #1f1315;
-    --surface: #2c1a1e;
-    --foreground: #f2dede;
-    --primary: #b8925a;
-    --primary-foreground: #1f1315;
-    --accent: #c98a94;
-    --border: #6e1f2b;
+    --background: #1f1611;
+    --surface: #2b1b11;
+    --foreground: #f5ede0;
+    --primary: #d4a44c;
+    --primary-foreground: #2b1b11;
+    --accent: #d98695;
+    --border: #4a3626;
     --danger: #c98a94;
   }
 }
 
 /* Explicit override via the ThemeToggle — wins over the OS preference in both directions. */
 :root[data-theme="dark"] {
-  --background: #1f1315;
-  --surface: #2c1a1e;
-  --foreground: #f2dede;
-  --primary: #b8925a;
-  --primary-foreground: #1f1315;
-  --accent: #c98a94;
-  --border: #6e1f2b;
+  --background: #1f1611;
+  --surface: #2b1b11;
+  --foreground: #f5ede0;
+  --primary: #d4a44c;
+  --primary-foreground: #2b1b11;
+  --accent: #d98695;
+  --border: #4a3626;
   --danger: #c98a94;
+}
+
+/* User-selectable heading font (FontSelector, saved as fontPreference). */
+:root[data-font="PLAYFAIR_DISPLAY"] {
+  --font-heading: var(--font-playfair-display), Georgia, serif;
+}
+
+:root[data-font="INTER"] {
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+}
+
+:root[data-font="CAVEAT"] {
+  --font-heading: var(--font-caveat), cursive;
 }
 
 html {
@@ -156,6 +172,12 @@ nav a,
   border-color: var(--border);
 }
 
+button.danger {
+  background: var(--danger);
+  color: var(--primary-foreground);
+  border-color: var(--danger);
+}
+
 main {
   max-width: 1100px;
   width: 100%;
@@ -168,7 +190,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 4.25rem 1rem 1.5rem;
+  padding: 1rem 1.5rem;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
@@ -188,6 +210,175 @@ header nav a {
   padding: 0.25rem 0;
 }
 
+/* --- App shell / sidebar (all (app) screens: shelves, library, notes, profile) --- */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-main-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-topbar {
+  padding: 1rem 1.5rem;
+}
+
+.sidebar-mobile-trigger {
+  display: none;
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 50;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background: #2b1b11;
+  color: #f5ede0;
+  border: 1px solid #4a3626;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+/* Fixed dark/gold identity — same as the landing, regardless of the
+   app-wide light/dark toggle, so the nav always reads as "Lumis" branding. */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.25rem 1rem;
+  background: #1f1611;
+  color: #f5ede0;
+  border-right: 1px solid #4a3626;
+  transition: width 0.15s ease;
+}
+
+.sidebar-collapsed {
+  width: 76px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sidebar-logo {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sidebar-logo-image {
+  height: 2.25rem;
+  width: auto;
+}
+
+.sidebar-collapsed .sidebar-logo {
+  display: none;
+}
+
+.sidebar-collapse-toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #f5ede0;
+  border: 1px solid #4a3626;
+  border-radius: 50%;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: #e8dcc8;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sidebar-nav-item:hover {
+  text-decoration: none;
+  background: rgba(212, 164, 76, 0.12);
+}
+
+.sidebar-nav-item-active {
+  background: rgba(212, 164, 76, 0.18);
+  color: #d4a44c;
+  border: 1px solid rgba(212, 164, 76, 0.4);
+}
+
+.sidebar-collapsed .sidebar-nav-label {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar-mobile-trigger {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 45;
+    width: 240px;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar-collapsed {
+    width: 240px;
+  }
+
+  .sidebar-collapsed .sidebar-logo,
+  .sidebar-collapsed .sidebar-nav-label {
+    display: flex;
+  }
+
+  .sidebar-mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 44;
+    background: rgba(20, 12, 8, 0.5);
+  }
+
+  .app-topbar {
+    padding-left: 4rem;
+  }
+}
+
 .theme-toggle {
   position: fixed;
   top: 0.8rem;
@@ -201,6 +392,11 @@ header nav a {
   justify-content: center;
   font-size: 1.15rem;
   line-height: 1;
+  /* Overrides the generic `button` rule's color:var(--primary-foreground)
+     (meant for solid var(--primary) buttons) — this button's background is
+     var(--surface), so it needs the normal readable text color instead,
+     or the icon ends up nearly invisible (light-on-light / dark-on-dark). */
+  color: var(--foreground);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 50%;
@@ -211,6 +407,60 @@ header nav a {
 .theme-toggle:hover {
   transform: translateY(-1px) scale(1.05);
   box-shadow: var(--shadow-md);
+}
+
+/* --- Profile / preferences --- */
+
+.profile-page {
+  max-width: 480px;
+}
+
+.profile-preference-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-inline {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.font-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.font-selector select {
+  padding: 0.5rem 0.75rem;
+}
+
+.font-selector-preview {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--foreground);
 }
 
 /* --- Auth --- */
@@ -525,6 +775,7 @@ html[data-theme="light"] {
   align-items: center;
   gap: 0.25rem;
   padding: 0.5rem;
+  color: var(--foreground);
   border: 1px solid var(--accent);
   border-radius: var(--radius-sm);
   background: var(--surface);
@@ -544,10 +795,18 @@ html[data-theme="light"] {
 .shelf-canvas-inner {
   position: relative;
   background-color: var(--background);
+  background-image: url("/assets/shelves/shelf-texture-base.jpg");
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 40px 60px -40px rgba(20, 10, 10, 0.35),
     inset 0 -20px 40px -30px rgba(20, 10, 10, 0.3);
+}
+
+.shelf-color-overlay {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .shelf-plank {
@@ -556,7 +815,6 @@ html[data-theme="light"] {
   right: 0;
   bottom: 0;
   height: 12%;
-  background-color: var(--primary);
   /* Wood grain: fine streaks running the length of the shelf, plus a
      top-lit/bottom-shadowed gradient so the plank reads as a rounded,
      physical board rather than a flat color bar. */
@@ -587,12 +845,55 @@ html[data-theme="light"] {
     0 6px 14px rgba(20, 10, 10, 0.45);
 }
 
+.shelf-book-wrapper {
+  position: absolute;
+}
+
 .shelf-book-spine,
 .shelf-book-cover {
-  position: absolute;
   border: none;
   cursor: grab;
   touch-action: none;
+}
+
+.shelf-book-custom-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shelf-book-toolbar {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  width: max-content;
+  min-width: 150px;
+  z-index: 20;
+  cursor: default;
+}
+
+.shelf-book-toolbar-rotation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--foreground);
+}
+
+.shelf-book-toolbar-upload {
+  font-size: 0.72rem;
+  padding: 0.35rem 0.6rem;
 }
 
 .shelf-book-spine {
@@ -718,6 +1019,7 @@ html[data-theme="light"] {
   justify-content: center;
   width: 1.75rem;
   height: 1.75rem;
+  color: var(--foreground);
   border: 1px solid var(--accent);
   background: var(--surface);
   border-radius: 6px;
@@ -1009,7 +1311,7 @@ html[data-theme="light"] {
 }
 
 .pdf-text-layer ::selection {
-  background: rgba(140, 47, 57, 0.35);
+  background: rgba(212, 164, 76, 0.35);
 }
 
 .annotation-overlay {
@@ -1223,7 +1525,7 @@ html[data-theme="light"] {
 }
 
 .rating-picker-icon-romance {
-  color: #d98695;
+  color: var(--accent);
 }
 
 .rich-text-editor {

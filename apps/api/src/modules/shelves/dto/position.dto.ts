@@ -1,4 +1,4 @@
-import { IsNumber, IsOptional } from 'class-validator';
+import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 /** Freeform placement on a shelf's canvas. */
 export class PositionDto {
@@ -11,4 +11,10 @@ export class PositionDto {
   @IsOptional()
   @IsNumber()
   rotation?: number;
+
+  // Storage key (not a URL — signed URLs expire) for a user-uploaded photo
+  // of a book's real spine, used instead of the generic rendered spine.
+  @IsOptional()
+  @IsString()
+  customSpineImageKey?: string;
 }

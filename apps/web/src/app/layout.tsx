@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Lora } from "next/font/google";
+import { Caveat, Geist, Geist_Mono, Inter, Lora, Playfair_Display } from "next/font/google";
 import { AuthProvider } from "@/features/auth/components/auth-provider";
+import { getFontCookie } from "@/shared/lib/font-cookie";
 import { getThemeCookie } from "@/shared/lib/theme-cookie";
 import "./globals.css";
 
@@ -14,9 +15,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Warm serif for headings — the "reading nook" feel the rest of the palette goes for.
+// The 4 selectable heading fonts (user preference, see FontSelector) — each
+// gets its own CSS variable; globals.css picks one via [data-font="..."].
 const lora = Lora({
   variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -27,13 +47,14 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const theme = await getThemeCookie();
+  const [theme, font] = await Promise.all([getThemeCookie(), getFontCookie()]);
 
   return (
     <html
       lang="es"
       data-theme={theme ?? undefined}
-      className={`${geistSans.variable} ${geistMono.variable} ${lora.variable}`}
+      data-font={font ?? undefined}
+      className={`${geistSans.variable} ${geistMono.variable} ${lora.variable} ${playfairDisplay.variable} ${inter.variable} ${caveat.variable}`}
     >
       <body>
         <AuthProvider>{children}</AuthProvider>

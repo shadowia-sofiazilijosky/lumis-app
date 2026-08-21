@@ -87,7 +87,7 @@ export class ShelvesService {
     const books = await Promise.all(
       bookShelves.map(async (bookShelf) => ({
         bookId: bookShelf.bookId,
-        position: bookShelf.position,
+        position: await this.resolvePositionImage(bookShelf.position),
         addedAt: bookShelf.addedAt,
         book: {
           ...bookShelf.book,
@@ -210,6 +210,64 @@ export class ShelvesService {
         }),
       ),
     );
+  }
+
+  async uploadSpineImage(
+    ownerId: string,
+    shelfId: string,
+    bookId: string,
+    file: { buffer: Buffer; mimetype: string },
+  ): Promise<{
+    customSpineImageKey: string;
+    customSpineImageUrl: string | null;
+  }> {
+    await this.getOwnedShelfOrThrow(ownerId, shelfId);
+
+    const bookShelf = await this.prisma.bookShelf.findUnique({
+      where: { bookId_shelfId: { bookId, shelfId } },
+    });
+    if (!bookShelf) {
+      throw new NotFoundException('Ese libro no está en esta estantería.');
+    }
+
+    const extension = file.mimetype === 'image/png' ? '.png' : '.jpg';
+    const customSpineImageKey = `${ownerId}/${shelfId}/${bookId}/spine-custom${extension}`;
+    await this.storage.upload(customSpineImageKey, file.buffer, file.mimetype);
+
+    const currentPosition =
+      bookShelf.position && typeof bookShelf.position === 'object'
+        ? (bookShelf.position as Record<string, unknown>)
+        : {};
+    await this.prisma.bookShelf.update({
+      where: { bookId_shelfId: { bookId, shelfId } },
+      data: {
+        position: {
+          ...currentPosition,
+          customSpineImageKey,
+        },
+      },
+    });
+
+    return {
+      customSpineImageKey,
+      customSpineImageUrl:
+        await this.storage.createSignedUrl(customSpineImageKey),
+    };
+  }
+
+  private async resolvePositionImage(
+    position: Prisma.JsonValue,
+  ): Promise<Prisma.JsonValue> {
+    if (!position || typeof position !== 'object' || Array.isArray(position)) {
+      return position;
+    }
+    const key = (position as Record<string, unknown>).customSpineImageKey;
+    if (typeof key !== 'string') return position;
+
+    return {
+      ...position,
+      customSpineImageUrl: await this.storage.createSignedUrl(key),
+    };
   }
 
   private async getOwnedShelfOrThrow(
