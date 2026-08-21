@@ -339,6 +339,90 @@ header nav a {
   display: none;
 }
 
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  border-top: 1px solid #4a3626;
+}
+
+/* --- Theme switch: sun and moon both stay visible on the track, a pill
+   slides between them. Fixed dark/gold colors (not the theme variables) —
+   it lives on the sidebar's own fixed-dark surface, or floats over the
+   auth pages' background. --- */
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  padding: 3px;
+  background: #2b1b11;
+  border: 1px solid #4a3626;
+  border-radius: 999px;
+}
+
+.theme-switch-icon {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  color: #8a7864;
+}
+
+.theme-switch-icon-sun {
+  justify-content: flex-start;
+  padding-left: 2px;
+}
+
+.theme-switch-icon-moon {
+  justify-content: flex-end;
+  padding-right: 2px;
+}
+
+.theme-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d4a44c;
+  color: #2b1b11;
+  border-radius: 50%;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.theme-switch-thumb-dark {
+  transform: translateX(24px);
+  background: #f5ede0;
+}
+
+.theme-switch-floating {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 40;
+}
+
+.sidebar-collapsed .theme-switch {
+  width: 40px;
+  height: 24px;
+}
+
+.sidebar-collapsed .theme-switch-thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar-collapsed .theme-switch-thumb-dark {
+  transform: translateX(16px);
+}
+
 @media (max-width: 768px) {
   .sidebar-mobile-trigger {
     display: flex;

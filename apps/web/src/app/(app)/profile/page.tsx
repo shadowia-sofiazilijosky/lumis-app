@@ -20,7 +20,7 @@ export default async function ProfilePage() {
 
       <div className="profile-preference-row">
         <span>Modo claro / oscuro</span>
-        <ThemeToggle initialTheme={theme} variant="inline" />
+        <ThemeToggle initialTheme={theme} />
       </div>
 
       <FontSelector initialFont={user.fontPreference as FontMode} />

@@ -24,25 +24,26 @@ function getServerOsScheme(): ThemeMode {
 
 interface ThemeToggleProps {
   initialTheme: ThemeMode | null;
-  /** "floating" (default): fixed circle in a corner. "inline": sits in normal document flow (e.g. the profile page's preferences list). */
-  variant?: "floating" | "inline";
 }
 
 /**
- * Global light/dark toggle. Mounted inline in the profile page — the
- * public marketing site keeps a fixed cozy palette with no toggle at all.
+ * Global light/dark switch — sun and moon both stay visible on the track,
+ * with a pill that slides between them. Mounted once in the sidebar, so
+ * it's reachable from every screen after login; the public marketing site
+ * keeps a fixed cozy palette with no toggle at all.
  */
-export function ThemeToggle({ initialTheme, variant = "floating" }: ThemeToggleProps) {
+export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
   // No cookie yet (first-ever visit): fall back to — and stay live-synced
   // with — the OS preference via useSyncExternalStore, rather than guessing
   // once in an effect. The page itself already follows prefers-color-scheme
-  // via CSS regardless; this only decides which icon the button shows.
+  // via CSS regardless; this only decides which side the pill sits on.
   const osTheme = useSyncExternalStore(subscribeToOsScheme, getOsScheme, getServerOsScheme);
   const [override, setOverride] = useState<ThemeMode | null>(initialTheme);
   const theme = override ?? osTheme;
+  const isDark = theme === "dark";
 
   function toggle() {
-    const next: ThemeMode = theme === "dark" ? "light" : "dark";
+    const next: ThemeMode = isDark ? "light" : "dark";
     setOverride(next);
     document.documentElement.dataset.theme = next;
     document.cookie = `${THEME_COOKIE}=${next}; path=/; max-age=${THEME_MAX_AGE_SECONDS}; samesite=lax`;
@@ -58,11 +59,17 @@ export function ThemeToggle({ initialTheme, variant = "floating" }: ThemeToggleP
   return (
     <button
       type="button"
-      className={variant === "floating" ? "theme-toggle" : "theme-toggle-inline"}
+      role="switch"
+      aria-checked={isDark}
+      className="theme-switch"
       onClick={toggle}
       aria-label="Cambiar entre modo claro y oscuro"
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      <Sun size={14} className="theme-switch-icon theme-switch-icon-sun" aria-hidden="true" />
+      <Moon size={14} className="theme-switch-icon theme-switch-icon-moon" aria-hidden="true" />
+      <span className={`theme-switch-thumb ${isDark ? "theme-switch-thumb-dark" : ""}`}>
+        {isDark ? <Moon size={13} /> : <Sun size={13} />}
+      </span>
     </button>
   );
 }

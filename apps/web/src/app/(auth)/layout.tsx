@@ -15,7 +15,9 @@ export default async function AuthLayout({
 
   return (
     <>
-      <ThemeToggle initialTheme={theme} />
+      <div className="theme-switch-floating">
+        <ThemeToggle initialTheme={theme} />
+      </div>
       {children}
     </>
   );

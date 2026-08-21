@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import type { ThemeMode } from "../lib/theme-cookie-names";
+import { ThemeToggle } from "./theme-toggle";
 
 const COLLAPSED_STORAGE_KEY = "lumis-sidebar-collapsed";
 
@@ -21,7 +23,7 @@ const NAV_ITEMS = [
  * `mobileOpen` (never persisted — a drawer shouldn't reopen itself on the
  * next visit) shows/hides it as an overlay on narrow screens.
  */
-export function Sidebar() {
+export function Sidebar({ initialTheme }: { initialTheme: ThemeMode | null }) {
   const pathname = usePathname();
   // Lazy initializer (not an effect): reads the persisted preference once,
   // synchronously, on the client. Server-rendered markup always starts
@@ -108,6 +110,10 @@ export function Sidebar() {
             );
           })}
         </nav>
+
+        <div className="sidebar-footer">
+          <ThemeToggle initialTheme={initialTheme} />
+        </div>
       </aside>
     </>
   );
