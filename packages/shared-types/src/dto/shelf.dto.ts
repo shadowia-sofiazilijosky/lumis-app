@@ -10,6 +10,8 @@ export interface CreateShelfInput {
   shelfFrame?: string;
   backgroundColor?: string;
   backgroundImageUrl?: string;
+  canvasWidth?: number;
+  canvasHeight?: number;
   decorations?: ShelfDecoration[];
   sortOrder?: number;
 }

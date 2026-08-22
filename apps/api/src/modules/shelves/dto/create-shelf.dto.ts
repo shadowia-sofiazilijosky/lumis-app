@@ -5,7 +5,9 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
+  Max,
   MaxLength,
+  Min,
 } from 'class-validator';
 import { ShelfArrangement } from '@prisma/client';
 
@@ -43,6 +45,18 @@ export class CreateShelfDto {
   @IsString()
   @MaxLength(500)
   backgroundImageUrl?: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(240)
+  @Max(2400)
+  canvasWidth?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(160)
+  @Max(1600)
+  canvasHeight?: number;
 
   // Freeform decoration objects (lights, plants, etc.) — deliberately loosely
   // typed here; the frontend owns and fully round-trips this shape.

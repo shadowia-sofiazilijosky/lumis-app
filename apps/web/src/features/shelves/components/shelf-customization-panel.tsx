@@ -27,8 +27,13 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
   const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
 
   function save(patch: UpdateShelfInput) {
+    // Apply optimistically and leave it — these fields (background/frame
+    // pickers) aren't transformed server-side, so the value we send back is
+    // exactly what gets stored. Re-patching from the response caused a race:
+    // an earlier click's response could resolve after a later click's and
+    // silently revert the selection back to the earlier one.
     patchShelfMeta(patch);
-    updateShelf(shelf.id, patch).then((updated) => patchShelfMeta(updated)).catch(() => {});
+    updateShelf(shelf.id, patch).catch(() => {});
   }
 
   return (

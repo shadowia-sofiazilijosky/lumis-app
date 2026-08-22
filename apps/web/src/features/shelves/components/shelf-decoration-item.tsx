@@ -8,13 +8,15 @@ import { DECORATION_ICONS } from "../lib/decoration-catalog";
 
 interface ShelfDecorationItemProps {
   decoration: ShelfDecoration;
-  scale: number;
+  scaleX: number;
+  scaleY: number;
   onRemove: (id: string) => void;
 }
 
 export function ShelfDecorationItem({
   decoration,
-  scale,
+  scaleX,
+  scaleY,
   onRemove,
 }: ShelfDecorationItemProps) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
@@ -28,8 +30,8 @@ export function ShelfDecorationItem({
 
   const style: CSSProperties = {
     position: "absolute",
-    left: decoration.x * scale,
-    top: decoration.y * scale,
+    left: decoration.x * scaleX,
+    top: decoration.y * scaleY,
     transform: transform
       ? `${CSS.Translate.toString(transform)} rotate(${rotation}deg)`
       : `rotate(${rotation}deg)`,

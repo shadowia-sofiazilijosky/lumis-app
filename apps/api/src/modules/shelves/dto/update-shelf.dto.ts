@@ -4,7 +4,9 @@ import {
   IsInt,
   IsOptional,
   IsString,
+  Max,
   MaxLength,
+  Min,
 } from 'class-validator';
 import { ShelfArrangement } from '@prisma/client';
 
@@ -42,6 +44,18 @@ export class UpdateShelfDto {
   @IsString()
   @MaxLength(500)
   backgroundImageUrl?: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(240)
+  @Max(2400)
+  canvasWidth?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(160)
+  @Max(1600)
+  canvasHeight?: number;
 
   @IsOptional()
   @IsArray()

@@ -12,7 +12,8 @@ interface ShelfBookItemProps {
   bookId: string;
   book: BookSummary;
   position: Position;
-  scale: number;
+  scaleX: number;
+  scaleY: number;
   arrangement: ShelfArrangement;
 }
 
@@ -21,7 +22,8 @@ export function ShelfBookItem({
   bookId,
   book,
   position,
-  scale,
+  scaleX,
+  scaleY,
   arrangement,
 }: ShelfBookItemProps) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
@@ -43,8 +45,8 @@ export function ShelfBookItem({
 
   const wrapperStyle: CSSProperties = {
     position: "absolute",
-    left: position.x * scale,
-    top: position.y * scale,
+    left: position.x * scaleX,
+    top: position.y * scaleY,
     zIndex: isDragging || isSelected ? 10 : 1,
   };
 

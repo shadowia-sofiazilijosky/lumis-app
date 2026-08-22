@@ -12,12 +12,13 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DECORATION_ICONS } from "../lib/decoration-catalog";
-import { useCanvasScale } from "../hooks/use-canvas-scale";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
+import { ResizableCanvasBox } from "./resizable-canvas-box";
 import { ShelfBookItem } from "./shelf-book-item";
 import { ShelfCustomizationPanel } from "./shelf-customization-panel";
 import { ShelfDecorationItem } from "./shelf-decoration-item";
@@ -31,20 +32,20 @@ type DragData =
 
 interface DroppableCanvasProps {
   shelf: ShelfWithBooks;
-  scale: number;
+  scaleX: number;
+  scaleY: number;
   bookPositions: Record<string, { x: number; y: number; rotation?: number }>;
   decorations: ShelfDecoration[];
   onRemoveDecoration: (id: string) => void;
-  containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 function DroppableCanvas({
   shelf,
-  scale,
+  scaleX,
+  scaleY,
   bookPositions,
   decorations,
   onRemoveDecoration,
-  containerRef,
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
   const selectBook = useShelfEditorStore((state) => state.selectBook);
@@ -52,71 +53,67 @@ function DroppableCanvas({
 
   return (
     <div
-      ref={containerRef}
-      className="shelf-canvas-outer"
-      style={{ aspectRatio: `${CANVAS_WIDTH} / ${CANVAS_HEIGHT}` }}
+      ref={setNodeRef}
+      className="shelf-canvas-inner"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) selectBook(null);
+      }}
     >
+      {/* Wall/backdrop layer — the "Fondo" tab selection, always covers the
+          full canvas box edge-to-edge, however large the box is resized. */}
       <div
-        ref={setNodeRef}
-        className="shelf-canvas-inner"
-        style={{ width: CANVAS_WIDTH * scale, height: CANVAS_HEIGHT * scale }}
-        onClick={(event) => {
-          if (event.target === event.currentTarget) selectBook(null);
+        className="shelf-background-layer"
+        style={{
+          backgroundColor: shelf.backgroundColor || undefined,
+          backgroundImage: shelf.backgroundImageUrl
+            ? `url(${shelf.backgroundImageUrl})`
+            : undefined,
         }}
+        aria-hidden="true"
+      />
+
+      {/* Furniture layer — a selected wood-frame image ("Estantería" tab)
+          replaces the default texture entirely; otherwise the default
+          grayscale texture is tinted via multiply blend with the chosen
+          furniture color, keeping the wood grain/shadows visible. */}
+      <div
+        className="shelf-frame-layer"
+        style={frameImage ? { backgroundImage: `url(${frameImage})` } : undefined}
+        aria-hidden="true"
       >
-        {/* Wall/backdrop layer — the "Fondo" tab selection. */}
-        <div
-          className="shelf-background-layer"
-          style={{
-            backgroundColor: shelf.backgroundColor || undefined,
-            backgroundImage: shelf.backgroundImageUrl
-              ? `url(${shelf.backgroundImageUrl})`
-              : undefined,
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Furniture layer — a selected wood-frame image ("Estantería" tab)
-            replaces the default texture entirely; otherwise the default
-            grayscale texture is tinted via multiply blend with the chosen
-            furniture color, keeping the wood grain/shadows visible. */}
-        <div
-          className="shelf-frame-layer"
-          style={frameImage ? { backgroundImage: `url(${frameImage})` } : undefined}
-          aria-hidden="true"
-        >
-          {!frameImage && (
-            <div
-              className="shelf-color-overlay"
-              style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
-              aria-hidden="true"
-            />
-          )}
-        </div>
-
-        <div className="shelf-plank" aria-hidden="true" />
-
-        {shelf.books.map((entry) => (
-          <ShelfBookItem
-            key={entry.bookId}
-            shelfId={shelf.id}
-            bookId={entry.bookId}
-            book={entry.book}
-            position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}
-            scale={scale}
-            arrangement={shelf.arrangement}
+        {!frameImage && (
+          <div
+            className="shelf-color-overlay"
+            style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
+            aria-hidden="true"
           />
-        ))}
-
-        {decorations.map((decoration) => (
-          <ShelfDecorationItem
-            key={decoration.id}
-            decoration={decoration}
-            scale={scale}
-            onRemove={onRemoveDecoration}
-          />
-        ))}
+        )}
       </div>
+
+      <div className="shelf-plank" aria-hidden="true" />
+
+      {shelf.books.map((entry) => (
+        <ShelfBookItem
+          key={entry.bookId}
+          shelfId={shelf.id}
+          bookId={entry.bookId}
+          book={entry.book}
+          position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}
+          scaleX={scaleX}
+          scaleY={scaleY}
+          arrangement={shelf.arrangement}
+        />
+      ))}
+
+      {decorations.map((decoration) => (
+        <ShelfDecorationItem
+          key={decoration.id}
+          decoration={decoration}
+          scaleX={scaleX}
+          scaleY={scaleY}
+          onRemove={onRemoveDecoration}
+        />
+      ))}
     </div>
   );
 }
@@ -130,8 +127,16 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
   const removeDecoration = useShelfEditorStore(
     (state) => state.removeDecoration,
   );
+  const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
 
-  const { containerRef, scale } = useCanvasScale(CANVAS_WIDTH);
+  const [canvasSize, setCanvasSize] = useState({
+    width: shelf.canvasWidth ?? CANVAS_WIDTH,
+    height: shelf.canvasHeight ?? CANVAS_HEIGHT,
+  });
+  const scaleX = canvasSize.width / CANVAS_WIDTH;
+  const scaleY = canvasSize.height / CANVAS_HEIGHT;
+
+  const containerRef = useRef<HTMLDivElement>(null);
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null);
 
   const sensors = useSensors(
@@ -158,6 +163,14 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     setActiveDrag((event.active.data.current as DragData | undefined) ?? null);
   }
 
+  function persistCanvasSize(size: { width: number; height: number }) {
+    patchShelfMeta({ canvasWidth: size.width, canvasHeight: size.height });
+    updateShelf(shelf.id, {
+      canvasWidth: size.width,
+      canvasHeight: size.height,
+    }).catch(() => {});
+  }
+
   function handleDragEnd(event: DragEndEvent) {
     setActiveDrag(null);
     const { active, over, delta } = event;
@@ -167,8 +180,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     if (data.kind === "book") {
       const current = bookPositions[data.bookId] ?? { x: 0, y: 0 };
       moveBook(data.bookId, {
-        x: current.x + delta.x / scale,
-        y: current.y + delta.y / scale,
+        x: current.x + delta.x / scaleX,
+        y: current.y + delta.y / scaleY,
         rotation: current.rotation,
       });
       return;
@@ -178,8 +191,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
       const current = decorations.find((d) => d.id === data.decorationId);
       if (!current) return;
       moveDecoration(data.decorationId, {
-        x: current.x + delta.x / scale,
-        y: current.y + delta.y / scale,
+        x: current.x + delta.x / scaleX,
+        y: current.y + delta.y / scaleY,
         rotation: current.rotation,
       });
       return;
@@ -194,8 +207,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         id: crypto.randomUUID(),
         type: data.type,
         variant: data.variant,
-        x: Math.max(0, (draggedRect.left - canvasRect.left) / scale),
-        y: Math.max(0, (draggedRect.top - canvasRect.top) / scale),
+        x: Math.max(0, (draggedRect.left - canvasRect.left) / scaleX),
+        y: Math.max(0, (draggedRect.top - canvasRect.top) / scaleY),
       });
     }
   }
@@ -218,14 +231,23 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         onDragCancel={() => setActiveDrag(null)}
       >
         <div className="shelf-editor-layout">
-          <DroppableCanvas
-            shelf={shelf}
-            scale={scale}
-            bookPositions={bookPositions}
-            decorations={decorations}
-            onRemoveDecoration={removeDecoration}
-            containerRef={containerRef}
-          />
+          <div ref={containerRef} className="shelf-canvas-outer">
+            <ResizableCanvasBox
+              width={canvasSize.width}
+              height={canvasSize.height}
+              onResize={setCanvasSize}
+              onResizeEnd={persistCanvasSize}
+            >
+              <DroppableCanvas
+                shelf={shelf}
+                scaleX={scaleX}
+                scaleY={scaleY}
+                bookPositions={bookPositions}
+                decorations={decorations}
+                onRemoveDecoration={removeDecoration}
+              />
+            </ResizableCanvasBox>
+          </div>
           <ShelfCustomizationPanel shelf={shelf} />
         </div>
         <DragOverlay>

@@ -21,6 +21,8 @@ export interface Shelf {
   shelfFrame: string | null;
   backgroundColor: string | null;
   backgroundImageUrl: string | null;
+  canvasWidth: number | null;
+  canvasHeight: number | null;
   decorations: ShelfDecoration[];
   spotifyPlaylistId: string | null;
   spotifyPlaylistUrl: string | null;

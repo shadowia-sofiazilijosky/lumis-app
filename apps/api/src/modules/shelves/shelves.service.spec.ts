@@ -15,6 +15,8 @@ const mockShelf: Shelf = {
   shelfFrame: null,
   backgroundColor: '#F7E6E6',
   backgroundImageUrl: null,
+  canvasWidth: null,
+  canvasHeight: null,
   decorations: [],
   spotifyPlaylistId: null,
   spotifyPlaylistUrl: null,

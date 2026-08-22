@@ -61,6 +61,8 @@ export class ShelvesService {
         shelfFrame: dto.shelfFrame,
         backgroundColor: dto.backgroundColor,
         backgroundImageUrl: dto.backgroundImageUrl,
+        canvasWidth: dto.canvasWidth,
+        canvasHeight: dto.canvasHeight,
         decorations: dto.decorations as Prisma.InputJsonValue | undefined,
         sortOrder: dto.sortOrder,
       },
@@ -142,6 +144,10 @@ export class ShelvesService {
         }),
         ...(dto.backgroundImageUrl !== undefined && {
           backgroundImageUrl: dto.backgroundImageUrl,
+        }),
+        ...(dto.canvasWidth !== undefined && { canvasWidth: dto.canvasWidth }),
+        ...(dto.canvasHeight !== undefined && {
+          canvasHeight: dto.canvasHeight,
         }),
         ...(dto.decorations !== undefined && {
           decorations: dto.decorations as Prisma.InputJsonValue,

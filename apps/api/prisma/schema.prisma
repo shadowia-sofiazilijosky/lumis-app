@@ -144,6 +144,8 @@ model Shelf {
   shelfFrame         String?          @map("shelf_frame") // selected wood-tone frame image key
   backgroundColor    String?          @map("background_color") // the wall/backdrop behind it
   backgroundImageUrl String?          @map("background_image_url")
+  canvasWidth        Int?             @map("canvas_width") // user-resized canvas box, in px (design space is 1000x600)
+  canvasHeight       Int?             @map("canvas_height")
   decorations        Json             @default("[]") // [{ type: "plant" | "light" | ..., variant, x, y, rotation }]
   spotifyPlaylistId  String?          @map("spotify_playlist_id")
   spotifyPlaylistUrl String?          @map("spotify_playlist_url")
