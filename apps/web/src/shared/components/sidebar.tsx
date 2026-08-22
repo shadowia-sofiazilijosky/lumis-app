@@ -104,7 +104,7 @@ export function Sidebar({ initialTheme }: { initialTheme: ThemeMode | null }) {
                 onClick={() => setMobileOpen(false)}
                 title={label}
               >
-                <Icon size={20} aria-hidden="true" />
+                <Icon size={24} aria-hidden="true" />
                 <span className="sidebar-nav-label">{label}</span>
               </Link>
             );

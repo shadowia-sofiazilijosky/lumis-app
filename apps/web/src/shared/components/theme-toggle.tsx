@@ -65,10 +65,10 @@ export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
       onClick={toggle}
       aria-label="Cambiar entre modo claro y oscuro"
     >
-      <Sun size={14} className="theme-switch-icon theme-switch-icon-sun" aria-hidden="true" />
-      <Moon size={14} className="theme-switch-icon theme-switch-icon-moon" aria-hidden="true" />
+      <Sun size={18} className="theme-switch-icon theme-switch-icon-sun" aria-hidden="true" />
+      <Moon size={18} className="theme-switch-icon theme-switch-icon-moon" aria-hidden="true" />
       <span className={`theme-switch-thumb ${isDark ? "theme-switch-thumb-dark" : ""}`}>
-        {isDark ? <Moon size={13} /> : <Sun size={13} />}
+        {isDark ? <Moon size={17} /> : <Sun size={17} />}
       </span>
     </button>
   );
