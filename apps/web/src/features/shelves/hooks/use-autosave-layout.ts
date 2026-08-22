@@ -19,6 +19,25 @@ export function useAutosaveLayout() {
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  function flush() {
+    if (!shelf) return;
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+    setSaveStatus("saving");
+    const positions = Object.entries(bookPositions).map(
+      ([bookId, position]) => ({ bookId, position }),
+    );
+
+    Promise.all([
+      positions.length > 0
+        ? saveShelfLayout(shelf.id, { positions })
+        : Promise.resolve(undefined),
+      updateShelf(shelf.id, { decorations }),
+    ])
+      .then(() => markSaved())
+      .catch(() => setSaveStatus("error"));
+  }
+
   useEffect(() => {
     if (!hasUnsavedChanges || !shelf) return;
 
@@ -52,4 +71,6 @@ export function useAutosaveLayout() {
     setSaveStatus,
     markSaved,
   ]);
+
+  return { saveNow: flush };
 }

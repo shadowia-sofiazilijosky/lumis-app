@@ -46,26 +46,52 @@ function PlantSucculent() {
   );
 }
 
+export const DECORATION_CATEGORIES = [
+  "Todo",
+  "Plantas",
+  "Luces",
+  "Velas",
+  "Marcos",
+  "Objetos",
+] as const;
+
+export type DecorationCategory = (typeof DECORATION_CATEGORIES)[number];
+
 export interface DecorationCatalogItem {
   type: string;
   variant: string;
   label: string;
+  category: DecorationCategory;
   Icon: ComponentType;
 }
 
 export const DECORATION_CATALOG: DecorationCatalogItem[] = [
-  { type: "light", variant: "warm", label: "Luz cálida", Icon: LightWarm },
+  {
+    type: "light",
+    variant: "warm",
+    label: "Luz cálida",
+    category: "Luces",
+    Icon: LightWarm,
+  },
   {
     type: "light",
     variant: "string",
     label: "Guirnalda de luces",
+    category: "Luces",
     Icon: LightString,
   },
-  { type: "plant", variant: "fern", label: "Helecho", Icon: PlantFern },
+  {
+    type: "plant",
+    variant: "fern",
+    label: "Helecho",
+    category: "Plantas",
+    Icon: PlantFern,
+  },
   {
     type: "plant",
     variant: "succulent",
     label: "Suculenta",
+    category: "Plantas",
     Icon: PlantSucculent,
   },
 ];

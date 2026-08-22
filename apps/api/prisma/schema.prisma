@@ -141,6 +141,7 @@ model Shelf {
   genre              String?
   arrangement        ShelfArrangement @default(SPINE)
   shelfColor         String?          @map("shelf_color") // the bookcase/furniture color
+  shelfFrame         String?          @map("shelf_frame") // selected wood-tone frame image key
   backgroundColor    String?          @map("background_color") // the wall/backdrop behind it
   backgroundImageUrl String?          @map("background_image_url")
   decorations        Json             @default("[]") // [{ type: "plant" | "light" | ..., variant, x, y, rotation }]

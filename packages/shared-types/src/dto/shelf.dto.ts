@@ -7,6 +7,7 @@ export interface CreateShelfInput {
   genre?: string;
   arrangement?: ShelfArrangement;
   shelfColor?: string;
+  shelfFrame?: string;
   backgroundColor?: string;
   backgroundImageUrl?: string;
   decorations?: ShelfDecoration[];

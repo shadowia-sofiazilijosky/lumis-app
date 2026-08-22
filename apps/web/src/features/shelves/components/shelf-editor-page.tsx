@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowLeft, Save } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAutosaveLayout } from "../hooks/use-autosave-layout";
@@ -24,7 +26,7 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
   const saveStatus = useShelfEditorStore((state) => state.saveStatus);
   const [view, setView] = useState<"canvas" | "list">("canvas");
 
-  useAutosaveLayout();
+  const { saveNow } = useAutosaveLayout();
 
   async function handleDelete() {
     if (!shelf) return;
@@ -48,19 +50,31 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
   return (
     <div className="shelf-editor-page">
       <header className="shelf-editor-header">
-        <h1>{shelf.name}</h1>
-        <span role="status" aria-live="polite" className="save-status">
-          {SAVE_STATUS_LABEL[saveStatus]}
-        </span>
-        <button
-          type="button"
-          onClick={() => setView(view === "canvas" ? "list" : "canvas")}
-        >
-          {view === "canvas" ? "Ver como lista" : "Ver como estantería"}
-        </button>
-        <button type="button" className="danger" onClick={handleDelete}>
-          Borrar estantería
-        </button>
+        <div className="shelf-editor-header-title">
+          <Link href="/shelves" className="shelf-editor-back" aria-label="Volver a estanterías">
+            <ArrowLeft size={20} />
+          </Link>
+          <h1>Estantería: {shelf.name}</h1>
+        </div>
+        <div className="shelf-editor-header-actions">
+          <span role="status" aria-live="polite" className="save-status">
+            {SAVE_STATUS_LABEL[saveStatus]}
+          </span>
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => setView(view === "canvas" ? "list" : "canvas")}
+          >
+            {view === "canvas" ? "Ver como lista" : "Ver como estantería"}
+          </button>
+          <button type="button" className="shelf-editor-save-button" onClick={saveNow}>
+            <Save size={16} />
+            Guardar cambios
+          </button>
+          <button type="button" className="danger" onClick={handleDelete}>
+            Borrar estantería
+          </button>
+        </div>
       </header>
 
       <ShelfSettingsPanel shelf={shelf} />

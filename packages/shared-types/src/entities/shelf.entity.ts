@@ -18,6 +18,7 @@ export interface Shelf {
   genre: string | null;
   arrangement: ShelfArrangement;
   shelfColor: string | null;
+  shelfFrame: string | null;
   backgroundColor: string | null;
   backgroundImageUrl: string | null;
   decorations: ShelfDecoration[];

@@ -1,0 +1,151 @@
+"use client";
+
+import type { ShelfWithBooks, UpdateShelfInput } from "@lumis/shared-types";
+import { Check } from "lucide-react";
+import { useState } from "react";
+import {
+  BACKGROUND_OPTIONS,
+  SHELF_FRAME_OPTIONS,
+} from "../lib/appearance-catalog";
+import { DECORATION_CATEGORIES, type DecorationCategory } from "../lib/decoration-catalog";
+import { updateShelf } from "../api/shelves-client";
+import { useShelfEditorStore } from "../store/shelf-editor-store";
+import { DecorationPalette } from "./decoration-palette";
+
+type Tab = "fondo" | "estanteria" | "decoracion";
+
+const TABS: { key: Tab; label: string }[] = [
+  { key: "fondo", label: "Fondo" },
+  { key: "estanteria", label: "Estantería" },
+  { key: "decoracion", label: "Decoración" },
+];
+
+export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
+  const [tab, setTab] = useState<Tab>("fondo");
+  const [decorationCategory, setDecorationCategory] =
+    useState<DecorationCategory>("Todo");
+  const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
+
+  function save(patch: UpdateShelfInput) {
+    patchShelfMeta(patch);
+    updateShelf(shelf.id, patch).then((updated) => patchShelfMeta(updated)).catch(() => {});
+  }
+
+  return (
+    <aside className="shelf-customization-panel">
+      <div className="shelf-customization-tabs" role="tablist">
+        {TABS.map(({ key, label }) => (
+          <button
+            key={key}
+            type="button"
+            role="tab"
+            aria-selected={tab === key}
+            className={`shelf-customization-tab ${tab === key ? "shelf-customization-tab-active" : ""}`}
+            onClick={() => setTab(key)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {tab === "fondo" && (
+        <div className="shelf-customization-body">
+          <p className="shelf-customization-hint">Elige tu fondo</p>
+          <div className="shelf-appearance-grid">
+            {BACKGROUND_OPTIONS.map((option) => {
+              const isSelected =
+                option.kind === "photo"
+                  ? shelf.backgroundImageUrl === option.value
+                  : !shelf.backgroundImageUrl && shelf.backgroundColor === option.value;
+
+              return (
+                <button
+                  key={option.key}
+                  type="button"
+                  className="shelf-appearance-thumb"
+                  aria-pressed={isSelected}
+                  aria-label={option.label}
+                  onClick={() =>
+                    save(
+                      option.kind === "photo"
+                        ? { backgroundImageUrl: option.value }
+                        : { backgroundImageUrl: "", backgroundColor: option.value },
+                    )
+                  }
+                  style={
+                    option.kind === "photo"
+                      ? {
+                          backgroundImage: `url(${option.value})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : { backgroundColor: option.value }
+                  }
+                >
+                  {isSelected && (
+                    <span className="shelf-appearance-thumb-check">
+                      <Check size={14} strokeWidth={3} />
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {tab === "estanteria" && (
+        <div className="shelf-customization-body">
+          <p className="shelf-customization-hint">Elige tu estantería</p>
+          <div className="shelf-appearance-grid">
+            {SHELF_FRAME_OPTIONS.map((option) => {
+              const isSelected = shelf.shelfFrame === option.key;
+              return (
+                <button
+                  key={option.key}
+                  type="button"
+                  className="shelf-appearance-thumb"
+                  aria-pressed={isSelected}
+                  aria-label={option.label}
+                  onClick={() => save({ shelfFrame: option.key })}
+                  style={{
+                    backgroundImage: `url(${option.imageUrl})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {isSelected && (
+                    <span className="shelf-appearance-thumb-check">
+                      <Check size={14} strokeWidth={3} />
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {tab === "decoracion" && (
+        <div className="shelf-customization-body">
+          <p className="shelf-customization-hint">Decoraciones disponibles</p>
+          <div className="decoration-category-chips">
+            {DECORATION_CATEGORIES.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={`decoration-category-chip ${
+                  decorationCategory === category ? "decoration-category-chip-active" : ""
+                }`}
+                onClick={() => setDecorationCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          <DecorationPalette category={decorationCategory} />
+        </div>
+      )}
+    </aside>
+  );
+}

@@ -819,8 +819,45 @@ html[data-theme="light"] {
 .shelf-editor-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.shelf-editor-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shelf-editor-header-title h1 {
+  margin-bottom: 0;
+}
+
+.shelf-editor-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.shelf-editor-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.shelf-editor-save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .save-status {
@@ -847,10 +884,23 @@ html[data-theme="light"] {
   gap: 0.75rem;
 }
 
+.shelf-editor-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .decoration-palette {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.decoration-palette-empty {
+  font-size: 0.85rem;
+  color: var(--foreground);
+  opacity: 0.65;
 }
 
 .decoration-palette-item {
@@ -867,9 +917,128 @@ html[data-theme="light"] {
   font-size: 0.75rem;
 }
 
+/* --- Shelf editor customization panel (Fondo / Estantería / Decoración) --- */
+
+.shelf-customization-panel {
+  flex: 0 0 320px;
+  width: 320px;
+  max-width: 100%;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.shelf-customization-tabs {
+  display: flex;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.shelf-customization-tab {
+  padding: 0.5rem 0.1rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--foreground);
+  opacity: 0.6;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+
+.shelf-customization-tab:hover:not(:disabled) {
+  box-shadow: none;
+  transform: none;
+  opacity: 0.85;
+}
+
+.shelf-customization-tab-active {
+  opacity: 1;
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.shelf-customization-hint {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--foreground);
+}
+
+.shelf-appearance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.shelf-appearance-thumb {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--background);
+  overflow: hidden;
+}
+
+.shelf-appearance-thumb:hover:not(:disabled) {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--primary);
+}
+
+.shelf-appearance-thumb[aria-pressed="true"] {
+  border-color: var(--primary);
+}
+
+.shelf-appearance-thumb-check {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.decoration-category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.decoration-category-chip {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.decoration-category-chip:hover:not(:disabled) {
+  box-shadow: none;
+  transform: none;
+}
+
+.decoration-category-chip-active {
+  background: var(--foreground);
+  color: var(--surface);
+  border-color: var(--foreground);
+}
+
 .shelf-canvas-outer {
   width: 100%;
   max-width: 1000px;
+  flex: 1 1 560px;
+  min-width: 0;
   border: 1px solid var(--accent);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -878,12 +1047,26 @@ html[data-theme="light"] {
 
 .shelf-canvas-inner {
   position: relative;
+  box-shadow: inset 0 40px 60px -40px rgba(20, 10, 10, 0.35),
+    inset 0 -20px 40px -30px rgba(20, 10, 10, 0.3);
+}
+
+/* Wall/backdrop — the "Fondo" tab selection. Sits behind the furniture layer. */
+.shelf-background-layer {
+  position: absolute;
+  inset: 0;
   background-color: var(--background);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Furniture — either the default tinted wood texture, or a selected frame image. */
+.shelf-frame-layer {
+  position: absolute;
+  inset: 0;
   background-image: url("/assets/shelves/shelf-texture-base.jpg");
   background-size: cover;
   background-position: center;
-  box-shadow: inset 0 40px 60px -40px rgba(20, 10, 10, 0.35),
-    inset 0 -20px 40px -30px rgba(20, 10, 10, 0.3);
 }
 
 .shelf-color-overlay {

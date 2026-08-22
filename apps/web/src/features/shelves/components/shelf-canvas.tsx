@@ -14,11 +14,12 @@ import {
 } from "@dnd-kit/core";
 import { useMemo, useState } from "react";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../lib/canvas";
+import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DECORATION_ICONS } from "../lib/decoration-catalog";
 import { useCanvasScale } from "../hooks/use-canvas-scale";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
-import { DecorationPalette } from "./decoration-palette";
 import { ShelfBookItem } from "./shelf-book-item";
+import { ShelfCustomizationPanel } from "./shelf-customization-panel";
 import { ShelfDecorationItem } from "./shelf-decoration-item";
 
 const DEFAULT_SHELF_COLOR = "#8c2f39";
@@ -47,6 +48,7 @@ function DroppableCanvas({
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
   const selectBook = useShelfEditorStore((state) => state.selectBook);
+  const frameImage = findShelfFrameImage(shelf.shelfFrame);
 
   return (
     <div
@@ -57,26 +59,40 @@ function DroppableCanvas({
       <div
         ref={setNodeRef}
         className="shelf-canvas-inner"
-        style={{
-          width: CANVAS_WIDTH * scale,
-          height: CANVAS_HEIGHT * scale,
-          backgroundColor: shelf.backgroundColor ?? undefined,
-          backgroundImage: shelf.backgroundImageUrl
-            ? `url(${shelf.backgroundImageUrl})`
-            : undefined,
-        }}
+        style={{ width: CANVAS_WIDTH * scale, height: CANVAS_HEIGHT * scale }}
         onClick={(event) => {
           if (event.target === event.currentTarget) selectBook(null);
         }}
       >
-        {/* The chosen "furniture color" tints the real wood-grain texture
-            via multiply blend, instead of painting a flat color over it —
-            the grain/shadows stay visible underneath. */}
+        {/* Wall/backdrop layer — the "Fondo" tab selection. */}
         <div
-          className="shelf-color-overlay"
-          style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
+          className="shelf-background-layer"
+          style={{
+            backgroundColor: shelf.backgroundColor || undefined,
+            backgroundImage: shelf.backgroundImageUrl
+              ? `url(${shelf.backgroundImageUrl})`
+              : undefined,
+          }}
           aria-hidden="true"
         />
+
+        {/* Furniture layer — a selected wood-frame image ("Estantería" tab)
+            replaces the default texture entirely; otherwise the default
+            grayscale texture is tinted via multiply blend with the chosen
+            furniture color, keeping the wood grain/shadows visible. */}
+        <div
+          className="shelf-frame-layer"
+          style={frameImage ? { backgroundImage: `url(${frameImage})` } : undefined}
+          aria-hidden="true"
+        >
+          {!frameImage && (
+            <div
+              className="shelf-color-overlay"
+              style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
+              aria-hidden="true"
+            />
+          )}
+        </div>
 
         <div className="shelf-plank" aria-hidden="true" />
 
@@ -201,15 +217,17 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         onDragEnd={handleDragEnd}
         onDragCancel={() => setActiveDrag(null)}
       >
-        <DecorationPalette />
-        <DroppableCanvas
-          shelf={shelf}
-          scale={scale}
-          bookPositions={bookPositions}
-          decorations={decorations}
-          onRemoveDecoration={removeDecoration}
-          containerRef={containerRef}
-        />
+        <div className="shelf-editor-layout">
+          <DroppableCanvas
+            shelf={shelf}
+            scale={scale}
+            bookPositions={bookPositions}
+            decorations={decorations}
+            onRemoveDecoration={removeDecoration}
+            containerRef={containerRef}
+          />
+          <ShelfCustomizationPanel shelf={shelf} />
+        </div>
         <DragOverlay>
           {activeDrag?.kind === "book" && activeBookEntry ? (
             <div className="shelf-book-drag-preview">

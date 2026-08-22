@@ -12,6 +12,7 @@ const mockShelf: Shelf = {
   genre: 'fantasy',
   arrangement: ShelfArrangement.SPINE,
   shelfColor: '#8C2F39',
+  shelfFrame: null,
   backgroundColor: '#F7E6E6',
   backgroundImageUrl: null,
   decorations: [],

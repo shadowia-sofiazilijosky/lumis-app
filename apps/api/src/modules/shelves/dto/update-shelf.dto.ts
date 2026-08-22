@@ -31,6 +31,11 @@ export class UpdateShelfDto {
   @IsOptional()
   @IsString()
   @MaxLength(30)
+  shelfFrame?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(30)
   backgroundColor?: string;
 
   @IsOptional()

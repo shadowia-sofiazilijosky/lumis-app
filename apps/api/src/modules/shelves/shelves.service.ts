@@ -55,6 +55,7 @@ export class ShelvesService {
         genre: dto.genre?.trim(),
         arrangement: dto.arrangement,
         shelfColor: dto.shelfColor,
+        shelfFrame: dto.shelfFrame,
         backgroundColor: dto.backgroundColor,
         backgroundImageUrl: dto.backgroundImageUrl,
         decorations: dto.decorations as Prisma.InputJsonValue | undefined,
@@ -115,6 +116,7 @@ export class ShelvesService {
         ...(dto.genre !== undefined && { genre: dto.genre.trim() }),
         ...(dto.arrangement !== undefined && { arrangement: dto.arrangement }),
         ...(dto.shelfColor !== undefined && { shelfColor: dto.shelfColor }),
+        ...(dto.shelfFrame !== undefined && { shelfFrame: dto.shelfFrame }),
         ...(dto.backgroundColor !== undefined && {
           backgroundColor: dto.backgroundColor,
         }),
