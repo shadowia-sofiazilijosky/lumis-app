@@ -7,7 +7,6 @@ export const metadata = {
 export default function ShelvesPage() {
   return (
     <section>
-      <h1>Tus estanterías</h1>
       <ShelfList />
     </section>
   );

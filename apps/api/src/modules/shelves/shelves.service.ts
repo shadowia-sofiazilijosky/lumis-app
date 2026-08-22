@@ -16,8 +16,11 @@ type BookSummary = Pick<
   'id' | 'title' | 'author' | 'format' | 'pageCount' | 'coverImageKey'
 >;
 
+const PREVIEW_COVER_LIMIT = 6;
+
 export interface ShelfListItem extends Shelf {
   bookCount: number;
+  previewCovers: string[];
 }
 
 export interface ShelfBookEntry {
@@ -68,13 +71,30 @@ export class ShelvesService {
     const shelves = await this.prisma.shelf.findMany({
       where: { ownerId },
       orderBy: { sortOrder: 'asc' },
-      include: { _count: { select: { books: true } } },
+      include: {
+        _count: { select: { books: true } },
+        books: {
+          take: PREVIEW_COVER_LIMIT,
+          select: { book: { select: { coverImageKey: true } } },
+        },
+      },
     });
 
-    return shelves.map(({ _count, ...shelf }) => ({
-      ...shelf,
-      bookCount: _count.books,
-    }));
+    return Promise.all(
+      shelves.map(async ({ _count, books, ...shelf }) => {
+        const previewCovers = (
+          await Promise.all(
+            books.map(({ book }) =>
+              book.coverImageKey
+                ? this.storage.createSignedUrl(book.coverImageKey)
+                : Promise.resolve(null),
+            ),
+          )
+        ).filter((url): url is string => url !== null);
+
+        return { ...shelf, bookCount: _count.books, previewCovers };
+      }),
+    );
   }
 
   async findOneForOwner(ownerId: string, id: string): Promise<ShelfWithBooks> {

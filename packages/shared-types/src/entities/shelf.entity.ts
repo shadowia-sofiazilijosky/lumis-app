@@ -31,6 +31,7 @@ export interface Shelf {
 
 export interface ShelfListItem extends Shelf {
   bookCount: number;
+  previewCovers: string[];
 }
 
 export interface ShelfBookEntry {

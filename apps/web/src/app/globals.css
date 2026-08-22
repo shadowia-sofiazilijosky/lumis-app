@@ -792,20 +792,45 @@ html[data-theme="light"] {
 
 /* --- Shelves editor --- */
 
+.shelf-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.shelf-list-header h1 {
+  margin-bottom: 0;
+}
+
+.shelf-create-form {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.shelf-create-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .shelf-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 .shelf-card {
-  display: block;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   background-color: var(--surface);
-  color: var(--foreground);
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -813,7 +838,193 @@ html[data-theme="light"] {
 .shelf-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+.shelf-card-link {
+  display: block;
+  color: var(--foreground);
+}
+
+.shelf-card-link:hover {
   text-decoration: none;
+}
+
+.shelf-card-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  color: #fff;
+}
+
+.shelf-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.shelf-card-topbar-text h3 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.shelf-card-topbar-text p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.shelf-card-preview {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.shelf-card-preview-background {
+  position: absolute;
+  inset: 0;
+  background-color: var(--background);
+  background-size: cover;
+  background-position: center;
+}
+
+.shelf-card-preview-frame {
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/shelves/shelf-texture-base.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.shelf-card-decoration {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%) scale(0.6);
+  pointer-events: none;
+}
+
+.shelf-card-spines {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 8%;
+  display: flex;
+  gap: 3px;
+  height: 45%;
+}
+
+.shelf-card-spine {
+  flex: 1 1 0;
+  max-width: 22px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.shelf-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.shelf-card-open-button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.shelf-card-open-button:hover {
+  text-decoration: none;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+.shelf-card-settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.shelf-card-settings:hover {
+  text-decoration: none;
+  border-color: var(--primary);
+}
+
+.shelf-create-card {
+  display: flex;
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--border);
+  min-height: 220px;
+}
+
+.shelf-create-card-trigger {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+}
+
+.shelf-create-card-trigger:hover:not(:disabled) {
+  box-shadow: none;
+  transform: none;
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
+}
+
+.shelf-create-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  margin-bottom: 0.4rem;
+}
+
+.shelf-create-card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.shelf-create-card-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.shelf-create-card-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
 .shelf-editor-header {
