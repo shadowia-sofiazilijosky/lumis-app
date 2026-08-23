@@ -212,6 +212,12 @@ main {
   padding: 2rem 1.5rem;
 }
 
+/* The shelf editor wants to use the full width freed up by the sidebar
+   (especially once collapsed), not the app's usual reading-width column. */
+main:has(.shelf-editor-page) {
+  max-width: none;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -1274,9 +1280,11 @@ html[data-theme="light"] {
 }
 
 /* Just a flex-layout slot + horizontal scroll fallback for an oversized
-   canvas — the visible box with its own pixel size is .resizable-canvas-box. */
+   canvas — the visible box with its own pixel size is .resizable-canvas-box.
+   flex-grow: 1 so it eats whatever width the sidebar isn't using — expanding
+   automatically when the sidebar collapses, shrinking when it's expanded. */
 .shelf-canvas-outer {
-  flex: 1 1 560px;
+  flex: 1 1 640px;
   min-width: 0;
   max-width: 100%;
   overflow: auto;

@@ -64,6 +64,7 @@ export function useResizableBox({
     direction: ResizeHandleDirection;
   } | null>(null);
   const [liveOffset, setLiveOffset] = useState({ x: 0, y: 0 });
+  const [isResizing, setIsResizing] = useState(false);
 
   function onPointerDown(direction: ResizeHandleDirection) {
     return (event: React.PointerEvent<HTMLElement>) => {
@@ -78,6 +79,7 @@ export function useResizableBox({
         startHeight: height,
         direction,
       };
+      setIsResizing(true);
     };
   }
 
@@ -116,6 +118,7 @@ export function useResizableBox({
     if (!startRef.current || event.pointerId !== startRef.current.pointerId) return;
     startRef.current = null;
     setLiveOffset({ x: 0, y: 0 });
+    setIsResizing(false);
     onResizeEnd({ width, height });
   }
 
@@ -124,5 +127,6 @@ export function useResizableBox({
     onPointerMove,
     onPointerUp,
     liveOffset,
+    isResizing,
   };
 }

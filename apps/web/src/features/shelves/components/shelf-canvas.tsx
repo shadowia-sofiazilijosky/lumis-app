@@ -12,11 +12,12 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DECORATION_ICONS } from "../lib/decoration-catalog";
+import { useObservedSize } from "../hooks/use-observed-size";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { ResizableCanvasBox } from "./resizable-canvas-box";
 import { ShelfBookItem } from "./shelf-book-item";
@@ -124,14 +125,21 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
   );
   const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
 
+  const hasManualSize = shelf.canvasWidth != null && shelf.canvasHeight != null;
   const [canvasSize, setCanvasSize] = useState({
     width: shelf.canvasWidth ?? CANVAS_WIDTH,
     height: shelf.canvasHeight ?? CANVAS_HEIGHT,
   });
-  const scaleX = canvasSize.width / CANVAS_WIDTH;
-  const scaleY = canvasSize.height / CANVAS_HEIGHT;
+  const { ref: boxRef, size: observedSize } = useObservedSize<HTMLDivElement>();
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  // Until the user resizes it manually, the canvas is CSS-driven (fills its
+  // container responsively — grows when the sidebar collapses, etc.), so we
+  // read its actual rendered size back via ResizeObserver for the scale math.
+  const effectiveWidth = hasManualSize ? canvasSize.width : observedSize.width || CANVAS_WIDTH;
+  const effectiveHeight = hasManualSize ? canvasSize.height : observedSize.height || CANVAS_HEIGHT;
+  const scaleX = effectiveWidth / CANVAS_WIDTH;
+  const scaleY = effectiveHeight / CANVAS_HEIGHT;
+
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null);
 
   const sensors = useSensors(
@@ -194,7 +202,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     }
 
     if (data.kind === "palette" && over?.id === "shelf-canvas") {
-      const canvasRect = containerRef.current?.getBoundingClientRect();
+      const canvasRect = boxRef.current?.getBoundingClientRect();
       const draggedRect = active.rect.current.translated;
       if (!canvasRect || !draggedRect) return;
 
@@ -235,10 +243,13 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         onDragCancel={() => setActiveDrag(null)}
       >
         <div className="shelf-editor-layout">
-          <div ref={containerRef} className="shelf-canvas-outer">
+          <div className="shelf-canvas-outer">
             <ResizableCanvasBox
-              width={canvasSize.width}
-              height={canvasSize.height}
+              width={effectiveWidth}
+              height={effectiveHeight}
+              auto={!hasManualSize}
+              aspectRatio={CANVAS_WIDTH / CANVAS_HEIGHT}
+              boxRef={boxRef}
               onResize={setCanvasSize}
               onResizeEnd={persistCanvasSize}
             >

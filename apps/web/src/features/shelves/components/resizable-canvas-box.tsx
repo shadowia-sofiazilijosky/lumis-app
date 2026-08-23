@@ -11,6 +11,12 @@ const MAX_HEIGHT = 1600;
 interface ResizableCanvasBoxProps {
   width: number;
   height: number;
+  /** True while no manual size has been saved yet — the box fills its
+   * container responsively (grows/shrinks with the sidebar, window, etc.)
+   * instead of being pinned to explicit pixel dimensions. */
+  auto: boolean;
+  aspectRatio: number;
+  boxRef: React.Ref<HTMLDivElement>;
   onResize: (size: { width: number; height: number }) => void;
   onResizeEnd: (size: { width: number; height: number }) => void;
   children: React.ReactNode;
@@ -21,27 +27,36 @@ interface ResizableCanvasBoxProps {
 export function ResizableCanvasBox({
   width,
   height,
+  auto,
+  aspectRatio,
+  boxRef,
   onResize,
   onResizeEnd,
   children,
 }: ResizableCanvasBoxProps) {
-  const { onPointerDown, onPointerMove, onPointerUp, liveOffset } = useResizableBox({
-    width,
-    height,
-    minWidth: MIN_WIDTH,
-    maxWidth: MAX_WIDTH,
-    minHeight: MIN_HEIGHT,
-    maxHeight: MAX_HEIGHT,
-    onResize,
-    onResizeEnd,
-  });
+  const { onPointerDown, onPointerMove, onPointerUp, liveOffset, isResizing } =
+    useResizableBox({
+      width,
+      height,
+      minWidth: MIN_WIDTH,
+      maxWidth: MAX_WIDTH,
+      minHeight: MIN_HEIGHT,
+      maxHeight: MAX_HEIGHT,
+      onResize,
+      onResizeEnd,
+    });
+
+  const sizeStyle =
+    auto && !isResizing
+      ? { width: "100%", aspectRatio: `${aspectRatio}` }
+      : { width, height };
 
   return (
     <div
+      ref={boxRef}
       className="resizable-canvas-box"
       style={{
-        width,
-        height,
+        ...sizeStyle,
         transform: `translate(${liveOffset.x}px, ${liveOffset.y}px)`,
       }}
       onPointerMove={onPointerMove}
