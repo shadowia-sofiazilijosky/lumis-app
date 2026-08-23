@@ -4,7 +4,7 @@ import { basename, extname } from 'node:path';
 import { PDFDocument } from 'pdf-lib';
 import { BookParser, ParsedBookMetadata } from './book-parser.interface';
 
-const COVER_MAX_WIDTH = 400;
+const COVER_MAX_WIDTH = 1080;
 
 @Injectable()
 export class PdfParserService implements BookParser {
@@ -65,7 +65,7 @@ export class PdfParserService implements BookParser {
         viewport,
       }).promise;
 
-      return { buffer: canvas.toBuffer('image/jpeg', 0.85) };
+      return { buffer: canvas.toBuffer('image/jpeg', 0.93) };
     } finally {
       await loadingTask.destroy();
     }
