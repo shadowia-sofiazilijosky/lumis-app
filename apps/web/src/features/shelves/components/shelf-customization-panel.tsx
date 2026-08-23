@@ -1,10 +1,6 @@
 "use client";
 
-import type {
-  ShelfDecoration,
-  ShelfWithBooks,
-  UpdateShelfInput,
-} from "@lumis/shared-types";
+import type { ShelfWithBooks, UpdateShelfInput } from "@lumis/shared-types";
 import { useDraggable } from "@dnd-kit/core";
 import { Check } from "lucide-react";
 import { useState } from "react";
@@ -13,11 +9,6 @@ import {
   SHELF_FRAME_OPTIONS,
   type ShelfFrameOption,
 } from "../lib/appearance-catalog";
-import {
-  CANVAS_HEIGHT,
-  CANVAS_WIDTH,
-  DEFAULT_SHELF_FRAME_SIZE,
-} from "../lib/canvas";
 import { DECORATION_CATEGORIES, type DecorationCategory } from "../lib/decoration-catalog";
 import { updateShelf } from "../api/shelves-client";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
@@ -71,7 +62,6 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
   const selectedDecorationId = useShelfEditorStore(
     (state) => state.selectedDecorationId,
   );
-  const addDecoration = useShelfEditorStore((state) => state.addDecoration);
   const setDecorationVariant = useShelfEditorStore(
     (state) => state.setDecorationVariant,
   );
@@ -87,23 +77,20 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
   }
 
   function quickApplyFrame(option: ShelfFrameOption) {
-    const selected = decorations.find((d) => d.id === selectedDecorationId);
-    // If a shelf-frame is already selected on the canvas, clicking a thumbnail
-    // just swaps its style in place; otherwise it drops in a fresh one,
-    // centered — the same result a drag-and-drop would give, without dragging.
-    if (selected?.type === "shelf") {
-      setDecorationVariant(selected.id, option.key);
-      return;
+    // Clicking a thumbnail never places a new shelf — only dragging one onto
+    // the canvas does that. It just recolors what's already there: the
+    // selected shelf if one is selected, otherwise every placed shelf at
+    // once (mirrors how "Fondo" changes instantly with no selection needed).
+    const selected = decorations.find(
+      (d) => d.id === selectedDecorationId && d.type === "shelf",
+    );
+    const targets = selected
+      ? [selected]
+      : decorations.filter((d) => d.type === "shelf");
+
+    for (const target of targets) {
+      setDecorationVariant(target.id, option.key);
     }
-    const decoration: ShelfDecoration = {
-      id: crypto.randomUUID(),
-      type: "shelf",
-      variant: option.key,
-      x: (CANVAS_WIDTH - DEFAULT_SHELF_FRAME_SIZE.width) / 2,
-      y: (CANVAS_HEIGHT - DEFAULT_SHELF_FRAME_SIZE.height) / 2,
-      ...DEFAULT_SHELF_FRAME_SIZE,
-    };
-    addDecoration(decoration);
   }
 
   return (
@@ -172,7 +159,8 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
       {tab === "estanteria" && (
         <div className="shelf-customization-body">
           <p className="shelf-customization-hint">
-            Elegí una estantería (clic para usarla) o arrastrala al canvas
+            Arrastrá una estantería al canvas para colocarla. Clic para
+            cambiar el color de las que ya pusiste.
           </p>
           <div className="shelf-appearance-grid">
             {SHELF_FRAME_OPTIONS.map((option) => (
