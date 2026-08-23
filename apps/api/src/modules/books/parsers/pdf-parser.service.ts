@@ -34,7 +34,7 @@ export class PdfParserService implements BookParser {
       author: doc.getAuthor()?.trim() || undefined,
       pageCount: doc.getPageCount(),
       coverBuffer: cover?.buffer,
-      coverContentType: cover ? 'image/jpeg' : undefined,
+      coverContentType: cover ? 'image/png' : undefined,
     };
   }
 
@@ -65,7 +65,10 @@ export class PdfParserService implements BookParser {
         viewport,
       }).promise;
 
-      return { buffer: canvas.toBuffer('image/jpeg', 0.93) };
+      // @napi-rs/canvas's JPEG encoder produces visibly noisy/dithered
+      // output at any quality setting — PNG (lossless) renders pixel-exact
+      // to what page.render() drew, matching the PDF's actual page content.
+      return { buffer: canvas.toBuffer('image/png') };
     } finally {
       await loadingTask.destroy();
     }
