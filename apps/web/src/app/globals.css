@@ -1467,8 +1467,9 @@ html[data-theme="light"] {
   border: none;
   cursor: grab;
   touch-action: none;
-  width: 130px;
-  height: 190px;
+  display: block;
+  width: 100%;
+  height: 100%;
   padding: 0;
   border-radius: 6px;
   overflow: hidden;
@@ -1540,24 +1541,35 @@ html[data-theme="light"] {
   filter: drop-shadow(3px 6px 10px rgba(20, 10, 10, 0.4));
 }
 
-.shelf-decoration-remove {
+/* Shared selection toolbar (lock/unlock + delete) for books, decorations,
+   and placed shelf-frame images — appears above the item once selected. */
+.shelf-item-actions {
   position: absolute;
-  top: -0.6rem;
-  right: -0.6rem;
-  width: 1.4rem;
-  height: 1.4rem;
+  top: -1.9rem;
+  right: 0;
+  display: flex;
+  gap: 0.3rem;
+  z-index: 21;
+}
+
+.shelf-item-action {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
   border: 1px solid var(--surface);
   border-radius: 50%;
-  background: var(--danger);
+  background: var(--primary);
   color: var(--primary-foreground);
   font-size: 0.9rem;
   line-height: 1;
-  padding: 0;
   cursor: pointer;
-  z-index: 21;
+}
+
+.shelf-item-action-danger {
+  background: var(--danger);
 }
 
 .shelf-book-picker {

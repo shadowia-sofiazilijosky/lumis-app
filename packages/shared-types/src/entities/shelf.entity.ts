@@ -11,6 +11,8 @@ export interface ShelfDecoration {
   rotation?: number;
   width?: number;
   height?: number;
+  /** Once locked, the item can't be dragged or resized until unlocked. */
+  locked?: boolean;
 }
 
 export interface Shelf {

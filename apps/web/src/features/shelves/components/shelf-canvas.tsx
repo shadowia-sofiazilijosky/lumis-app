@@ -14,7 +14,7 @@ import {
 } from "@dnd-kit/core";
 import { Info, Pencil, Redo2, Undo2, Wand2 } from "lucide-react";
 import { useMemo, useState } from "react";
-import { updateShelf } from "../api/shelves-client";
+import { removeBookFromShelf, updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DECORATION_ICONS } from "../lib/decoration-catalog";
@@ -37,6 +37,7 @@ interface DroppableCanvasProps {
   bookPositions: Record<string, { x: number; y: number; rotation?: number }>;
   decorations: ShelfDecoration[];
   onRemoveDecoration: (id: string) => void;
+  onRemoveBook: (bookId: string) => void;
 }
 
 function DroppableCanvas({
@@ -46,6 +47,7 @@ function DroppableCanvas({
   bookPositions,
   decorations,
   onRemoveDecoration,
+  onRemoveBook,
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
   const selectBook = useShelfEditorStore((state) => state.selectBook);
@@ -97,6 +99,7 @@ function DroppableCanvas({
           position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}
           scaleX={scaleX}
           scaleY={scaleY}
+          onRemove={onRemoveBook}
         />
       ))}
 
@@ -123,6 +126,9 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
   const addDecoration = useShelfEditorStore((state) => state.addDecoration);
   const removeDecoration = useShelfEditorStore(
     (state) => state.removeDecoration,
+  );
+  const removeBookLocally = useShelfEditorStore(
+    (state) => state.removeBookLocally,
   );
   const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
   const decorationModeEnabled = useShelfEditorStore(
@@ -184,6 +190,11 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
       canvasWidth: size.width,
       canvasHeight: size.height,
     }).catch(() => {});
+  }
+
+  function handleRemoveBook(bookId: string) {
+    removeBookLocally(bookId);
+    removeBookFromShelf(shelf.id, bookId).catch(() => {});
   }
 
   function handleDragEnd(event: DragEndEvent) {
@@ -320,6 +331,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
                 bookPositions={bookPositions}
                 decorations={decorations}
                 onRemoveDecoration={removeDecoration}
+                onRemoveBook={handleRemoveBook}
               />
             </ResizableCanvasBox>
           </div>

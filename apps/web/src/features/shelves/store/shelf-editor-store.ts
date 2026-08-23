@@ -33,6 +33,8 @@ interface ShelfEditorState {
   loadShelf: (shelf: ShelfWithBooks) => void;
   patchShelfMeta: (patch: Partial<ShelfWithBooks>) => void;
   moveBook: (bookId: string, position: Position) => void;
+  resizeBook: (bookId: string, size: { width: number; height: number }) => void;
+  toggleBookLock: (bookId: string) => void;
   setBookCustomSpineImage: (
     bookId: string,
     customSpineImageKey: string,
@@ -43,6 +45,8 @@ interface ShelfEditorState {
   addDecoration: (decoration: ShelfDecoration) => void;
   moveDecoration: (id: string, position: Position) => void;
   resizeDecoration: (id: string, size: { width: number; height: number }) => void;
+  setDecorationVariant: (id: string, variant: string) => void;
+  toggleDecorationLock: (id: string) => void;
   removeDecoration: (id: string) => void;
   setSaveStatus: (status: SaveStatus) => void;
   markSaved: () => void;
@@ -108,6 +112,29 @@ export const useShelfEditorStore = create<ShelfEditorState>((set, get) => {
         hasUnsavedChanges: true,
       }));
     },
+
+    resizeBook: (bookId, size) => {
+      pushHistory();
+      set((state) => ({
+        bookPositions: {
+          ...state.bookPositions,
+          [bookId]: { ...(state.bookPositions[bookId] ?? { x: 0, y: 0 }), ...size },
+        },
+        hasUnsavedChanges: true,
+      }));
+    },
+
+    toggleBookLock: (bookId) =>
+      set((state) => {
+        const current = state.bookPositions[bookId] ?? { x: 0, y: 0 };
+        return {
+          bookPositions: {
+            ...state.bookPositions,
+            [bookId]: { ...current, locked: !current.locked },
+          },
+          hasUnsavedChanges: true,
+        };
+      }),
 
     setBookCustomSpineImage: (bookId, customSpineImageKey, customSpineImageUrl) =>
       set((state) => ({
@@ -176,6 +203,26 @@ export const useShelfEditorStore = create<ShelfEditorState>((set, get) => {
         hasUnsavedChanges: true,
       }));
     },
+
+    setDecorationVariant: (id, variant) => {
+      pushHistory();
+      set((state) => ({
+        decorations: state.decorations.map((decoration) =>
+          decoration.id === id ? { ...decoration, variant } : decoration,
+        ),
+        hasUnsavedChanges: true,
+      }));
+    },
+
+    toggleDecorationLock: (id) =>
+      set((state) => ({
+        decorations: state.decorations.map((decoration) =>
+          decoration.id === id
+            ? { ...decoration, locked: !decoration.locked }
+            : decoration,
+        ),
+        hasUnsavedChanges: true,
+      })),
 
     removeDecoration: (id) => {
       pushHistory();

@@ -3,6 +3,7 @@
 import type { ShelfDecoration } from "@lumis/shared-types";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
+import { Lock, Unlock } from "lucide-react";
 import type { CSSProperties } from "react";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DEFAULT_DECORATION_SIZE, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
@@ -27,10 +28,13 @@ export function ShelfDecorationItem({
   scaleY,
   onRemove,
 }: ShelfDecorationItemProps) {
+  const isLocked = decoration.locked ?? false;
+
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
       id: `decoration-${decoration.id}`,
       data: { kind: "decoration", decorationId: decoration.id },
+      disabled: isLocked,
     });
 
   const selectedDecorationId = useShelfEditorStore(
@@ -38,6 +42,9 @@ export function ShelfDecorationItem({
   );
   const selectDecoration = useShelfEditorStore((state) => state.selectDecoration);
   const resizeDecoration = useShelfEditorStore((state) => state.resizeDecoration);
+  const toggleDecorationLock = useShelfEditorStore(
+    (state) => state.toggleDecorationLock,
+  );
 
   const isShelfFrame = decoration.type === "shelf";
   const defaultSize = isShelfFrame ? DEFAULT_SHELF_FRAME_SIZE : DEFAULT_DECORATION_SIZE;
@@ -103,19 +110,31 @@ export function ShelfDecorationItem({
 
       {isSelected && (
         <>
-          <ResizeHandles onPointerDown={onPointerDown} />
-          <button
-            type="button"
-            className="shelf-decoration-remove"
-            aria-label="Quitar"
-            onPointerDown={(event) => event.stopPropagation()}
-            onClick={(event) => {
-              event.stopPropagation();
-              onRemove(decoration.id);
-            }}
-          >
-            ×
-          </button>
+          {!isLocked && <ResizeHandles onPointerDown={onPointerDown} />}
+          <div className="shelf-item-actions" onPointerDown={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              className="shelf-item-action"
+              aria-label={isLocked ? "Desfijar" : "Fijar"}
+              onClick={(event) => {
+                event.stopPropagation();
+                toggleDecorationLock(decoration.id);
+              }}
+            >
+              {isLocked ? <Unlock size={13} /> : <Lock size={13} />}
+            </button>
+            <button
+              type="button"
+              className="shelf-item-action shelf-item-action-danger"
+              aria-label="Quitar"
+              onClick={(event) => {
+                event.stopPropagation();
+                onRemove(decoration.id);
+              }}
+            >
+              ×
+            </button>
+          </div>
         </>
       )}
     </div>

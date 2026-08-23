@@ -1,6 +1,10 @@
 "use client";
 
-import type { ShelfWithBooks, UpdateShelfInput } from "@lumis/shared-types";
+import type {
+  ShelfDecoration,
+  ShelfWithBooks,
+  UpdateShelfInput,
+} from "@lumis/shared-types";
 import { useDraggable } from "@dnd-kit/core";
 import { Check } from "lucide-react";
 import { useState } from "react";
@@ -9,12 +13,23 @@ import {
   SHELF_FRAME_OPTIONS,
   type ShelfFrameOption,
 } from "../lib/appearance-catalog";
+import {
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+  DEFAULT_SHELF_FRAME_SIZE,
+} from "../lib/canvas";
 import { DECORATION_CATEGORIES, type DecorationCategory } from "../lib/decoration-catalog";
 import { updateShelf } from "../api/shelves-client";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { DecorationPalette } from "./decoration-palette";
 
-function ShelfFramePaletteItem({ option }: { option: ShelfFrameOption }) {
+function ShelfFramePaletteItem({
+  option,
+  onQuickApply,
+}: {
+  option: ShelfFrameOption;
+  onQuickApply: (option: ShelfFrameOption) => void;
+}) {
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: `palette-shelf-${option.key}`,
     data: { kind: "palette", type: "shelf", variant: option.key },
@@ -26,8 +41,9 @@ function ShelfFramePaletteItem({ option }: { option: ShelfFrameOption }) {
       type="button"
       {...listeners}
       {...attributes}
+      onClick={() => onQuickApply(option)}
       className="shelf-appearance-thumb"
-      aria-label={`Arrastrar al canvas: ${option.label}`}
+      aria-label={`Usar en el canvas: ${option.label}`}
       style={{
         opacity: isDragging ? 0.4 : 1,
         backgroundImage: `url(${option.imageUrl})`,
@@ -51,6 +67,14 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
   const [decorationCategory, setDecorationCategory] =
     useState<DecorationCategory>("Todo");
   const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
+  const decorations = useShelfEditorStore((state) => state.decorations);
+  const selectedDecorationId = useShelfEditorStore(
+    (state) => state.selectedDecorationId,
+  );
+  const addDecoration = useShelfEditorStore((state) => state.addDecoration);
+  const setDecorationVariant = useShelfEditorStore(
+    (state) => state.setDecorationVariant,
+  );
 
   function save(patch: UpdateShelfInput) {
     // Apply optimistically and leave it — these fields (background/frame
@@ -60,6 +84,26 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
     // silently revert the selection back to the earlier one.
     patchShelfMeta(patch);
     updateShelf(shelf.id, patch).catch(() => {});
+  }
+
+  function quickApplyFrame(option: ShelfFrameOption) {
+    const selected = decorations.find((d) => d.id === selectedDecorationId);
+    // If a shelf-frame is already selected on the canvas, clicking a thumbnail
+    // just swaps its style in place; otherwise it drops in a fresh one,
+    // centered — the same result a drag-and-drop would give, without dragging.
+    if (selected?.type === "shelf") {
+      setDecorationVariant(selected.id, option.key);
+      return;
+    }
+    const decoration: ShelfDecoration = {
+      id: crypto.randomUUID(),
+      type: "shelf",
+      variant: option.key,
+      x: (CANVAS_WIDTH - DEFAULT_SHELF_FRAME_SIZE.width) / 2,
+      y: (CANVAS_HEIGHT - DEFAULT_SHELF_FRAME_SIZE.height) / 2,
+      ...DEFAULT_SHELF_FRAME_SIZE,
+    };
+    addDecoration(decoration);
   }
 
   return (
@@ -128,11 +172,15 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
       {tab === "estanteria" && (
         <div className="shelf-customization-body">
           <p className="shelf-customization-hint">
-            Arrastrá una estantería al canvas
+            Elegí una estantería (clic para usarla) o arrastrala al canvas
           </p>
           <div className="shelf-appearance-grid">
             {SHELF_FRAME_OPTIONS.map((option) => (
-              <ShelfFramePaletteItem key={option.key} option={option} />
+              <ShelfFramePaletteItem
+                key={option.key}
+                option={option}
+                onQuickApply={quickApplyFrame}
+              />
             ))}
           </div>
         </div>

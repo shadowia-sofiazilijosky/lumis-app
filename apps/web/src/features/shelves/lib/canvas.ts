@@ -4,3 +4,4 @@ export const DEFAULT_BOOK_POSITION = { x: 40, y: 40 };
 
 export const DEFAULT_DECORATION_SIZE = { width: 56, height: 56 };
 export const DEFAULT_SHELF_FRAME_SIZE = { width: 360, height: 220 };
+export const DEFAULT_BOOK_COVER_SIZE = { width: 130, height: 190 };
