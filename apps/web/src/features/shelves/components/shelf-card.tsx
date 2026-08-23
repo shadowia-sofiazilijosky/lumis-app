@@ -1,12 +1,17 @@
 import type { ShelfListItem } from "@lumis/shared-types";
 import { Settings } from "lucide-react";
 import Link from "next/link";
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../lib/canvas";
+import {
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+  DEFAULT_BOOK_COVER_SIZE,
+  DEFAULT_DECORATION_SIZE,
+  DEFAULT_SHELF_FRAME_SIZE,
+} from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DECORATION_ICONS } from "../lib/decoration-catalog";
 import { getGenreStyle } from "../lib/genre-catalog";
 
-const DEFAULT_SHELF_COLOR = "#8c2f39";
 const PREVIEW_ASPECT = CANVAS_WIDTH / CANVAS_HEIGHT;
 
 export function ShelfCard({
@@ -17,7 +22,14 @@ export function ShelfCard({
   index?: number;
 }) {
   const { color, Icon } = getGenreStyle(shelf.genre, index);
-  const frameImage = findShelfFrameImage(shelf.shelfFrame);
+
+  // Items are placed in real canvas pixels, not a fixed logical space — the
+  // closest we have to "the space they were arranged in" is the shelf's own
+  // saved canvas size (or the default, if it was never manually resized).
+  // Percentage-positioning against that reference is what lets this small
+  // card mirror the actual editor layout instead of a generic stand-in.
+  const refWidth = shelf.canvasWidth ?? CANVAS_WIDTH;
+  const refHeight = shelf.canvasHeight ?? CANVAS_HEIGHT;
 
   return (
     <div className="shelf-card">
@@ -44,44 +56,73 @@ export function ShelfCard({
                 : undefined,
             }}
           />
-          <div
-            className="shelf-card-preview-frame"
-            style={frameImage ? { backgroundImage: `url(${frameImage})` } : undefined}
-          >
-            {!frameImage && (
-              <div
-                className="shelf-color-overlay"
-                style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
-              />
-            )}
-          </div>
 
-          {shelf.decorations.map((decoration) => {
-            const DecorationIcon =
-              DECORATION_ICONS[decoration.type]?.[decoration.variant ?? ""];
-            if (!DecorationIcon) return null;
-            return (
-              <span
-                key={decoration.id}
-                className="shelf-card-decoration"
-                style={{
-                  left: `${(decoration.x / CANVAS_WIDTH) * 100}%`,
-                  top: `${(decoration.y / CANVAS_HEIGHT) * 100}%`,
-                }}
-              >
-                <DecorationIcon />
-              </span>
-            );
-          })}
+          {shelf.decorations
+            .filter((decoration) => decoration.type === "shelf")
+            .map((decoration) => {
+              const frameImage = findShelfFrameImage(decoration.variant ?? null);
+              if (!frameImage) return null;
+              const width = decoration.width ?? DEFAULT_SHELF_FRAME_SIZE.width;
+              const height = decoration.height ?? DEFAULT_SHELF_FRAME_SIZE.height;
+              return (
+                // eslint-disable-next-line @next/next/no-img-element -- local static asset, tiny preview thumbnail
+                <img
+                  key={decoration.id}
+                  src={frameImage}
+                  alt=""
+                  className="shelf-card-frame"
+                  style={{
+                    left: `${(decoration.x / refWidth) * 100}%`,
+                    top: `${(decoration.y / refHeight) * 100}%`,
+                    width: `${(width / refWidth) * 100}%`,
+                    height: `${(height / refHeight) * 100}%`,
+                  }}
+                />
+              );
+            })}
 
-          {shelf.previewCovers.length > 0 && (
-            <div className="shelf-card-spines">
-              {shelf.previewCovers.map((coverUrl, coverIndex) => (
-                // eslint-disable-next-line @next/next/no-img-element -- small remote-signed thumbnails, not worth next/image's overhead here
-                <img key={coverIndex} src={coverUrl} alt="" className="shelf-card-spine" />
-              ))}
-            </div>
+          {shelf.previewBooks.map(
+            (entry, bookIndex) =>
+              entry.coverUrl && (
+                // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL
+                <img
+                  key={bookIndex}
+                  src={entry.coverUrl}
+                  alt=""
+                  className="shelf-card-book-cover"
+                  style={{
+                    left: `${((entry.position?.x ?? 0) / refWidth) * 100}%`,
+                    top: `${((entry.position?.y ?? 0) / refHeight) * 100}%`,
+                    width: `${((entry.position?.width ?? DEFAULT_BOOK_COVER_SIZE.width) / refWidth) * 100}%`,
+                    height: `${((entry.position?.height ?? DEFAULT_BOOK_COVER_SIZE.height) / refHeight) * 100}%`,
+                  }}
+                />
+              ),
           )}
+
+          {shelf.decorations
+            .filter((decoration) => decoration.type !== "shelf")
+            .map((decoration) => {
+              const DecorationIcon =
+                DECORATION_ICONS[decoration.type]?.[decoration.variant ?? ""];
+              if (!DecorationIcon) return null;
+              const width = decoration.width ?? DEFAULT_DECORATION_SIZE.width;
+              const height = decoration.height ?? DEFAULT_DECORATION_SIZE.height;
+              return (
+                <span
+                  key={decoration.id}
+                  className="shelf-card-decoration"
+                  style={{
+                    left: `${(decoration.x / refWidth) * 100}%`,
+                    top: `${(decoration.y / refHeight) * 100}%`,
+                    width: `${(width / refWidth) * 100}%`,
+                    height: `${(height / refHeight) * 100}%`,
+                  }}
+                >
+                  <DecorationIcon />
+                </span>
+              );
+            })}
         </div>
       </Link>
 

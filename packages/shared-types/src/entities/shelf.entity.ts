@@ -35,9 +35,14 @@ export interface Shelf {
   updatedAt: string;
 }
 
+export interface ShelfPreviewBook {
+  coverUrl: string | null;
+  position: Position | null;
+}
+
 export interface ShelfListItem extends Shelf {
   bookCount: number;
-  previewCovers: string[];
+  previewBooks: ShelfPreviewBook[];
 }
 
 export interface ShelfBookEntry {

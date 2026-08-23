@@ -18,9 +18,14 @@ type BookSummary = Pick<
 
 const PREVIEW_COVER_LIMIT = 6;
 
+export interface ShelfPreviewBook {
+  coverUrl: string | null;
+  position: Prisma.JsonValue;
+}
+
 export interface ShelfListItem extends Shelf {
   bookCount: number;
-  previewCovers: string[];
+  previewBooks: ShelfPreviewBook[];
 }
 
 export interface ShelfBookEntry {
@@ -77,24 +82,26 @@ export class ShelvesService {
         _count: { select: { books: true } },
         books: {
           take: PREVIEW_COVER_LIMIT,
-          select: { book: { select: { coverImageKey: true } } },
+          select: {
+            position: true,
+            book: { select: { coverImageKey: true } },
+          },
         },
       },
     });
 
     return Promise.all(
       shelves.map(async ({ _count, books, ...shelf }) => {
-        const previewCovers = (
-          await Promise.all(
-            books.map(({ book }) =>
-              book.coverImageKey
-                ? this.storage.createSignedUrl(book.coverImageKey)
-                : Promise.resolve(null),
-            ),
-          )
-        ).filter((url): url is string => url !== null);
+        const previewBooks = await Promise.all(
+          books.map(async ({ book, position }) => ({
+            coverUrl: book.coverImageKey
+              ? await this.storage.createSignedUrl(book.coverImageKey)
+              : null,
+            position,
+          })),
+        );
 
-        return { ...shelf, bookCount: _count.books, previewCovers };
+        return { ...shelf, bookCount: _count.books, previewBooks };
       }),
     );
   }

@@ -929,12 +929,18 @@ html[data-theme="light"] {
   background-position: center;
 }
 
-.shelf-card-preview-frame {
+.shelf-card-frame {
   position: absolute;
-  inset: 0;
-  background-image: url("/assets/shelves/shelf-texture-base.jpg");
-  background-size: cover;
-  background-position: center;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.shelf-card-book-cover {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(20, 10, 10, 0.4);
+  pointer-events: none;
 }
 
 .shelf-card-decoration {
@@ -943,25 +949,6 @@ html[data-theme="light"] {
   height: 20px;
   transform: translate(-50%, -50%) scale(0.6);
   pointer-events: none;
-}
-
-.shelf-card-spines {
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  bottom: 8%;
-  display: flex;
-  gap: 3px;
-  height: 45%;
-}
-
-.shelf-card-spine {
-  flex: 1 1 0;
-  max-width: 22px;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 .shelf-card-footer {

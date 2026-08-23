@@ -46,18 +46,6 @@ export function ShelfList() {
     <div>
       <div className="shelf-list-header">
         <h1>Tus estanterías</h1>
-        <form className="shelf-create-form" onSubmit={handleCreate}>
-          <label htmlFor="new-shelf-name">Nueva estantería</label>
-          <input
-            id="new-shelf-name"
-            value={newShelfName}
-            onChange={(event) => setNewShelfName(event.target.value)}
-            placeholder="Ej: Fantasía, Romance…"
-          />
-          <button type="submit" disabled={isCreating}>
-            {isCreating ? "Creando…" : "Crear"}
-          </button>
-        </form>
       </div>
 
       <div className="shelf-grid">
