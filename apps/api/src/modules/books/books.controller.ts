@@ -9,6 +9,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
   Query,
   UnsupportedMediaTypeException,
   UploadedFile,
@@ -22,6 +23,7 @@ import type { AuthenticatedUser } from '../auth/types/authenticated-user.type';
 import { BooksService } from './books.service';
 import type { BookWithSignedUrls } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';
+import { ReorderBooksDto } from './dto/reorder-books.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 
 // Kept in sync with MAX_UPLOAD_SIZE_MB in .env.example — read directly from
@@ -90,6 +92,15 @@ export class BooksController {
       skip ? Number(skip) : undefined,
       take ? Number(take) : undefined,
     );
+  }
+
+  @Put('reorder')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async reorder(
+    @CurrentUser() user: AuthenticatedUser,
+    @Body() dto: ReorderBooksDto,
+  ): Promise<void> {
+    await this.booksService.reorder(user.userId, dto.bookIds);
   }
 
   @Get(':id')

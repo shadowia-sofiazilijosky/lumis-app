@@ -32,7 +32,7 @@ export interface ShelfBookEntry {
   bookId: string;
   position: Prisma.JsonValue;
   addedAt: Date;
-  book: BookSummary & { coverUrl: string | null };
+  book: BookSummary & { coverUrl: string | null; progressPercent: number };
 }
 
 export interface ShelfWithBooks extends Shelf {
@@ -114,6 +114,17 @@ export class ShelvesService {
       include: { book: { select: BOOK_SUMMARY_SELECT } },
     });
 
+    const progressEntries = await this.prisma.readingProgress.findMany({
+      where: {
+        userId: ownerId,
+        bookId: { in: bookShelves.map((entry) => entry.bookId) },
+      },
+      select: { bookId: true, progressPercent: true },
+    });
+    const progressByBookId = new Map(
+      progressEntries.map((entry) => [entry.bookId, entry.progressPercent]),
+    );
+
     const books = await Promise.all(
       bookShelves.map(async (bookShelf) => ({
         bookId: bookShelf.bookId,
@@ -124,6 +135,7 @@ export class ShelvesService {
           coverUrl: bookShelf.book.coverImageKey
             ? await this.storage.createSignedUrl(bookShelf.book.coverImageKey)
             : null,
+          progressPercent: progressByBookId.get(bookShelf.bookId) ?? 0,
         },
       })),
     );

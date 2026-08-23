@@ -25,6 +25,7 @@ export interface UploadedBookFile {
 export interface BookWithSignedUrls extends Book {
   fileUrl: string | null;
   coverUrl: string | null;
+  progressPercent: number;
 }
 
 const DEFAULT_EXTENSION: Record<BookFormat, string> = {
@@ -97,6 +98,15 @@ export class BooksService {
       );
     }
 
+    // New uploads sort first — one below whatever's currently the lowest
+    // sortOrder, so they land ahead of everything without renumbering the
+    // rest of the library.
+    const { _min } = await this.prisma.book.aggregate({
+      where: { ownerId },
+      _min: { sortOrder: true },
+    });
+    const sortOrder = (_min.sortOrder ?? 0) - 1;
+
     const book = await this.prisma.book.create({
       data: {
         id: bookId,
@@ -109,10 +119,11 @@ export class BooksService {
         pageCount: parsed.pageCount,
         fileSizeBytes: file.buffer.byteLength,
         metadata: parsed.metadata as Prisma.InputJsonValue | undefined,
+        sortOrder,
       },
     });
 
-    return this.withSignedUrls(book);
+    return this.withSignedUrls(book, 0);
   }
 
   async findAllForOwner(
@@ -122,12 +133,21 @@ export class BooksService {
   ): Promise<BookWithSignedUrls[]> {
     const books = await this.prisma.book.findMany({
       where: { ownerId },
-      orderBy: { createdAt: 'desc' },
+      orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
       skip,
       take,
     });
 
-    return Promise.all(books.map((book) => this.withSignedUrls(book)));
+    const progressByBookId = await this.getProgressByBookId(
+      ownerId,
+      books.map((book) => book.id),
+    );
+
+    return Promise.all(
+      books.map((book) =>
+        this.withSignedUrls(book, progressByBookId.get(book.id) ?? 0),
+      ),
+    );
   }
 
   async findOneForOwner(
@@ -135,7 +155,50 @@ export class BooksService {
     id: string,
   ): Promise<BookWithSignedUrls> {
     const book = await this.getOwnedBookOrThrow(ownerId, id);
-    return this.withSignedUrls(book);
+    const progress = await this.prisma.readingProgress.findUnique({
+      where: { userId_bookId: { userId: ownerId, bookId: id } },
+      select: { progressPercent: true },
+    });
+    return this.withSignedUrls(book, progress?.progressPercent ?? 0);
+  }
+
+  /** Persists a new manual order — index in the array becomes sortOrder. */
+  async reorder(ownerId: string, bookIds: string[]): Promise<void> {
+    const owned = await this.prisma.book.findMany({
+      where: { ownerId, id: { in: bookIds } },
+      select: { id: true },
+    });
+    const ownedIds = new Set(owned.map((book) => book.id));
+    const unknownIds = bookIds.filter((id) => !ownedIds.has(id));
+    if (unknownIds.length > 0) {
+      throw new NotFoundException(
+        `Estos libros no existen o no son tuyos: ${unknownIds.join(', ')}.`,
+      );
+    }
+
+    await this.prisma.$transaction(
+      bookIds.map((id, index) =>
+        this.prisma.book.update({
+          where: { id },
+          data: { sortOrder: index },
+        }),
+      ),
+    );
+  }
+
+  private async getProgressByBookId(
+    ownerId: string,
+    bookIds: string[],
+  ): Promise<Map<string, number>> {
+    if (bookIds.length === 0) return new Map();
+
+    const entries = await this.prisma.readingProgress.findMany({
+      where: { userId: ownerId, bookId: { in: bookIds } },
+      select: { bookId: true, progressPercent: true },
+    });
+    return new Map(
+      entries.map((entry) => [entry.bookId, entry.progressPercent]),
+    );
   }
 
   async update(
@@ -153,7 +216,11 @@ export class BooksService {
       },
     });
 
-    return this.withSignedUrls(book);
+    const progress = await this.prisma.readingProgress.findUnique({
+      where: { userId_bookId: { userId: ownerId, bookId: id } },
+      select: { progressPercent: true },
+    });
+    return this.withSignedUrls(book, progress?.progressPercent ?? 0);
   }
 
   async remove(ownerId: string, id: string): Promise<void> {
@@ -181,7 +248,10 @@ export class BooksService {
     return book;
   }
 
-  private async withSignedUrls(book: Book): Promise<BookWithSignedUrls> {
+  private async withSignedUrls(
+    book: Book,
+    progressPercent: number,
+  ): Promise<BookWithSignedUrls> {
     const [fileUrl, coverUrl] = await Promise.all([
       this.storage.createSignedUrl(book.originalFileKey),
       book.coverImageKey
@@ -189,7 +259,7 @@ export class BooksService {
         : Promise.resolve(null),
     ]);
 
-    return { ...book, fileUrl, coverUrl };
+    return { ...book, fileUrl, coverUrl, progressPercent };
   }
 
   private parseByFormat(

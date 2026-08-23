@@ -31,6 +31,24 @@ export async function fetchBookDetail(bookId: string): Promise<BookDetail> {
   return data as BookDetail;
 }
 
+export async function reorderBooks(bookIds: string[]): Promise<void> {
+  const response = await fetch("/api/books/reorder", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ bookIds }),
+  });
+
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as {
+      message?: string;
+    } | null;
+    throw new BookRequestError(
+      response.status,
+      data?.message ?? "No pudimos guardar el nuevo orden.",
+    );
+  }
+}
+
 export async function deleteBook(bookId: string): Promise<void> {
   const response = await fetch(`/api/books/${bookId}`, { method: "DELETE" });
 

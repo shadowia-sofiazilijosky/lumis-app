@@ -1,5 +1,6 @@
 import type { BookSummary } from "@lumis/shared-types";
 import Link from "next/link";
+import { ReadingProgressBadge } from "./reading-progress-badge";
 
 export function BookCard({ book }: { book: BookSummary }) {
   return (
@@ -11,6 +12,7 @@ export function BookCard({ book }: { book: BookSummary }) {
         ) : (
           <span className="book-card-format-badge">{book.format}</span>
         )}
+        <ReadingProgressBadge percent={book.progressPercent} />
       </div>
       <h3>{book.title}</h3>
       {book.author && <p>{book.author}</p>}

@@ -120,6 +120,7 @@ model Book {
   pageCount            Int?       @map("page_count")
   fileSizeBytes        Int?       @map("file_size_bytes")
   metadata             Json? // format-specific extras: isbn, publisher, language, etc.
+  sortOrder            Int        @default(0) @map("sort_order")
   createdAt            DateTime   @default(now()) @map("created_at")
   updatedAt            DateTime   @updatedAt @map("updated_at")
 

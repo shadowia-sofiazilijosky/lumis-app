@@ -8,6 +8,7 @@ export interface BookSummary {
   format: BookFormat;
   pageCount: number | null;
   coverUrl: string | null;
+  progressPercent: number;
 }
 
 /** Full book shape for the Library grid/detail views. */
@@ -21,6 +22,7 @@ export interface BookDetail {
   metadata: Record<string, unknown> | null;
   fileUrl: string | null;
   coverUrl: string | null;
+  progressPercent: number;
   createdAt: string;
   updatedAt: string;
 }

@@ -23,6 +23,7 @@ const mockBook: Book = {
   pageCount: 412,
   fileSizeBytes: 1024,
   metadata: null,
+  sortOrder: 0,
   createdAt: new Date(),
   updatedAt: new Date(),
 };
@@ -36,7 +37,13 @@ describe('BooksService', () => {
       findUnique: jest.Mock;
       update: jest.Mock;
       delete: jest.Mock;
+      aggregate: jest.Mock;
     };
+    readingProgress: {
+      findUnique: jest.Mock;
+      findMany: jest.Mock;
+    };
+    $transaction: jest.Mock;
   };
   let storage: jest.Mocked<SupabaseStorageService>;
   let formatDetector: jest.Mocked<FormatDetectorService>;
@@ -50,7 +57,13 @@ describe('BooksService', () => {
         findUnique: jest.fn(),
         update: jest.fn(),
         delete: jest.fn(),
+        aggregate: jest.fn().mockResolvedValue({ _min: { sortOrder: null } }),
       },
+      readingProgress: {
+        findUnique: jest.fn(),
+        findMany: jest.fn().mockResolvedValue([]),
+      },
+      $transaction: jest.fn((ops: unknown[]) => Promise.all(ops)),
     };
 
     storage = {

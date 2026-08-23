@@ -698,6 +698,16 @@ main.auth-page [role="alert"] {
   gap: 1.25rem;
 }
 
+.book-grid-item {
+  cursor: grab;
+}
+
+.book-grid-item-overlay {
+  cursor: grabbing;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+}
+
 .book-card {
   display: block;
   color: var(--foreground);
@@ -710,6 +720,7 @@ main.auth-page [role="alert"] {
 }
 
 .book-card-cover {
+  position: relative;
   aspect-ratio: 2 / 3;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -720,6 +731,34 @@ main.auth-page [role="alert"] {
   margin-bottom: 0.5rem;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.15s ease;
+}
+
+.reading-progress-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(20, 10, 10, 0.5);
+}
+
+.reading-progress-badge-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .book-card:hover .book-card-cover {
@@ -1417,6 +1456,7 @@ html[data-theme="light"] {
 }
 
 .shelf-book-cover {
+  position: relative;
   border: none;
   cursor: grab;
   touch-action: none;

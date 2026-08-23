@@ -5,13 +5,9 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Lock, Unlock } from "lucide-react";
 import type { CSSProperties } from "react";
+import { ReadingProgressBadge } from "@/features/books/components/reading-progress-badge";
 import { DEFAULT_BOOK_COVER_SIZE } from "../lib/canvas";
-import { useResizableBox } from "../hooks/use-resizable-box";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
-import { ResizeHandles } from "./resize-handles";
-
-const MIN_SIZE = 50;
-const MAX_SIZE = 700;
 
 interface ShelfBookItemProps {
   bookId: string;
@@ -39,23 +35,11 @@ export function ShelfBookItem({
 
   const selectedBookId = useShelfEditorStore((state) => state.selectedBookId);
   const selectBook = useShelfEditorStore((state) => state.selectBook);
-  const resizeBook = useShelfEditorStore((state) => state.resizeBook);
   const toggleBookLock = useShelfEditorStore((state) => state.toggleBookLock);
   const isSelected = selectedBookId === bookId;
 
-  const width = position.width ?? DEFAULT_BOOK_COVER_SIZE.width;
-  const height = position.height ?? DEFAULT_BOOK_COVER_SIZE.height;
-
-  const { onPointerDown, onPointerMove, onPointerUp, liveOffset } = useResizableBox({
-    width,
-    height,
-    minWidth: MIN_SIZE,
-    maxWidth: MAX_SIZE,
-    minHeight: MIN_SIZE,
-    maxHeight: MAX_SIZE,
-    onResize: (size) => resizeBook(bookId, size),
-    onResizeEnd: (size) => resizeBook(bookId, size),
-  });
+  // Covers keep a fixed, real size on the shelf — no per-book resizing.
+  const { width, height } = DEFAULT_BOOK_COVER_SIZE;
 
   const wrapperStyle: CSSProperties = {
     position: "absolute",
@@ -63,7 +47,7 @@ export function ShelfBookItem({
     top: position.y,
     width,
     height,
-    transform: `${transform ? CSS.Translate.toString(transform) : ""} translate(${liveOffset.x}px, ${liveOffset.y}px)`,
+    transform: transform ? CSS.Translate.toString(transform) : undefined,
     zIndex: isDragging || isSelected ? 10 : 1,
   };
 
@@ -72,9 +56,6 @@ export function ShelfBookItem({
       ref={setNodeRef}
       className="shelf-book-wrapper"
       style={wrapperStyle}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
       onClick={(event) => {
         event.stopPropagation();
         if (editMode) selectBook(isSelected ? null : bookId);
@@ -94,36 +75,37 @@ export function ShelfBookItem({
         ) : (
           <span className="shelf-book-cover-fallback">{book.title}</span>
         )}
+        <ReadingProgressBadge percent={book.progressPercent} />
       </button>
 
       {isSelected && editMode && (
-        <>
-          {!isLocked && <ResizeHandles onPointerDown={onPointerDown} />}
-          <div className="shelf-item-actions" onPointerDown={(event) => event.stopPropagation()}>
-            <button
-              type="button"
-              className="shelf-item-action"
-              aria-label={isLocked ? "Desfijar" : "Fijar"}
-              onClick={(event) => {
-                event.stopPropagation();
-                toggleBookLock(bookId);
-              }}
-            >
-              {isLocked ? <Unlock size={13} /> : <Lock size={13} />}
-            </button>
-            <button
-              type="button"
-              className="shelf-item-action shelf-item-action-danger"
-              aria-label="Quitar de la estantería"
-              onClick={(event) => {
-                event.stopPropagation();
-                onRemove(bookId);
-              }}
-            >
-              ×
-            </button>
-          </div>
-        </>
+        <div
+          className="shelf-item-actions"
+          onPointerDown={(event) => event.stopPropagation()}
+        >
+          <button
+            type="button"
+            className="shelf-item-action"
+            aria-label={isLocked ? "Desfijar" : "Fijar"}
+            onClick={(event) => {
+              event.stopPropagation();
+              toggleBookLock(bookId);
+            }}
+          >
+            {isLocked ? <Unlock size={13} /> : <Lock size={13} />}
+          </button>
+          <button
+            type="button"
+            className="shelf-item-action shelf-item-action-danger"
+            aria-label="Quitar de la estantería"
+            onClick={(event) => {
+              event.stopPropagation();
+              onRemove(bookId);
+            }}
+          >
+            ×
+          </button>
+        </div>
       )}
     </div>
   );

@@ -37,6 +37,7 @@ const mockBook: Book = {
   pageCount: 412,
   fileSizeBytes: 1024,
   metadata: null,
+  sortOrder: 0,
   createdAt: new Date(),
   updatedAt: new Date(),
 };
@@ -59,6 +60,9 @@ describe('ShelvesService', () => {
       delete: jest.Mock;
       update: jest.Mock;
     };
+    readingProgress: {
+      findMany: jest.Mock;
+    };
     $transaction: jest.Mock;
   };
   let storage: jest.Mocked<SupabaseStorageService>;
@@ -79,6 +83,9 @@ describe('ShelvesService', () => {
         create: jest.fn(),
         delete: jest.fn(),
         update: jest.fn(),
+      },
+      readingProgress: {
+        findMany: jest.fn().mockResolvedValue([]),
       },
       $transaction: jest.fn((ops: unknown[]) => Promise.all(ops)),
     };

@@ -1,8 +1,8 @@
 "use client";
 
-import type { BookDetail } from "@lumis/shared-types";
+import type { BookDetail, BookSummary } from "@lumis/shared-types";
 import { useEffect, useState } from "react";
-import { fetchBooks } from "../api/books-client";
+import { fetchBooks, reorderBooks } from "../api/books-client";
 import { BookGrid } from "./book-grid";
 import { BookUploadForm } from "./book-upload-form";
 
@@ -34,12 +34,21 @@ export function LibraryView() {
     setBooks((prev) => [book, ...prev]);
   }
 
+  function handleReorder(nextBooks: BookSummary[]) {
+    setBooks(nextBooks as BookDetail[]);
+    reorderBooks(nextBooks.map((book) => book.id)).catch(() => {
+      // best-effort — the grid keeps the reordered state locally either way
+    });
+  }
+
   return (
     <>
       <BookUploadForm onUploaded={handleUploaded} />
       {status === "loading" && <p>Cargando…</p>}
       {status === "error" && <p>No pudimos cargar tu biblioteca.</p>}
-      {status === "ready" && <BookGrid books={books} />}
+      {status === "ready" && (
+        <BookGrid books={books} onReorder={handleReorder} />
+      )}
     </>
   );
 }
