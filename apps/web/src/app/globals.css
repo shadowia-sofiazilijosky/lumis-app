@@ -199,10 +199,13 @@ nav a,
   border-color: var(--border);
 }
 
+/* A lighter, clearly-legible bordó — not the darker --danger used for text
+   (error messages, icons) on light backgrounds, which is too dark to pair
+   with dark button text but too dark itself to read well as a fill. */
 button.danger {
-  background: var(--danger);
-  color: var(--primary-foreground);
-  border-color: var(--danger);
+  background: #b5525e;
+  color: #fdf6f2;
+  border-color: #b5525e;
 }
 
 main {
@@ -1522,7 +1525,8 @@ html[data-theme="light"] {
 }
 
 .shelf-item-action-danger {
-  background: var(--danger);
+  background: #b5525e;
+  color: #fdf6f2;
 }
 
 .shelf-book-picker {
