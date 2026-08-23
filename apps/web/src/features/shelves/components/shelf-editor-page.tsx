@@ -3,14 +3,12 @@
 import { ArrowLeft, Save } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useAutosaveLayout } from "../hooks/use-autosave-layout";
 import { useShelf } from "../hooks/use-shelf";
 import { deleteShelf } from "../api/shelves-client";
 import { useShelfEditorStore, type SaveStatus } from "../store/shelf-editor-store";
 import { ShelfBookPicker } from "./shelf-book-picker";
 import { ShelfCanvas } from "./shelf-canvas";
-import { ShelfListView } from "./shelf-list-view";
 import { ShelfSettingsPanel } from "./shelf-settings-panel";
 
 const SAVE_STATUS_LABEL: Record<SaveStatus, string> = {
@@ -24,7 +22,6 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
   const router = useRouter();
   const { shelf, status } = useShelf(shelfId);
   const saveStatus = useShelfEditorStore((state) => state.saveStatus);
-  const [view, setView] = useState<"canvas" | "list">("canvas");
 
   const { saveNow } = useAutosaveLayout();
 
@@ -60,13 +57,6 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
           <span role="status" aria-live="polite" className="save-status">
             {SAVE_STATUS_LABEL[saveStatus]}
           </span>
-          <button
-            type="button"
-            className="secondary"
-            onClick={() => setView(view === "canvas" ? "list" : "canvas")}
-          >
-            {view === "canvas" ? "Ver como lista" : "Ver como estantería"}
-          </button>
           <button type="button" className="shelf-editor-save-button" onClick={saveNow}>
             <Save size={16} />
             Guardar cambios
@@ -80,11 +70,7 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
       <ShelfSettingsPanel shelf={shelf} />
       <ShelfBookPicker shelf={shelf} />
 
-      {view === "canvas" ? (
-        <ShelfCanvas shelf={shelf} />
-      ) : (
-        <ShelfListView shelf={shelf} />
-      )}
+      <ShelfCanvas shelf={shelf} />
     </div>
   );
 }
