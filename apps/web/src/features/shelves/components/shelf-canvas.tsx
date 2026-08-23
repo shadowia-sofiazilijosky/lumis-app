@@ -36,6 +36,7 @@ interface DroppableCanvasProps {
   decorations: ShelfDecoration[];
   onRemoveDecoration: (id: string) => void;
   onRemoveBook: (bookId: string) => void;
+  editMode: boolean;
 }
 
 function DroppableCanvas({
@@ -44,6 +45,7 @@ function DroppableCanvas({
   decorations,
   onRemoveDecoration,
   onRemoveBook,
+  editMode,
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
   const selectBook = useShelfEditorStore((state) => state.selectBook);
@@ -82,6 +84,7 @@ function DroppableCanvas({
             key={decoration.id}
             decoration={decoration}
             onRemove={onRemoveDecoration}
+            editMode={editMode}
           />
         ))}
 
@@ -92,6 +95,7 @@ function DroppableCanvas({
           book={entry.book}
           position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}
           onRemove={onRemoveBook}
+          editMode={editMode}
         />
       ))}
 
@@ -102,6 +106,7 @@ function DroppableCanvas({
             key={decoration.id}
             decoration={decoration}
             onRemove={onRemoveDecoration}
+            editMode={editMode}
           />
         ))}
     </div>
@@ -121,10 +126,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     (state) => state.removeBookLocally,
   );
   const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
-  const decorationModeEnabled = useShelfEditorStore(
-    (state) => state.decorationModeEnabled,
-  );
-  const [panelOpen, setPanelOpen] = useState(false);
+  const editMode = useShelfEditorStore((state) => state.editMode);
+  const setEditMode = useShelfEditorStore((state) => state.setEditMode);
 
   const hasManualSize = shelf.canvasWidth != null && shelf.canvasHeight != null;
   const [canvasSize, setCanvasSize] = useState({
@@ -184,7 +187,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
 
   function handleDragEnd(event: DragEndEvent) {
     setActiveDrag(null);
-    if (!decorationModeEnabled) return;
+    if (!editMode) return;
 
     const { active, over, delta } = event;
     const data = active.data.current as DragData | undefined;
@@ -256,8 +259,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
           <button
             type="button"
             className="shelf-toolbar-edit-button"
-            onClick={() => setPanelOpen((open) => !open)}
-            aria-pressed={panelOpen}
+            onClick={() => setEditMode(!editMode)}
+            aria-pressed={editMode}
           >
             <Pencil size={16} />
             Editar
@@ -274,6 +277,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
               boxRef={boxRef}
               onResize={setCanvasSize}
               onResizeEnd={persistCanvasSize}
+              showHandles={editMode}
             >
               <DroppableCanvas
                 shelf={shelf}
@@ -281,10 +285,11 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
                 decorations={decorations}
                 onRemoveDecoration={removeDecoration}
                 onRemoveBook={handleRemoveBook}
+                editMode={editMode}
               />
             </ResizableCanvasBox>
           </div>
-          {panelOpen && <ShelfCustomizationPanel shelf={shelf} />}
+          {editMode && <ShelfCustomizationPanel shelf={shelf} />}
         </div>
         <DragOverlay>
           {activeDrag?.kind === "book" && activeBookEntry ? (

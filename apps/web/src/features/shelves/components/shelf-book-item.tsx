@@ -18,6 +18,7 @@ interface ShelfBookItemProps {
   book: BookSummary;
   position: Position;
   onRemove: (bookId: string) => void;
+  editMode: boolean;
 }
 
 export function ShelfBookItem({
@@ -25,6 +26,7 @@ export function ShelfBookItem({
   book,
   position,
   onRemove,
+  editMode,
 }: ShelfBookItemProps) {
   const isLocked = position.locked ?? false;
 
@@ -32,7 +34,7 @@ export function ShelfBookItem({
     useDraggable({
       id: `book-${bookId}`,
       data: { kind: "book", bookId },
-      disabled: isLocked,
+      disabled: isLocked || !editMode,
     });
 
   const selectedBookId = useShelfEditorStore((state) => state.selectedBookId);
@@ -75,7 +77,7 @@ export function ShelfBookItem({
       onPointerCancel={onPointerUp}
       onClick={(event) => {
         event.stopPropagation();
-        selectBook(isSelected ? null : bookId);
+        if (editMode) selectBook(isSelected ? null : bookId);
       }}
     >
       <button
@@ -94,7 +96,7 @@ export function ShelfBookItem({
         )}
       </button>
 
-      {isSelected && (
+      {isSelected && editMode && (
         <>
           {!isLocked && <ResizeHandles onPointerDown={onPointerDown} />}
           <div className="shelf-item-actions" onPointerDown={(event) => event.stopPropagation()}>

@@ -19,6 +19,8 @@ interface ResizableCanvasBoxProps {
   boxRef: React.Ref<HTMLDivElement>;
   onResize: (size: { width: number; height: number }) => void;
   onResizeEnd: (size: { width: number; height: number }) => void;
+  /** Only show/allow the resize handles while true (edit mode). */
+  showHandles: boolean;
   children: React.ReactNode;
 }
 
@@ -32,6 +34,7 @@ export function ResizableCanvasBox({
   boxRef,
   onResize,
   onResizeEnd,
+  showHandles,
   children,
 }: ResizableCanvasBoxProps) {
   const { onPointerDown, onPointerMove, onPointerUp, liveOffset, isResizing } =
@@ -64,7 +67,7 @@ export function ResizableCanvasBox({
       onPointerCancel={onPointerUp}
     >
       {children}
-      <ResizeHandles onPointerDown={onPointerDown} />
+      {showHandles && <ResizeHandles onPointerDown={onPointerDown} />}
     </div>
   );
 }

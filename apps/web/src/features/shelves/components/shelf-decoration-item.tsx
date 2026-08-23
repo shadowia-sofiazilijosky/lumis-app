@@ -18,11 +18,13 @@ const MAX_SIZE = 900;
 interface ShelfDecorationItemProps {
   decoration: ShelfDecoration;
   onRemove: (id: string) => void;
+  editMode: boolean;
 }
 
 export function ShelfDecorationItem({
   decoration,
   onRemove,
+  editMode,
 }: ShelfDecorationItemProps) {
   const isLocked = decoration.locked ?? false;
 
@@ -30,7 +32,7 @@ export function ShelfDecorationItem({
     useDraggable({
       id: `decoration-${decoration.id}`,
       data: { kind: "decoration", decorationId: decoration.id },
-      disabled: isLocked,
+      disabled: isLocked || !editMode,
     });
 
   const selectedDecorationId = useShelfEditorStore(
@@ -82,7 +84,7 @@ export function ShelfDecorationItem({
       onPointerCancel={onPointerUp}
       onClick={(event) => {
         event.stopPropagation();
-        selectDecoration(isSelected ? null : decoration.id);
+        if (editMode) selectDecoration(isSelected ? null : decoration.id);
       }}
     >
       <button
@@ -104,7 +106,7 @@ export function ShelfDecorationItem({
         ) : null}
       </button>
 
-      {isSelected && (
+      {isSelected && editMode && (
         <>
           {!isLocked && <ResizeHandles onPointerDown={onPointerDown} />}
           <div className="shelf-item-actions" onPointerDown={(event) => event.stopPropagation()}>

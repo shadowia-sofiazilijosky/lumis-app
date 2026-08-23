@@ -27,6 +27,10 @@ interface ShelfEditorState {
   selectedBookId: string | null;
   selectedDecorationId: string | null;
   decorationModeEnabled: boolean;
+  /** Resize handles, drag, and the lock/delete toolbar only show while this
+   * is true — turned on by the "Editar" button, off again once the user
+   * saves, so the arrangement reads as final until they choose to edit again. */
+  editMode: boolean;
   past: LayoutSnapshot[];
   future: LayoutSnapshot[];
 
@@ -53,6 +57,8 @@ interface ShelfEditorState {
   selectBook: (bookId: string | null) => void;
   selectDecoration: (id: string | null) => void;
   toggleDecorationMode: () => void;
+  setEditMode: (value: boolean) => void;
+  exitEditMode: () => void;
   undo: () => void;
   redo: () => void;
 }
@@ -81,6 +87,7 @@ export const useShelfEditorStore = create<ShelfEditorState>((set, get) => {
     selectedBookId: null,
     selectedDecorationId: null,
     decorationModeEnabled: true,
+    editMode: false,
     past: [],
     future: [],
 
@@ -97,6 +104,9 @@ export const useShelfEditorStore = create<ShelfEditorState>((set, get) => {
         saveStatus: "idle",
         past: [],
         future: [],
+        editMode: false,
+        selectedBookId: null,
+        selectedDecorationId: null,
       });
     },
 
@@ -238,6 +248,11 @@ export const useShelfEditorStore = create<ShelfEditorState>((set, get) => {
 
     toggleDecorationMode: () =>
       set((state) => ({ decorationModeEnabled: !state.decorationModeEnabled })),
+
+    setEditMode: (value) => set({ editMode: value }),
+
+    exitEditMode: () =>
+      set({ editMode: false, selectedBookId: null, selectedDecorationId: null }),
 
     undo: () => {
       const { past, bookPositions, decorations, future } = get();

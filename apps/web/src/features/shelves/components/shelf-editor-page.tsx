@@ -22,8 +22,17 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
   const router = useRouter();
   const { shelf, status } = useShelf(shelfId);
   const saveStatus = useShelfEditorStore((state) => state.saveStatus);
+  const exitEditMode = useShelfEditorStore((state) => state.exitEditMode);
 
   const { saveNow } = useAutosaveLayout();
+
+  function handleSaveClick() {
+    saveNow();
+    // Locks the arrangement immediately (optimistic) — the local state is
+    // already what's being sent, so there's no need to wait on the network
+    // round-trip before hiding the resize handles/lock-delete toolbar.
+    exitEditMode();
+  }
 
   async function handleDelete() {
     if (!shelf) return;
@@ -57,7 +66,7 @@ export function ShelfEditorPage({ shelfId }: { shelfId: string }) {
           <span role="status" aria-live="polite" className="save-status">
             {SAVE_STATUS_LABEL[saveStatus]}
           </span>
-          <button type="button" className="shelf-editor-save-button" onClick={saveNow}>
+          <button type="button" className="shelf-editor-save-button" onClick={handleSaveClick}>
             <Save size={16} />
             Guardar cambios
           </button>
