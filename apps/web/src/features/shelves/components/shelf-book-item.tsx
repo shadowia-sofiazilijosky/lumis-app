@@ -5,7 +5,6 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Lock, Unlock } from "lucide-react";
 import type { CSSProperties } from "react";
-import { ReadingProgressBadge } from "@/features/books/components/reading-progress-badge";
 import { DEFAULT_BOOK_COVER_SIZE } from "../lib/canvas";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 
@@ -75,7 +74,6 @@ export function ShelfBookItem({
         ) : (
           <span className="shelf-book-cover-fallback">{book.title}</span>
         )}
-        <ReadingProgressBadge percent={book.progressPercent} />
       </button>
 
       {isSelected && editMode && (

@@ -334,6 +334,19 @@ header nav a {
   width: auto;
 }
 
+/* The gold logo reads fine on the sidebar's own dark-brown fill (light app
+   mode, unchanged), but disappears against the bone/tan fill dark app mode
+   switches the sidebar to — swap in the dark-wood-brown variant there. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sidebar-logo-image {
+    content: url("/assets/landing/logo-lumis-full-dark.png");
+  }
+}
+
+:root[data-theme="dark"] .sidebar-logo-image {
+  content: url("/assets/landing/logo-lumis-full-dark.png");
+}
+
 .sidebar-collapsed .sidebar-logo {
   display: none;
 }
