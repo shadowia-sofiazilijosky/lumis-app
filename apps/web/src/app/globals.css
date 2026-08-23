@@ -1392,76 +1392,12 @@ html[data-theme="light"] {
   position: absolute;
 }
 
-.shelf-book-spine,
 .shelf-book-cover {
   border: none;
   cursor: grab;
   touch-action: none;
-}
-
-.shelf-book-custom-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.shelf-book-toolbar {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.4rem;
-  padding: 0.5rem 0.6rem;
-  background: var(--surface);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
-  width: max-content;
-  min-width: 150px;
-  z-index: 20;
-  cursor: default;
-}
-
-.shelf-book-toolbar-rotation {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  font-size: 0.72rem;
-  color: var(--foreground);
-}
-
-.shelf-book-toolbar-upload {
-  font-size: 0.72rem;
-  padding: 0.35rem 0.6rem;
-}
-
-.shelf-book-spine {
-  width: 28px;
-  height: 140px;
-  background-color: var(--primary);
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.22) 0%,
-    transparent 25%,
-    transparent 75%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
-  color: var(--primary-foreground);
-  writing-mode: vertical-rl;
-  font-size: 0.7rem;
-  padding: 0.4rem 0.2rem;
-  border-radius: 2px;
-  /* Lifts the spine off the shelf/wall behind it — light from upper-left. */
-  box-shadow: 3px 4px 6px rgba(20, 10, 10, 0.4);
-}
-
-.shelf-book-cover {
-  width: 70px;
-  height: 100px;
+  width: 130px;
+  height: 190px;
   padding: 0;
   border-radius: 6px;
   overflow: hidden;

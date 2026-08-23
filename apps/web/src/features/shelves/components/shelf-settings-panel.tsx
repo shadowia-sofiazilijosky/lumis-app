@@ -1,10 +1,6 @@
 "use client";
 
-import type {
-  ShelfArrangement,
-  ShelfWithBooks,
-  UpdateShelfInput,
-} from "@lumis/shared-types";
+import type { ShelfWithBooks } from "@lumis/shared-types";
 import { useState, type FormEvent } from "react";
 import { useDebouncedCallback } from "@/shared/hooks/use-debounced-callback";
 import { updateShelf } from "../api/shelves-client";
@@ -28,12 +24,6 @@ export function ShelfSettingsPanel({ shelf }: { shelf: ShelfWithBooks }) {
         // best-effort — the field keeps its typed value locally either way
       });
   }, 600);
-
-  function saveImmediately(patch: UpdateShelfInput) {
-    updateShelf(shelf.id, patch)
-      .then((updated) => patchShelfMeta(updated))
-      .catch(() => {});
-  }
 
   return (
     <form
@@ -64,21 +54,6 @@ export function ShelfSettingsPanel({ shelf }: { shelf: ShelfWithBooks }) {
         />
       </div>
 
-      <div>
-        <label htmlFor="shelf-arrangement">Modo de acomodo</label>
-        <select
-          id="shelf-arrangement"
-          value={shelf.arrangement}
-          onChange={(event) =>
-            saveImmediately({
-              arrangement: event.target.value as ShelfArrangement,
-            })
-          }
-        >
-          <option value="SPINE">Lomo</option>
-          <option value="COVER">Portada de frente</option>
-        </select>
-      </div>
     </form>
   );
 }

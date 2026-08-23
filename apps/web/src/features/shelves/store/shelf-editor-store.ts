@@ -23,7 +23,6 @@ interface ShelfEditorState {
   loadShelf: (shelf: ShelfWithBooks) => void;
   patchShelfMeta: (patch: Partial<ShelfWithBooks>) => void;
   moveBook: (bookId: string, position: Position) => void;
-  setBookRotation: (bookId: string, rotation: number) => void;
   setBookCustomSpineImage: (
     bookId: string,
     customSpineImageKey: string,
@@ -72,15 +71,6 @@ export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
   moveBook: (bookId, position) =>
     set((state) => ({
       bookPositions: { ...state.bookPositions, [bookId]: position },
-      hasUnsavedChanges: true,
-    })),
-
-  setBookRotation: (bookId, rotation) =>
-    set((state) => ({
-      bookPositions: {
-        ...state.bookPositions,
-        [bookId]: { ...(state.bookPositions[bookId] ?? { x: 0, y: 0 }), rotation },
-      },
       hasUnsavedChanges: true,
     })),
 

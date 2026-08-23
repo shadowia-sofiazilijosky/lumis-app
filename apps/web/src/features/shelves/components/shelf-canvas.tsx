@@ -90,13 +90,11 @@ function DroppableCanvas({
       {shelf.books.map((entry) => (
         <ShelfBookItem
           key={entry.bookId}
-          shelfId={shelf.id}
           bookId={entry.bookId}
           book={entry.book}
           position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}
           scaleX={scaleX}
           scaleY={scaleY}
-          arrangement={shelf.arrangement}
         />
       ))}
 
