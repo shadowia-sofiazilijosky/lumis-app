@@ -49,29 +49,39 @@
 
 /* Sidebar identity colors — distinct from the app's own light/dark theme
    variables above. Light app mode keeps the sidebar in the same dark brown
-   as the landing page (unchanged); dark app mode lightens it a step so it
-   doesn't collapse into pure black next to the rest of the dark UI. */
+   as the landing page (unchanged); dark app mode flips it to a bone/tan
+   brown so it reads clearly against the rest of the dark UI, with dark
+   text/icons for contrast against that lighter fill. */
 :root {
   --sidebar-bg: #1f1611;
   --sidebar-text: #f5ede0;
   --sidebar-text-muted: #e8dcc8;
   --sidebar-border: #4a3626;
+  --sidebar-active-bg: rgba(212, 164, 76, 0.18);
+  --sidebar-active-text: #d4a44c;
+  --sidebar-active-border: rgba(212, 164, 76, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --sidebar-bg: #3c2c1e;
-    --sidebar-text: #f5ede0;
-    --sidebar-text-muted: #ecdfc9;
-    --sidebar-border: #5c4530;
+    --sidebar-bg: #d8c4a0;
+    --sidebar-text: #2b1b11;
+    --sidebar-text-muted: #4a3626;
+    --sidebar-border: #b8a378;
+    --sidebar-active-bg: rgba(140, 47, 57, 0.14);
+    --sidebar-active-text: #8c2f39;
+    --sidebar-active-border: rgba(140, 47, 57, 0.35);
   }
 }
 
 :root[data-theme="dark"] {
-  --sidebar-bg: #3c2c1e;
-  --sidebar-text: #f5ede0;
-  --sidebar-text-muted: #ecdfc9;
-  --sidebar-border: #5c4530;
+  --sidebar-bg: #d8c4a0;
+  --sidebar-text: #2b1b11;
+  --sidebar-text-muted: #4a3626;
+  --sidebar-border: #b8a378;
+  --sidebar-active-bg: rgba(140, 47, 57, 0.14);
+  --sidebar-active-text: #8c2f39;
+  --sidebar-active-border: rgba(140, 47, 57, 0.35);
 }
 
 /* User-selectable heading font (FontSelector, saved as fontPreference). */
@@ -289,12 +299,12 @@ header nav a {
 /* Sidebar keeps its own dark/gold identity, distinct from the app's own
    light/dark toggle — see --sidebar-* tokens above for how it adapts. */
 .sidebar {
-  width: 240px;
+  width: 300px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1.5rem 1.1rem;
+  padding: 1.5rem 1.25rem;
   background: var(--sidebar-bg);
   color: var(--sidebar-text);
   border-right: 1px solid var(--sidebar-border);
@@ -302,7 +312,7 @@ header nav a {
 }
 
 .sidebar-collapsed {
-  width: 84px;
+  width: 92px;
 }
 
 .sidebar-header {
@@ -320,7 +330,7 @@ header nav a {
 }
 
 .sidebar-logo-image {
-  height: 3.75rem;
+  height: 5.25rem;
   width: auto;
 }
 
@@ -367,9 +377,9 @@ header nav a {
 }
 
 .sidebar-nav-item-active {
-  background: rgba(212, 164, 76, 0.18);
-  color: #d4a44c;
-  border: 1px solid rgba(212, 164, 76, 0.4);
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  border: 1px solid var(--sidebar-active-border);
 }
 
 .sidebar-collapsed .sidebar-nav-label {
@@ -469,13 +479,13 @@ header nav a {
     position: fixed;
     inset: 0 auto 0 0;
     z-index: 45;
-    width: 240px;
+    width: 300px;
     transform: translateX(-100%);
     box-shadow: var(--shadow-lg);
   }
 
   .sidebar-collapsed {
-    width: 240px;
+    width: 300px;
   }
 
   .sidebar-collapsed .sidebar-logo,
