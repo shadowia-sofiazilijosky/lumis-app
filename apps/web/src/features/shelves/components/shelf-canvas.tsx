@@ -12,7 +12,7 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
-import { Info, Pencil, Redo2, Undo2, Wand2 } from "lucide-react";
+import { Pencil } from "lucide-react";
 import { useMemo, useState } from "react";
 import { removeBookFromShelf, updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
@@ -124,13 +124,6 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
   const decorationModeEnabled = useShelfEditorStore(
     (state) => state.decorationModeEnabled,
   );
-  const toggleDecorationMode = useShelfEditorStore(
-    (state) => state.toggleDecorationMode,
-  );
-  const undo = useShelfEditorStore((state) => state.undo);
-  const redo = useShelfEditorStore((state) => state.redo);
-  const canUndo = useShelfEditorStore((state) => state.past.length > 0);
-  const canRedo = useShelfEditorStore((state) => state.future.length > 0);
   const [panelOpen, setPanelOpen] = useState(false);
 
   const hasManualSize = shelf.canvasWidth != null && shelf.canvasHeight != null;
@@ -260,40 +253,6 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         onDragCancel={() => setActiveDrag(null)}
       >
         <div className="shelf-canvas-toolbar">
-          <button
-            type="button"
-            className={`shelf-toolbar-pill ${decorationModeEnabled ? "shelf-toolbar-pill-active" : ""}`}
-            onClick={toggleDecorationMode}
-            aria-pressed={decorationModeEnabled}
-          >
-            <Wand2 size={16} />
-            Modo decoración
-          </button>
-
-          <div className="shelf-toolbar-undo-redo">
-            <button
-              type="button"
-              onClick={undo}
-              disabled={!canUndo}
-              aria-label="Deshacer"
-            >
-              <Undo2 size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={redo}
-              disabled={!canRedo}
-              aria-label="Rehacer"
-            >
-              <Redo2 size={16} />
-            </button>
-          </div>
-
-          <span className="shelf-toolbar-tip">
-            <Info size={14} />
-            Arrastra y suelta para mover los elementos
-          </span>
-
           <button
             type="button"
             className="shelf-toolbar-edit-button"
