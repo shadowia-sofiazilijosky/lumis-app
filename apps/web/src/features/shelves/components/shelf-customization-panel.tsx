@@ -1,16 +1,42 @@
 "use client";
 
 import type { ShelfWithBooks, UpdateShelfInput } from "@lumis/shared-types";
+import { useDraggable } from "@dnd-kit/core";
 import { Check } from "lucide-react";
 import { useState } from "react";
 import {
   BACKGROUND_OPTIONS,
   SHELF_FRAME_OPTIONS,
+  type ShelfFrameOption,
 } from "../lib/appearance-catalog";
 import { DECORATION_CATEGORIES, type DecorationCategory } from "../lib/decoration-catalog";
 import { updateShelf } from "../api/shelves-client";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { DecorationPalette } from "./decoration-palette";
+
+function ShelfFramePaletteItem({ option }: { option: ShelfFrameOption }) {
+  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+    id: `palette-shelf-${option.key}`,
+    data: { kind: "palette", type: "shelf", variant: option.key },
+  });
+
+  return (
+    <button
+      ref={setNodeRef}
+      type="button"
+      {...listeners}
+      {...attributes}
+      className="shelf-appearance-thumb"
+      aria-label={`Arrastrar al canvas: ${option.label}`}
+      style={{
+        opacity: isDragging ? 0.4 : 1,
+        backgroundImage: `url(${option.imageUrl})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    />
+  );
+}
 
 type Tab = "fondo" | "estanteria" | "decoracion";
 
@@ -101,32 +127,13 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
 
       {tab === "estanteria" && (
         <div className="shelf-customization-body">
-          <p className="shelf-customization-hint">Elige tu estantería</p>
+          <p className="shelf-customization-hint">
+            Arrastrá una estantería al canvas
+          </p>
           <div className="shelf-appearance-grid">
-            {SHELF_FRAME_OPTIONS.map((option) => {
-              const isSelected = shelf.shelfFrame === option.key;
-              return (
-                <button
-                  key={option.key}
-                  type="button"
-                  className="shelf-appearance-thumb"
-                  aria-pressed={isSelected}
-                  aria-label={option.label}
-                  onClick={() => save({ shelfFrame: option.key })}
-                  style={{
-                    backgroundImage: `url(${option.imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  {isSelected && (
-                    <span className="shelf-appearance-thumb-check">
-                      <Check size={14} strokeWidth={3} />
-                    </span>
-                  )}
-                </button>
-              );
-            })}
+            {SHELF_FRAME_OPTIONS.map((option) => (
+              <ShelfFramePaletteItem key={option.key} option={option} />
+            ))}
           </div>
         </div>
       )}

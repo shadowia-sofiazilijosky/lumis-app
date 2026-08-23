@@ -14,7 +14,7 @@ import {
 } from "@dnd-kit/core";
 import { useMemo, useRef, useState } from "react";
 import { updateShelf } from "../api/shelves-client";
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../lib/canvas";
+import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DECORATION_ICONS } from "../lib/decoration-catalog";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
@@ -22,8 +22,6 @@ import { ResizableCanvasBox } from "./resizable-canvas-box";
 import { ShelfBookItem } from "./shelf-book-item";
 import { ShelfCustomizationPanel } from "./shelf-customization-panel";
 import { ShelfDecorationItem } from "./shelf-decoration-item";
-
-const DEFAULT_SHELF_COLOR = "#8c2f39";
 
 type DragData =
   | { kind: "book"; bookId: string }
@@ -49,14 +47,17 @@ function DroppableCanvas({
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
   const selectBook = useShelfEditorStore((state) => state.selectBook);
-  const frameImage = findShelfFrameImage(shelf.shelfFrame);
+  const selectDecoration = useShelfEditorStore((state) => state.selectDecoration);
 
   return (
     <div
       ref={setNodeRef}
       className="shelf-canvas-inner"
       onClick={(event) => {
-        if (event.target === event.currentTarget) selectBook(null);
+        if (event.target === event.currentTarget) {
+          selectBook(null);
+          selectDecoration(null);
+        }
       }}
     >
       {/* Wall/backdrop layer — the "Fondo" tab selection, always covers the
@@ -72,25 +73,19 @@ function DroppableCanvas({
         aria-hidden="true"
       />
 
-      {/* Furniture layer — a selected wood-frame image ("Estantería" tab)
-          replaces the default texture entirely; otherwise the default
-          grayscale texture is tinted via multiply blend with the chosen
-          furniture color, keeping the wood grain/shadows visible. */}
-      <div
-        className="shelf-frame-layer"
-        style={frameImage ? { backgroundImage: `url(${frameImage})` } : undefined}
-        aria-hidden="true"
-      >
-        {!frameImage && (
-          <div
-            className="shelf-color-overlay"
-            style={{ backgroundColor: shelf.shelfColor ?? DEFAULT_SHELF_COLOR }}
-            aria-hidden="true"
+      {/* Shelf-frame images act as backdrop furniture, so they render behind
+          the books; other decorations (plants, lights, ...) render in front. */}
+      {decorations
+        .filter((decoration) => decoration.type === "shelf")
+        .map((decoration) => (
+          <ShelfDecorationItem
+            key={decoration.id}
+            decoration={decoration}
+            scaleX={scaleX}
+            scaleY={scaleY}
+            onRemove={onRemoveDecoration}
           />
-        )}
-      </div>
-
-      <div className="shelf-plank" aria-hidden="true" />
+        ))}
 
       {shelf.books.map((entry) => (
         <ShelfBookItem
@@ -105,15 +100,17 @@ function DroppableCanvas({
         />
       ))}
 
-      {decorations.map((decoration) => (
-        <ShelfDecorationItem
-          key={decoration.id}
-          decoration={decoration}
-          scaleX={scaleX}
-          scaleY={scaleY}
-          onRemove={onRemoveDecoration}
-        />
-      ))}
+      {decorations
+        .filter((decoration) => decoration.type !== "shelf")
+        .map((decoration) => (
+          <ShelfDecorationItem
+            key={decoration.id}
+            decoration={decoration}
+            scaleX={scaleX}
+            scaleY={scaleY}
+            onRemove={onRemoveDecoration}
+          />
+        ))}
     </div>
   );
 }
@@ -209,9 +206,18 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         variant: data.variant,
         x: Math.max(0, (draggedRect.left - canvasRect.left) / scaleX),
         y: Math.max(0, (draggedRect.top - canvasRect.top) / scaleY),
+        ...(data.type === "shelf" ? DEFAULT_SHELF_FRAME_SIZE : {}),
       });
     }
   }
+
+  const activeFrameImage =
+    activeDrag?.kind === "palette" && activeDrag.type === "shelf"
+      ? findShelfFrameImage(activeDrag.variant)
+      : activeDrag?.kind === "decoration" &&
+          activeDecoration?.type === "shelf"
+        ? findShelfFrameImage(activeDecoration.variant ?? null)
+        : null;
 
   const ActiveIcon =
     activeDrag?.kind === "palette"
@@ -255,6 +261,9 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
             <div className="shelf-book-drag-preview">
               {activeBookEntry.book.title}
             </div>
+          ) : activeFrameImage ? (
+            // eslint-disable-next-line @next/next/no-img-element -- local static asset
+            <img src={activeFrameImage} alt="" className="shelf-frame-drag-preview" />
           ) : ActiveIcon ? (
             <ActiveIcon />
           ) : null}

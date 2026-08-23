@@ -9,6 +9,8 @@ export interface ShelfDecoration {
   x: number;
   y: number;
   rotation?: number;
+  width?: number;
+  height?: number;
 }
 
 export interface Shelf {

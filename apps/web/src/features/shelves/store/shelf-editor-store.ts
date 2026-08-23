@@ -18,6 +18,7 @@ interface ShelfEditorState {
   hasUnsavedChanges: boolean;
   saveStatus: SaveStatus;
   selectedBookId: string | null;
+  selectedDecorationId: string | null;
 
   loadShelf: (shelf: ShelfWithBooks) => void;
   patchShelfMeta: (patch: Partial<ShelfWithBooks>) => void;
@@ -32,10 +33,12 @@ interface ShelfEditorState {
   removeBookLocally: (bookId: string) => void;
   addDecoration: (decoration: ShelfDecoration) => void;
   moveDecoration: (id: string, position: Position) => void;
+  resizeDecoration: (id: string, size: { width: number; height: number }) => void;
   removeDecoration: (id: string) => void;
   setSaveStatus: (status: SaveStatus) => void;
   markSaved: () => void;
   selectBook: (bookId: string | null) => void;
+  selectDecoration: (id: string | null) => void;
 }
 
 export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
@@ -45,6 +48,7 @@ export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
   hasUnsavedChanges: false,
   saveStatus: "idle",
   selectedBookId: null,
+  selectedDecorationId: null,
 
   loadShelf: (shelf) => {
     const bookPositions: Record<string, Position> = {};
@@ -134,6 +138,14 @@ export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
       hasUnsavedChanges: true,
     })),
 
+  resizeDecoration: (id, size) =>
+    set((state) => ({
+      decorations: state.decorations.map((decoration) =>
+        decoration.id === id ? { ...decoration, ...size } : decoration,
+      ),
+      hasUnsavedChanges: true,
+    })),
+
   removeDecoration: (id) =>
     set((state) => ({
       decorations: state.decorations.filter(
@@ -141,6 +153,8 @@ export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
       ),
       hasUnsavedChanges: true,
     })),
+
+  selectDecoration: (id) => set({ selectedDecorationId: id }),
 
   setSaveStatus: (status) => set({ saveStatus: status }),
 

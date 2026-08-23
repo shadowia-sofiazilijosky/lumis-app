@@ -1388,58 +1388,6 @@ html[data-theme="light"] {
   background-position: center;
 }
 
-/* Furniture — either the default tinted wood texture, or a selected frame image. */
-.shelf-frame-layer {
-  position: absolute;
-  inset: 0;
-  background-image: url("/assets/shelves/shelf-texture-base.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.shelf-color-overlay {
-  position: absolute;
-  inset: 0;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-.shelf-plank {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 12%;
-  /* Wood grain: fine streaks running the length of the shelf, plus a
-     top-lit/bottom-shadowed gradient so the plank reads as a rounded,
-     physical board rather than a flat color bar. */
-  background-image: repeating-linear-gradient(
-      89deg,
-      rgba(0, 0, 0, 0.1) 0px,
-      rgba(0, 0, 0, 0.1) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    repeating-linear-gradient(
-      91deg,
-      rgba(255, 255, 255, 0.07) 0px,
-      rgba(255, 255, 255, 0.07) 2px,
-      transparent 2px,
-      transparent 11px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.18) 0%,
-      transparent 18%,
-      transparent 65%,
-      rgba(0, 0, 0, 0.3) 100%
-    );
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  /* Casts the shelf forward, off the wall behind it — the 2.5D depth cue. */
-  box-shadow: 0 -10px 16px -6px rgba(20, 10, 10, 0.4),
-    0 6px 14px rgba(20, 10, 10, 0.45);
-}
-
 .shelf-book-wrapper {
   position: absolute;
 }
@@ -1546,28 +1494,63 @@ html[data-theme="light"] {
 }
 
 .shelf-decoration-wrapper {
-  display: flex;
-  align-items: center;
+  position: absolute;
 }
 
-.shelf-decoration-item {
+.shelf-decoration-item,
+.shelf-decoration-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
   border: none;
   background: transparent;
   cursor: grab;
   touch-action: none;
   padding: 0;
+}
+
+.shelf-decoration-item {
   /* drop-shadow (not box-shadow) follows the icon's actual silhouette,
      matching the same "resting on the shelf" lift as books/planks. */
   filter: drop-shadow(2px 3px 4px rgba(20, 10, 10, 0.35));
 }
 
+.shelf-decoration-item svg {
+  width: 100%;
+  height: 100%;
+}
+
+.shelf-decoration-frame-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(3px 6px 10px rgba(20, 10, 10, 0.4));
+}
+
+.shelf-frame-drag-preview {
+  width: 160px;
+  height: auto;
+  filter: drop-shadow(3px 6px 10px rgba(20, 10, 10, 0.4));
+}
+
 .shelf-decoration-remove {
-  border: none;
-  background: transparent;
-  color: var(--primary);
-  font-size: 0.85rem;
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--surface);
+  border-radius: 50%;
+  background: var(--danger);
+  color: var(--primary-foreground);
+  font-size: 0.9rem;
   line-height: 1;
+  padding: 0;
   cursor: pointer;
+  z-index: 21;
 }
 
 .shelf-book-picker {
@@ -1588,19 +1571,6 @@ html[data-theme="light"] {
   justify-content: space-between;
   align-items: center;
   padding: 0.25rem 0;
-}
-
-.shelf-list-view ul {
-  list-style: none;
-  margin-bottom: 1rem;
-}
-
-.shelf-list-view li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid var(--border);
 }
 
 .nudge-controls {
