@@ -11,6 +11,13 @@ import { DEFAULT_BOOK_POSITION } from "../lib/canvas";
 
 export type SaveStatus = "idle" | "saving" | "saved" | "error";
 
+interface LayoutSnapshot {
+  bookPositions: Record<string, Position>;
+  decorations: ShelfDecoration[];
+}
+
+const MAX_HISTORY = 30;
+
 interface ShelfEditorState {
   shelf: ShelfWithBooks | null;
   bookPositions: Record<string, Position>;
@@ -19,6 +26,9 @@ interface ShelfEditorState {
   saveStatus: SaveStatus;
   selectedBookId: string | null;
   selectedDecorationId: string | null;
+  decorationModeEnabled: boolean;
+  past: LayoutSnapshot[];
+  future: LayoutSnapshot[];
 
   loadShelf: (shelf: ShelfWithBooks) => void;
   patchShelfMeta: (patch: Partial<ShelfWithBooks>) => void;
@@ -38,115 +48,178 @@ interface ShelfEditorState {
   markSaved: () => void;
   selectBook: (bookId: string | null) => void;
   selectDecoration: (id: string | null) => void;
+  toggleDecorationMode: () => void;
+  undo: () => void;
+  redo: () => void;
 }
 
-export const useShelfEditorStore = create<ShelfEditorState>((set) => ({
-  shelf: null,
-  bookPositions: {},
-  decorations: [],
-  hasUnsavedChanges: false,
-  saveStatus: "idle",
-  selectedBookId: null,
-  selectedDecorationId: null,
-
-  loadShelf: (shelf) => {
-    const bookPositions: Record<string, Position> = {};
-    for (const entry of shelf.books) {
-      bookPositions[entry.bookId] = entry.position ?? DEFAULT_BOOK_POSITION;
-    }
+export const useShelfEditorStore = create<ShelfEditorState>((set, get) => {
+  /** Snapshots the layout onto the undo stack before a mutation, and clears
+   * the redo stack — the standard "any new edit invalidates future redos" rule. */
+  function pushHistory() {
+    const { bookPositions, decorations, past } = get();
+    const snapshot: LayoutSnapshot = {
+      bookPositions: { ...bookPositions },
+      decorations: [...decorations],
+    };
     set({
-      shelf,
-      bookPositions,
-      decorations: shelf.decorations,
-      hasUnsavedChanges: false,
-      saveStatus: "idle",
+      past: [...past.slice(-(MAX_HISTORY - 1)), snapshot],
+      future: [],
     });
-  },
+  }
 
-  patchShelfMeta: (patch) =>
-    set((state) =>
-      state.shelf ? { shelf: { ...state.shelf, ...patch } } : state,
-    ),
+  return {
+    shelf: null,
+    bookPositions: {},
+    decorations: [],
+    hasUnsavedChanges: false,
+    saveStatus: "idle",
+    selectedBookId: null,
+    selectedDecorationId: null,
+    decorationModeEnabled: true,
+    past: [],
+    future: [],
 
-  moveBook: (bookId, position) =>
-    set((state) => ({
-      bookPositions: { ...state.bookPositions, [bookId]: position },
-      hasUnsavedChanges: true,
-    })),
+    loadShelf: (shelf) => {
+      const bookPositions: Record<string, Position> = {};
+      for (const entry of shelf.books) {
+        bookPositions[entry.bookId] = entry.position ?? DEFAULT_BOOK_POSITION;
+      }
+      set({
+        shelf,
+        bookPositions,
+        decorations: shelf.decorations,
+        hasUnsavedChanges: false,
+        saveStatus: "idle",
+        past: [],
+        future: [],
+      });
+    },
 
-  setBookCustomSpineImage: (bookId, customSpineImageKey, customSpineImageUrl) =>
-    set((state) => ({
-      bookPositions: {
-        ...state.bookPositions,
-        [bookId]: {
-          ...(state.bookPositions[bookId] ?? { x: 0, y: 0 }),
-          customSpineImageKey,
-          customSpineImageUrl: customSpineImageUrl ?? undefined,
-        },
-      },
-    })),
+    patchShelfMeta: (patch) =>
+      set((state) =>
+        state.shelf ? { shelf: { ...state.shelf, ...patch } } : state,
+      ),
 
-  selectBook: (bookId) => set({ selectedBookId: bookId }),
+    moveBook: (bookId, position) => {
+      pushHistory();
+      set((state) => ({
+        bookPositions: { ...state.bookPositions, [bookId]: position },
+        hasUnsavedChanges: true,
+      }));
+    },
 
-  addBookLocally: (entry) =>
-    set((state) => {
-      if (!state.shelf) return state;
-      return {
-        shelf: { ...state.shelf, books: [...state.shelf.books, entry] },
+    setBookCustomSpineImage: (bookId, customSpineImageKey, customSpineImageUrl) =>
+      set((state) => ({
         bookPositions: {
           ...state.bookPositions,
-          [entry.bookId]: entry.position ?? DEFAULT_BOOK_POSITION,
+          [bookId]: {
+            ...(state.bookPositions[bookId] ?? { x: 0, y: 0 }),
+            customSpineImageKey,
+            customSpineImageUrl: customSpineImageUrl ?? undefined,
+          },
         },
-      };
-    }),
+      })),
 
-  removeBookLocally: (bookId) =>
-    set((state) => {
-      if (!state.shelf) return state;
-      const nextPositions = { ...state.bookPositions };
-      delete nextPositions[bookId];
-      return {
-        shelf: {
-          ...state.shelf,
-          books: state.shelf.books.filter((entry) => entry.bookId !== bookId),
-        },
-        bookPositions: nextPositions,
-      };
-    }),
+    selectBook: (bookId) => set({ selectedBookId: bookId }),
 
-  addDecoration: (decoration) =>
-    set((state) => ({
-      decorations: [...state.decorations, decoration],
-      hasUnsavedChanges: true,
-    })),
+    addBookLocally: (entry) =>
+      set((state) => {
+        if (!state.shelf) return state;
+        return {
+          shelf: { ...state.shelf, books: [...state.shelf.books, entry] },
+          bookPositions: {
+            ...state.bookPositions,
+            [entry.bookId]: entry.position ?? DEFAULT_BOOK_POSITION,
+          },
+        };
+      }),
 
-  moveDecoration: (id, position) =>
-    set((state) => ({
-      decorations: state.decorations.map((decoration) =>
-        decoration.id === id ? { ...decoration, ...position } : decoration,
-      ),
-      hasUnsavedChanges: true,
-    })),
+    removeBookLocally: (bookId) =>
+      set((state) => {
+        if (!state.shelf) return state;
+        const nextPositions = { ...state.bookPositions };
+        delete nextPositions[bookId];
+        return {
+          shelf: {
+            ...state.shelf,
+            books: state.shelf.books.filter((entry) => entry.bookId !== bookId),
+          },
+          bookPositions: nextPositions,
+        };
+      }),
 
-  resizeDecoration: (id, size) =>
-    set((state) => ({
-      decorations: state.decorations.map((decoration) =>
-        decoration.id === id ? { ...decoration, ...size } : decoration,
-      ),
-      hasUnsavedChanges: true,
-    })),
+    addDecoration: (decoration) => {
+      pushHistory();
+      set((state) => ({
+        decorations: [...state.decorations, decoration],
+        hasUnsavedChanges: true,
+      }));
+    },
 
-  removeDecoration: (id) =>
-    set((state) => ({
-      decorations: state.decorations.filter(
-        (decoration) => decoration.id !== id,
-      ),
-      hasUnsavedChanges: true,
-    })),
+    moveDecoration: (id, position) => {
+      pushHistory();
+      set((state) => ({
+        decorations: state.decorations.map((decoration) =>
+          decoration.id === id ? { ...decoration, ...position } : decoration,
+        ),
+        hasUnsavedChanges: true,
+      }));
+    },
 
-  selectDecoration: (id) => set({ selectedDecorationId: id }),
+    resizeDecoration: (id, size) => {
+      pushHistory();
+      set((state) => ({
+        decorations: state.decorations.map((decoration) =>
+          decoration.id === id ? { ...decoration, ...size } : decoration,
+        ),
+        hasUnsavedChanges: true,
+      }));
+    },
 
-  setSaveStatus: (status) => set({ saveStatus: status }),
+    removeDecoration: (id) => {
+      pushHistory();
+      set((state) => ({
+        decorations: state.decorations.filter(
+          (decoration) => decoration.id !== id,
+        ),
+        hasUnsavedChanges: true,
+      }));
+    },
 
-  markSaved: () => set({ hasUnsavedChanges: false, saveStatus: "saved" }),
-}));
+    selectDecoration: (id) => set({ selectedDecorationId: id }),
+
+    toggleDecorationMode: () =>
+      set((state) => ({ decorationModeEnabled: !state.decorationModeEnabled })),
+
+    undo: () => {
+      const { past, bookPositions, decorations, future } = get();
+      const previous = past[past.length - 1];
+      if (!previous) return;
+      set({
+        bookPositions: previous.bookPositions,
+        decorations: previous.decorations,
+        past: past.slice(0, -1),
+        future: [{ bookPositions, decorations }, ...future],
+        hasUnsavedChanges: true,
+      });
+    },
+
+    redo: () => {
+      const { future, bookPositions, decorations, past } = get();
+      const next = future[0];
+      if (!next) return;
+      set({
+        bookPositions: next.bookPositions,
+        decorations: next.decorations,
+        future: future.slice(1),
+        past: [...past, { bookPositions, decorations }],
+        hasUnsavedChanges: true,
+      });
+    },
+
+    setSaveStatus: (status) => set({ saveStatus: status }),
+
+    markSaved: () => set({ hasUnsavedChanges: false, saveStatus: "saved" }),
+  };
+});
