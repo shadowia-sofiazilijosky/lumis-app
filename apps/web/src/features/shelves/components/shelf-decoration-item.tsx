@@ -17,15 +17,11 @@ const MAX_SIZE = 900;
 
 interface ShelfDecorationItemProps {
   decoration: ShelfDecoration;
-  scaleX: number;
-  scaleY: number;
   onRemove: (id: string) => void;
 }
 
 export function ShelfDecorationItem({
   decoration,
-  scaleX,
-  scaleY,
   onRemove,
 }: ShelfDecorationItemProps) {
   const isLocked = decoration.locked ?? false;
@@ -69,10 +65,10 @@ export function ShelfDecorationItem({
 
   const wrapperStyle: CSSProperties = {
     position: "absolute",
-    left: decoration.x * scaleX,
-    top: decoration.y * scaleY,
-    width: width * scaleX,
-    height: height * scaleY,
+    left: decoration.x,
+    top: decoration.y,
+    width,
+    height,
     transform: `${transform ? CSS.Translate.toString(transform) : ""} translate(${liveOffset.x}px, ${liveOffset.y}px) rotate(${rotation}deg)`,
     zIndex: isDragging || isSelected ? 10 : 1,
   };

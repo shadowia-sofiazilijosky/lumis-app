@@ -32,8 +32,6 @@ type DragData =
 
 interface DroppableCanvasProps {
   shelf: ShelfWithBooks;
-  scaleX: number;
-  scaleY: number;
   bookPositions: Record<string, { x: number; y: number; rotation?: number }>;
   decorations: ShelfDecoration[];
   onRemoveDecoration: (id: string) => void;
@@ -42,8 +40,6 @@ interface DroppableCanvasProps {
 
 function DroppableCanvas({
   shelf,
-  scaleX,
-  scaleY,
   bookPositions,
   decorations,
   onRemoveDecoration,
@@ -85,8 +81,6 @@ function DroppableCanvas({
           <ShelfDecorationItem
             key={decoration.id}
             decoration={decoration}
-            scaleX={scaleX}
-            scaleY={scaleY}
             onRemove={onRemoveDecoration}
           />
         ))}
@@ -97,8 +91,6 @@ function DroppableCanvas({
           bookId={entry.bookId}
           book={entry.book}
           position={bookPositions[entry.bookId] ?? { x: 0, y: 0 }}
-          scaleX={scaleX}
-          scaleY={scaleY}
           onRemove={onRemoveBook}
         />
       ))}
@@ -109,8 +101,6 @@ function DroppableCanvas({
           <ShelfDecorationItem
             key={decoration.id}
             decoration={decoration}
-            scaleX={scaleX}
-            scaleY={scaleY}
             onRemove={onRemoveDecoration}
           />
         ))}
@@ -152,11 +142,13 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
 
   // Until the user resizes it manually, the canvas is CSS-driven (fills its
   // container responsively — grows when the sidebar collapses, etc.), so we
-  // read its actual rendered size back via ResizeObserver for the scale math.
+  // read its actual rendered size back via ResizeObserver — used only to size
+  // the container box itself. Placed items (books/decorations/frames) are
+  // positioned and sized in real canvas pixels and never scale with it: when
+  // the box grows, it just reveals more empty space instead of stretching
+  // whatever's already on it out of shape.
   const effectiveWidth = hasManualSize ? canvasSize.width : observedSize.width || CANVAS_WIDTH;
   const effectiveHeight = hasManualSize ? canvasSize.height : observedSize.height || CANVAS_HEIGHT;
-  const scaleX = effectiveWidth / CANVAS_WIDTH;
-  const scaleY = effectiveHeight / CANVAS_HEIGHT;
 
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null);
 
@@ -208,8 +200,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     if (data.kind === "book") {
       const current = bookPositions[data.bookId] ?? { x: 0, y: 0 };
       moveBook(data.bookId, {
-        x: current.x + delta.x / scaleX,
-        y: current.y + delta.y / scaleY,
+        x: current.x + delta.x,
+        y: current.y + delta.y,
         rotation: current.rotation,
       });
       return;
@@ -219,8 +211,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
       const current = decorations.find((d) => d.id === data.decorationId);
       if (!current) return;
       moveDecoration(data.decorationId, {
-        x: current.x + delta.x / scaleX,
-        y: current.y + delta.y / scaleY,
+        x: current.x + delta.x,
+        y: current.y + delta.y,
         rotation: current.rotation,
       });
       return;
@@ -235,8 +227,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         id: crypto.randomUUID(),
         type: data.type,
         variant: data.variant,
-        x: Math.max(0, (draggedRect.left - canvasRect.left) / scaleX),
-        y: Math.max(0, (draggedRect.top - canvasRect.top) / scaleY),
+        x: Math.max(0, draggedRect.left - canvasRect.left),
+        y: Math.max(0, draggedRect.top - canvasRect.top),
         ...(data.type === "shelf" ? DEFAULT_SHELF_FRAME_SIZE : {}),
       });
     }
@@ -326,8 +318,6 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
             >
               <DroppableCanvas
                 shelf={shelf}
-                scaleX={scaleX}
-                scaleY={scaleY}
                 bookPositions={bookPositions}
                 decorations={decorations}
                 onRemoveDecoration={removeDecoration}

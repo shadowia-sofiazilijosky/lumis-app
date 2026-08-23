@@ -17,8 +17,6 @@ interface ShelfBookItemProps {
   bookId: string;
   book: BookSummary;
   position: Position;
-  scaleX: number;
-  scaleY: number;
   onRemove: (bookId: string) => void;
 }
 
@@ -26,8 +24,6 @@ export function ShelfBookItem({
   bookId,
   book,
   position,
-  scaleX,
-  scaleY,
   onRemove,
 }: ShelfBookItemProps) {
   const isLocked = position.locked ?? false;
@@ -61,10 +57,10 @@ export function ShelfBookItem({
 
   const wrapperStyle: CSSProperties = {
     position: "absolute",
-    left: position.x * scaleX,
-    top: position.y * scaleY,
-    width: width * scaleX,
-    height: height * scaleY,
+    left: position.x,
+    top: position.y,
+    width,
+    height,
     transform: `${transform ? CSS.Translate.toString(transform) : ""} translate(${liveOffset.x}px, ${liveOffset.y}px)`,
     zIndex: isDragging || isSelected ? 10 : 1,
   };
