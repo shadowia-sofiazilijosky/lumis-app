@@ -217,6 +217,8 @@ model Highlight {
   // Free-form color, 6- or 8-digit hex (#RRGGBB[AA]) — a full spectrum with
   // transparency, not a fixed palette.
   color        String         @default("#F5D76EAA")
+  // Highlighter-pen stroke thickness: "thin" | "normal" | "thick".
+  size         String         @default("normal")
   pageIndex    Int            @map("page_index")
   startOffset  Int            @map("start_offset")
   endOffset    Int            @map("end_offset")

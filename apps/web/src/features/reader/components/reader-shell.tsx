@@ -13,6 +13,7 @@ import {
 import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore } from "../store/reader-store";
 import { EpubReader, type EpubReaderHandle } from "./epub-reader";
+import { HighlighterPenPanel } from "./highlighter-pen-panel";
 import { NotePopover } from "./note-popover";
 import { PaginatedReader } from "./paginated-reader";
 import { PdfReader } from "./pdf-reader";
@@ -42,6 +43,8 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const setZoom = useReaderStore((state) => state.setZoom);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
+  const activePen = useAnnotationsStore((state) => state.activePen);
+  const penPickerOpen = useAnnotationsStore((state) => state.penPickerOpen);
 
   useEffect(() => {
     let cancelled = false;
@@ -122,6 +125,11 @@ export function ReaderShell({ bookId }: { bookId: string }) {
     currentBook.format === BookFormat.PDF ||
     currentBook.format === BookFormat.EPUB ||
     currentBook.format === BookFormat.TXT;
+  // The highlighter pen paints via the offset-based TextAnnotationLayer,
+  // which only PDF and TXT render — EPUB's reflowable content uses its own
+  // (untouched) epub.js highlighting path.
+  const highlighterSupported =
+    currentBook.format === BookFormat.PDF || currentBook.format === BookFormat.TXT;
 
   return (
     <div className={`reader-shell reader-theme-${theme.toLowerCase()}`}>
@@ -134,9 +142,13 @@ export function ReaderShell({ bookId }: { bookId: string }) {
         canGoNext={canGoNext}
         pageLabel={pageLabel}
         textSelectable={textSelectable}
+        highlighterSupported={highlighterSupported}
       />
 
-      <div ref={viewportRef} className="reader-viewport">
+      <div
+        ref={viewportRef}
+        className={`reader-viewport${activePen ? " pen-active" : ""}`}
+      >
         {currentBook.format === BookFormat.PDF && fileUrl && (
           <PdfReader bookId={bookId} fileUrl={fileUrl} />
         )}
@@ -160,7 +172,8 @@ export function ReaderShell({ bookId }: { bookId: string }) {
         )}
       </div>
 
-      <SelectionToolbar bookId={bookId} />
+      <SelectionToolbar />
+      {penPickerOpen && <HighlighterPenPanel />}
       <NotePopover key={openNoteId ?? "closed"} bookId={bookId} />
     </div>
   );

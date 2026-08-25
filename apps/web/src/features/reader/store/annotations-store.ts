@@ -3,6 +3,8 @@
 import type { Highlight, Note } from "@lumis/shared-types";
 import { create } from "zustand";
 
+export type HighlightSize = "thin" | "normal" | "thick";
+
 export interface PendingSelection {
   pageIndex: number;
   startOffset: number;
@@ -14,10 +16,19 @@ export interface PendingSelection {
   rect: DOMRect;
 }
 
+/** The highlighter pen's current color/size — set once via the picker, then
+ * every text drag applies it immediately, no per-selection color prompt. */
+export interface ActivePen {
+  color: string;
+  size: HighlightSize;
+}
+
 interface AnnotationsState {
   highlights: Highlight[];
   notes: Note[];
   pendingSelection: PendingSelection | null;
+  activePen: ActivePen | null;
+  penPickerOpen: boolean;
   /** A note id being viewed/edited, `"new"` while composing one from `pendingSelection`, or null. */
   openNoteId: string | "new" | null;
   /** Viewport rect used to position the note popover when opening an *existing* note (pin/mark click). */
@@ -30,6 +41,8 @@ interface AnnotationsState {
   updateNoteLocal: (id: string, patch: Partial<Note>) => void;
   removeNoteLocal: (id: string) => void;
   setPendingSelection: (selection: PendingSelection | null) => void;
+  setActivePen: (pen: ActivePen | null) => void;
+  setPenPickerOpen: (open: boolean) => void;
   startNewNote: () => void;
   openExistingNote: (id: string, rect: DOMRect) => void;
   closeNotePopover: () => void;
@@ -39,6 +52,8 @@ export const useAnnotationsStore = create<AnnotationsState>((set) => ({
   highlights: [],
   notes: [],
   pendingSelection: null,
+  activePen: null,
+  penPickerOpen: false,
   openNoteId: null,
   openNoteRect: null,
 
@@ -65,6 +80,10 @@ export const useAnnotationsStore = create<AnnotationsState>((set) => ({
     set((state) => ({ notes: state.notes.filter((note) => note.id !== id) })),
 
   setPendingSelection: (pendingSelection) => set({ pendingSelection }),
+
+  setActivePen: (activePen) => set({ activePen, penPickerOpen: false }),
+
+  setPenPickerOpen: (penPickerOpen) => set({ penPickerOpen }),
 
   startNewNote: () => set({ openNoteId: "new" }),
 

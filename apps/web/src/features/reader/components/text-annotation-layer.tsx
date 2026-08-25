@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useState, type RefObject } from "react";
-import { deleteHighlight } from "../api/annotations-client";
-import { getOffsetsFromRange, rectsForOffsets } from "../lib/text-range";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { createHighlight, deleteHighlight } from "../api/annotations-client";
+import {
+  getOffsetsFromRange,
+  isPlausibleDragSelection,
+  rectsForOffsets,
+} from "../lib/text-range";
 import { useAnnotationsStore } from "../store/annotations-store";
 
 interface TextAnnotationLayerProps {
@@ -17,6 +21,7 @@ interface HighlightMark {
   key: string;
   id: string;
   color: string;
+  size: string;
   rect: DOMRect;
 }
 
@@ -41,13 +46,29 @@ export function TextAnnotationLayer({
   const removeHighlightLocal = useAnnotationsStore(
     (state) => state.removeHighlightLocal,
   );
+  const addHighlight = useAnnotationsStore((state) => state.addHighlight);
+  const activePen = useAnnotationsStore((state) => state.activePen);
   const setPendingSelection = useAnnotationsStore(
     (state) => state.setPendingSelection,
   );
   const openExistingNote = useAnnotationsStore((state) => state.openExistingNote);
 
+  // Read via a ref inside the mouseup handler so the pen's current
+  // color/size are always fresh without re-subscribing the mousedown/mouseup
+  // listeners (which must stay stable across renders — they're on `document`).
+  const activePenRef = useRef(activePen);
   useEffect(() => {
-    function handleMouseUp() {
+    activePenRef.current = activePen;
+  }, [activePen]);
+
+  const dragStartY = useRef(0);
+
+  useEffect(() => {
+    function handleMouseDown(event: MouseEvent) {
+      dragStartY.current = event.clientY;
+    }
+
+    async function handleMouseUp(event: MouseEvent) {
       const container = containerRef.current;
       const selection = window.getSelection();
       if (!container || !selection || selection.isCollapsed || selection.rangeCount === 0) {
@@ -56,9 +77,29 @@ export function TextAnnotationLayer({
 
       const range = selection.getRangeAt(0);
       if (!container.contains(range.commonAncestorContainer)) return;
+      if (!isPlausibleDragSelection(range, dragStartY.current, event.clientY)) {
+        selection.removeAllRanges();
+        return;
+      }
 
       const { start, end, text } = getOffsetsFromRange(container, range);
       if (!text.trim()) return;
+
+      const pen = activePenRef.current;
+      if (pen) {
+        // Pen already chosen — paint immediately, no color prompt.
+        selection.removeAllRanges();
+        const highlight = await createHighlight(bookId, {
+          color: pen.color,
+          size: pen.size,
+          pageIndex,
+          startOffset: start,
+          endOffset: end,
+          selectedText: text,
+        });
+        if (highlight) addHighlight(highlight);
+        return;
+      }
 
       setPendingSelection({
         pageIndex,
@@ -69,9 +110,13 @@ export function TextAnnotationLayer({
       });
     }
 
+    document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("mouseup", handleMouseUp);
-    return () => document.removeEventListener("mouseup", handleMouseUp);
-  }, [containerRef, pageIndex, setPendingSelection]);
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [addHighlight, bookId, containerRef, pageIndex, setPendingSelection]);
 
   const pageHighlights = useMemo(
     () => highlights.filter((h) => h.pageIndex === pageIndex && !h.cfi),
@@ -104,6 +149,7 @@ export function TextAnnotationLayer({
             key: `${highlight.id}-${index}`,
             id: highlight.id,
             color: highlight.color,
+            size: highlight.size,
             rect,
           }),
         ),
@@ -128,22 +174,37 @@ export function TextAnnotationLayer({
 
   return (
     <div className="annotation-overlay">
-      {highlightMarks.map(({ key, id, color, rect }) => (
-        <button
-          key={key}
-          type="button"
-          className="highlight-mark"
-          style={{
-            left: rect.x,
-            top: rect.y,
-            width: rect.width,
-            height: rect.height,
-            background: color,
-          }}
-          title="Quitar resaltado"
-          onClick={() => handleDeleteHighlight(id)}
-        />
-      ))}
+      {highlightMarks.map(({ key, id, color, size, rect }) => {
+        // "Fino" reads as an underline under the text; "grueso" pads the
+        // block above/below; "normal" is the plain text-height rectangle.
+        const style =
+          size === "thin"
+            ? {
+                left: rect.x,
+                top: rect.y + rect.height - 4,
+                width: rect.width,
+                height: 4,
+              }
+            : size === "thick"
+              ? {
+                  left: rect.x,
+                  top: rect.y - 3,
+                  width: rect.width,
+                  height: rect.height + 6,
+                }
+              : { left: rect.x, top: rect.y, width: rect.width, height: rect.height };
+
+        return (
+          <button
+            key={key}
+            type="button"
+            className="highlight-mark"
+            style={{ ...style, background: color }}
+            title="Quitar resaltado"
+            onClick={() => handleDeleteHighlight(id)}
+          />
+        );
+      })}
       {notePins.map(({ id, rect }) => (
         <button
           key={id}

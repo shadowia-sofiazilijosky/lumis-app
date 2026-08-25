@@ -7,6 +7,7 @@ import {
   BookOpen,
   ChevronLeft,
   ChevronRight,
+  Highlighter,
   Minus,
   Plus,
 } from "lucide-react";
@@ -14,6 +15,7 @@ import Link from "next/link";
 import { READER_THEME_LABELS } from "../api/reader-client";
 import { useAutoHideControls } from "../hooks/use-auto-hide-controls";
 import { useTapToToggleControls } from "../hooks/use-tap-to-toggle-controls";
+import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore, type PageTurnMode } from "../store/reader-store";
 
 interface ReaderControlsProps {
@@ -26,6 +28,8 @@ interface ReaderControlsProps {
   pageLabel: string;
   /** PDF/EPUB/TXT: text must stay selectable, so an opaque tap-zone overlay can't be used here. */
   textSelectable: boolean;
+  /** PDF/TXT only — whether the highlighter-pen tool applies to this format. */
+  highlighterSupported: boolean;
 }
 
 const THEME_ORDER: ReaderTheme[] = [
@@ -49,9 +53,14 @@ export function ReaderControls({
   canGoNext,
   pageLabel,
   textSelectable,
+  highlighterSupported,
 }: ReaderControlsProps) {
   useAutoHideControls();
   useTapToToggleControls(textSelectable);
+
+  const activePen = useAnnotationsStore((state) => state.activePen);
+  const penPickerOpen = useAnnotationsStore((state) => state.penPickerOpen);
+  const setPenPickerOpen = useAnnotationsStore((state) => state.setPenPickerOpen);
 
   const controlsVisible = useReaderStore((state) => state.controlsVisible);
   const theme = useReaderStore((state) => state.theme);
@@ -116,6 +125,19 @@ export function ReaderControls({
               </button>
             ))}
           </div>
+
+          {highlighterSupported && (
+            <button
+              type="button"
+              className={`reader-pen-toggle${activePen ? " reader-pen-toggle-active" : ""}`}
+              aria-pressed={penPickerOpen}
+              aria-label="Resaltador"
+              onClick={() => setPenPickerOpen(!penPickerOpen)}
+            >
+              <Highlighter size={15} />
+              {activePen && <span className="reader-pen-swatch" style={{ background: activePen.color }} />}
+            </button>
+          )}
 
           <div className="reader-zoom-controls">
             <button type="button" aria-label="Alejar" onClick={zoomOut}>

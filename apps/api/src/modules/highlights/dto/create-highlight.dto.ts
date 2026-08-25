@@ -1,4 +1,5 @@
 import {
+  IsIn,
   IsInt,
   IsOptional,
   IsString,
@@ -12,6 +13,11 @@ export class CreateHighlightDto {
   @IsString()
   @Matches(/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/)
   color: string;
+
+  // Highlighter-pen stroke thickness.
+  @IsOptional()
+  @IsIn(['thin', 'normal', 'thick'])
+  size?: string;
 
   @IsInt()
   @Min(0)

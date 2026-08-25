@@ -60,6 +60,29 @@ export function rangeFromOffsets(
  * coordinates, as a child of `container`, stays aligned with the text as
  * the container scrolls, with no recompute needed on scroll.
  */
+/**
+ * Sanity check for a just-formed Range against the pointer's actual drag
+ * path. pdf.js's text layer is a flat list of absolutely-positioned spans
+ * (taken out of normal document flow) — the browser still resolves
+ * `Selection`/`Range` by DOM order between anchor and focus, which for a
+ * drag that starts/ends near span boundaries can occasionally snap to a
+ * far-away node and produce a Range that visually has nothing to do with
+ * the drag (the "selected the whole page" / "selected an unrelated
+ * paragraph" symptom). A real single-drag selection's bounding box should
+ * roughly track the vertical distance the pointer actually moved; reject
+ * anything wildly taller than that instead of committing a wrong highlight.
+ */
+export function isPlausibleDragSelection(
+  range: Range,
+  dragStartY: number,
+  dragEndY: number,
+): boolean {
+  const rect = range.getBoundingClientRect();
+  const dragHeight = Math.abs(dragEndY - dragStartY);
+  const allowedHeight = Math.max(dragHeight * 1.8, 80);
+  return rect.height <= allowedHeight;
+}
+
 export function rectsForOffsets(
   container: Element,
   start: number,

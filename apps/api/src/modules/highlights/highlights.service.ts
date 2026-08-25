@@ -28,6 +28,7 @@ export class HighlightsService {
         userId: ownerId,
         bookId,
         color: dto.color,
+        size: dto.size ?? 'normal',
         pageIndex: dto.pageIndex,
         startOffset: dto.startOffset,
         endOffset: dto.endOffset,
