@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import type { PageTurnMode } from "../store/reader-store";
 
-const TRANSITION_DURATION_MS = 320;
+// Matches the longest of the three CSS animations (the "flip" curl, at
+// 420ms) — running a bit longer than horizontal/vertical's own 220ms is
+// harmless, it just removes their class slightly after they've settled.
+const TRANSITION_DURATION_MS = 420;
 
 interface PageFlipProps {
   flipKey: string | number;
