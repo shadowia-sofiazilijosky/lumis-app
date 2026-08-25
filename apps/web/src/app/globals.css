@@ -2186,7 +2186,11 @@ html[data-theme="light"] {
   background:
     radial-gradient(circle, #808080 0%, rgba(128, 128, 128, 0) 100%),
     conic-gradient(
-      from 0deg,
+      /* CSS conic angles start at the top and go clockwise, but the pointer
+         math (atan2) starts at the right (0 rad) -- start the gradient's
+         red stop there too, so the color under the knob always matches
+         what the pointer position actually computes. */
+      from 90deg,
       #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
     );
   box-shadow: inset 0 0 0 1px var(--border);
