@@ -1,9 +1,10 @@
 "use client";
 
+import { Check } from "lucide-react";
 import { useState } from "react";
 import type { HighlightSize } from "../store/annotations-store";
 import { useAnnotationsStore } from "../store/annotations-store";
-import { hueToHex, PastelHueWheel } from "./pastel-hue-wheel";
+import { ColorWheel, hslToHex } from "./color-wheel";
 
 const SIZE_OPTIONS: { size: HighlightSize; label: string; barHeight: number }[] = [
   { size: "thin", label: "Fino", barHeight: 4 },
@@ -24,10 +25,11 @@ export function HighlighterPenPanel() {
   const setPenPickerOpen = useAnnotationsStore((state) => state.setPenPickerOpen);
 
   const [hue, setHue] = useState(45);
+  const [saturation, setSaturation] = useState(55);
   const [opacity, setOpacity] = useState(55);
   const [size, setSize] = useState<HighlightSize>(activePen?.size ?? "normal");
 
-  const baseColor = hueToHex(hue);
+  const baseColor = hslToHex(hue, saturation);
   const previewColor = withAlpha(baseColor, opacity);
 
   function applyPen() {
@@ -36,7 +38,14 @@ export function HighlighterPenPanel() {
 
   return (
     <div className="pen-panel" onPointerDown={(event) => event.stopPropagation()}>
-      <PastelHueWheel hue={hue} onChange={setHue} />
+      <ColorWheel
+        hue={hue}
+        saturation={saturation}
+        onChange={(nextHue, nextSaturation) => {
+          setHue(nextHue);
+          setSaturation(nextSaturation);
+        }}
+      />
 
       <label className="pen-panel-opacity">
         Transparencia
@@ -62,7 +71,10 @@ export function HighlighterPenPanel() {
               className="pen-panel-size-bar"
               style={{ height: option.barHeight, background: previewColor }}
             />
-            {option.label}
+            <span className="pen-panel-size-label">
+              {option.size === size && <Check size={11} />}
+              {option.label}
+            </span>
           </button>
         ))}
       </div>

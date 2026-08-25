@@ -17,6 +17,7 @@ import { HighlighterPenPanel } from "./highlighter-pen-panel";
 import { NotePopover } from "./note-popover";
 import { PaginatedReader } from "./paginated-reader";
 import { PdfReader } from "./pdf-reader";
+import { PenCursor } from "./pen-cursor";
 import { ReaderControls } from "./reader-controls";
 import { SelectionToolbar } from "./selection-toolbar";
 
@@ -171,6 +172,8 @@ export function ReaderShell({ bookId }: { bookId: string }) {
           />
         )}
       </div>
+
+      {activePen && <PenCursor containerRef={viewportRef} pen={activePen} />}
 
       <SelectionToolbar />
       {penPickerOpen && <HighlighterPenPanel />}
