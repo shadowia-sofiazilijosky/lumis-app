@@ -20,6 +20,7 @@ interface PaginatedReaderProps {
 export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
   const currentPage = useReaderStore((state) => state.currentPage);
   const flipDirection = useReaderStore((state) => state.flipDirection);
+  const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const [loadedPage, setLoadedPage] = useState<TextPage | null>(null);
   const textPageRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +39,7 @@ export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
   }, [bookId, currentPage, isText]);
 
   return (
-    <PageFlip flipKey={currentPage} direction={flipDirection}>
+    <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>
       {isText ? (
         <div ref={textPageRef} className="text-reader-page">
           {text

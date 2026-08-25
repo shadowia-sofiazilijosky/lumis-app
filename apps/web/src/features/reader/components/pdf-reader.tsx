@@ -23,6 +23,7 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
 
   const currentPage = useReaderStore((state) => state.currentPage);
   const flipDirection = useReaderStore((state) => state.flipDirection);
+  const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
 
   useEffect(() => {
@@ -105,7 +106,7 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
   }, [ready, currentPage]);
 
   return (
-    <PageFlip flipKey={currentPage} direction={flipDirection}>
+    <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>
       <div
         ref={frameRef}
         className="pdf-page-frame"

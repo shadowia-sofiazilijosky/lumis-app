@@ -3,7 +3,9 @@
 import { BookFormat, type BookDetail } from "@lumis/shared-types";
 import { useEffect, useRef, useState } from "react";
 import { fetchBookDetail } from "@/features/books/api/books-client";
+import { useKeyboardNavigation } from "../hooks/use-keyboard-navigation";
 import { useLoadAnnotations } from "../hooks/use-annotations";
+import { useReaderGestures } from "../hooks/use-reader-gestures";
 import {
   useAutosaveReadingProgress,
   useLoadReadingProgress,
@@ -23,6 +25,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
     "loading",
   );
   const epubRef = useRef<EpubReaderHandle>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
 
   useLoadReadingProgress(bookId);
   useAutosaveReadingProgress(bookId);
@@ -35,6 +38,9 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const progressPercent = useReaderStore((state) => state.progressPercent);
   const goToPage = useReaderStore((state) => state.goToPage);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
+  const zoom = useReaderStore((state) => state.zoom);
+  const setZoom = useReaderStore((state) => state.setZoom);
+  const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
 
   useEffect(() => {
@@ -58,6 +64,33 @@ export function ReaderShell({ bookId }: { bookId: string }) {
     };
   }, [bookId, setTotalPages]);
 
+  const isEpub = book?.format === BookFormat.EPUB;
+
+  function handlePrev() {
+    if (isEpub) {
+      epubRef.current?.prev();
+      return;
+    }
+    goToPage(Math.max(1, currentPage - 1));
+  }
+
+  function handleNext() {
+    if (isEpub) {
+      epubRef.current?.next();
+      return;
+    }
+    goToPage(Math.min(totalPages ?? currentPage + 1, currentPage + 1));
+  }
+
+  useKeyboardNavigation(handlePrev, handleNext);
+  useReaderGestures(viewportRef, {
+    onPrev: handlePrev,
+    onNext: handleNext,
+    mode: pageTurnMode,
+    zoom,
+    setZoom,
+  });
+
   if (status === "loading") {
     return <p>Cargando…</p>;
   }
@@ -76,23 +109,6 @@ export function ReaderShell({ bookId }: { bookId: string }) {
 
   const currentBook = book;
   const fileUrl = currentBook.fileUrl;
-  const isEpub = currentBook.format === BookFormat.EPUB;
-
-  function handlePrev() {
-    if (isEpub) {
-      epubRef.current?.prev();
-      return;
-    }
-    goToPage(Math.max(1, currentPage - 1));
-  }
-
-  function handleNext() {
-    if (isEpub) {
-      epubRef.current?.next();
-      return;
-    }
-    goToPage(Math.min(totalPages ?? currentPage + 1, currentPage + 1));
-  }
 
   const canGoPrev = isEpub ? true : currentPage > 1;
   const canGoNext = isEpub ? true : totalPages === null || currentPage < totalPages;
@@ -117,23 +133,28 @@ export function ReaderShell({ bookId }: { bookId: string }) {
         textSelectable={textSelectable}
       />
 
-      <div className="reader-viewport">
-        {currentBook.format === BookFormat.PDF && fileUrl && (
-          <PdfReader bookId={bookId} fileUrl={fileUrl} />
-        )}
-        {isEpub && fileUrl && (
-          <EpubReader
-            ref={epubRef}
-            bookId={bookId}
-            fileUrl={fileUrl}
-            initialLocator={locator}
-          />
-        )}
-        {(currentBook.format === BookFormat.CBR ||
-          currentBook.format === BookFormat.CBZ ||
-          currentBook.format === BookFormat.TXT) && (
-          <PaginatedReader bookId={bookId} format={currentBook.format} />
-        )}
+      <div ref={viewportRef} className="reader-viewport">
+        <div
+          className="reader-zoom-layer"
+          style={{ transform: `scale(${zoom})` }}
+        >
+          {currentBook.format === BookFormat.PDF && fileUrl && (
+            <PdfReader bookId={bookId} fileUrl={fileUrl} />
+          )}
+          {isEpub && fileUrl && (
+            <EpubReader
+              ref={epubRef}
+              bookId={bookId}
+              fileUrl={fileUrl}
+              initialLocator={locator}
+            />
+          )}
+          {(currentBook.format === BookFormat.CBR ||
+            currentBook.format === BookFormat.CBZ ||
+            currentBook.format === BookFormat.TXT) && (
+            <PaginatedReader bookId={bookId} format={currentBook.format} />
+          )}
+        </div>
       </div>
 
       <SelectionToolbar bookId={bookId} />

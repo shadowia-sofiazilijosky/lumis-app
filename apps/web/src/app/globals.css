@@ -1660,8 +1660,22 @@ html[data-theme="light"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  padding: 3.5rem 1rem;
+  /* auto (not hidden): once zoomed in past 100%, the page overflows its
+     box and needs to be scrollable/pannable, on both mouse and touch. */
+  overflow: auto;
+  padding: 1.5rem 1rem;
+  touch-action: pan-x pan-y;
+}
+
+.reader-zoom-layer {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  transition: transform 0.12s ease;
 }
 
 .reader-tap-zones {
@@ -1707,6 +1721,8 @@ html[data-theme="light"] {
   transform: translateY(-100%);
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
 }
 
 .reader-bottombar {
@@ -1736,6 +1752,34 @@ html[data-theme="light"] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.reader-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.reader-page-turn-switch,
+.reader-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.reader-page-turn-switch button,
+.reader-zoom-controls button {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reader-zoom-label {
+  min-width: 3rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .reader-theme-switch {
@@ -1784,7 +1828,7 @@ html[data-theme="light"] {
   justify-content: center;
 }
 
-@keyframes page-flip-forward {
+@keyframes page-flip-flip-forward {
   0% {
     transform: rotateY(0deg);
     filter: brightness(1);
@@ -1799,7 +1843,7 @@ html[data-theme="light"] {
   }
 }
 
-@keyframes page-flip-backward {
+@keyframes page-flip-flip-backward {
   0% {
     transform: rotateY(0deg);
     filter: brightness(1);
@@ -1814,14 +1858,76 @@ html[data-theme="light"] {
   }
 }
 
-.page-flip-leaf-forward {
-  animation: page-flip-forward 320ms ease;
+.page-flip-leaf-flip-forward {
+  animation: page-flip-flip-forward 320ms ease;
   transform-origin: right center;
 }
 
-.page-flip-leaf-backward {
-  animation: page-flip-backward 320ms ease;
+.page-flip-leaf-flip-backward {
+  animation: page-flip-flip-backward 320ms ease;
   transform-origin: left center;
+}
+
+/* Horizontal slide — the new page enters from the direction of travel. */
+@keyframes page-flip-horizontal-forward {
+  0% {
+    transform: translateX(28px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes page-flip-horizontal-backward {
+  0% {
+    transform: translateX(-28px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.page-flip-leaf-horizontal-forward {
+  animation: page-flip-horizontal-forward 220ms ease;
+}
+
+.page-flip-leaf-horizontal-backward {
+  animation: page-flip-horizontal-backward 220ms ease;
+}
+
+/* Vertical slide — same idea, top-to-bottom instead of side-to-side. */
+@keyframes page-flip-vertical-forward {
+  0% {
+    transform: translateY(28px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes page-flip-vertical-backward {
+  0% {
+    transform: translateY(-28px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.page-flip-leaf-vertical-forward {
+  animation: page-flip-vertical-forward 220ms ease;
+}
+
+.page-flip-leaf-vertical-backward {
+  animation: page-flip-vertical-backward 220ms ease;
 }
 
 .pdf-reader-canvas {
@@ -1840,9 +1946,9 @@ html[data-theme="light"] {
 }
 
 .epub-reader-viewport {
-  width: min(720px, 92vw);
+  width: min(920px, 94vw);
   height: 100%;
-  max-height: 900px;
+  max-height: 1100px;
   background: var(--reader-surface);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   border-radius: var(--radius-md);
@@ -1858,9 +1964,9 @@ html[data-theme="light"] {
 
 .text-reader-page {
   position: relative;
-  width: min(680px, 92vw);
+  width: min(880px, 94vw);
   height: 100%;
-  max-height: 900px;
+  max-height: 1100px;
   overflow-y: auto;
   padding: 2.5rem 2rem;
   background: var(--reader-surface);
@@ -1919,20 +2025,8 @@ html[data-theme="light"] {
   cursor: pointer;
   pointer-events: auto;
   mix-blend-mode: multiply;
-  opacity: 0.55;
-}
-
-.highlight-yellow {
-  background: #f5d76e;
-}
-.highlight-pink {
-  background: #e8a0bf;
-}
-.highlight-green {
-  background: #a3d9a5;
-}
-.highlight-blue {
-  background: #9ec5e8;
+  /* Transparency is baked into the color itself now (an 8-digit hex the
+     user picked), not a fixed CSS opacity on top of it. */
 }
 
 .note-pin {
@@ -1971,6 +2065,58 @@ html[data-theme="light"] {
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 0;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+.selection-toolbar-swatch-custom {
+  border: 2px dashed rgba(0, 0, 0, 0.35);
+}
+
+.selection-toolbar-picker {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  width: 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 61;
+}
+
+.selection-toolbar-picker-input {
+  width: 100%;
+  height: 2.2rem;
+  padding: 2px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.selection-toolbar-picker-opacity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--foreground);
+}
+
+.selection-toolbar-picker-preview {
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.4rem;
+  font-size: 0.68rem;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.selection-toolbar-picker-apply {
+  font-size: 0.8rem;
+  padding: 0.4rem;
 }
 
 .selection-toolbar-note {

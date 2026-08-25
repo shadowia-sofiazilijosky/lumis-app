@@ -70,10 +70,3 @@ export async function updateNote(
 export async function deleteNote(bookId: string, noteId: string): Promise<void> {
   await fetch(`/api/books/${bookId}/notes/${noteId}`, { method: "DELETE" });
 }
-
-export const HIGHLIGHT_COLOR_HEX: Record<string, string> = {
-  YELLOW: "#f5d76e",
-  PINK: "#e8a0bf",
-  GREEN: "#a3d9a5",
-  BLUE: "#9ec5e8",
-};

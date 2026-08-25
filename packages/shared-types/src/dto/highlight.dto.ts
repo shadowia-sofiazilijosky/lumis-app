@@ -1,7 +1,6 @@
-import { HighlightColor } from "../enums/highlight-color.enum";
-
 export interface CreateHighlightDto {
-  color: HighlightColor;
+  /** 6- or 8-digit hex (#RRGGBB[AA]) — free spectrum, not a fixed palette. */
+  color: string;
   pageIndex: number;
   startOffset: number;
   endOffset: number;

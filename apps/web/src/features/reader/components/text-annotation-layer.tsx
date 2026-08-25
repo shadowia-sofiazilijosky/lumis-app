@@ -1,6 +1,5 @@
 "use client";
 
-import type { HighlightColor } from "@lumis/shared-types";
 import { useEffect, useLayoutEffect, useMemo, useState, type RefObject } from "react";
 import { deleteHighlight } from "../api/annotations-client";
 import { getOffsetsFromRange, rectsForOffsets } from "../lib/text-range";
@@ -17,7 +16,7 @@ interface TextAnnotationLayerProps {
 interface HighlightMark {
   key: string;
   id: string;
-  color: HighlightColor;
+  color: string;
   rect: DOMRect;
 }
 
@@ -133,8 +132,14 @@ export function TextAnnotationLayer({
         <button
           key={key}
           type="button"
-          className={`highlight-mark highlight-${color.toLowerCase()}`}
-          style={{ left: rect.x, top: rect.y, width: rect.width, height: rect.height }}
+          className="highlight-mark"
+          style={{
+            left: rect.x,
+            top: rect.y,
+            width: rect.width,
+            height: rect.height,
+            background: color,
+          }}
           title="Quitar resaltado"
           onClick={() => handleDeleteHighlight(id)}
         />

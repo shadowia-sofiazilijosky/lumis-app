@@ -3,7 +3,7 @@
 import { ReaderTheme } from "@lumis/shared-types";
 import type { Book, Contents, Rendition } from "epubjs";
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
-import { HIGHLIGHT_COLOR_HEX, deleteHighlight } from "../api/annotations-client";
+import { deleteHighlight } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore } from "../store/reader-store";
 import { PageFlip } from "./page-flip";
@@ -60,6 +60,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
     const [renditionReady, setRenditionReady] = useState(false);
 
     const flipDirection = useReaderStore((state) => state.flipDirection);
+    const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
     const theme = useReaderStore((state) => state.theme);
     const goToLocator = useReaderStore((state) => state.goToLocator);
     const setTotalPages = useReaderStore((state) => state.setTotalPages);
@@ -203,8 +204,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
           },
           "epub-highlight",
           {
-            fill: HIGHLIGHT_COLOR_HEX[highlight.color],
-            "fill-opacity": "0.35",
+            fill: highlight.color,
             "mix-blend-mode": "multiply",
           },
         );
@@ -225,7 +225,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
     }, [highlights, notes, renditionReady, bookId, removeHighlightLocal, openExistingNote]);
 
     return (
-      <PageFlip flipKey={flipTick} direction={flipDirection}>
+      <PageFlip flipKey={flipTick} direction={flipDirection} mode={pageTurnMode}>
         <div ref={containerRef} className="epub-reader-viewport" />
       </PageFlip>
     );

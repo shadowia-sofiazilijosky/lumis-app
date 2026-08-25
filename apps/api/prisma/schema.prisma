@@ -60,13 +60,6 @@ enum ReadingStatus {
   ABANDONED
 }
 
-enum HighlightColor {
-  YELLOW
-  PINK
-  GREEN
-  BLUE
-}
-
 // ---------- Models ----------
 
 model User {
@@ -221,7 +214,9 @@ model Highlight {
   user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   bookId       String         @map("book_id")
   book         Book           @relation(fields: [bookId], references: [id], onDelete: Cascade)
-  color        HighlightColor
+  // Free-form color, 6- or 8-digit hex (#RRGGBB[AA]) — a full spectrum with
+  // transparency, not a fixed palette.
+  color        String         @default("#F5D76EAA")
   pageIndex    Int            @map("page_index")
   startOffset  Int            @map("start_offset")
   endOffset    Int            @map("end_offset")

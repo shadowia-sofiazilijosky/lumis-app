@@ -4,6 +4,15 @@ import { ReaderTheme } from "@lumis/shared-types";
 import { create } from "zustand";
 
 export type FlipDirection = "forward" | "backward";
+export type PageTurnMode = "horizontal" | "vertical" | "flip";
+
+const MIN_ZOOM = 0.5;
+const MAX_ZOOM = 3;
+const ZOOM_STEP = 0.15;
+
+function clampZoom(zoom: number): number {
+  return Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom));
+}
 
 interface ReaderState {
   bookId: string | null;
@@ -15,6 +24,8 @@ interface ReaderState {
   progressPercent: number;
   flipDirection: FlipDirection;
   hasUnsavedChanges: boolean;
+  zoom: number;
+  pageTurnMode: PageTurnMode;
 
   loadProgress: (bookId: string, progress: {
     currentPage: number;
@@ -30,6 +41,11 @@ interface ReaderState {
   showControls: () => void;
   hideControls: () => void;
   markSaved: () => void;
+  setZoom: (zoom: number) => void;
+  zoomIn: () => void;
+  zoomOut: () => void;
+  resetZoom: () => void;
+  setPageTurnMode: (mode: PageTurnMode) => void;
 }
 
 export const useReaderStore = create<ReaderState>((set) => ({
@@ -42,6 +58,8 @@ export const useReaderStore = create<ReaderState>((set) => ({
   progressPercent: 0,
   flipDirection: "forward",
   hasUnsavedChanges: false,
+  zoom: 1,
+  pageTurnMode: "flip",
 
   loadProgress: (bookId, progress) =>
     set({
@@ -83,4 +101,11 @@ export const useReaderStore = create<ReaderState>((set) => ({
   hideControls: () => set({ controlsVisible: false }),
 
   markSaved: () => set({ hasUnsavedChanges: false }),
+
+  setZoom: (zoom) => set({ zoom: clampZoom(zoom) }),
+  zoomIn: () => set((state) => ({ zoom: clampZoom(state.zoom + ZOOM_STEP) })),
+  zoomOut: () => set((state) => ({ zoom: clampZoom(state.zoom - ZOOM_STEP) })),
+  resetZoom: () => set({ zoom: 1 }),
+
+  setPageTurnMode: (mode) => set({ pageTurnMode: mode }),
 }));

@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import {
-  HIGHLIGHT_COLOR_HEX,
-  createNote,
-  deleteNote,
-  updateNote,
-} from "../api/annotations-client";
+import { createNote, deleteNote, updateNote } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
 
-const NOTE_COLORS = Object.keys(HIGHLIGHT_COLOR_HEX);
+// Small, fixed tag palette for notes — separate from the highlight color
+// spectrum, this is just a quick visual category for a post-it.
+const NOTE_TAG_COLORS: Record<string, string> = {
+  YELLOW: "#f5d76e",
+  PINK: "#e8a0bf",
+  GREEN: "#a3d9a5",
+  BLUE: "#9ec5e8",
+};
+const NOTE_COLORS = Object.keys(NOTE_TAG_COLORS);
 
 /** Post-it editor: composes a new note from the pending selection, or edits/deletes an existing one. */
 export function NotePopover({ bookId }: { bookId: string }) {
@@ -88,7 +91,7 @@ export function NotePopover({ bookId }: { bookId: string }) {
             key={color}
             type="button"
             className={color === colorTag ? "note-color-active" : ""}
-            style={{ background: HIGHLIGHT_COLOR_HEX[color] }}
+            style={{ background: NOTE_TAG_COLORS[color] }}
             aria-label={color.toLowerCase()}
             onClick={() => setColorTag(color)}
           />

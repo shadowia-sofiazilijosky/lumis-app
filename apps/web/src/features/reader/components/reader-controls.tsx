@@ -1,12 +1,20 @@
 "use client";
 
 import { ReaderTheme } from "@lumis/shared-types";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowLeftRight,
+  ArrowUpDown,
+  BookOpen,
+  ChevronLeft,
+  ChevronRight,
+  Minus,
+  Plus,
+} from "lucide-react";
 import Link from "next/link";
 import { READER_THEME_LABELS } from "../api/reader-client";
 import { useAutoHideControls } from "../hooks/use-auto-hide-controls";
 import { useTapToToggleControls } from "../hooks/use-tap-to-toggle-controls";
-import { useReaderStore } from "../store/reader-store";
+import { useReaderStore, type PageTurnMode } from "../store/reader-store";
 
 interface ReaderControlsProps {
   bookId: string;
@@ -26,6 +34,12 @@ const THEME_ORDER: ReaderTheme[] = [
   ReaderTheme.SEPIA,
 ];
 
+const PAGE_TURN_MODES: { mode: PageTurnMode; label: string; Icon: typeof ArrowLeftRight }[] = [
+  { mode: "horizontal", label: "Horizontal", Icon: ArrowLeftRight },
+  { mode: "vertical", label: "Vertical", Icon: ArrowUpDown },
+  { mode: "flip", label: "Libro real", Icon: BookOpen },
+];
+
 export function ReaderControls({
   bookId,
   title,
@@ -43,6 +57,12 @@ export function ReaderControls({
   const theme = useReaderStore((state) => state.theme);
   const setTheme = useReaderStore((state) => state.setTheme);
   const toggleControls = useReaderStore((state) => state.toggleControls);
+  const zoom = useReaderStore((state) => state.zoom);
+  const zoomIn = useReaderStore((state) => state.zoomIn);
+  const zoomOut = useReaderStore((state) => state.zoomOut);
+  const resetZoom = useReaderStore((state) => state.resetZoom);
+  const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
+  const setPageTurnMode = useReaderStore((state) => state.setPageTurnMode);
 
   return (
     <>
@@ -81,17 +101,51 @@ export function ReaderControls({
           <ChevronLeft size={16} /> Volver
         </Link>
         <h1 className="reader-title">{title}</h1>
-        <div className="reader-theme-switch">
-          {THEME_ORDER.map((option) => (
-            <button
-              key={option}
-              type="button"
-              className={option === theme ? "reader-theme-active" : "secondary"}
-              onClick={() => setTheme(option)}
-            >
-              {READER_THEME_LABELS[option]}
+        <div className="reader-toolbar-group">
+          <div className="reader-page-turn-switch">
+            {PAGE_TURN_MODES.map(({ mode, label, Icon }) => (
+              <button
+                key={mode}
+                type="button"
+                className={mode === pageTurnMode ? "reader-theme-active" : "secondary"}
+                aria-label={`Modo de paso de página: ${label}`}
+                aria-pressed={mode === pageTurnMode}
+                onClick={() => setPageTurnMode(mode)}
+              >
+                <Icon size={15} />
+              </button>
+            ))}
+          </div>
+
+          <div className="reader-zoom-controls">
+            <button type="button" aria-label="Alejar" onClick={zoomOut}>
+              <Minus size={14} />
             </button>
-          ))}
+            <button
+              type="button"
+              className="reader-zoom-label"
+              onClick={resetZoom}
+              aria-label="Restablecer zoom"
+            >
+              {Math.round(zoom * 100)}%
+            </button>
+            <button type="button" aria-label="Acercar" onClick={zoomIn}>
+              <Plus size={14} />
+            </button>
+          </div>
+
+          <div className="reader-theme-switch">
+            {THEME_ORDER.map((option) => (
+              <button
+                key={option}
+                type="button"
+                className={option === theme ? "reader-theme-active" : "secondary"}
+                onClick={() => setTheme(option)}
+              >
+                {READER_THEME_LABELS[option]}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
