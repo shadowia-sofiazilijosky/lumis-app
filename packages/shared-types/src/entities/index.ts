@@ -6,3 +6,4 @@ export * from "./reading-progress.entity";
 export * from "./highlight.entity";
 export * from "./note.entity";
 export * from "./review.entity";
+export * from "./stroke.entity";

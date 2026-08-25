@@ -3,6 +3,7 @@
 import type { PDFDocumentLoadingTask, PDFDocumentProxy } from "pdfjs-dist";
 import { useEffect, useRef, useState } from "react";
 import { useReaderStore } from "../store/reader-store";
+import { DrawingLayer } from "./drawing-layer";
 import { PageFlip } from "./page-flip";
 import { TextAnnotationLayer } from "./text-annotation-layer";
 
@@ -123,6 +124,12 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
           bookId={bookId}
           pageIndex={currentPage - 1}
           containerRef={textLayerRef}
+          refreshKey={`${currentPage}-${renderTick}`}
+        />
+        <DrawingLayer
+          bookId={bookId}
+          pageIndex={currentPage - 1}
+          containerRef={frameRef}
           refreshKey={`${currentPage}-${renderTick}`}
         />
       </div>

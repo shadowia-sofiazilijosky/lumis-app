@@ -1,8 +1,10 @@
 import type {
   CreateHighlightDto,
   CreateNoteDto,
+  CreateStrokeDto,
   Highlight,
   Note,
+  Stroke,
   UpdateNoteDto,
 } from "@lumis/shared-types";
 
@@ -69,4 +71,27 @@ export async function updateNote(
 
 export async function deleteNote(bookId: string, noteId: string): Promise<void> {
   await fetch(`/api/books/${bookId}/notes/${noteId}`, { method: "DELETE" });
+}
+
+export async function fetchStrokes(bookId: string): Promise<Stroke[]> {
+  const response = await fetch(`/api/books/${bookId}/strokes`);
+  if (!response.ok) return [];
+  return response.json();
+}
+
+export async function createStroke(
+  bookId: string,
+  dto: CreateStrokeDto,
+): Promise<Stroke | null> {
+  const response = await fetch(`/api/books/${bookId}/strokes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dto),
+  });
+  if (!response.ok) return null;
+  return response.json();
+}
+
+export async function deleteStroke(bookId: string, strokeId: string): Promise<void> {
+  await fetch(`/api/books/${bookId}/strokes/${strokeId}`, { method: "DELETE" });
 }

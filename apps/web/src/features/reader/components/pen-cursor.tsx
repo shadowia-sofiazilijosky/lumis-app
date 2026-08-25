@@ -1,23 +1,17 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import type { ActivePen } from "../store/annotations-store";
-
-const SIZE_DIAMETER: Record<ActivePen["size"], number> = {
-  thin: 10,
-  normal: 18,
-  thick: 28,
-};
+import type { DrawTool } from "../store/annotations-store";
 
 interface PenCursorProps {
   containerRef: RefObject<HTMLElement | null>;
-  pen: ActivePen;
+  tool: DrawTool;
 }
 
-/** Follows the pointer over the reading area while the highlighter pen is
- * active — an image-editor-style brush preview, sized and colored to match
- * what the next stroke will actually paint. */
-export function PenCursor({ containerRef, pen }: PenCursorProps) {
+/** Follows the pointer over the reading area while the brush is active — an
+ * image-editor-style brush preview, sized and colored to match what the
+ * next stroke will actually paint. */
+export function PenCursor({ containerRef, tool }: PenCursorProps) {
   const dotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,13 +39,11 @@ export function PenCursor({ containerRef, pen }: PenCursorProps) {
     };
   }, [containerRef]);
 
-  const diameter = SIZE_DIAMETER[pen.size];
-
   return (
     <div
       ref={dotRef}
       className="pen-cursor"
-      style={{ width: diameter, height: diameter, background: pen.color }}
+      style={{ width: tool.size, height: tool.size, background: tool.color }}
     />
   );
 }

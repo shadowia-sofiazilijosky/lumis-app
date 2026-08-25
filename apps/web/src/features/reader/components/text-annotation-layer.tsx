@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
-import { createHighlight, deleteHighlight } from "../api/annotations-client";
+import { deleteHighlight } from "../api/annotations-client";
 import {
   getOffsetsFromRange,
   isPlausibleDragSelection,
@@ -46,20 +46,10 @@ export function TextAnnotationLayer({
   const removeHighlightLocal = useAnnotationsStore(
     (state) => state.removeHighlightLocal,
   );
-  const addHighlight = useAnnotationsStore((state) => state.addHighlight);
-  const activePen = useAnnotationsStore((state) => state.activePen);
   const setPendingSelection = useAnnotationsStore(
     (state) => state.setPendingSelection,
   );
   const openExistingNote = useAnnotationsStore((state) => state.openExistingNote);
-
-  // Read via a ref inside the mouseup handler so the pen's current
-  // color/size are always fresh without re-subscribing the mousedown/mouseup
-  // listeners (which must stay stable across renders — they're on `document`).
-  const activePenRef = useRef(activePen);
-  useEffect(() => {
-    activePenRef.current = activePen;
-  }, [activePen]);
 
   const dragStartY = useRef(0);
 
@@ -68,7 +58,7 @@ export function TextAnnotationLayer({
       dragStartY.current = event.clientY;
     }
 
-    async function handleMouseUp(event: MouseEvent) {
+    function handleMouseUp(event: MouseEvent) {
       const container = containerRef.current;
       const selection = window.getSelection();
       if (!container || !selection || selection.isCollapsed || selection.rangeCount === 0) {
@@ -85,22 +75,6 @@ export function TextAnnotationLayer({
       const { start, end, text } = getOffsetsFromRange(container, range);
       if (!text.trim()) return;
 
-      const pen = activePenRef.current;
-      if (pen) {
-        // Pen already chosen — paint immediately, no color prompt.
-        selection.removeAllRanges();
-        const highlight = await createHighlight(bookId, {
-          color: pen.color,
-          size: pen.size,
-          pageIndex,
-          startOffset: start,
-          endOffset: end,
-          selectedText: text,
-        });
-        if (highlight) addHighlight(highlight);
-        return;
-      }
-
       setPendingSelection({
         pageIndex,
         startOffset: start,
@@ -116,7 +90,7 @@ export function TextAnnotationLayer({
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [addHighlight, bookId, containerRef, pageIndex, setPendingSelection]);
+  }, [containerRef, pageIndex, setPendingSelection]);
 
   const pageHighlights = useMemo(
     () => highlights.filter((h) => h.pageIndex === pageIndex && !h.cfi),

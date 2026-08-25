@@ -5,9 +5,9 @@ import {
   ArrowLeftRight,
   ArrowUpDown,
   BookOpen,
+  Brush,
   ChevronLeft,
   ChevronRight,
-  Highlighter,
   Minus,
   Plus,
 } from "lucide-react";
@@ -28,7 +28,7 @@ interface ReaderControlsProps {
   pageLabel: string;
   /** PDF/EPUB/TXT: text must stay selectable, so an opaque tap-zone overlay can't be used here. */
   textSelectable: boolean;
-  /** PDF/TXT only — whether the highlighter-pen tool applies to this format. */
+  /** PDF/TXT only — whether the freehand brush tool applies to this format. */
   highlighterSupported: boolean;
 }
 
@@ -58,9 +58,11 @@ export function ReaderControls({
   useAutoHideControls();
   useTapToToggleControls(textSelectable);
 
-  const activePen = useAnnotationsStore((state) => state.activePen);
-  const penPickerOpen = useAnnotationsStore((state) => state.penPickerOpen);
-  const setPenPickerOpen = useAnnotationsStore((state) => state.setPenPickerOpen);
+  const drawTool = useAnnotationsStore((state) => state.drawTool);
+  const drawToolPickerOpen = useAnnotationsStore((state) => state.drawToolPickerOpen);
+  const setDrawToolPickerOpen = useAnnotationsStore(
+    (state) => state.setDrawToolPickerOpen,
+  );
 
   const controlsVisible = useReaderStore((state) => state.controlsVisible);
   const theme = useReaderStore((state) => state.theme);
@@ -129,13 +131,13 @@ export function ReaderControls({
           {highlighterSupported && (
             <button
               type="button"
-              className={`reader-pen-toggle${activePen ? " reader-pen-toggle-active" : ""}`}
-              aria-pressed={penPickerOpen}
-              aria-label="Resaltador"
-              onClick={() => setPenPickerOpen(!penPickerOpen)}
+              className={`reader-pen-toggle${drawTool ? " reader-pen-toggle-active" : ""}`}
+              aria-pressed={drawToolPickerOpen}
+              aria-label="Pincel"
+              onClick={() => setDrawToolPickerOpen(!drawToolPickerOpen)}
             >
-              <Highlighter size={15} />
-              {activePen && <span className="reader-pen-swatch" style={{ background: activePen.color }} />}
+              <Brush size={15} />
+              {drawTool && <span className="reader-pen-swatch" style={{ background: drawTool.color }} />}
             </button>
           )}
 

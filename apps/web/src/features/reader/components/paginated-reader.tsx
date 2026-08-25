@@ -4,6 +4,7 @@ import { BookFormat } from "@lumis/shared-types";
 import { useEffect, useRef, useState } from "react";
 import { fetchTextPage, pageImageUrl, type TextPage } from "../api/reader-client";
 import { useReaderStore } from "../store/reader-store";
+import { DrawingLayer } from "./drawing-layer";
 import { PageFlip } from "./page-flip";
 import { TextAnnotationLayer } from "./text-annotation-layer";
 
@@ -57,6 +58,12 @@ export function PaginatedReader({ bookId, format, zoom }: PaginatedReaderProps) 
             pageIndex={currentPage - 1}
             containerRef={textPageRef}
             refreshKey={`${currentPage}-${text ? "loaded" : "loading"}`}
+          />
+          <DrawingLayer
+            bookId={bookId}
+            pageIndex={currentPage - 1}
+            containerRef={textPageRef}
+            refreshKey={`${currentPage}-${zoom}`}
           />
         </div>
       ) : (

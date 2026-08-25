@@ -12,8 +12,8 @@ import {
 } from "../hooks/use-reading-progress";
 import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore } from "../store/reader-store";
+import { DrawingToolPanel } from "./drawing-tool-panel";
 import { EpubReader, type EpubReaderHandle } from "./epub-reader";
-import { HighlighterPenPanel } from "./highlighter-pen-panel";
 import { NotePopover } from "./note-popover";
 import { PaginatedReader } from "./paginated-reader";
 import { PdfReader } from "./pdf-reader";
@@ -44,8 +44,8 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const setZoom = useReaderStore((state) => state.setZoom);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
-  const activePen = useAnnotationsStore((state) => state.activePen);
-  const penPickerOpen = useAnnotationsStore((state) => state.penPickerOpen);
+  const drawTool = useAnnotationsStore((state) => state.drawTool);
+  const drawToolPickerOpen = useAnnotationsStore((state) => state.drawToolPickerOpen);
 
   useEffect(() => {
     let cancelled = false;
@@ -126,9 +126,9 @@ export function ReaderShell({ bookId }: { bookId: string }) {
     currentBook.format === BookFormat.PDF ||
     currentBook.format === BookFormat.EPUB ||
     currentBook.format === BookFormat.TXT;
-  // The highlighter pen paints via the offset-based TextAnnotationLayer,
-  // which only PDF and TXT render — EPUB's reflowable content uses its own
-  // (untouched) epub.js highlighting path.
+  // The brush paints onto a per-page pixel overlay sized to a fixed page
+  // frame, which only PDF and TXT render — EPUB's reflowable content has no
+  // such fixed frame to anchor strokes to.
   const highlighterSupported =
     currentBook.format === BookFormat.PDF || currentBook.format === BookFormat.TXT;
 
@@ -148,7 +148,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
 
       <div
         ref={viewportRef}
-        className={`reader-viewport${activePen ? " pen-active" : ""}`}
+        className={`reader-viewport${drawTool ? " pen-active" : ""}`}
       >
         {currentBook.format === BookFormat.PDF && fileUrl && (
           <PdfReader bookId={bookId} fileUrl={fileUrl} />
@@ -173,10 +173,10 @@ export function ReaderShell({ bookId }: { bookId: string }) {
         )}
       </div>
 
-      {activePen && <PenCursor containerRef={viewportRef} pen={activePen} />}
+      {drawTool && <PenCursor containerRef={viewportRef} tool={drawTool} />}
 
       <SelectionToolbar />
-      {penPickerOpen && <HighlighterPenPanel />}
+      {drawToolPickerOpen && <DrawingToolPanel />}
       <NotePopover key={openNoteId ?? "closed"} bookId={bookId} />
     </div>
   );

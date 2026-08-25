@@ -81,6 +81,7 @@ model User {
   readingProgress ReadingProgress[]
   highlights      Highlight[]
   notes           Note[]
+  strokes         Stroke[]
   spotifyAccount  SpotifyAccount?
 
   @@map("users")
@@ -122,6 +123,7 @@ model Book {
   readingProgress ReadingProgress[]
   highlights      Highlight[]
   notes           Note[]
+  strokes         Stroke[]
 
   @@index([ownerId])
   @@map("books")
@@ -254,6 +256,29 @@ model Note {
 
   @@index([bookId, userId])
   @@map("notes")
+}
+
+// A freehand brush stroke drawn directly on a page — pixel-geometry
+// annotation, independent of Highlight's text-offset anchoring (used by the
+// drawing/brush tool, which paints anywhere rather than only over text).
+model Stroke {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId    String   @map("book_id")
+  book      Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  pageIndex Int      @map("page_index")
+  // [[x, y], ...] normalized 0-1 against the page's own width/height, so the
+  // stroke re-scales correctly at any zoom level or container size.
+  points    Json
+  // 6- or 8-digit hex (#RRGGBB[AA]).
+  color     String
+  brush     String
+  size      Float
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([bookId, userId])
+  @@map("strokes")
 }
 
 model SpotifyAccount {

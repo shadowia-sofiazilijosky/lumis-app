@@ -2081,6 +2081,28 @@ html[data-theme="light"] {
      user picked), not a fixed CSS opacity on top of it. */
 }
 
+.drawing-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  touch-action: none;
+  overflow: visible;
+}
+
+.drawing-layer-active {
+  pointer-events: auto;
+}
+
+.drawn-stroke {
+  cursor: pointer;
+}
+
+.drawn-stroke-soft {
+  filter: blur(1.5px);
+}
+
 .note-pin {
   position: absolute;
   width: 14px;
@@ -2173,39 +2195,88 @@ html[data-theme="light"] {
   box-shadow: var(--shadow-lg);
 }
 
-.hue-wheel {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  cursor: crosshair;
+/* --- Full HSV color picker: square + hue bar + alpha bar --- */
+
+.color-picker {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
   touch-action: none;
-  /* Full-saturation hues around the rim (conic), fading to gray at the
-     center (radial white overlay) -- angle picks the hue, distance from
-     center picks how vivid vs. pastel it is. */
-  background:
-    radial-gradient(circle, #808080 0%, rgba(128, 128, 128, 0) 100%),
-    conic-gradient(
-      /* CSS conic angles start at the top and go clockwise, but the pointer
-         math (atan2) starts at the right (0 rad) -- start the gradient's
-         red stop there too, so the color under the knob always matches
-         what the pointer position actually computes. */
-      from 90deg,
-      #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
-    );
+}
+
+.color-picker-square {
+  position: relative;
+  flex: 1;
+  height: 150px;
+  border-radius: var(--radius-sm);
+  cursor: crosshair;
   box-shadow: inset 0 0 0 1px var(--border);
 }
 
-.hue-wheel-knob {
+.color-picker-square-white {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  margin-left: -10px;
-  margin-top: -10px;
+  inset: 0;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  border-radius: inherit;
+}
+
+.color-picker-square-black {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+  border-radius: inherit;
+}
+
+.color-picker-square-knob {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -7px;
   border-radius: 50%;
   border: 2px solid #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   pointer-events: none;
+}
+
+.color-picker-hue,
+.color-picker-alpha {
+  position: relative;
+  width: 16px;
+  height: 150px;
+  border-radius: var(--radius-sm);
+  cursor: crosshair;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.color-picker-hue {
+  background: linear-gradient(
+    to bottom,
+    #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
+  );
+}
+
+.color-picker-hue-knob,
+.color-picker-alpha-knob {
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 2px;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.color-picker-hex {
+  width: 100%;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--foreground);
+  opacity: 0.75;
 }
 
 .pen-panel-opacity {
@@ -2217,19 +2288,18 @@ html[data-theme="light"] {
   color: var(--foreground);
 }
 
-.pen-panel-sizes {
+.pen-panel-brushes {
   display: flex;
-  gap: 0.4rem;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   width: 100%;
 }
 
-.pen-panel-sizes button {
-  flex: 1;
+.pen-panel-brushes button {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.2rem;
+  gap: 0.25rem;
+  padding: 0.35rem 0.55rem;
   font-size: 0.7rem;
   border: 2px solid var(--border);
   border-radius: var(--radius-sm);
@@ -2238,31 +2308,27 @@ html[data-theme="light"] {
   cursor: pointer;
 }
 
-.pen-panel-size-active {
+.pen-panel-brush-active {
   border-color: var(--primary);
   background: color-mix(in srgb, var(--primary) 22%, transparent);
   font-weight: 600;
 }
 
-.pen-panel-size-bar {
-  width: 70%;
-  border-radius: 2px;
-}
-
-.pen-panel-size-label {
+.pen-panel-preview {
   display: flex;
   align-items: center;
-  gap: 0.15rem;
-}
-
-.pen-panel-preview {
+  justify-content: center;
   width: 100%;
+  height: 40px;
   padding: 0.4rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
-  font-size: 0.72rem;
-  text-align: center;
-  color: var(--foreground);
+  overflow: hidden;
+}
+
+.pen-panel-preview-swatch {
+  width: 80%;
+  border-radius: 3px;
 }
 
 .pen-panel-actions {

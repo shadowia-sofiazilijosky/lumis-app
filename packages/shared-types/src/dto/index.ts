@@ -6,3 +6,4 @@ export * from "./highlight.dto";
 export * from "./note.dto";
 export * from "./review.dto";
 export * from "./user.dto";
+export * from "./stroke.dto";
