@@ -39,6 +39,7 @@ interface EpubReaderProps {
   bookId: string;
   fileUrl: string;
   initialLocator: unknown;
+  zoom: number;
 }
 
 export interface EpubReaderHandle {
@@ -51,7 +52,7 @@ interface EpubLocation {
 }
 
 export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
-  function EpubReader({ bookId, fileUrl, initialLocator }, ref) {
+  function EpubReader({ bookId, fileUrl, initialLocator, zoom }, ref) {
     const containerRef = useRef<HTMLDivElement>(null);
     const bookRef = useRef<Book | null>(null);
     const renditionRef = useRef<Rendition | null>(null);
@@ -179,6 +180,14 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
     useEffect(() => {
       if (renditionRef.current) applyEpubTheme(renditionRef.current, theme);
     }, [theme]);
+
+    // EPUB text is reflowable, so "zoom" here means bigger text, not a
+    // bigger raster page — epub.js re-paginates around the new font size,
+    // so every line stays fully visible and reachable via prev/next instead
+    // of needing to pan around a page like a fixed-layout PDF would.
+    useEffect(() => {
+      renditionRef.current?.themes.fontSize(`${Math.round(zoom * 100)}%`);
+    }, [zoom]);
 
     // Applies highlights/notes (CFI-anchored ones only) as epub.js's own
     // annotation overlays — it persists and re-injects these across section

@@ -82,7 +82,10 @@ export function ReaderShell({ bookId }: { bookId: string }) {
     goToPage(Math.min(totalPages ?? currentPage + 1, currentPage + 1));
   }
 
-  useKeyboardNavigation(handlePrev, handleNext);
+  useKeyboardNavigation(handlePrev, handleNext, {
+    mode: pageTurnMode,
+    scrollContainerRef: viewportRef,
+  });
   useReaderGestures(viewportRef, {
     onPrev: handlePrev,
     onNext: handleNext,
@@ -134,27 +137,27 @@ export function ReaderShell({ bookId }: { bookId: string }) {
       />
 
       <div ref={viewportRef} className="reader-viewport">
-        <div
-          className="reader-zoom-layer"
-          style={{ transform: `scale(${zoom})` }}
-        >
-          {currentBook.format === BookFormat.PDF && fileUrl && (
-            <PdfReader bookId={bookId} fileUrl={fileUrl} />
-          )}
-          {isEpub && fileUrl && (
-            <EpubReader
-              ref={epubRef}
-              bookId={bookId}
-              fileUrl={fileUrl}
-              initialLocator={locator}
-            />
-          )}
-          {(currentBook.format === BookFormat.CBR ||
-            currentBook.format === BookFormat.CBZ ||
-            currentBook.format === BookFormat.TXT) && (
-            <PaginatedReader bookId={bookId} format={currentBook.format} />
-          )}
-        </div>
+        {currentBook.format === BookFormat.PDF && fileUrl && (
+          <PdfReader bookId={bookId} fileUrl={fileUrl} />
+        )}
+        {isEpub && fileUrl && (
+          <EpubReader
+            ref={epubRef}
+            bookId={bookId}
+            fileUrl={fileUrl}
+            initialLocator={locator}
+            zoom={zoom}
+          />
+        )}
+        {(currentBook.format === BookFormat.CBR ||
+          currentBook.format === BookFormat.CBZ ||
+          currentBook.format === BookFormat.TXT) && (
+          <PaginatedReader
+            bookId={bookId}
+            format={currentBook.format}
+            zoom={zoom}
+          />
+        )}
       </div>
 
       <SelectionToolbar bookId={bookId} />

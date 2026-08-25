@@ -24,6 +24,7 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
   const currentPage = useReaderStore((state) => state.currentPage);
   const flipDirection = useReaderStore((state) => state.flipDirection);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
+  const zoom = useReaderStore((state) => state.zoom);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
 
   useEffect(() => {
@@ -70,17 +71,21 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
       const textLayerContainer = textLayerRef.current;
       if (!canvas || !context || !textLayerContainer) return;
 
-      // Fit both dimensions so the browser never has to CSS-shrink the
-      // canvas afterwards — that would desync the text layer's pixel-based
-      // positions (and therefore highlight overlay rects) from the canvas.
+      // Fit both dimensions at zoom=1 so the browser never has to CSS-shrink
+      // the canvas afterwards — that would desync the text layer's
+      // pixel-based positions (and highlight overlay rects) from the canvas.
+      // Zoom then multiplies that fit scale and genuinely re-rasterizes the
+      // page at the larger size (real resolution, not a CSS transform) —
+      // same as a native PDF viewer — so the page overflows its container
+      // and becomes scrollable/pannable instead of just clipped.
       const containerWidth = frameRef.current?.parentElement?.clientWidth ?? 800;
       const containerHeight = frameRef.current?.parentElement?.clientHeight ?? 1000;
       const baseViewport = page.getViewport({ scale: 1 });
-      const scale = Math.min(
+      const fitScale = Math.min(
         containerWidth / baseViewport.width,
         containerHeight / baseViewport.height,
       );
-      const viewport = page.getViewport({ scale });
+      const viewport = page.getViewport({ scale: fitScale * zoom });
 
       canvas.width = viewport.width;
       canvas.height = viewport.height;
@@ -103,7 +108,7 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
     return () => {
       cancelled = true;
     };
-  }, [ready, currentPage]);
+  }, [ready, currentPage, zoom]);
 
   return (
     <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>

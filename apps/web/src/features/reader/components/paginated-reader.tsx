@@ -10,6 +10,7 @@ import { TextAnnotationLayer } from "./text-annotation-layer";
 interface PaginatedReaderProps {
   bookId: string;
   format: typeof BookFormat.CBR | typeof BookFormat.CBZ | typeof BookFormat.TXT;
+  zoom: number;
 }
 
 /**
@@ -17,7 +18,7 @@ interface PaginatedReaderProps {
  * highlightable) and CBR/CBZ get a page image — there's no text to select on
  * a raster comic page, so those formats don't get the annotation layer.
  */
-export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
+export function PaginatedReader({ bookId, format, zoom }: PaginatedReaderProps) {
   const currentPage = useReaderStore((state) => state.currentPage);
   const flipDirection = useReaderStore((state) => state.flipDirection);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
@@ -41,7 +42,11 @@ export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
   return (
     <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>
       {isText ? (
-        <div ref={textPageRef} className="text-reader-page">
+        <div
+          ref={textPageRef}
+          className="text-reader-page"
+          style={{ fontSize: `${zoom * 100}%` }}
+        >
           {text
             ? text
                 .split("\n\n")
@@ -60,6 +65,11 @@ export function PaginatedReader({ bookId, format }: PaginatedReaderProps) {
           src={pageImageUrl(bookId, currentPage)}
           alt={`Página ${currentPage}`}
           className="comic-reader-page"
+          style={
+            zoom !== 1
+              ? { width: `${zoom * 100}%`, maxWidth: "none", height: "auto" }
+              : undefined
+          }
         />
       )}
     </PageFlip>
