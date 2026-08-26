@@ -2035,15 +2035,13 @@ html[data-theme="light"] {
 
 /* --- Real page-curl ("libro real" flip mode) --- */
 
+/* Sizing is computed in JS as real pixel width/height passed to
+   react-pageflip (size="fixed") -- this wrapper just needs to not fight
+   that with its own width/aspect assumptions, or a CSS transform-based
+   zoom (both bugs this rule used to have: mismatched hit-box/blank space,
+   and clipped overflow when zoomed). */
 .flip-book-frame {
-  width: min(92vw, 620px);
-  aspect-ratio: 0.72;
-  transform-origin: center;
-}
-
-.flip-book-frame-spread {
-  width: min(94vw, 1160px);
-  aspect-ratio: 1.44;
+  flex-shrink: 0;
 }
 
 .flip-book-page {

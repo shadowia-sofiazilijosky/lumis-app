@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 
 // react-pageflip touches `document` at module scope (StPageFlip's internal
 // canvas/DOM setup) -- load it only in the browser, never during SSR.
@@ -25,11 +25,25 @@ interface FlipBookProps {
   children: React.ReactNode;
 }
 
+interface PageFlipApi {
+  flip: (page: number, corner?: "top" | "bottom") => void;
+  turnToPage: (page: number) => void;
+  getCurrentPageIndex: () => number;
+  flipNext: (corner?: "top" | "bottom") => void;
+  flipPrev: (corner?: "top" | "bottom") => void;
+}
+
 /** Thin wrapper around react-pageflip: keeps its imperative, internally-
  * managed page index in sync with the reader store's `currentPage` in both
  * directions (external nav -- keyboard, resume position -- animates a real
  * flip; dragging inside the book updates the store back) without fighting
- * itself into a feedback loop. */
+ * itself into a feedback loop.
+ *
+ * Sizing is computed here in real pixels (not left to react-pageflip's own
+ * "stretch" auto-sizing) and zoom is a real size multiplier, not a CSS
+ * `transform: scale()` -- a transform doesn't change layout size, so the
+ * surrounding scroll container has no idea the book grew and just clips it,
+ * exactly like the earlier PDF zoom bug this session already hit once. */
 export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipBook(
   { currentLeafIndex, onFlipTo, spreadView, aspectRatio, zoom, children },
   ref,
@@ -37,14 +51,16 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
   const bookRef = useRef<{ pageFlip: () => PageFlipApi } | null>(null);
   const lastSyncedIndex = useRef(currentLeafIndex);
   const initialized = useRef(false);
+  const [viewport, setViewport] = useState({ width: 900, height: 700 });
 
-  interface PageFlipApi {
-    flip: (page: number, corner?: "top" | "bottom") => void;
-    turnToPage: (page: number) => void;
-    getCurrentPageIndex: () => number;
-    flipNext: (corner?: "top" | "bottom") => void;
-    flipPrev: (corner?: "top" | "bottom") => void;
-  }
+  useEffect(() => {
+    function measure() {
+      setViewport({ width: window.innerWidth, height: window.innerHeight });
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   useImperativeHandle(ref, () => ({
     flipNext: () => bookRef.current?.pageFlip().flipNext(),
@@ -72,25 +88,30 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
     onFlipTo(event.data);
   }
 
-  // A single leaf's box: in spread mode it's half of a wide "open book"
-  // frame; in single-page mode the whole frame is one leaf.
-  const leafHeight = 720;
+  // Fit the page(s) inside the available window space (leaving room for the
+  // top/bottom control bars), honoring the aspect ratio and whether it's a
+  // single page or a two-page spread, then apply zoom as a real size
+  // multiplier so it genuinely overflows (and becomes scrollable) instead
+  // of being clipped.
+  const availableWidth = viewport.width * 0.9;
+  const availableHeight = Math.max(320, viewport.height - 220);
+  const pagesAcross = spreadView ? 2 : 1;
+  const heightFromWidth = availableWidth / pagesAcross / aspectRatio;
+  const baseLeafHeight = Math.min(availableHeight, heightFromWidth);
+  const leafHeight = Math.round(baseLeafHeight * zoom);
   const leafWidth = Math.round(leafHeight * aspectRatio);
 
   return (
-    <div
-      className={`flip-book-frame${spreadView ? " flip-book-frame-spread" : ""}`}
-      style={{ transform: `scale(${zoom})` }}
-    >
+    <div className="flip-book-frame">
       <HTMLFlipBook
         ref={bookRef}
         width={leafWidth}
         height={leafHeight}
-        size="stretch"
-        minWidth={220}
-        maxWidth={leafWidth * 1.4}
-        minHeight={320}
-        maxHeight={leafHeight * 1.4}
+        size="fixed"
+        minWidth={leafWidth}
+        maxWidth={leafWidth}
+        minHeight={leafHeight}
+        maxHeight={leafHeight}
         showCover={false}
         usePortrait={!spreadView}
         drawShadow
@@ -101,10 +122,10 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
         useMouseEvents
         swipeDistance={30}
         showPageCorners
-        disableFlipByClick={false}
+        disableFlipByClick
         startPage={currentLeafIndex}
         startZIndex={10}
-        autoSize
+        autoSize={false}
         renderOnlyPageLengthChange={false}
         className="flip-book"
         style={{}}
