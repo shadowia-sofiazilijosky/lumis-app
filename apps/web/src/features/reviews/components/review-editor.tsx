@@ -100,42 +100,57 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
     };
   }, [bookId]);
 
+  // Every field is always sent, `null` included -- this always pushes the
+  // *whole current state*, not a partial patch, so a cleared rating/date
+  // must actually reach the server as null. Omitting it when null (the
+  // previous behavior) meant "clear" only ever updated local state: the old
+  // value stayed in the database and came right back on the next reload.
+  function buildPayload() {
+    const parsedBookNumber = parseInt(bookNumberOfYear, 10);
+    return {
+      status,
+      genre,
+      rating,
+      spicyRating,
+      romanceRating,
+      plotRating,
+      sadnessRating,
+      humorRating,
+      mysteryRating,
+      favoriteCharacter,
+      leastFavoriteCharacter,
+      favoriteQuote,
+      cried,
+      recommend,
+      bookNumberOfYear: Number.isNaN(parsedBookNumber) ? null : parsedBookNumber,
+      mood,
+      notes,
+      startedAt: startedAt ? new Date(startedAt).toISOString() : null,
+      finishedAt: finishedAt ? new Date(finishedAt).toISOString() : null,
+      bodyRichText: { html: bodyHtml },
+    };
+  }
+
+  const payloadRef = useRef(buildPayload());
+  useEffect(() => {
+    payloadRef.current = buildPayload();
+  });
+
+  async function saveNow() {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setSaveState("saving");
+    await saveReview(bookId, payloadRef.current);
+    hasUnsavedChanges.current = false;
+    setSaveState("saved");
+  }
+
   useEffect(() => {
     if (!loaded || !hasUnsavedChanges.current) return;
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     setSaveState("saving");
     timeoutRef.current = setTimeout(() => {
-      const parsedBookNumber = parseInt(bookNumberOfYear, 10);
-
-      // Every field is always sent, `null` included -- this autosave always
-      // pushes the *whole current state*, not a partial patch, so a cleared
-      // rating/date must actually reach the server as null. Omitting it
-      // when null (the previous behavior) meant "clear" only ever updated
-      // local state: the old value stayed in the database and came right
-      // back on the next reload.
-      saveReview(bookId, {
-        status,
-        genre,
-        rating,
-        spicyRating,
-        romanceRating,
-        plotRating,
-        sadnessRating,
-        humorRating,
-        mysteryRating,
-        favoriteCharacter,
-        leastFavoriteCharacter,
-        favoriteQuote,
-        cried,
-        recommend,
-        bookNumberOfYear: Number.isNaN(parsedBookNumber) ? null : parsedBookNumber,
-        mood,
-        notes,
-        startedAt: startedAt ? new Date(startedAt).toISOString() : null,
-        finishedAt: finishedAt ? new Date(finishedAt).toISOString() : null,
-        bodyRichText: { html: bodyHtml },
-      }).then(() => {
+      saveReview(bookId, payloadRef.current).then(() => {
         hasUnsavedChanges.current = false;
         setSaveState("saved");
       });
@@ -169,6 +184,19 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
     bodyHtml,
   ]);
 
+  // Safety net for navigating away inside the debounce window (e.g. closing
+  // the tab/going back within the 1s delay): the pending timeout above gets
+  // cancelled on unmount without ever sending, silently dropping the last
+  // change. Flush once more here -- the fetch call itself isn't tied to the
+  // component's lifecycle, so it still reaches the server after unmount.
+  useEffect(() => {
+    return () => {
+      if (hasUnsavedChanges.current) {
+        saveReview(bookId, payloadRef.current);
+      }
+    };
+  }, [bookId]);
+
   function markDirty<T>(setter: (value: T) => void) {
     return (value: T) => {
       hasUnsavedChanges.current = true;
@@ -193,6 +221,9 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
         <h2>Ficha de lectura</h2>
         {saveState === "saving" && <span className="save-status">Guardando…</span>}
         {saveState === "saved" && <span className="save-status">Guardado</span>}
+        <button type="button" className="ficha-save-button" onClick={saveNow}>
+          Guardar cambios
+        </button>
       </div>
 
       <div className="ficha-section">

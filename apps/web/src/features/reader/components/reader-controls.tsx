@@ -144,15 +144,17 @@ export function ReaderControls({
             ))}
           </div>
 
-          <button
-            type="button"
-            className="secondary"
-            aria-pressed={spreadView}
-            aria-label={spreadView ? "Ver una página" : "Ver dos páginas"}
-            onClick={toggleSpreadView}
-          >
-            {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
-          </button>
+          {pageTurnMode === "flip" && (
+            <button
+              type="button"
+              className="secondary"
+              aria-pressed={spreadView}
+              aria-label={spreadView ? "Ver una página" : "Ver dos páginas"}
+              onClick={toggleSpreadView}
+            >
+              {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
+            </button>
+          )}
 
           {highlighterSupported && (
             <button

@@ -63,7 +63,6 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
 
     const flipDirection = useReaderStore((state) => state.flipDirection);
     const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
-    const spreadView = useReaderStore((state) => state.spreadView);
     const theme = useReaderStore((state) => state.theme);
     const goToLocator = useReaderStore((state) => state.goToLocator);
     const setTotalPages = useReaderStore((state) => state.setTotalPages);
@@ -106,7 +105,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
           width: "100%",
           height: "100%",
           flow: "paginated",
-          spread: spreadView ? "auto" : "none",
+          spread: "none",
         });
         renditionRef.current = rendition;
         applyEpubTheme(rendition, theme);
@@ -188,10 +187,6 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
     useEffect(() => {
       if (renditionRef.current) applyEpubTheme(renditionRef.current, theme);
     }, [theme]);
-
-    useEffect(() => {
-      renditionRef.current?.spread(spreadView ? "auto" : "none");
-    }, [spreadView]);
 
     // EPUB text is reflowable, so "zoom" here means bigger text, not a
     // bigger raster page — epub.js re-paginates around the new font size,

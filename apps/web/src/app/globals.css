@@ -2062,22 +2062,6 @@ html[data-theme="light"] {
   flex-shrink: 0;
 }
 
-/* Two-page spread view -- available in every page-turn mode, not just
-   "libro real": side-by-side current + next page. */
-.pdf-spread,
-.text-spread,
-.comic-spread {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.pdf-page-frame-empty,
-.text-reader-page-empty,
-.comic-reader-page-empty {
-  visibility: hidden;
-}
-
 .flip-book-page {
   width: 100%;
   height: 100%;
@@ -2560,6 +2544,12 @@ html[data-theme="light"] {
   display: flex;
   align-items: baseline;
   gap: 0.75rem;
+}
+
+.ficha-save-button {
+  margin-left: auto;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
 }
 
 .ficha-lectura-header h2 {
