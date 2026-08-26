@@ -2051,6 +2051,34 @@ html[data-theme="light"] {
   margin-bottom: 1rem;
 }
 
+/* --- Two-page spread (horizontal/vertical modes) ---
+   Same centering treatment as .page-flip-leaf, which this sits directly
+   inside of: an unstretched, auto-height wrapper here measures 0 on first
+   render, and every page inside it (PDF fit-scale math, comic/text
+   percentage max-height) silently breaks against that -- this is what
+   caused the "page shrinks to a thumbnail" regression. */
+.pdf-page-host,
+.text-page-host,
+.comic-page-host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: safe center;
+  justify-content: safe center;
+}
+
+.pdf-page-host.pdf-spread,
+.text-page-host.spread,
+.comic-page-host.spread {
+  gap: 0.75rem;
+}
+
+.pdf-page-frame-empty,
+.text-reader-page-empty,
+.comic-reader-page-empty {
+  visibility: hidden;
+}
+
 /* --- Real page-curl ("libro real" flip mode) --- */
 
 /* Sizing is computed in JS as real pixel width/height passed to

@@ -59,6 +59,7 @@ export function PdfFlipReader({ bookId, fileUrl }: { bookId: string; fileUrl: st
 
   const currentPage = useReaderStore((state) => state.currentPage);
   const totalPages = useReaderStore((state) => state.totalPages);
+  const spreadView = useReaderStore((state) => state.spreadView);
   const zoom = useReaderStore((state) => state.zoom);
   const goToPage = useReaderStore((state) => state.goToPage);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
@@ -106,7 +107,7 @@ export function PdfFlipReader({ bookId, fileUrl }: { bookId: string; fileUrl: st
       ref={flipBookRef}
       currentLeafIndex={currentPage - 1}
       onFlipTo={(index) => goToPage(index + 1)}
-      spreadView
+      spreadView={spreadView}
       aspectRatio={aspectRatio}
       zoom={zoom}
     >

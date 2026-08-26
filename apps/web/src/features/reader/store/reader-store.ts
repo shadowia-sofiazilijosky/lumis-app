@@ -26,6 +26,9 @@ interface ReaderState {
   hasUnsavedChanges: boolean;
   zoom: number;
   pageTurnMode: PageTurnMode;
+  /** Two-page spread vs. one page at a time -- applies uniformly across
+   * all three page-turn modes (horizontal, vertical, flip). */
+  spreadView: boolean;
 
   loadProgress: (bookId: string, progress: {
     currentPage: number;
@@ -46,6 +49,7 @@ interface ReaderState {
   zoomOut: () => void;
   resetZoom: () => void;
   setPageTurnMode: (mode: PageTurnMode) => void;
+  toggleSpreadView: () => void;
 }
 
 export const useReaderStore = create<ReaderState>((set) => ({
@@ -60,6 +64,7 @@ export const useReaderStore = create<ReaderState>((set) => ({
   hasUnsavedChanges: false,
   zoom: 1,
   pageTurnMode: "flip",
+  spreadView: true,
 
   loadProgress: (bookId, progress) =>
     set({
@@ -108,4 +113,5 @@ export const useReaderStore = create<ReaderState>((set) => ({
   resetZoom: () => set({ zoom: 1 }),
 
   setPageTurnMode: (mode) => set({ pageTurnMode: mode }),
+  toggleSpreadView: () => set((state) => ({ spreadView: !state.spreadView })),
 }));

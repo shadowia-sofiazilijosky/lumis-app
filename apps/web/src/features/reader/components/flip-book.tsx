@@ -1,11 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
-
-// react-pageflip touches `document` at module scope (StPageFlip's internal
-// canvas/DOM setup) -- load it only in the browser, never during SSR.
-const HTMLFlipBook = dynamic(() => import("react-pageflip"), { ssr: false });
 
 export interface FlipBookHandle {
   flipNext: () => void;
@@ -33,6 +28,8 @@ interface PageFlipApi {
   flipPrev: (corner?: "top" | "bottom") => void;
 }
 
+type HTMLFlipBookComponent = typeof import("react-pageflip")["default"];
+
 /** Thin wrapper around react-pageflip: keeps its imperative, internally-
  * managed page index in sync with the reader store's `currentPage` in both
  * directions (external nav -- keyboard, resume position -- animates a real
@@ -43,7 +40,12 @@ interface PageFlipApi {
  * "stretch" auto-sizing) and zoom is a real size multiplier, not a CSS
  * `transform: scale()` -- a transform doesn't change layout size, so the
  * surrounding scroll container has no idea the book grew and just clips it,
- * exactly like the earlier PDF zoom bug this session already hit once. */
+ * exactly like the earlier PDF zoom bug this session already hit once.
+ *
+ * react-pageflip doesn't actually resize a live instance when its
+ * width/height props change -- there's no such method in its public API --
+ * so the whole book is deliberately remounted (via `key`) whenever the
+ * target size changes; that's the only way zoom can take effect at all. */
 export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipBook(
   { currentLeafIndex, onFlipTo, spreadView, aspectRatio, zoom, children },
   ref,
@@ -52,6 +54,21 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
   const lastSyncedIndex = useRef(currentLeafIndex);
   const initialized = useRef(false);
   const [viewport, setViewport] = useState({ width: 900, height: 700 });
+  // Loaded imperatively (not next/dynamic) -- dynamic(ssr:false) has a known
+  // failure mode where the resolved component doesn't always get painted
+  // until some unrelated state change forces React to reconcile again,
+  // which read as "the page stays blank until I touch zoom".
+  const [HTMLFlipBook, setHTMLFlipBook] = useState<HTMLFlipBookComponent | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    import("react-pageflip").then((mod) => {
+      if (!cancelled) setHTMLFlipBook(() => mod.default);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     function measure() {
@@ -101,9 +118,14 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
   const leafHeight = Math.round(baseLeafHeight * zoom);
   const leafWidth = Math.round(leafHeight * aspectRatio);
 
+  if (!HTMLFlipBook) {
+    return <p className="flip-book-loading">Preparando el libro…</p>;
+  }
+
   return (
     <div className="flip-book-frame">
       <HTMLFlipBook
+        key={`${leafWidth}x${leafHeight}-${spreadView}`}
         ref={bookRef}
         width={leafWidth}
         height={leafHeight}

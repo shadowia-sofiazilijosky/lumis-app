@@ -32,6 +32,7 @@ export function ComicFlipReader({ bookId }: { bookId: string }) {
 
   const currentPage = useReaderStore((state) => state.currentPage);
   const totalPages = useReaderStore((state) => state.totalPages);
+  const spreadView = useReaderStore((state) => state.spreadView);
   const zoom = useReaderStore((state) => state.zoom);
   const goToPage = useReaderStore((state) => state.goToPage);
 
@@ -44,7 +45,7 @@ export function ComicFlipReader({ bookId }: { bookId: string }) {
       ref={flipBookRef}
       currentLeafIndex={currentPage - 1}
       onFlipTo={(index) => goToPage(index + 1)}
-      spreadView
+      spreadView={spreadView}
       aspectRatio={aspectRatio}
       zoom={zoom}
     >
