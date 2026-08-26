@@ -9,7 +9,15 @@ export interface BrushDef {
   render: "solid" | "soft" | "textured" | "eraser";
 }
 
+// Same order and set as MS Paint's brush picker (Cepillo, caligrafía x2,
+// aerógrafo, óleo, crayón, marcador, lápiz natural, acuarela).
 export const BRUSHES: BrushDef[] = [
+  {
+    key: "brush",
+    label: "Cepillo",
+    strokeOptions: { thinning: 0.35, smoothing: 0.55, streamline: 0.4, simulatePressure: true },
+    render: "solid",
+  },
   {
     key: "calligraphy-brush",
     label: "Pincel de caligrafía",
@@ -55,7 +63,14 @@ export const BRUSHES: BrushDef[] = [
   {
     key: "watercolor",
     label: "Pincel para acuarela",
-    strokeOptions: { thinning: 0.2, smoothing: 0.9, streamline: 0.6, simulatePressure: true },
+    strokeOptions: {
+      thinning: 0.2,
+      smoothing: 0.9,
+      streamline: 0.6,
+      simulatePressure: true,
+      start: { taper: true },
+      end: { taper: true },
+    },
     render: "soft",
   },
   {
@@ -66,6 +81,8 @@ export const BRUSHES: BrushDef[] = [
   },
 ];
 
+const MARKER = BRUSHES.find((b) => b.key === "marker")!;
+
 export function getBrush(key: string): BrushDef {
-  return BRUSHES.find((b) => b.key === key) ?? BRUSHES[5];
+  return BRUSHES.find((b) => b.key === key) ?? MARKER;
 }

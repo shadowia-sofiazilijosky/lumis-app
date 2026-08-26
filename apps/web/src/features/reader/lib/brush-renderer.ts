@@ -45,6 +45,24 @@ function hexToRgb(hex: string): [number, number, number] {
   ];
 }
 
+/** Unit tangent (stroke direction) at each point, used to lay bristle
+ * offsets and hatch marks along the actual curve instead of scattering
+ * them in raw x/y space. */
+function computeTangents(points: [number, number][]): [number, number][] {
+  return points.map((_, i) => {
+    const [x0, y0] = points[Math.max(0, i - 1)];
+    const [x1, y1] = points[Math.min(points.length - 1, i + 1)];
+    const dx = x1 - x0;
+    const dy = y1 - y0;
+    const len = Math.hypot(dx, dy) || 1;
+    return [dx / len, dy / len];
+  });
+}
+
+function computeNormals(points: [number, number][]): [number, number][] {
+  return computeTangents(points).map(([tx, ty]) => [-ty, tx]);
+}
+
 /** Renders one stroke (pixel-space points) onto the page canvas, using a
  * rendering technique specific to the brush -- not just a recolored line.
  * Each committed stroke replays through here on every redraw (zoom change,
@@ -74,30 +92,35 @@ export function renderStroke(
   ctx.globalCompositeOperation = brush.key === "marker" ? "multiply" : "source-over";
 
   if (brush.render === "solid") {
+    // Cepillo, marcador, ambos caligráficos -- one flat fill, the shape
+    // itself (perfect-freehand's per-brush thinning/smoothing) is what
+    // tells them apart.
     const outline = getStroke(points, { size, ...brush.strokeOptions });
     ctx.fillStyle = color;
     ctx.fill(outlineToPath2D(outline));
   } else if (brush.render === "soft" && brush.key === "airbrush") {
     // True spray: many tiny low-opacity dots scattered around each sampled
-    // point, so density naturally builds up wherever the pointer lingers --
-    // this is what actually reads as "aire"/spray, not a blur filter.
+    // point, fading out at the very start/end of the stroke like a real
+    // spray can being pulled away from the page.
     const [r, g, b] = hexToRgb(color);
     ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
-    for (const [x, y] of points) {
-      for (let i = 0; i < 10; i++) {
+    points.forEach(([x, y], i) => {
+      const t = i / Math.max(1, points.length - 1);
+      const edgeFade = Math.min(1, Math.min(t, 1 - t) * 8 + 0.3);
+      for (let d = 0; d < 10; d++) {
         const angle = random() * Math.PI * 2;
         const radius = random() * size;
         const dx = x + Math.cos(angle) * radius;
         const dy = y + Math.sin(angle) * radius;
-        ctx.globalAlpha = 0.04 + random() * 0.07;
+        ctx.globalAlpha = (0.04 + random() * 0.07) * edgeFade;
         ctx.beginPath();
         ctx.arc(dx, dy, 0.6 + random() * 1.3, 0, Math.PI * 2);
         ctx.fill();
       }
-    }
+    });
   } else if (brush.render === "soft") {
-    // Watercolor: soft, blurred, layered bleed -- a wide faint pass under a
-    // narrower, slightly stronger core.
+    // Acuarela: soft blurred bleed, tapered at both ends via
+    // perfect-freehand's own start/end taper (baked into strokeOptions).
     ctx.fillStyle = color;
     const outerOutline = getStroke(points, { size: size * 1.4, ...brush.strokeOptions });
     ctx.filter = "blur(5px)";
@@ -108,35 +131,56 @@ export function renderStroke(
     const innerOutline = getStroke(points, { size: size * 0.8, ...brush.strokeOptions });
     ctx.fill(outlineToPath2D(innerOutline));
   } else if (brush.render === "textured" && brush.key === "oil-brush") {
-    // Bristle simulation: several offset passes at varying opacity, like
-    // separate bristle tracks loaded with slightly different paint.
-    const outline = getStroke(points, { size, ...brush.strokeOptions });
-    const path = outlineToPath2D(outline);
-    for (let i = 0; i < 4; i++) {
-      ctx.save();
-      ctx.translate((random() - 0.5) * size * 0.35, (random() - 0.5) * size * 0.35);
-      ctx.globalAlpha = 0.4 + random() * 0.35;
+    // Bristle simulation: several parallel tracks offset sideways from the
+    // stroke's own direction (not a random blob) -- reads as loaded
+    // bristles dragging paint, each track independently semi-transparent.
+    const normals = computeNormals(points);
+    const bristleCount = 6;
+    for (let b = 0; b < bristleCount; b++) {
+      const offset = (b / (bristleCount - 1) - 0.5) * size * 0.9;
+      const bristlePoints: [number, number][] = points.map(([x, y], i) => {
+        const [nx, ny] = normals[i];
+        const wobble = (random() - 0.5) * size * 0.08;
+        return [x + nx * (offset + wobble), y + ny * (offset + wobble)];
+      });
+      const outline = getStroke(bristlePoints, {
+        size: size * 0.24,
+        thinning: 0.3,
+        smoothing: 0.5,
+        streamline: 0.4,
+      });
+      ctx.globalAlpha = 0.45 + random() * 0.4;
       ctx.fillStyle = color;
-      ctx.fill(path);
-      ctx.restore();
+      ctx.fill(outlineToPath2D(outline));
     }
   } else if (brush.render === "textured") {
-    // Crayón / lápiz natural: dry-media grain -- lots of tiny jittered dabs
-    // instead of a flat fill, so paper-texture-like gaps show through.
-    ctx.fillStyle = color;
-    const dabsPerPoint = brush.key === "crayon" ? 6 : 9;
-    const jitter = brush.key === "crayon" ? size * 0.55 : size * 0.32;
-    const dabSize = brush.key === "crayon" ? size * 0.3 : size * 0.13;
-    for (const [x, y] of points) {
-      for (let i = 0; i < dabsPerPoint; i++) {
-        const dx = x + (random() - 0.5) * jitter;
-        const dy = y + (random() - 0.5) * jitter;
-        ctx.globalAlpha = 0.2 + random() * 0.55;
+    // Crayón / lápiz natural: short scratchy hatch marks laid along the
+    // stroke's own direction with lateral jitter, not random dots -- the
+    // gaps between marks are what actually reads as dry, textured media.
+    const tangents = computeTangents(points);
+    const normals = computeNormals(points);
+    ctx.strokeStyle = color;
+    ctx.lineCap = "round";
+    const marksPerPoint = brush.key === "crayon" ? 5 : 8;
+    const jitter = brush.key === "crayon" ? size * 0.45 : size * 0.28;
+    const markLength = brush.key === "crayon" ? size * 0.55 : size * 0.4;
+    const markWidth = brush.key === "crayon" ? size * 0.17 : size * 0.07;
+    points.forEach(([x, y], i) => {
+      const [tx, ty] = tangents[i];
+      const [nx, ny] = normals[i];
+      for (let m = 0; m < marksPerPoint; m++) {
+        const lateral = (random() - 0.5) * jitter;
+        const cx = x + nx * lateral;
+        const cy = y + ny * lateral;
+        const half = (markLength * (0.4 + random() * 0.6)) / 2;
+        ctx.globalAlpha = 0.25 + random() * 0.5;
+        ctx.lineWidth = markWidth * (0.6 + random() * 0.7);
         ctx.beginPath();
-        ctx.arc(dx, dy, dabSize * (0.5 + random() * 0.5), 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(cx - tx * half, cy - ty * half);
+        ctx.lineTo(cx + tx * half, cy + ty * half);
+        ctx.stroke();
       }
-    }
+    });
   }
 
   ctx.restore();
