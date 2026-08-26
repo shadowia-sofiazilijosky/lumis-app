@@ -8,8 +8,10 @@ import {
   Brush,
   ChevronLeft,
   ChevronRight,
+  Columns2,
   Minus,
   Plus,
+  Square,
 } from "lucide-react";
 import Link from "next/link";
 import { READER_THEME_LABELS } from "../api/reader-client";
@@ -74,6 +76,8 @@ export function ReaderControls({
   const resetZoom = useReaderStore((state) => state.resetZoom);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const setPageTurnMode = useReaderStore((state) => state.setPageTurnMode);
+  const spreadView = useReaderStore((state) => state.spreadView);
+  const toggleSpreadView = useReaderStore((state) => state.toggleSpreadView);
 
   return (
     <>
@@ -127,6 +131,18 @@ export function ReaderControls({
               </button>
             ))}
           </div>
+
+          {pageTurnMode === "flip" && (
+            <button
+              type="button"
+              className="secondary"
+              aria-pressed={spreadView}
+              aria-label={spreadView ? "Ver una página" : "Ver dos páginas"}
+              onClick={toggleSpreadView}
+            >
+              {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
+            </button>
+          )}
 
           {highlighterSupported && (
             <button

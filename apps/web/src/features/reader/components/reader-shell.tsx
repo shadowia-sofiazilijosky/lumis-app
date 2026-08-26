@@ -69,9 +69,13 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   }, [bookId, setTotalPages]);
 
   const isEpub = book?.format === BookFormat.EPUB;
+  // In "flip" mode EPUB is paginated into fixed leaves (EpubFlipReader) and
+  // navigated by page number like every other format, instead of through
+  // epub.js's own CFI-based next/prev on its (unmounted, in this mode) rendition.
+  const epubUsesFlipPaging = isEpub && pageTurnMode === "flip";
 
   function handlePrev() {
-    if (isEpub) {
+    if (isEpub && !epubUsesFlipPaging) {
       epubRef.current?.prev();
       return;
     }
@@ -79,7 +83,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   }
 
   function handleNext() {
-    if (isEpub) {
+    if (isEpub && !epubUsesFlipPaging) {
       epubRef.current?.next();
       return;
     }
@@ -117,11 +121,13 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const currentBook = book;
   const fileUrl = currentBook.fileUrl;
 
-  const canGoPrev = isEpub ? true : currentPage > 1;
-  const canGoNext = isEpub ? true : totalPages === null || currentPage < totalPages;
-  const pageLabel = isEpub
-    ? `${progressPercent}%`
-    : `Página ${currentPage}${totalPages ? ` / ${totalPages}` : ""}`;
+  const canGoPrev = isEpub && !epubUsesFlipPaging ? true : currentPage > 1;
+  const canGoNext =
+    isEpub && !epubUsesFlipPaging ? true : totalPages === null || currentPage < totalPages;
+  const pageLabel =
+    isEpub && !epubUsesFlipPaging
+      ? `${progressPercent}%`
+      : `Página ${currentPage}${totalPages ? ` / ${totalPages}` : ""}`;
   const textSelectable =
     currentBook.format === BookFormat.PDF ||
     currentBook.format === BookFormat.EPUB ||

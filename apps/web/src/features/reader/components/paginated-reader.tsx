@@ -4,6 +4,7 @@ import { BookFormat } from "@lumis/shared-types";
 import { useEffect, useRef, useState } from "react";
 import { fetchTextPage, pageImageUrl, type TextPage } from "../api/reader-client";
 import { useReaderStore } from "../store/reader-store";
+import { ComicFlipReader } from "./comic-flip-reader";
 import { DrawingLayer } from "./drawing-layer";
 import { PageFlip } from "./page-flip";
 import { TextAnnotationLayer } from "./text-annotation-layer";
@@ -39,6 +40,13 @@ export function PaginatedReader({ bookId, format, zoom }: PaginatedReaderProps) 
       cancelled = true;
     };
   }, [bookId, currentPage, isText]);
+
+  // Comics get the real drag-to-curl page turn in "flip" mode -- each page
+  // is already a flat image, an easy fit for the flip book's leaves. TXT
+  // stays on the simple pipeline (reflowable text has no fixed page image).
+  if (!isText && pageTurnMode === "flip") {
+    return <ComicFlipReader bookId={bookId} />;
+  }
 
   return (
     <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>

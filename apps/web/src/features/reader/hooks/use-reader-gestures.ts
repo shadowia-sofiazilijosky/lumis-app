@@ -78,6 +78,9 @@ export function useReaderGestures(
       const state = touchState.current;
       touchState.current = null;
       if (!state || state.pinchStartDistance !== null) return;
+      // "flip" mode has its own drag-to-curl handling (react-pageflip) --
+      // a swipe-detector on top of that would double-fire page turns.
+      if (mode === "flip") return;
       // Zoomed in: a one-finger drag is for panning the zoomed page, not
       // turning it — let the browser's native scroll handle that instead.
       if (zoom > 1.05) return;

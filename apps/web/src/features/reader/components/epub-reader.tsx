@@ -6,6 +6,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "re
 import { deleteHighlight } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
 import { useReaderStore } from "../store/reader-store";
+import { EpubFlipReader } from "./epub-flip-reader";
 import { PageFlip } from "./page-flip";
 
 const EPUB_THEME_PALETTE: Record<ReaderTheme, { background: string; color: string }> = {
@@ -77,7 +78,13 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
       prev: () => renditionRef.current?.prev(),
     }));
 
+    const usesOwnRendition = pageTurnMode !== "flip";
+
     useEffect(() => {
+      // "flip" mode owns its own rendition (EpubFlipReader, for snapshotting
+      // pages into the flip book's leaves) -- mounting this one too would
+      // just double-load the file for nothing.
+      if (!usesOwnRendition) return;
       let cancelled = false;
 
       (async () => {
@@ -172,10 +179,10 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
         renditionRef.current = null;
         bookRef.current = null;
       };
-      // Deliberately only re-runs on fileUrl: initialLocator is a one-time
-      // resume position, re-running on every relocation would fight navigation.
+      // Deliberately excludes initialLocator: it's a one-time resume
+      // position, re-running on every relocation would fight navigation.
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [fileUrl]);
+    }, [fileUrl, usesOwnRendition]);
 
     useEffect(() => {
       if (renditionRef.current) applyEpubTheme(renditionRef.current, theme);
@@ -232,6 +239,10 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
         );
       }
     }, [highlights, notes, renditionReady, bookId, removeHighlightLocal, openExistingNote]);
+
+    if (pageTurnMode === "flip") {
+      return <EpubFlipReader fileUrl={fileUrl} />;
+    }
 
     return (
       <PageFlip flipKey={flipTick} direction={flipDirection} mode={pageTurnMode}>

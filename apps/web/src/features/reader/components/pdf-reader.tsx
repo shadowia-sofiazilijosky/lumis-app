@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useReaderStore } from "../store/reader-store";
 import { DrawingLayer } from "./drawing-layer";
 import { PageFlip } from "./page-flip";
+import { PdfFlipReader } from "./pdf-flip-reader";
 import { TextAnnotationLayer } from "./text-annotation-layer";
 
 interface PdfReaderProps {
@@ -28,7 +29,13 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
   const zoom = useReaderStore((state) => state.zoom);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
 
+  // "flip" mode hands the whole page off to PdfFlipReader (its own pdf.js
+  // document, one canvas per leaf, real drag-to-curl) -- this single-page
+  // pipeline is only needed for the other two page-turn modes.
+  const singlePageMode = pageTurnMode !== "flip";
+
   useEffect(() => {
+    if (!singlePageMode) return;
     let cancelled = false;
 
     (async () => {
@@ -56,10 +63,10 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
       loadingTaskRef.current = null;
       docRef.current = null;
     };
-  }, [fileUrl, setTotalPages]);
+  }, [fileUrl, setTotalPages, singlePageMode]);
 
   useEffect(() => {
-    if (!ready || !docRef.current || !canvasRef.current) return;
+    if (!singlePageMode || !ready || !docRef.current || !canvasRef.current) return;
     let cancelled = false;
     const doc = docRef.current;
 
@@ -109,7 +116,11 @@ export function PdfReader({ bookId, fileUrl }: PdfReaderProps) {
     return () => {
       cancelled = true;
     };
-  }, [ready, currentPage, zoom]);
+  }, [singlePageMode, ready, currentPage, zoom]);
+
+  if (!singlePageMode) {
+    return <PdfFlipReader bookId={bookId} fileUrl={fileUrl} />;
+  }
 
   return (
     <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>
