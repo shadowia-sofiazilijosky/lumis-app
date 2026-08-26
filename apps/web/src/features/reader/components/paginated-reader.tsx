@@ -15,6 +15,79 @@ interface PaginatedReaderProps {
   zoom: number;
 }
 
+function TextSinglePage({
+  bookId,
+  pageNumber,
+  totalPages,
+  zoom,
+}: {
+  bookId: string;
+  pageNumber: number;
+  totalPages: number | null;
+  zoom: number;
+}) {
+  const [loadedPage, setLoadedPage] = useState<TextPage | null>(null);
+  const textPageRef = useRef<HTMLDivElement>(null);
+  const inRange = pageNumber >= 1 && (totalPages === null || pageNumber <= totalPages);
+  const text = loadedPage?.pageNumber === pageNumber ? loadedPage.text : null;
+
+  useEffect(() => {
+    if (!inRange) return;
+    let cancelled = false;
+    fetchTextPage(bookId, pageNumber).then((page) => {
+      if (!cancelled) setLoadedPage(page);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [bookId, pageNumber, inRange]);
+
+  if (!inRange) return <div className="text-reader-page text-reader-page-empty" />;
+
+  return (
+    <div ref={textPageRef} className="text-reader-page" style={{ fontSize: `${zoom * 100}%` }}>
+      {text ? text.split("\n\n").map((paragraph, index) => <p key={index}>{paragraph}</p>) : <p>Cargando…</p>}
+      <TextAnnotationLayer
+        bookId={bookId}
+        pageIndex={pageNumber - 1}
+        containerRef={textPageRef}
+        refreshKey={`${pageNumber}-${text ? "loaded" : "loading"}`}
+      />
+      <DrawingLayer
+        bookId={bookId}
+        pageIndex={pageNumber - 1}
+        containerRef={textPageRef}
+        refreshKey={`${pageNumber}-${zoom}`}
+      />
+    </div>
+  );
+}
+
+function ComicSinglePage({
+  bookId,
+  pageNumber,
+  totalPages,
+  zoom,
+}: {
+  bookId: string;
+  pageNumber: number;
+  totalPages: number | null;
+  zoom: number;
+}) {
+  const inRange = pageNumber >= 1 && (totalPages === null || pageNumber <= totalPages);
+  if (!inRange) return <div className="comic-reader-page comic-reader-page-empty" />;
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element -- proxied page image, not a static asset
+    <img
+      src={pageImageUrl(bookId, pageNumber)}
+      alt={`Página ${pageNumber}`}
+      className="comic-reader-page"
+      style={zoom !== 1 ? { width: `${zoom * 100}%`, maxWidth: "none", height: "auto" } : undefined}
+    />
+  );
+}
+
 /**
  * Renders the backend-paginated formats: TXT gets real DOM text (selectable,
  * highlightable) and CBR/CBZ get a page image — there's no text to select on
@@ -22,24 +95,12 @@ interface PaginatedReaderProps {
  */
 export function PaginatedReader({ bookId, format, zoom }: PaginatedReaderProps) {
   const currentPage = useReaderStore((state) => state.currentPage);
+  const totalPages = useReaderStore((state) => state.totalPages);
   const flipDirection = useReaderStore((state) => state.flipDirection);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
-  const [loadedPage, setLoadedPage] = useState<TextPage | null>(null);
-  const textPageRef = useRef<HTMLDivElement>(null);
+  const spreadView = useReaderStore((state) => state.spreadView);
 
   const isText = format === BookFormat.TXT;
-  const text = loadedPage?.pageNumber === currentPage ? loadedPage.text : null;
-
-  useEffect(() => {
-    if (!isText) return;
-    let cancelled = false;
-    fetchTextPage(bookId, currentPage).then((page) => {
-      if (!cancelled) setLoadedPage(page);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [bookId, currentPage, isText]);
 
   // Comics get the real drag-to-curl page turn in "flip" mode -- each page
   // is already a flat image, an easy fit for the flip book's leaves. TXT
@@ -50,43 +111,29 @@ export function PaginatedReader({ bookId, format, zoom }: PaginatedReaderProps) 
 
   return (
     <PageFlip flipKey={currentPage} direction={flipDirection} mode={pageTurnMode}>
-      {isText ? (
-        <div
-          ref={textPageRef}
-          className="text-reader-page"
-          style={{ fontSize: `${zoom * 100}%` }}
-        >
-          {text
-            ? text
-                .split("\n\n")
-                .map((paragraph, index) => <p key={index}>{paragraph}</p>)
-            : <p>Cargando…</p>}
-          <TextAnnotationLayer
-            bookId={bookId}
-            pageIndex={currentPage - 1}
-            containerRef={textPageRef}
-            refreshKey={`${currentPage}-${text ? "loaded" : "loading"}`}
-          />
-          <DrawingLayer
-            bookId={bookId}
-            pageIndex={currentPage - 1}
-            containerRef={textPageRef}
-            refreshKey={`${currentPage}-${zoom}`}
-          />
-        </div>
-      ) : (
-        // eslint-disable-next-line @next/next/no-img-element -- proxied page image, not a static asset
-        <img
-          src={pageImageUrl(bookId, currentPage)}
-          alt={`Página ${currentPage}`}
-          className="comic-reader-page"
-          style={
-            zoom !== 1
-              ? { width: `${zoom * 100}%`, maxWidth: "none", height: "auto" }
-              : undefined
-          }
-        />
-      )}
+      <div className={spreadView ? (isText ? "text-spread" : "comic-spread") : undefined}>
+        {isText ? (
+          <TextSinglePage bookId={bookId} pageNumber={currentPage} totalPages={totalPages} zoom={zoom} />
+        ) : (
+          <ComicSinglePage bookId={bookId} pageNumber={currentPage} totalPages={totalPages} zoom={zoom} />
+        )}
+        {spreadView &&
+          (isText ? (
+            <TextSinglePage
+              bookId={bookId}
+              pageNumber={currentPage + 1}
+              totalPages={totalPages}
+              zoom={zoom}
+            />
+          ) : (
+            <ComicSinglePage
+              bookId={bookId}
+              pageNumber={currentPage + 1}
+              totalPages={totalPages}
+              zoom={zoom}
+            />
+          ))}
+      </div>
     </PageFlip>
   );
 }

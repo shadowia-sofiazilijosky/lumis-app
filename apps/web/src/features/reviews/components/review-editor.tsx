@@ -108,26 +108,32 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
     timeoutRef.current = setTimeout(() => {
       const parsedBookNumber = parseInt(bookNumberOfYear, 10);
 
+      // Every field is always sent, `null` included -- this autosave always
+      // pushes the *whole current state*, not a partial patch, so a cleared
+      // rating/date must actually reach the server as null. Omitting it
+      // when null (the previous behavior) meant "clear" only ever updated
+      // local state: the old value stayed in the database and came right
+      // back on the next reload.
       saveReview(bookId, {
         status,
         genre,
-        ...(rating !== null && { rating }),
-        ...(spicyRating !== null && { spicyRating }),
-        ...(romanceRating !== null && { romanceRating }),
-        ...(plotRating !== null && { plotRating }),
-        ...(sadnessRating !== null && { sadnessRating }),
-        ...(humorRating !== null && { humorRating }),
-        ...(mysteryRating !== null && { mysteryRating }),
+        rating,
+        spicyRating,
+        romanceRating,
+        plotRating,
+        sadnessRating,
+        humorRating,
+        mysteryRating,
         favoriteCharacter,
         leastFavoriteCharacter,
         favoriteQuote,
-        ...(cried !== null && { cried }),
-        ...(recommend !== null && { recommend }),
-        ...(!Number.isNaN(parsedBookNumber) && { bookNumberOfYear: parsedBookNumber }),
+        cried,
+        recommend,
+        bookNumberOfYear: Number.isNaN(parsedBookNumber) ? null : parsedBookNumber,
         mood,
         notes,
-        ...(startedAt && { startedAt: new Date(startedAt).toISOString() }),
-        ...(finishedAt && { finishedAt: new Date(finishedAt).toISOString() }),
+        startedAt: startedAt ? new Date(startedAt).toISOString() : null,
+        finishedAt: finishedAt ? new Date(finishedAt).toISOString() : null,
         bodyRichText: { html: bodyHtml },
       }).then(() => {
         hasUnsavedChanges.current = false;

@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Columns2,
+  Menu,
   Minus,
   Plus,
   Square,
@@ -81,6 +82,17 @@ export function ReaderControls({
 
   return (
     <>
+      {!controlsVisible && (
+        <button
+          type="button"
+          className="reader-menu-toggle"
+          aria-label="Abrir menú"
+          onClick={toggleControls}
+        >
+          <Menu size={16} /> Menú
+        </button>
+      )}
+
       {!textSelectable && (
         <div
           className="reader-tap-zones"
@@ -132,17 +144,15 @@ export function ReaderControls({
             ))}
           </div>
 
-          {pageTurnMode === "flip" && (
-            <button
-              type="button"
-              className="secondary"
-              aria-pressed={spreadView}
-              aria-label={spreadView ? "Ver una página" : "Ver dos páginas"}
-              onClick={toggleSpreadView}
-            >
-              {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
-            </button>
-          )}
+          <button
+            type="button"
+            className="secondary"
+            aria-pressed={spreadView}
+            aria-label={spreadView ? "Ver una página" : "Ver dos páginas"}
+            onClick={toggleSpreadView}
+          >
+            {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
+          </button>
 
           {highlighterSupported && (
             <button

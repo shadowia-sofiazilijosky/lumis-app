@@ -4,23 +4,23 @@ import type { RichTextBody } from "../entities/review.entity";
 
 export interface UpsertReviewDto {
   status?: ReadingStatus;
-  rating?: number;
-  spicyRating?: number;
-  romanceRating?: number;
-  plotRating?: number;
-  sadnessRating?: number;
-  humorRating?: number;
-  mysteryRating?: number;
+  rating?: number | null;
+  spicyRating?: number | null;
+  romanceRating?: number | null;
+  plotRating?: number | null;
+  sadnessRating?: number | null;
+  humorRating?: number | null;
+  mysteryRating?: number | null;
   genre?: string;
   favoriteCharacter?: string;
   leastFavoriteCharacter?: string;
   favoriteQuote?: string;
-  cried?: boolean;
-  recommend?: RecommendLevel;
-  bookNumberOfYear?: number;
+  cried?: boolean | null;
+  recommend?: RecommendLevel | null;
+  bookNumberOfYear?: number | null;
   mood?: string;
   notes?: string;
   bodyRichText?: RichTextBody;
-  startedAt?: string;
-  finishedAt?: string;
+  startedAt?: string | null;
+  finishedAt?: string | null;
 }

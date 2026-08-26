@@ -23,71 +23,51 @@ export class ReviewsService {
     await this.getOwnedBookOrThrow(ownerId, bookId);
 
     const bodyRichText = dto.bodyRichText as Prisma.InputJsonValue | undefined;
-    const startedAt = dto.startedAt ? new Date(dto.startedAt) : undefined;
-    const finishedAt = dto.finishedAt ? new Date(dto.finishedAt) : undefined;
+    // A field left out of the request body is `undefined` here, and Prisma
+    // treats an `undefined` property in create/update data as "don't touch
+    // this column" -- exactly what we want, since the client always sends
+    // its *entire* current state (an explicit `null` for a field the user
+    // just cleared) rather than a partial patch.
+    const startedAt =
+      dto.startedAt === null
+        ? null
+        : dto.startedAt
+          ? new Date(dto.startedAt)
+          : undefined;
+    const finishedAt =
+      dto.finishedAt === null
+        ? null
+        : dto.finishedAt
+          ? new Date(dto.finishedAt)
+          : undefined;
+
+    const sharedFields = {
+      status: dto.status,
+      rating: dto.rating,
+      spicyRating: dto.spicyRating,
+      romanceRating: dto.romanceRating,
+      plotRating: dto.plotRating,
+      sadnessRating: dto.sadnessRating,
+      humorRating: dto.humorRating,
+      mysteryRating: dto.mysteryRating,
+      genre: dto.genre,
+      favoriteCharacter: dto.favoriteCharacter,
+      leastFavoriteCharacter: dto.leastFavoriteCharacter,
+      favoriteQuote: dto.favoriteQuote,
+      cried: dto.cried,
+      recommend: dto.recommend,
+      bookNumberOfYear: dto.bookNumberOfYear,
+      mood: dto.mood,
+      notes: dto.notes,
+      bodyRichText,
+      startedAt,
+      finishedAt,
+    };
 
     return this.prisma.review.upsert({
       where: { userId_bookId: { userId: ownerId, bookId } },
-      create: {
-        userId: ownerId,
-        bookId,
-        status: dto.status,
-        rating: dto.rating,
-        spicyRating: dto.spicyRating,
-        romanceRating: dto.romanceRating,
-        plotRating: dto.plotRating,
-        sadnessRating: dto.sadnessRating,
-        humorRating: dto.humorRating,
-        mysteryRating: dto.mysteryRating,
-        genre: dto.genre,
-        favoriteCharacter: dto.favoriteCharacter,
-        leastFavoriteCharacter: dto.leastFavoriteCharacter,
-        favoriteQuote: dto.favoriteQuote,
-        cried: dto.cried,
-        recommend: dto.recommend,
-        bookNumberOfYear: dto.bookNumberOfYear,
-        mood: dto.mood,
-        notes: dto.notes,
-        bodyRichText,
-        startedAt,
-        finishedAt,
-      },
-      update: {
-        ...(dto.status !== undefined && { status: dto.status }),
-        ...(dto.rating !== undefined && { rating: dto.rating }),
-        ...(dto.spicyRating !== undefined && { spicyRating: dto.spicyRating }),
-        ...(dto.romanceRating !== undefined && {
-          romanceRating: dto.romanceRating,
-        }),
-        ...(dto.plotRating !== undefined && { plotRating: dto.plotRating }),
-        ...(dto.sadnessRating !== undefined && {
-          sadnessRating: dto.sadnessRating,
-        }),
-        ...(dto.humorRating !== undefined && { humorRating: dto.humorRating }),
-        ...(dto.mysteryRating !== undefined && {
-          mysteryRating: dto.mysteryRating,
-        }),
-        ...(dto.genre !== undefined && { genre: dto.genre }),
-        ...(dto.favoriteCharacter !== undefined && {
-          favoriteCharacter: dto.favoriteCharacter,
-        }),
-        ...(dto.leastFavoriteCharacter !== undefined && {
-          leastFavoriteCharacter: dto.leastFavoriteCharacter,
-        }),
-        ...(dto.favoriteQuote !== undefined && {
-          favoriteQuote: dto.favoriteQuote,
-        }),
-        ...(dto.cried !== undefined && { cried: dto.cried }),
-        ...(dto.recommend !== undefined && { recommend: dto.recommend }),
-        ...(dto.bookNumberOfYear !== undefined && {
-          bookNumberOfYear: dto.bookNumberOfYear,
-        }),
-        ...(dto.mood !== undefined && { mood: dto.mood }),
-        ...(dto.notes !== undefined && { notes: dto.notes }),
-        ...(dto.bodyRichText !== undefined && { bodyRichText }),
-        ...(dto.startedAt !== undefined && { startedAt }),
-        ...(dto.finishedAt !== undefined && { finishedAt }),
-      },
+      create: { userId: ownerId, bookId, ...sharedFields },
+      update: sharedFields,
     });
   }
 

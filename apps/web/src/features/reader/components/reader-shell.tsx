@@ -43,6 +43,7 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const zoom = useReaderStore((state) => state.zoom);
   const setZoom = useReaderStore((state) => state.setZoom);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
+  const toggleControls = useReaderStore((state) => state.toggleControls);
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
   const drawTool = useAnnotationsStore((state) => state.drawTool);
   const drawToolPickerOpen = useAnnotationsStore((state) => state.drawToolPickerOpen);
@@ -155,6 +156,13 @@ export function ReaderShell({ bookId }: { bookId: string }) {
       <div
         ref={viewportRef}
         className={`reader-viewport${drawTool ? " pen-active" : ""}`}
+        // A plain click landing directly on the empty background (not on a
+        // page, canvas, or any of its children) toggles the menu -- the
+        // reliable version of "tap outside the page" the band-based
+        // useTapToToggleControls heuristic doesn't always catch.
+        onClick={(event) => {
+          if (event.target === event.currentTarget) toggleControls();
+        }}
       >
         {currentBook.format === BookFormat.PDF && fileUrl && (
           <PdfReader bookId={bookId} fileUrl={fileUrl} />

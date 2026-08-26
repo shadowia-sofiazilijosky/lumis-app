@@ -20,43 +20,43 @@ export class UpsertReviewDto {
   @IsInt()
   @Min(1)
   @Max(5)
-  rating?: number;
+  rating?: number | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Max(5)
-  spicyRating?: number;
+  spicyRating?: number | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Max(5)
-  romanceRating?: number;
+  romanceRating?: number | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Max(5)
-  plotRating?: number;
+  plotRating?: number | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Max(5)
-  sadnessRating?: number;
+  sadnessRating?: number | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Max(5)
-  humorRating?: number;
+  humorRating?: number | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Max(5)
-  mysteryRating?: number;
+  mysteryRating?: number | null;
 
   @IsOptional()
   @IsString()
@@ -80,16 +80,16 @@ export class UpsertReviewDto {
 
   @IsOptional()
   @IsBoolean()
-  cried?: boolean;
+  cried?: boolean | null;
 
   @IsOptional()
   @IsEnum(RecommendLevel)
-  recommend?: RecommendLevel;
+  recommend?: RecommendLevel | null;
 
   @IsOptional()
   @IsInt()
   @Min(1)
-  bookNumberOfYear?: number;
+  bookNumberOfYear?: number | null;
 
   @IsOptional()
   @IsString()
@@ -107,9 +107,9 @@ export class UpsertReviewDto {
 
   @IsOptional()
   @IsDateString()
-  startedAt?: string;
+  startedAt?: string | null;
 
   @IsOptional()
   @IsDateString()
-  finishedAt?: string;
+  finishedAt?: string | null;
 }
