@@ -1,18 +1,30 @@
 "use client";
 
-import type { LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
+import type { RatingIconProps } from "./rating-icons";
 
 const SCALE = [1, 2, 3, 4, 5];
 
+export type RatingTone =
+  | "star"
+  | "spicy"
+  | "romance"
+  | "plot"
+  | "sadness"
+  | "humor"
+  | "mystery";
+
 interface RatingPickerProps {
   label: string;
-  icon: LucideIcon;
-  tone: "star" | "spicy" | "romance";
+  icon: ComponentType<RatingIconProps>;
+  tone: RatingTone;
   value: number | null;
   onChange: (value: number | null) => void;
 }
 
-/** Generic 1-5 icon picker — reused for the star rating, spicy (chiles) and romance (corazones). */
+/** Generic 1-5 icon picker — reused for every themed rating row on the
+ * "ficha de lectura" (star, spicy/chile, romance, plot, tristeza, humor,
+ * misterio). */
 export function RatingPicker({ label, icon: Icon, tone, value, onChange }: RatingPickerProps) {
   return (
     <div className="rating-picker">

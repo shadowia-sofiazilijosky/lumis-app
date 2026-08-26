@@ -51,6 +51,12 @@ enum ShelfArrangement {
   COVER // portada de frente
 }
 
+enum RecommendLevel {
+  YES
+  MAYBE
+  NO
+}
+
 enum ReadingStatus {
   TBR
   READING
@@ -173,20 +179,33 @@ model BookShelf {
 
 // One review/rating record per user+book. "Reread" just updates status + dates in place (MVP scope).
 model Review {
-  id            String        @id @default(cuid())
-  userId        String        @map("user_id")
-  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bookId        String        @map("book_id")
-  book          Book          @relation(fields: [bookId], references: [id], onDelete: Cascade)
-  status        ReadingStatus @default(TBR)
-  rating        Int? // 1-5 stars
-  spicyRating   Int?          @map("spicy_rating") // 1-5 chiles
-  romanceRating Int?          @map("romance_rating") // 1-5 corazones
-  bodyRichText  Json?         @map("body_rich_text")
-  startedAt     DateTime?     @map("started_at")
-  finishedAt    DateTime?     @map("finished_at")
-  createdAt     DateTime      @default(now()) @map("created_at")
-  updatedAt     DateTime      @updatedAt @map("updated_at")
+  id                     String          @id @default(cuid())
+  userId                 String          @map("user_id")
+  user                   User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId                 String          @map("book_id")
+  book                   Book            @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  status                 ReadingStatus   @default(TBR)
+  rating                 Int? // 1-5 stars
+  spicyRating            Int?            @map("spicy_rating") // 1-5 chiles
+  romanceRating          Int?            @map("romance_rating") // 1-5 corazones
+  plotRating             Int?            @map("plot_rating") // 1-5 estrellas
+  sadnessRating          Int?            @map("sadness_rating") // 1-5 gotas
+  humorRating            Int?            @map("humor_rating") // 1-5 caritas
+  mysteryRating          Int?            @map("mystery_rating") // 1-5 bolas de cristal
+  genre                  String?
+  favoriteCharacter      String?         @map("favorite_character")
+  leastFavoriteCharacter String?         @map("least_favorite_character")
+  favoriteQuote          String?         @map("favorite_quote")
+  cried                  Boolean?
+  recommend              RecommendLevel?
+  bookNumberOfYear       Int?            @map("book_number_of_year")
+  mood                   String?
+  notes                  String?
+  bodyRichText           Json?           @map("body_rich_text")
+  startedAt              DateTime?       @map("started_at")
+  finishedAt             DateTime?       @map("finished_at")
+  createdAt              DateTime        @default(now()) @map("created_at")
+  updatedAt              DateTime        @updatedAt @map("updated_at")
 
   @@unique([userId, bookId])
   @@index([bookId])
@@ -211,24 +230,24 @@ model ReadingProgress {
 }
 
 model Highlight {
-  id           String         @id @default(cuid())
-  userId       String         @map("user_id")
-  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bookId       String         @map("book_id")
-  book         Book           @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  id           String   @id @default(cuid())
+  userId       String   @map("user_id")
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId       String   @map("book_id")
+  book         Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
   // Free-form color, 6- or 8-digit hex (#RRGGBB[AA]) — a full spectrum with
   // transparency, not a fixed palette.
-  color        String         @default("#F5D76EAA")
+  color        String   @default("#F5D76EAA")
   // Highlighter-pen stroke thickness: "thin" | "normal" | "thick".
-  size         String         @default("normal")
-  pageIndex    Int            @map("page_index")
-  startOffset  Int            @map("start_offset")
-  endOffset    Int            @map("end_offset")
-  selectedText String         @map("selected_text")
+  size         String   @default("normal")
+  pageIndex    Int      @map("page_index")
+  startOffset  Int      @map("start_offset")
+  endOffset    Int      @map("end_offset")
+  selectedText String   @map("selected_text")
   // EPUB-only: authoritative anchor for reflowable content (pageIndex/startOffset/
   // endOffset are non-authoritative placeholders there — see epub-reader.tsx).
   cfi          String?
-  createdAt    DateTime       @default(now()) @map("created_at")
+  createdAt    DateTime @default(now()) @map("created_at")
 
   notes Note[]
 
