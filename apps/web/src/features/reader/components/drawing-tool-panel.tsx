@@ -24,26 +24,29 @@ export function DrawingToolPanel() {
   const [brushKey, setBrushKey] = useState(drawTool?.brush ?? "marker");
   const [size, setSize] = useState(drawTool?.size ?? 14);
 
+  const isEraser = brushKey === "eraser";
   const currentHex = hsvToHex(hue, saturation, value, alpha);
 
   function applyTool() {
-    setDrawTool({ color: currentHex, brush: brushKey, size });
+    setDrawTool({ color: isEraser ? "#000000FF" : currentHex, brush: brushKey, size });
   }
 
   return (
     <div className="pen-panel" onPointerDown={(event) => event.stopPropagation()}>
-      <ColorPicker
-        hue={hue}
-        saturation={saturation}
-        value={value}
-        alpha={alpha}
-        onChange={(patch) => {
-          if (patch.hue !== undefined) setHue(patch.hue);
-          if (patch.saturation !== undefined) setSaturation(patch.saturation);
-          if (patch.value !== undefined) setValue(patch.value);
-          if (patch.alpha !== undefined) setAlpha(patch.alpha);
-        }}
-      />
+      {!isEraser && (
+        <ColorPicker
+          hue={hue}
+          saturation={saturation}
+          value={value}
+          alpha={alpha}
+          onChange={(patch) => {
+            if (patch.hue !== undefined) setHue(patch.hue);
+            if (patch.saturation !== undefined) setSaturation(patch.saturation);
+            if (patch.value !== undefined) setValue(patch.value);
+            if (patch.alpha !== undefined) setAlpha(patch.alpha);
+          }}
+        />
+      )}
 
       <label className="pen-panel-opacity">
         Grosor ({Math.round(size)}px)
@@ -71,22 +74,24 @@ export function DrawingToolPanel() {
         ))}
       </div>
 
-      <div
-        className="pen-panel-preview"
-        style={{ background: "repeating-conic-gradient(#ddd 0% 25%, #fff 0% 50%) 0 0 / 12px 12px" }}
-      >
-        <span
-          className="pen-panel-preview-swatch"
-          style={{ background: currentHex, height: Math.min(size, 26) }}
-        />
-      </div>
+      {!isEraser && (
+        <div
+          className="pen-panel-preview"
+          style={{ background: "repeating-conic-gradient(#ddd 0% 25%, #fff 0% 50%) 0 0 / 12px 12px" }}
+        >
+          <span
+            className="pen-panel-preview-swatch"
+            style={{ background: currentHex, height: Math.min(size, 26) }}
+          />
+        </div>
+      )}
 
       <div className="pen-panel-actions">
         <button type="button" className="secondary" onClick={() => setDrawToolPickerOpen(false)}>
           Cancelar
         </button>
         <button type="button" onClick={applyTool}>
-          Usar este pincel
+          {isEraser ? "Usar goma de borrar" : "Usar este pincel"}
         </button>
         {drawTool && (
           <button
@@ -97,7 +102,7 @@ export function DrawingToolPanel() {
               setDrawToolPickerOpen(false);
             }}
           >
-            Apagar pincel
+            Apagar herramienta
           </button>
         )}
       </div>

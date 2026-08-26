@@ -39,11 +39,17 @@ export function PenCursor({ containerRef, tool }: PenCursorProps) {
     };
   }, [containerRef]);
 
+  const isEraser = tool.brush === "eraser";
+
   return (
     <div
       ref={dotRef}
-      className="pen-cursor"
-      style={{ width: tool.size, height: tool.size, background: tool.color }}
+      className={`pen-cursor${isEraser ? " pen-cursor-eraser" : ""}`}
+      style={{
+        width: tool.size,
+        height: tool.size,
+        background: isEraser ? "transparent" : tool.color,
+      }}
     />
   );
 }

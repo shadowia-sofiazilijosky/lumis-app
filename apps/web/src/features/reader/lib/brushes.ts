@@ -1,26 +1,25 @@
-import { getStroke } from "perfect-freehand";
 import type { StrokeOptions } from "perfect-freehand";
 
 export interface BrushDef {
   key: string;
   label: string;
   strokeOptions: StrokeOptions;
-  /** solid = flat fill; soft = blurred/translucent (airbrush, acuarela);
-   * textured = grainy edge (óleo, crayón, lápiz). */
-  render: "solid" | "soft" | "textured";
+  /** solid = flat fill; soft = airbrush spray / watercolor bleed; textured =
+   * grainy dry-media dabs (óleo, crayón, lápiz); eraser = destination-out. */
+  render: "solid" | "soft" | "textured" | "eraser";
 }
 
 export const BRUSHES: BrushDef[] = [
   {
     key: "calligraphy-brush",
     label: "Pincel de caligrafía",
-    strokeOptions: { thinning: 0.75, smoothing: 0.4, streamline: 0.25, simulatePressure: true },
+    strokeOptions: { thinning: 0.9, smoothing: 0.4, streamline: 0.2, simulatePressure: true },
     render: "solid",
   },
   {
     key: "calligraphy-pencil",
     label: "Lápiz caligráfico",
-    strokeOptions: { thinning: 0.85, smoothing: 0.25, streamline: 0.15, simulatePressure: true },
+    strokeOptions: { thinning: 0.95, smoothing: 0.2, streamline: 0.1, simulatePressure: true },
     render: "solid",
   },
   {
@@ -59,37 +58,14 @@ export const BRUSHES: BrushDef[] = [
     strokeOptions: { thinning: 0.2, smoothing: 0.9, streamline: 0.6, simulatePressure: true },
     render: "soft",
   },
+  {
+    key: "eraser",
+    label: "Goma de borrar",
+    strokeOptions: { thinning: 0, smoothing: 0.5, streamline: 0.5 },
+    render: "eraser",
+  },
 ];
 
 export function getBrush(key: string): BrushDef {
   return BRUSHES.find((b) => b.key === key) ?? BRUSHES[5];
-}
-
-/** perfect-freehand's own reference conversion from its outline points to a
- * smooth SVG path (consecutive quadratic beziers through the midpoints). */
-export function getSvgPathFromStroke(points: number[][]): string {
-  if (!points.length) return "";
-
-  const d = points.reduce<(string | number)[]>(
-    (acc, [x0, y0], i, arr) => {
-      const [x1, y1] = arr[(i + 1) % arr.length];
-      acc.push(x0, y0, (x0 + x1) / 2, (y0 + y1) / 2);
-      return acc;
-    },
-    ["M", ...points[0], "Q"],
-  );
-
-  d.push("Z");
-  return d.join(" ");
-}
-
-/** Builds the filled outline path for a stroke's points (pixel coordinates)
- * at the given brush + base size. */
-export function strokeToPath(
-  points: [number, number][],
-  brush: BrushDef,
-  size: number,
-): string {
-  const outline = getStroke(points, { size, ...brush.strokeOptions });
-  return getSvgPathFromStroke(outline);
 }

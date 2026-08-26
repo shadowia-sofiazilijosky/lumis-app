@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
-import { createStroke, deleteStroke } from "../api/annotations-client";
-import { getBrush, strokeToPath } from "../lib/brushes";
+import { createStroke } from "../api/annotations-client";
+import { renderStroke } from "../lib/brush-renderer";
+import { getBrush } from "../lib/brushes";
 import { useAnnotationsStore } from "../store/annotations-store";
 
 interface DrawingLayerProps {
@@ -13,19 +14,24 @@ interface DrawingLayerProps {
   refreshKey: string | number;
 }
 
-let filterIdCounter = 0;
+function toPixels(
+  points: [number, number][],
+  size: { width: number; height: number },
+): [number, number][] {
+  return points.map(([x, y]) => [x * size.width, y * size.height]);
+}
 
-/** Freehand brush drawing, independent of text — an SVG overlay the same
- * size as the page, storing/rendering stroke points normalized 0-1 against
- * that size so they re-scale correctly at any zoom level. */
+/** Freehand brush drawing, independent of text -- a canvas the same size as
+ * the page. Every redraw replays all of the page's committed strokes in
+ * order (that's also how the eraser works: a real destination-out punch,
+ * order-dependent like a raster eraser). Points are stored normalized 0-1
+ * against the page size so strokes re-scale correctly at any zoom level. */
 export function DrawingLayer({ bookId, pageIndex, containerRef, refreshKey }: DrawingLayerProps) {
   const strokes = useAnnotationsStore((state) => state.strokes);
   const addStroke = useAnnotationsStore((state) => state.addStroke);
-  const removeStrokeLocal = useAnnotationsStore((state) => state.removeStrokeLocal);
   const drawTool = useAnnotationsStore((state) => state.drawTool);
 
-  const [filterId] = useState(() => `brush-grain-${filterIdCounter++}`);
-  const svgRef = useRef<SVGSVGElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [liveNormalizedPoints, setLiveNormalizedPoints] = useState<[number, number][] | null>(
     null,
@@ -44,6 +50,35 @@ export function DrawingLayer({ bookId, pageIndex, containerRef, refreshKey }: Dr
     [strokes, pageIndex],
   );
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || size.width === 0 || size.height === 0) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = size.width * dpr;
+    canvas.height = size.height * dpr;
+    canvas.style.width = `${size.width}px`;
+    canvas.style.height = `${size.height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size.width, size.height);
+
+    for (const stroke of pageStrokes) {
+      renderStroke(ctx, toPixels(stroke.points, size), getBrush(stroke.brush), stroke.color, stroke.size);
+    }
+
+    if (liveNormalizedPoints && drawTool) {
+      renderStroke(
+        ctx,
+        toPixels(liveNormalizedPoints, size),
+        getBrush(drawTool.brush),
+        drawTool.color,
+        drawTool.size,
+      );
+    }
+  }, [pageStrokes, size, liveNormalizedPoints, drawTool]);
+
   function toNormalized(clientX: number, clientY: number): [number, number] | null {
     const container = containerRef.current;
     if (!container || size.width === 0 || size.height === 0) return null;
@@ -51,26 +86,26 @@ export function DrawingLayer({ bookId, pageIndex, containerRef, refreshKey }: Dr
     return [(clientX - rect.left) / rect.width, (clientY - rect.top) / rect.height];
   }
 
-  function handlePointerDown(event: React.PointerEvent<SVGSVGElement>) {
+  function handlePointerDown(event: React.PointerEvent<HTMLCanvasElement>) {
     if (!drawTool) return;
     const point = toNormalized(event.clientX, event.clientY);
     if (!point) return;
     drawing.current = true;
-    svgRef.current?.setPointerCapture(event.pointerId);
+    canvasRef.current?.setPointerCapture(event.pointerId);
     setLiveNormalizedPoints([point]);
   }
 
-  function handlePointerMove(event: React.PointerEvent<SVGSVGElement>) {
+  function handlePointerMove(event: React.PointerEvent<HTMLCanvasElement>) {
     if (!drawing.current) return;
     const point = toNormalized(event.clientX, event.clientY);
     if (!point) return;
     setLiveNormalizedPoints((prev) => (prev ? [...prev, point] : [point]));
   }
 
-  async function handlePointerUp(event: React.PointerEvent<SVGSVGElement>) {
+  async function handlePointerUp(event: React.PointerEvent<HTMLCanvasElement>) {
     if (!drawing.current || !drawTool) return;
     drawing.current = false;
-    svgRef.current?.releasePointerCapture(event.pointerId);
+    canvasRef.current?.releasePointerCapture(event.pointerId);
 
     const points = liveNormalizedPoints;
     setLiveNormalizedPoints(null);
@@ -86,62 +121,14 @@ export function DrawingLayer({ bookId, pageIndex, containerRef, refreshKey }: Dr
     if (stroke) addStroke(stroke);
   }
 
-  async function handleDeleteStroke(id: string) {
-    removeStrokeLocal(id);
-    await deleteStroke(bookId, id);
-  }
-
-  const toPixels = (points: [number, number][]): [number, number][] =>
-    points.map(([x, y]) => [x * size.width, y * size.height]);
-
   return (
-    <svg
-      ref={svgRef}
+    <canvas
+      ref={canvasRef}
       className={`drawing-layer${drawTool ? " drawing-layer-active" : ""}`}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
-    >
-      <defs>
-        <filter id={filterId} x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise" />
-          {/* Keep the stroke's own color, but modulate its opacity by the
-              noise's alpha channel -- a grainy, uneven fill instead of a
-              flat one, without replacing the chosen color with gray static. */}
-          <feColorMatrix
-            in="noise"
-            type="matrix"
-            values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"
-            result="grain"
-          />
-          <feComposite in="SourceGraphic" in2="grain" operator="in" />
-        </filter>
-      </defs>
-
-      {pageStrokes.map((stroke) => {
-        const brush = getBrush(stroke.brush);
-        const path = strokeToPath(toPixels(stroke.points), brush, stroke.size);
-        return (
-          <path
-            key={stroke.id}
-            d={path}
-            fill={stroke.color}
-            className={`drawn-stroke drawn-stroke-${brush.render}`}
-            filter={brush.render === "textured" ? `url(#${filterId})` : undefined}
-            onClick={() => handleDeleteStroke(stroke.id)}
-          />
-        );
-      })}
-
-      {liveNormalizedPoints && drawTool && (
-        <path
-          d={strokeToPath(toPixels(liveNormalizedPoints), getBrush(drawTool.brush), drawTool.size)}
-          fill={drawTool.color}
-          className={`drawn-stroke drawn-stroke-${getBrush(drawTool.brush).render}`}
-          style={{ pointerEvents: "none" }}
-        />
-      )}
-    </svg>
+    />
   );
 }
