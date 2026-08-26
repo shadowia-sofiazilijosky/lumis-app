@@ -47,7 +47,6 @@ export function EpubFlipReader({ fileUrl }: { fileUrl: string }) {
   const [snapshots, setSnapshots] = useState<Record<number, string>>({});
 
   const currentPage = useReaderStore((state) => state.currentPage);
-  const spreadView = useReaderStore((state) => state.spreadView);
   const zoom = useReaderStore((state) => state.zoom);
   const goToPage = useReaderStore((state) => state.goToPage);
   const setTotalPages = useReaderStore((state) => state.setTotalPages);
@@ -133,7 +132,7 @@ export function EpubFlipReader({ fileUrl }: { fileUrl: string }) {
         <FlipBook
           currentLeafIndex={currentPage - 1}
           onFlipTo={(index) => goToPage(index + 1)}
-          spreadView={spreadView}
+          spreadView
           aspectRatio={0.72}
           zoom={zoom}
         >

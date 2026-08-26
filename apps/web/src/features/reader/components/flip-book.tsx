@@ -122,7 +122,7 @@ export const FlipBook = forwardRef<FlipBookHandle, FlipBookProps>(function FlipB
         useMouseEvents
         swipeDistance={30}
         showPageCorners={false}
-        disableFlipByClick
+        disableFlipByClick={false}
         startPage={currentLeafIndex}
         startZIndex={10}
         autoSize={false}

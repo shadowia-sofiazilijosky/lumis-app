@@ -26,9 +26,6 @@ interface ReaderState {
   hasUnsavedChanges: boolean;
   zoom: number;
   pageTurnMode: PageTurnMode;
-  /** "libro real" mode only -- show a two-page spread (like an open book)
-   * instead of one page at a time. */
-  spreadView: boolean;
 
   loadProgress: (bookId: string, progress: {
     currentPage: number;
@@ -49,7 +46,6 @@ interface ReaderState {
   zoomOut: () => void;
   resetZoom: () => void;
   setPageTurnMode: (mode: PageTurnMode) => void;
-  toggleSpreadView: () => void;
 }
 
 export const useReaderStore = create<ReaderState>((set) => ({
@@ -64,7 +60,6 @@ export const useReaderStore = create<ReaderState>((set) => ({
   hasUnsavedChanges: false,
   zoom: 1,
   pageTurnMode: "flip",
-  spreadView: false,
 
   loadProgress: (bookId, progress) =>
     set({
@@ -113,5 +108,4 @@ export const useReaderStore = create<ReaderState>((set) => ({
   resetZoom: () => set({ zoom: 1 }),
 
   setPageTurnMode: (mode) => set({ pageTurnMode: mode }),
-  toggleSpreadView: () => set((state) => ({ spreadView: !state.spreadView })),
 }));
