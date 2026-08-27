@@ -41,10 +41,11 @@ export class SupabaseStorageService implements OnModuleInit {
     path: string,
     buffer: Buffer,
     contentType: string,
+    options?: { upsert?: boolean },
   ): Promise<void> {
     const { error } = await this.client.storage
       .from(this.bucket)
-      .upload(path, buffer, { contentType, upsert: false });
+      .upload(path, buffer, { contentType, upsert: options?.upsert ?? false });
 
     if (error) {
       throw new Error(

@@ -7,7 +7,17 @@ export interface PublicUser {
   id: string;
   email: string;
   displayName: string;
+  /** Signed URL (never the raw storage path), null if no avatar uploaded. */
   avatarUrl: string | null;
+  bio: string | null;
+  location: string | null;
+  favoriteQuote: string | null;
+  /** Annual reading goal (books) — null means no goal configured. */
+  readingGoal: number | null;
+  /** ISO 3166-1 alpha-2. */
+  country: string | null;
+  /** IANA timezone name. */
+  timezone: string | null;
   role: Role;
   themePreference: ThemePreference;
   fontPreference: FontPreference;

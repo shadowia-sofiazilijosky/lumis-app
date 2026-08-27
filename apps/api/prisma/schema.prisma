@@ -73,24 +73,60 @@ model User {
   email           String          @unique
   passwordHash    String          @map("password_hash")
   displayName     String          @map("display_name")
-  avatarUrl       String?         @map("avatar_url")
+  // Private-bucket storage path (like Book.coverImageKey) -- a signed URL is
+  // generated on read, never exposed directly.
+  avatarImageKey  String?         @map("avatar_image_key")
+  bio             String?
+  location        String?
+  favoriteQuote   String?         @map("favorite_quote")
+  // Annual reading goal (books), user-set — null means no goal configured.
+  readingGoal     Int?            @map("reading_goal")
+  // ISO 3166-1 alpha-2 (e.g. "AR") — for display/future language selection,
+  // decoupled from timezone (a country can span several).
+  country         String?
+  // IANA timezone name (e.g. "America/Argentina/Buenos_Aires"), user-set or
+  // autodetected client-side — determines the local-day boundary used for
+  // the reading streak and "night reading" detection. Defaults to UTC when
+  // unset so those features still work, just less precisely, before the
+  // user (or client autodetection) sets a real one.
+  timezone        String?
   role            Role            @default(USER)
   themePreference ThemePreference @default(SYSTEM) @map("theme_preference")
   fontPreference  FontPreference  @default(LORA) @map("font_preference")
   createdAt       DateTime        @default(now()) @map("created_at")
   updatedAt       DateTime        @updatedAt @map("updated_at")
 
-  refreshTokens   RefreshToken[]
-  books           Book[]
-  shelves         Shelf[]
-  reviews         Review[]
-  readingProgress ReadingProgress[]
-  highlights      Highlight[]
-  notes           Note[]
-  strokes         Stroke[]
-  spotifyAccount  SpotifyAccount?
+  refreshTokens       RefreshToken[]
+  books               Book[]
+  shelves             Shelf[]
+  reviews             Review[]
+  readingProgress     ReadingProgress[]
+  readingActivityLogs ReadingActivityLog[]
+  highlights          Highlight[]
+  notes               Note[]
+  strokes             Stroke[]
+  spotifyAccount      SpotifyAccount?
 
   @@map("users")
+}
+
+// One row per (user, local calendar day) with any reading-progress activity
+// — the history ReadingProgress alone can't provide (it's one mutable row
+// per book, not an event log), needed to compute a real day-streak and
+// detect night reading. Written from ReadingProgressService.upsert.
+model ReadingActivityLog {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // The user's local calendar day, stored as that day's UTC midnight.
+  date      DateTime
+  isNight   Boolean  @default(false) @map("is_night")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@map("reading_activity_log")
 }
 
 // Hashed refresh tokens, so rotation/revocation doesn't depend on trusting the JWT alone.

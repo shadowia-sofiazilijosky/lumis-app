@@ -13,6 +13,7 @@ import { ReaderModule } from './modules/reader/reader.module';
 import { ReadingProgressModule } from './modules/reading-progress/reading-progress.module';
 import { ReviewsModule } from './modules/reviews/reviews.module';
 import { ShelvesModule } from './modules/shelves/shelves.module';
+import { StatsModule } from './modules/stats/stats.module';
 import { StrokesModule } from './modules/strokes/strokes.module';
 import { UsersModule } from './modules/users/users.module';
 import { SupabaseStorageModule } from './storage/supabase-storage.module';
@@ -33,6 +34,7 @@ import { SupabaseStorageModule } from './storage/supabase-storage.module';
     NotesModule,
     StrokesModule,
     ReviewsModule,
+    StatsModule,
   ],
   controllers: [AppController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],

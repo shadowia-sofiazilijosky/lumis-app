@@ -65,6 +65,6 @@ export class AuthController {
     if (!fullUser) {
       throw new UnauthorizedException();
     }
-    return this.usersService.toPublic(fullUser);
+    return await this.usersService.toPublic(fullUser);
   }
 }
