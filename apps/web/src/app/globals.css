@@ -559,19 +559,6 @@ header nav a {
   max-width: 480px;
 }
 
-.profile-preference-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding: 1rem 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
 .theme-toggle-inline {
   width: 2.25rem;
   height: 2.25rem;
@@ -583,28 +570,6 @@ header nav a {
   color: var(--foreground);
   border: 1px solid var(--border);
   border-radius: 50%;
-}
-
-.font-selector {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 1.5rem;
-  padding: 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.font-selector select {
-  padding: 0.5rem 0.75rem;
-}
-
-.font-selector-preview {
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
-  color: var(--foreground);
 }
 
 /* --- Auth --- */
