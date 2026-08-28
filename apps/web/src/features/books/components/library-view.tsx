@@ -1,12 +1,14 @@
 "use client";
 
 import type { BookDetail, BookSummary } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { fetchBooks, reorderBooks } from "../api/books-client";
 import { BookGrid } from "./book-grid";
 import { BookUploadForm } from "./book-upload-form";
 
 export function LibraryView() {
+  const t = useTranslations("library");
   const [books, setBooks] = useState<BookDetail[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
     "loading",
@@ -44,8 +46,8 @@ export function LibraryView() {
   return (
     <>
       <BookUploadForm onUploaded={handleUploaded} />
-      {status === "loading" && <p>Cargando…</p>}
-      {status === "error" && <p>No pudimos cargar tu biblioteca.</p>}
+      {status === "loading" && <p>{t("loading")}</p>}
+      {status === "error" && <p>{t("loadError")}</p>}
       {status === "ready" && (
         <BookGrid books={books} onReorder={handleReorder} />
       )}

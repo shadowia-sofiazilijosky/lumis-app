@@ -143,5 +143,23 @@
       "selectOrMoveBook": "选择或移动“{title}”",
       "removeFromShelf": "从书架移除"
     }
+  },
+  "library": {
+    "pageTitle": "你的书库 — Lumis",
+    "heading": "你的书库",
+    "loading": "加载中…",
+    "loadError": "无法加载你的书库。",
+    "empty": "你还没有上传任何书籍。",
+    "progressAria": "已读 {percent}%",
+    "upload": {
+      "fileLabel": "文件（PDF、EPUB、MOBI、CBR、CBZ、TXT）",
+      "titleLabel": "标题（可选）",
+      "authorLabel": "作者（可选）",
+      "chooseFile": "选择要上传的文件。",
+      "genericError": "无法上传该书籍。",
+      "progressAria": "上传进度",
+      "uploading": "正在上传…",
+      "submit": "上传书籍"
+    }
   }
 }

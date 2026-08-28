@@ -13,6 +13,7 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { BookCard } from "./book-card";
 
@@ -58,6 +59,7 @@ export function BookGrid({
   books: BookSummary[];
   onReorder: (books: BookSummary[]) => void;
 }) {
+  const t = useTranslations("library");
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const sensors = useSensors(
@@ -82,7 +84,7 @@ export function BookGrid({
   }
 
   if (books.length === 0) {
-    return <p>Todavía no subiste ningún libro.</p>;
+    return <p>{t("empty")}</p>;
   }
 
   const activeBook = books.find((book) => book.id === activeId);

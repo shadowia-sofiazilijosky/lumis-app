@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Выбрать или переместить «{title}»",
       "removeFromShelf": "Убрать с полки"
     }
+  },
+  "library": {
+    "pageTitle": "Ваша библиотека — Lumis",
+    "heading": "Ваша библиотека",
+    "loading": "Загрузка…",
+    "loadError": "Не удалось загрузить вашу библиотеку.",
+    "empty": "Вы ещё не загрузили ни одной книги.",
+    "progressAria": "Прочитано {percent}%",
+    "upload": {
+      "fileLabel": "Файл (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Название (необязательно)",
+      "authorLabel": "Автор (необязательно)",
+      "chooseFile": "Выберите файл для загрузки.",
+      "genericError": "Не удалось загрузить книгу.",
+      "progressAria": "Прогресс загрузки",
+      "uploading": "Загрузка…",
+      "submit": "Загрузить книгу"
+    }
   }
 }

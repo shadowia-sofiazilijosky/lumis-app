@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Select or move \"{title}\"",
       "removeFromShelf": "Remove from shelf"
     }
+  },
+  "library": {
+    "pageTitle": "Your library — Lumis",
+    "heading": "Your library",
+    "loading": "Loading…",
+    "loadError": "We couldn't load your library.",
+    "empty": "You haven't uploaded any books yet.",
+    "progressAria": "{percent}% read",
+    "upload": {
+      "fileLabel": "File (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Title (optional)",
+      "authorLabel": "Author (optional)",
+      "chooseFile": "Choose a file to upload.",
+      "genericError": "We couldn't upload the book.",
+      "progressAria": "Upload progress",
+      "uploading": "Uploading…",
+      "submit": "Upload book"
+    }
   }
 }

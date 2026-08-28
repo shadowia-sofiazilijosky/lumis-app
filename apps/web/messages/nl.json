@@ -143,5 +143,23 @@
       "selectOrMoveBook": "\"{title}\" selecteren of verplaatsen",
       "removeFromShelf": "Van plank verwijderen"
     }
+  },
+  "library": {
+    "pageTitle": "Jouw bibliotheek — Lumis",
+    "heading": "Jouw bibliotheek",
+    "loading": "Laden…",
+    "loadError": "We konden je bibliotheek niet laden.",
+    "empty": "Je hebt nog geen boeken geüpload.",
+    "progressAria": "{percent}% gelezen",
+    "upload": {
+      "fileLabel": "Bestand (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Titel (optioneel)",
+      "authorLabel": "Auteur (optioneel)",
+      "chooseFile": "Kies een bestand om te uploaden.",
+      "genericError": "We konden het boek niet uploaden.",
+      "progressAria": "Voortgang uploaden",
+      "uploading": "Uploaden…",
+      "submit": "Boek uploaden"
+    }
   }
 }

@@ -143,5 +143,23 @@
       "selectOrMoveBook": "「{title}」を選択・移動",
       "removeFromShelf": "本棚から削除"
     }
+  },
+  "library": {
+    "pageTitle": "あなたのライブラリ — Lumis",
+    "heading": "あなたのライブラリ",
+    "loading": "読み込み中…",
+    "loadError": "ライブラリを読み込めませんでした。",
+    "empty": "まだ本をアップロードしていません。",
+    "progressAria": "{percent}% 読了",
+    "upload": {
+      "fileLabel": "ファイル（PDF、EPUB、MOBI、CBR、CBZ、TXT）",
+      "titleLabel": "タイトル（任意）",
+      "authorLabel": "著者（任意）",
+      "chooseFile": "アップロードするファイルを選んでください。",
+      "genericError": "本をアップロードできませんでした。",
+      "progressAria": "アップロードの進捗",
+      "uploading": "アップロード中…",
+      "submit": "本をアップロード"
+    }
   }
 }

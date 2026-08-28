@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Chagua au sogeza \"{title}\"",
       "removeFromShelf": "Ondoa kwenye rafu"
     }
+  },
+  "library": {
+    "pageTitle": "Maktaba yako — Lumis",
+    "heading": "Maktaba yako",
+    "loading": "Inapakia…",
+    "loadError": "Hatukuweza kupakia maktaba yako.",
+    "empty": "Bado hujapakia kitabu chochote.",
+    "progressAria": "Imesomwa {percent}%",
+    "upload": {
+      "fileLabel": "Faili (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Kichwa (si lazima)",
+      "authorLabel": "Mwandishi (si lazima)",
+      "chooseFile": "Chagua faili la kupakia.",
+      "genericError": "Hatukuweza kupakia kitabu.",
+      "progressAria": "Maendeleo ya upakiaji",
+      "uploading": "Inapakia…",
+      "submit": "Pakia kitabu"
+    }
   }
 }

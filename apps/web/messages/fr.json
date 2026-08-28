@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Sélectionner ou déplacer « {title} »",
       "removeFromShelf": "Retirer de l'étagère"
     }
+  },
+  "library": {
+    "pageTitle": "Ta bibliothèque — Lumis",
+    "heading": "Ta bibliothèque",
+    "loading": "Chargement…",
+    "loadError": "Impossible de charger ta bibliothèque.",
+    "empty": "Tu n'as encore téléversé aucun livre.",
+    "progressAria": "{percent} % lu",
+    "upload": {
+      "fileLabel": "Fichier (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Titre (optionnel)",
+      "authorLabel": "Auteur (optionnel)",
+      "chooseFile": "Choisis un fichier à téléverser.",
+      "genericError": "Impossible de téléverser le livre.",
+      "progressAria": "Progression du téléversement",
+      "uploading": "Téléversement…",
+      "submit": "Téléverser le livre"
+    }
   }
 }

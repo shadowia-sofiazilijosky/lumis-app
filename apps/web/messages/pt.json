@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Selecionar ou mover \"{title}\"",
       "removeFromShelf": "Remover da estante"
     }
+  },
+  "library": {
+    "pageTitle": "Sua biblioteca — Lumis",
+    "heading": "Sua biblioteca",
+    "loading": "Carregando…",
+    "loadError": "Não conseguimos carregar sua biblioteca.",
+    "empty": "Você ainda não enviou nenhum livro.",
+    "progressAria": "{percent}% lido",
+    "upload": {
+      "fileLabel": "Arquivo (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Título (opcional)",
+      "authorLabel": "Autor (opcional)",
+      "chooseFile": "Escolha um arquivo para enviar.",
+      "genericError": "Não conseguimos enviar o livro.",
+      "progressAria": "Progresso do envio",
+      "uploading": "Enviando…",
+      "submit": "Enviar livro"
+    }
   }
 }

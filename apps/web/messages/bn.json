@@ -143,5 +143,23 @@
       "selectOrMoveBook": "\"{title}\" নির্বাচন বা সরান",
       "removeFromShelf": "শেলফ থেকে সরান"
     }
+  },
+  "library": {
+    "pageTitle": "আপনার লাইব্রেরি — Lumis",
+    "heading": "আপনার লাইব্রেরি",
+    "loading": "লোড হচ্ছে…",
+    "loadError": "আমরা আপনার লাইব্রেরি লোড করতে পারিনি।",
+    "empty": "আপনি এখনো কোনো বই আপলোড করেননি।",
+    "progressAria": "{percent}% পঠিত",
+    "upload": {
+      "fileLabel": "ফাইল (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "শিরোনাম (ঐচ্ছিক)",
+      "authorLabel": "লেখক (ঐচ্ছিক)",
+      "chooseFile": "আপলোড করার জন্য একটি ফাইল বেছে নিন।",
+      "genericError": "আমরা বইটি আপলোড করতে পারিনি।",
+      "progressAria": "আপলোড অগ্রগতি",
+      "uploading": "আপলোড হচ্ছে…",
+      "submit": "বই আপলোড করুন"
+    }
   }
 }

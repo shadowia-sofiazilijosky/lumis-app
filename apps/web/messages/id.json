@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Pilih atau pindahkan \"{title}\"",
       "removeFromShelf": "Hapus dari rak"
     }
+  },
+  "library": {
+    "pageTitle": "Perpustakaanmu — Lumis",
+    "heading": "Perpustakaanmu",
+    "loading": "Memuat…",
+    "loadError": "Kami tidak dapat memuat perpustakaanmu.",
+    "empty": "Kamu belum mengunggah buku apa pun.",
+    "progressAria": "{percent}% terbaca",
+    "upload": {
+      "fileLabel": "Berkas (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Judul (opsional)",
+      "authorLabel": "Penulis (opsional)",
+      "chooseFile": "Pilih berkas untuk diunggah.",
+      "genericError": "Kami tidak dapat mengunggah buku ini.",
+      "progressAria": "Progres unggahan",
+      "uploading": "Mengunggah…",
+      "submit": "Unggah buku"
+    }
   }
 }

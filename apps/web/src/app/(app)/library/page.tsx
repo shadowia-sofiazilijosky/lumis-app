@@ -1,13 +1,16 @@
+import { getTranslations } from "next-intl/server";
 import { LibraryView } from "@/features/books/components/library-view";
 
-export const metadata = {
-  title: "Tu biblioteca — Lumis",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("library");
+  return { title: t("pageTitle") };
+}
 
-export default function LibraryPage() {
+export default async function LibraryPage() {
+  const t = await getTranslations("library");
   return (
     <section>
-      <h1>Tu biblioteca</h1>
+      <h1>{t("heading")}</h1>
       <LibraryView />
     </section>
   );

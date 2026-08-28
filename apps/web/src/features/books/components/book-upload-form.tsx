@@ -1,6 +1,7 @@
 "use client";
 
 import type { BookDetail } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useRef, useState, type FormEvent } from "react";
 import { BookRequestError, uploadBook } from "../api/books-client";
 
@@ -9,6 +10,7 @@ interface BookUploadFormProps {
 }
 
 export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
+  const t = useTranslations("library.upload");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -20,7 +22,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
     event.preventDefault();
     const file = fileInputRef.current?.files?.[0];
     if (!file) {
-      setError("Elegí un archivo para subir.");
+      setError(t("chooseFile"));
       return;
     }
 
@@ -40,9 +42,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
       if (fileInputRef.current) fileInputRef.current.value = "";
     } catch (err) {
       setError(
-        err instanceof BookRequestError
-          ? err.message
-          : "No pudimos subir el libro.",
+        err instanceof BookRequestError ? err.message : t("genericError"),
       );
     } finally {
       setIsUploading(false);
@@ -53,7 +53,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
   return (
     <form className="book-upload-form" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="book-file">Archivo (PDF, EPUB, MOBI, CBR, CBZ, TXT)</label>
+        <label htmlFor="book-file">{t("fileLabel")}</label>
         <input
           id="book-file"
           type="file"
@@ -64,7 +64,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
       </div>
 
       <div>
-        <label htmlFor="book-title-override">Título (opcional)</label>
+        <label htmlFor="book-title-override">{t("titleLabel")}</label>
         <input
           id="book-title-override"
           value={title}
@@ -73,7 +73,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
       </div>
 
       <div>
-        <label htmlFor="book-author-override">Autor (opcional)</label>
+        <label htmlFor="book-author-override">{t("authorLabel")}</label>
         <input
           id="book-author-override"
           value={author}
@@ -88,7 +88,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
           aria-valuenow={progress}
           aria-valuemin={0}
           aria-valuemax={100}
-          aria-label="Progreso de subida"
+          aria-label={t("progressAria")}
         >
           <div className="upload-progress-bar" style={{ width: `${progress}%` }} />
           <span>{progress}%</span>
@@ -102,7 +102,7 @@ export function BookUploadForm({ onUploaded }: BookUploadFormProps) {
       )}
 
       <button type="submit" disabled={isUploading}>
-        {isUploading ? "Subiendo…" : "Subir libro"}
+        {isUploading ? t("uploading") : t("submit")}
       </button>
     </form>
   );

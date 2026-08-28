@@ -143,5 +143,23 @@
       "selectOrMoveBook": "تحديد أو تحريك \"{title}\"",
       "removeFromShelf": "إزالة من الرف"
     }
+  },
+  "library": {
+    "pageTitle": "مكتبتك — Lumis",
+    "heading": "مكتبتك",
+    "loading": "جارٍ التحميل…",
+    "loadError": "تعذر تحميل مكتبتك.",
+    "empty": "لم ترفع أي كتاب بعد.",
+    "progressAria": "تمت قراءة {percent}%",
+    "upload": {
+      "fileLabel": "ملف (PDF، EPUB، MOBI، CBR، CBZ، TXT)",
+      "titleLabel": "العنوان (اختياري)",
+      "authorLabel": "المؤلف (اختياري)",
+      "chooseFile": "اختر ملفًا لرفعه.",
+      "genericError": "تعذر رفع الكتاب.",
+      "progressAria": "تقدم الرفع",
+      "uploading": "جارٍ الرفع…",
+      "submit": "رفع الكتاب"
+    }
   }
 }

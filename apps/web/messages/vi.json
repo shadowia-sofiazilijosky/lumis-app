@@ -143,5 +143,23 @@
       "selectOrMoveBook": "Chọn hoặc di chuyển \"{title}\"",
       "removeFromShelf": "Xóa khỏi kệ sách"
     }
+  },
+  "library": {
+    "pageTitle": "Thư viện của bạn — Lumis",
+    "heading": "Thư viện của bạn",
+    "loading": "Đang tải…",
+    "loadError": "Không thể tải thư viện của bạn.",
+    "empty": "Bạn chưa tải lên cuốn sách nào.",
+    "progressAria": "Đã đọc {percent}%",
+    "upload": {
+      "fileLabel": "Tệp (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Tên sách (tùy chọn)",
+      "authorLabel": "Tác giả (tùy chọn)",
+      "chooseFile": "Chọn một tệp để tải lên.",
+      "genericError": "Không thể tải sách lên.",
+      "progressAria": "Tiến trình tải lên",
+      "uploading": "Đang tải lên…",
+      "submit": "Tải sách lên"
+    }
   }
 }

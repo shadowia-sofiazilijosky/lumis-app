@@ -143,5 +143,23 @@
       "selectOrMoveBook": "\"{title}\" seç veya taşı",
       "removeFromShelf": "Raftan kaldır"
     }
+  },
+  "library": {
+    "pageTitle": "Kütüphanen — Lumis",
+    "heading": "Kütüphanen",
+    "loading": "Yükleniyor…",
+    "loadError": "Kütüphaneni yükleyemedik.",
+    "empty": "Henüz hiç kitap yüklemedin.",
+    "progressAria": "%{percent} okundu",
+    "upload": {
+      "fileLabel": "Dosya (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "Başlık (isteğe bağlı)",
+      "authorLabel": "Yazar (isteğe bağlı)",
+      "chooseFile": "Yüklenecek bir dosya seç.",
+      "genericError": "Kitabı yükleyemedik.",
+      "progressAria": "Yükleme ilerlemesi",
+      "uploading": "Yükleniyor…",
+      "submit": "Kitabı yükle"
+    }
   }
 }

@@ -143,5 +143,23 @@
       "selectOrMoveBook": "\"{title}\" चुनें या ले जाएं",
       "removeFromShelf": "शेल्फ़ से हटाएं"
     }
+  },
+  "library": {
+    "pageTitle": "आपकी लाइब्रेरी — Lumis",
+    "heading": "आपकी लाइब्रेरी",
+    "loading": "लोड हो रहा है…",
+    "loadError": "हम आपकी लाइब्रेरी लोड नहीं कर सके।",
+    "empty": "आपने अभी तक कोई किताब अपलोड नहीं की।",
+    "progressAria": "{percent}% पढ़ा गया",
+    "upload": {
+      "fileLabel": "फ़ाइल (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "शीर्षक (वैकल्पिक)",
+      "authorLabel": "लेखक (वैकल्पिक)",
+      "chooseFile": "अपलोड करने के लिए एक फ़ाइल चुनें।",
+      "genericError": "हम किताब अपलोड नहीं कर सके।",
+      "progressAria": "अपलोड प्रगति",
+      "uploading": "अपलोड हो रहा है…",
+      "submit": "किताब अपलोड करें"
+    }
   }
 }

@@ -143,5 +143,23 @@
       "selectOrMoveBook": "\"{title}\" 선택 또는 이동",
       "removeFromShelf": "책장에서 제거"
     }
+  },
+  "library": {
+    "pageTitle": "내 서재 — Lumis",
+    "heading": "내 서재",
+    "loading": "불러오는 중…",
+    "loadError": "서재를 불러오지 못했습니다.",
+    "empty": "아직 업로드한 책이 없습니다.",
+    "progressAria": "{percent}% 읽음",
+    "upload": {
+      "fileLabel": "파일 (PDF, EPUB, MOBI, CBR, CBZ, TXT)",
+      "titleLabel": "제목 (선택)",
+      "authorLabel": "저자 (선택)",
+      "chooseFile": "업로드할 파일을 선택하세요.",
+      "genericError": "책을 업로드하지 못했습니다.",
+      "progressAria": "업로드 진행률",
+      "uploading": "업로드 중…",
+      "submit": "책 업로드"
+    }
   }
 }
