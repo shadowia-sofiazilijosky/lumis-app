@@ -1,6 +1,7 @@
 "use client";
 
 import type { ProfileStats, PublicUser } from "@lumis/shared-types";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { fetchProfileStats } from "../api/profile-client";
 import { AchievementsGrid } from "./achievements-grid";
@@ -15,6 +16,7 @@ import { StatCard } from "./stat-card";
 type Tab = "overview" | "edit";
 
 export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
+  const router = useRouter();
   const [user, setUser] = useState(initialUser);
   const [stats, setStats] = useState<ProfileStats | null>(null);
   const [tab, setTab] = useState<Tab>("overview");
@@ -28,6 +30,15 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
       cancelled = true;
     };
   }, []);
+
+  // The topbar greeting (name + avatar) is rendered by the (app) layout, a
+  // Server Component — it only re-fetches on navigation, so a save here
+  // needs to explicitly ask the whole route tree to refresh, or the name/
+  // photo you just changed wouldn't show up anywhere outside this page.
+  function applyUserChange(updated: PublicUser) {
+    setUser(updated);
+    router.refresh();
+  }
 
   return (
     <section className="profile-page">
@@ -55,8 +66,9 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
         <div className="profile-panel">
           <ProfileEditForm
             user={user}
+            onAvatarChange={applyUserChange}
             onSaved={(updated) => {
-              setUser(updated);
+              applyUserChange(updated);
               setTab("overview");
             }}
           />
@@ -64,7 +76,7 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
       ) : (
         <>
           <div className="profile-top-card">
-            <ProfileHeaderCard user={user} onUserChange={setUser} onEditClick={() => setTab("edit")} />
+            <ProfileHeaderCard user={user} onEditClick={() => setTab("edit")} />
 
             {stats && (
               <div className="profile-stat-cards">

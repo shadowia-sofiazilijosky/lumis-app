@@ -16,11 +16,22 @@ export function useLoadReadingProgress(bookId: string) {
 
     fetchReadingProgress(bookId).then((progress) => {
       if (cancelled) return;
-      loadProgress(bookId, {
-        currentPage: progress?.currentPage ?? 1,
-        currentLocator: progress?.currentLocator ?? null,
-        progressPercent: progress?.progressPercent ?? 0,
-        readerTheme: progress?.readerTheme ?? ReaderTheme.LIGHT,
+      const currentPage = progress?.currentPage ?? 1;
+      const currentLocator = progress?.currentLocator ?? null;
+      const progressPercent = progress?.progressPercent ?? 0;
+      const readerTheme = progress?.readerTheme ?? ReaderTheme.LIGHT;
+
+      loadProgress(bookId, { currentPage, currentLocator, progressPercent, readerTheme });
+
+      // Re-save the just-loaded (unchanged) values so simply opening a book
+      // counts as today's reading activity -- otherwise a session that
+      // never turns a page (or turns back to the same page) never triggers
+      // the autosave below, and the streak silently misses that day.
+      saveReadingProgress(bookId, {
+        currentPage,
+        currentLocator,
+        progressPercent,
+        readerTheme,
       });
     });
 

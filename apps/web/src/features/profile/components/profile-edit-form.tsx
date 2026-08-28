@@ -1,8 +1,9 @@
 "use client";
 
 import type { PublicUser } from "@lumis/shared-types";
-import { useMemo, useState } from "react";
-import { updateProfile } from "../api/profile-client";
+import { Pencil } from "lucide-react";
+import { useMemo, useRef, useState } from "react";
+import { updateProfile, uploadAvatar } from "../api/profile-client";
 import { COUNTRIES } from "../lib/countries";
 
 function detectTimezone(): string {
@@ -28,10 +29,13 @@ function listTimezones(): string[] {
 
 interface ProfileEditFormProps {
   user: PublicUser;
+  /** Form submitted — switches back to "Vista general". */
   onSaved: (user: PublicUser) => void;
+  /** Avatar changed — updates state in place, stays on this tab. */
+  onAvatarChange: (user: PublicUser) => void;
 }
 
-export function ProfileEditForm({ user, onSaved }: ProfileEditFormProps) {
+export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFormProps) {
   const [displayName, setDisplayName] = useState(user.displayName);
   const [bio, setBio] = useState(user.bio ?? "");
   const [location, setLocation] = useState(user.location ?? "");
@@ -40,8 +44,30 @@ export function ProfileEditForm({ user, onSaved }: ProfileEditFormProps) {
   const [country, setCountry] = useState(user.country ?? "");
   const [timezone, setTimezone] = useState(user.timezone ?? detectTimezone());
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
+  const [avatarUploading, setAvatarUploading] = useState(false);
+  const [avatarError, setAvatarError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const timezoneOptions = useMemo(() => listTimezones(), []);
+
+  async function handleAvatarChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    setAvatarUploading(true);
+    setAvatarError(null);
+    try {
+      const updated = await uploadAvatar(file);
+      setAvatarUrl(updated.avatarUrl);
+      onAvatarChange(updated);
+    } catch {
+      setAvatarError("No pudimos subir la foto. Probá con un JPG, PNG o WEBP de menos de 5MB.");
+    } finally {
+      setAvatarUploading(false);
+    }
+  }
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -68,6 +94,37 @@ export function ProfileEditForm({ user, onSaved }: ProfileEditFormProps) {
 
   return (
     <form className="profile-edit-form" onSubmit={handleSubmit}>
+      <div className="profile-avatar-field">
+        <div className="profile-avatar profile-avatar-large">
+          {avatarUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL
+            <img src={avatarUrl} alt="" />
+          ) : (
+            <span className="profile-avatar-placeholder">
+              {user.displayName.charAt(0).toUpperCase()}
+            </span>
+          )}
+        </div>
+        <div>
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={avatarUploading}
+          >
+            <Pencil size={13} /> {avatarUploading ? "Subiendo…" : "Cambiar foto"}
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            className="profile-avatar-input"
+            onChange={handleAvatarChange}
+          />
+          {avatarError && <p className="profile-header-error">{avatarError}</p>}
+        </div>
+      </div>
+
       <label className="profile-field">
         Nombre
         <input

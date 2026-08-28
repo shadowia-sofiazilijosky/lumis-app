@@ -19,7 +19,13 @@ export default async function AppLayout({
       <Sidebar initialTheme={theme} />
       <div className="app-main-area">
         <header className="app-topbar">
-          <span className="header-greeting">Hola, {user.displayName}</span>
+          <span className="header-greeting">
+            {user.avatarUrl && (
+              // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL
+              <img src={user.avatarUrl} alt="" className="header-greeting-avatar" />
+            )}
+            Hola, {user.displayName}
+          </span>
           <LogoutButton />
         </header>
         <main>{children}</main>

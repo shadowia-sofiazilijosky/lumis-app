@@ -274,6 +274,20 @@ header nav a {
   padding: 1rem 1.5rem;
 }
 
+.header-greeting {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-greeting-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
 .sidebar-mobile-trigger {
   display: none;
   position: fixed;
@@ -657,14 +671,10 @@ header nav a {
   flex: 1 1 320px;
 }
 
-.profile-avatar-wrap {
-  position: relative;
-  flex-shrink: 0;
-}
-
 .profile-avatar {
   width: 96px;
   height: 96px;
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
   background: var(--background);
@@ -686,24 +696,30 @@ header nav a {
   color: var(--profile-gold);
 }
 
-.profile-avatar-edit {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--profile-gold);
-  color: #2b1b11;
-  border: 2px solid var(--surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .profile-avatar-input {
   display: none;
+}
+
+/* Avatar change now lives only in "Editar perfil", not the read-only
+   overview card — a badge overlapping the photo there read as a stray
+   colored dot and covered part of the picture. */
+.profile-avatar-field {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.profile-avatar-large {
+  width: 84px;
+  height: 84px;
+}
+
+.profile-avatar-field button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
 }
 
 .profile-header-info {
@@ -790,6 +806,15 @@ header nav a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Boost only the icon artwork's own color -- never the circle behind it
+   (that's a separate, deliberately soft/pastel background) -- the plain
+   PNGs read as washed out and near-invisible at this size otherwise. */
+.profile-stat-icon img,
+.profile-section-heading img,
+.profile-achievement-icon img {
+  filter: saturate(2.4) contrast(1.2) brightness(0.94);
 }
 
 .profile-stat-icon-gold {

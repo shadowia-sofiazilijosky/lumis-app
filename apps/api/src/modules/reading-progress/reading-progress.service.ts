@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Book, Prisma, ReadingProgress } from '@prisma/client';
+import { Book, Prisma, ReadingProgress, ReadingStatus } from '@prisma/client';
 import {
   dateKeyToUtcMidnight,
   isNightHour,
@@ -50,8 +50,59 @@ export class ReadingProgressService {
     });
 
     await this.logActivity(ownerId);
+    await this.maybeMarkFinished(ownerId, bookId, dto.progressPercent);
 
     return progress;
+  }
+
+  // Reaching (essentially) the end of the book auto-marks it read on the
+  // review, the same status the "ficha de lectura" would set by hand -- so
+  // "libros leídos" and the library-distribution chart actually reflect
+  // what got finished in the reader, not just what was manually flagged.
+  private static readonly FINISH_THRESHOLD_PERCENT = 99;
+
+  private async maybeMarkFinished(
+    ownerId: string,
+    bookId: string,
+    progressPercent: number | undefined,
+  ): Promise<void> {
+    if (
+      progressPercent === undefined ||
+      progressPercent < ReadingProgressService.FINISH_THRESHOLD_PERCENT
+    ) {
+      return;
+    }
+
+    const existing = await this.prisma.review.findUnique({
+      where: { userId_bookId: { userId: ownerId, bookId } },
+      select: { status: true, finishedAt: true, startedAt: true },
+    });
+
+    // Already finished (or a reread) -- a later save near the end of the
+    // book (re-reading the last page, say) shouldn't touch it again.
+    if (
+      existing?.status === ReadingStatus.FINISHED ||
+      existing?.status === ReadingStatus.REREAD
+    ) {
+      return;
+    }
+
+    const now = new Date();
+    await this.prisma.review.upsert({
+      where: { userId_bookId: { userId: ownerId, bookId } },
+      create: {
+        userId: ownerId,
+        bookId,
+        status: ReadingStatus.FINISHED,
+        startedAt: now,
+        finishedAt: now,
+      },
+      update: {
+        status: ReadingStatus.FINISHED,
+        finishedAt: existing?.finishedAt ?? now,
+        startedAt: existing?.startedAt ?? now,
+      },
+    });
   }
 
   // ReadingProgress is a single mutable row per (user, book) -- it can't
