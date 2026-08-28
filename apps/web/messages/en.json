@@ -297,5 +297,30 @@
     "pageTitle": "Notes — Lumis",
     "heading": "Notes",
     "body": "Here you'll be able to see all your reviews, highlights, and notes in one place. We're still building this view — for now, check your notes and highlights directly from each book in <link>your library</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Log in — Lumis",
+      "heading": "Log in",
+      "noAccount": "Don't have an account?",
+      "createOne": "Create one",
+      "email": "Email",
+      "password": "Password",
+      "genericError": "We couldn't log you in. Please try again.",
+      "submitting": "Logging in…",
+      "submit": "Log in"
+    },
+    "register": {
+      "pageTitle": "Create account — Lumis",
+      "heading": "Create account",
+      "hasAccount": "Already have an account?",
+      "login": "Log in",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "genericError": "We couldn't create your account. Please try again.",
+      "submitting": "Creating account…",
+      "submit": "Create account"
+    }
   }
 }

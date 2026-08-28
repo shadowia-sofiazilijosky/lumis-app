@@ -297,5 +297,30 @@
     "pageTitle": "メモ — Lumis",
     "heading": "メモ",
     "body": "ここでは、すべてのレビュー、ハイライト、メモを一箇所で見られるようになります。この画面はまだ作成中です — 今のところ、<link>あなたのライブラリ</link>の各本から直接メモとハイライトを確認してください。"
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "ログイン — Lumis",
+      "heading": "ログイン",
+      "noAccount": "アカウントをお持ちでない方",
+      "createOne": "作成する",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "genericError": "ログインできませんでした。もう一度お試しください。",
+      "submitting": "ログイン中…",
+      "submit": "ログイン"
+    },
+    "register": {
+      "pageTitle": "アカウント作成 — Lumis",
+      "heading": "アカウント作成",
+      "hasAccount": "すでにアカウントをお持ちの方",
+      "login": "ログイン",
+      "name": "名前",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "genericError": "アカウントを作成できませんでした。もう一度お試しください。",
+      "submitting": "アカウントを作成中…",
+      "submit": "アカウントを作成"
+    }
   }
 }

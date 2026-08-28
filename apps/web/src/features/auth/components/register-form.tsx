@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { AuthRequestError, register } from "../api/auth-client";
 import { useAuthStore } from "../store/auth-store";
 
 export function RegisterForm() {
+  const t = useTranslations("auth.register");
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
 
@@ -27,9 +29,7 @@ export function RegisterForm() {
       router.refresh();
     } catch (err) {
       setError(
-        err instanceof AuthRequestError
-          ? err.message
-          : "No pudimos crear la cuenta. Probá de nuevo.",
+        err instanceof AuthRequestError ? err.message : t("genericError"),
       );
     } finally {
       setIsSubmitting(false);
@@ -39,7 +39,7 @@ export function RegisterForm() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div>
-        <label htmlFor="register-display-name">Nombre</label>
+        <label htmlFor="register-display-name">{t("name")}</label>
         <input
           id="register-display-name"
           name="displayName"
@@ -52,7 +52,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="register-email">Email</label>
+        <label htmlFor="register-email">{t("email")}</label>
         <input
           id="register-email"
           name="email"
@@ -65,7 +65,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="register-password">Contraseña</label>
+        <label htmlFor="register-password">{t("password")}</label>
         <input
           id="register-password"
           name="password"
@@ -85,7 +85,7 @@ export function RegisterForm() {
       )}
 
       <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Creando cuenta…" : "Crear cuenta"}
+        {isSubmitting ? t("submitting") : t("submit")}
       </button>
     </form>
   );

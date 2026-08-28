@@ -297,5 +297,30 @@
     "pageTitle": "Notatki — Lumis",
     "heading": "Notatki",
     "body": "Tutaj będziesz mógł/mogła zobaczyć wszystkie swoje recenzje, zaznaczenia i notatki w jednym miejscu. Wciąż budujemy ten widok — na razie sprawdzaj swoje notatki i zaznaczenia bezpośrednio przy każdej książce w <link>swojej bibliotece</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Zaloguj się — Lumis",
+      "heading": "Zaloguj się",
+      "noAccount": "Nie masz konta?",
+      "createOne": "Utwórz je",
+      "email": "E-mail",
+      "password": "Hasło",
+      "genericError": "Nie udało się zalogować. Spróbuj ponownie.",
+      "submitting": "Logowanie…",
+      "submit": "Zaloguj się"
+    },
+    "register": {
+      "pageTitle": "Utwórz konto — Lumis",
+      "heading": "Utwórz konto",
+      "hasAccount": "Masz już konto?",
+      "login": "Zaloguj się",
+      "name": "Imię",
+      "email": "E-mail",
+      "password": "Hasło",
+      "genericError": "Nie udało się utworzyć konta. Spróbuj ponownie.",
+      "submitting": "Tworzenie konta…",
+      "submit": "Utwórz konto"
+    }
   }
 }

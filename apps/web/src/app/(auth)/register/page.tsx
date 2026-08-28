@@ -1,17 +1,20 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { RegisterForm } from "@/features/auth/components/register-form";
 
-export const metadata = {
-  title: "Crear cuenta — Lumis",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("auth.register");
+  return { title: t("pageTitle") };
+}
 
-export default function RegisterPage() {
+export default async function RegisterPage() {
+  const t = await getTranslations("auth.register");
   return (
     <main className="auth-page">
-      <h1>Crear cuenta</h1>
+      <h1>{t("heading")}</h1>
       <RegisterForm />
       <p>
-        ¿Ya tenés cuenta? <Link href="/login">Iniciá sesión</Link>
+        {t("hasAccount")} <Link href="/login">{t("login")}</Link>
       </p>
     </main>
   );

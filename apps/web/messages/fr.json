@@ -297,5 +297,30 @@
     "pageTitle": "Notes — Lumis",
     "heading": "Notes",
     "body": "Ici, tu pourras voir toutes tes critiques, surlignages et notes au même endroit. Nous sommes encore en train de construire cette vue — pour l'instant, consulte tes notes et surlignages directement depuis chaque livre dans <link>ta bibliothèque</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Connexion — Lumis",
+      "heading": "Connexion",
+      "noAccount": "Tu n'as pas de compte ?",
+      "createOne": "Crées-en un",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "genericError": "Impossible de te connecter. Réessaie.",
+      "submitting": "Connexion…",
+      "submit": "Se connecter"
+    },
+    "register": {
+      "pageTitle": "Créer un compte — Lumis",
+      "heading": "Créer un compte",
+      "hasAccount": "Tu as déjà un compte ?",
+      "login": "Connecte-toi",
+      "name": "Nom",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "genericError": "Impossible de créer le compte. Réessaie.",
+      "submitting": "Création du compte…",
+      "submit": "Créer le compte"
+    }
   }
 }

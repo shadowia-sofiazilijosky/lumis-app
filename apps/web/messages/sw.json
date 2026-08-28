@@ -297,5 +297,30 @@
     "pageTitle": "Vidokezo — Lumis",
     "heading": "Vidokezo",
     "body": "Hapa utaweza kuona maoni yako yote, miangaza na vidokezo mahali pamoja. Bado tunajenga mwonekano huu — kwa sasa, angalia vidokezo na miangaza yako moja kwa moja kutoka kwa kila kitabu katika <link>maktaba yako</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Ingia — Lumis",
+      "heading": "Ingia",
+      "noAccount": "Huna akaunti?",
+      "createOne": "Unda moja",
+      "email": "Barua pepe",
+      "password": "Nenosiri",
+      "genericError": "Hatukuweza kukuingiza. Jaribu tena.",
+      "submitting": "Inaingia…",
+      "submit": "Ingia"
+    },
+    "register": {
+      "pageTitle": "Unda akaunti — Lumis",
+      "heading": "Unda akaunti",
+      "hasAccount": "Una akaunti tayari?",
+      "login": "Ingia",
+      "name": "Jina",
+      "email": "Barua pepe",
+      "password": "Nenosiri",
+      "genericError": "Hatukuweza kuunda akaunti. Jaribu tena.",
+      "submitting": "Inaunda akaunti…",
+      "submit": "Unda akaunti"
+    }
   }
 }

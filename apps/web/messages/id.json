@@ -297,5 +297,30 @@
     "pageTitle": "Catatan — Lumis",
     "heading": "Catatan",
     "body": "Di sini kamu akan bisa melihat semua ulasan, sorotan, dan catatanmu di satu tempat. Kami masih membangun tampilan ini — untuk saat ini, lihat catatan dan sorotanmu langsung dari setiap buku di <link>perpustakaanmu</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Masuk — Lumis",
+      "heading": "Masuk",
+      "noAccount": "Belum punya akun?",
+      "createOne": "Buat akun",
+      "email": "Email",
+      "password": "Kata sandi",
+      "genericError": "Kami tidak dapat memproses masuk. Coba lagi.",
+      "submitting": "Sedang masuk…",
+      "submit": "Masuk"
+    },
+    "register": {
+      "pageTitle": "Buat akun — Lumis",
+      "heading": "Buat akun",
+      "hasAccount": "Sudah punya akun?",
+      "login": "Masuk",
+      "name": "Nama",
+      "email": "Email",
+      "password": "Kata sandi",
+      "genericError": "Kami tidak dapat membuat akun. Coba lagi.",
+      "submitting": "Membuat akun…",
+      "submit": "Buat akun"
+    }
   }
 }

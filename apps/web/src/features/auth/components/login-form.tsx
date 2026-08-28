@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { AuthRequestError, login } from "../api/auth-client";
 import { useAuthStore } from "../store/auth-store";
 
 export function LoginForm() {
+  const t = useTranslations("auth.login");
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
 
@@ -26,9 +28,7 @@ export function LoginForm() {
       router.refresh();
     } catch (err) {
       setError(
-        err instanceof AuthRequestError
-          ? err.message
-          : "No pudimos iniciar sesión. Probá de nuevo.",
+        err instanceof AuthRequestError ? err.message : t("genericError"),
       );
     } finally {
       setIsSubmitting(false);
@@ -38,7 +38,7 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div>
-        <label htmlFor="login-email">Email</label>
+        <label htmlFor="login-email">{t("email")}</label>
         <input
           id="login-email"
           name="email"
@@ -51,7 +51,7 @@ export function LoginForm() {
       </div>
 
       <div>
-        <label htmlFor="login-password">Contraseña</label>
+        <label htmlFor="login-password">{t("password")}</label>
         <input
           id="login-password"
           name="password"
@@ -70,7 +70,7 @@ export function LoginForm() {
       )}
 
       <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Entrando…" : "Entrar"}
+        {isSubmitting ? t("submitting") : t("submit")}
       </button>
     </form>
   );

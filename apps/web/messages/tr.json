@@ -297,5 +297,30 @@
     "pageTitle": "Notlar — Lumis",
     "heading": "Notlar",
     "body": "Burada tüm yorumlarını, vurgularını ve notlarını tek bir yerde görebileceksin. Bu görünümü hâlâ oluşturuyoruz — şimdilik notlarını ve vurgularını doğrudan <link>kütüphanen</link> içindeki her kitaptan kontrol et."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Giriş yap — Lumis",
+      "heading": "Giriş yap",
+      "noAccount": "Hesabın yok mu?",
+      "createOne": "Bir tane oluştur",
+      "email": "E-posta",
+      "password": "Şifre",
+      "genericError": "Giriş yapamadık. Tekrar dene.",
+      "submitting": "Giriş yapılıyor…",
+      "submit": "Giriş yap"
+    },
+    "register": {
+      "pageTitle": "Hesap oluştur — Lumis",
+      "heading": "Hesap oluştur",
+      "hasAccount": "Zaten hesabın var mı?",
+      "login": "Giriş yap",
+      "name": "İsim",
+      "email": "E-posta",
+      "password": "Şifre",
+      "genericError": "Hesap oluşturamadık. Tekrar dene.",
+      "submitting": "Hesap oluşturuluyor…",
+      "submit": "Hesap oluştur"
+    }
   }
 }

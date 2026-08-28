@@ -297,5 +297,30 @@
     "pageTitle": "Notas — Lumis",
     "heading": "Notas",
     "body": "Aqui você poderá ver todas as suas resenhas, destaques e notas em um só lugar. Ainda estamos construindo esta visualização — por enquanto, veja suas notas e destaques diretamente em cada livro na <link>sua biblioteca</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Entrar — Lumis",
+      "heading": "Entrar",
+      "noAccount": "Não tem uma conta?",
+      "createOne": "Crie uma",
+      "email": "Email",
+      "password": "Senha",
+      "genericError": "Não conseguimos fazer login. Tente novamente.",
+      "submitting": "Entrando…",
+      "submit": "Entrar"
+    },
+    "register": {
+      "pageTitle": "Criar conta — Lumis",
+      "heading": "Criar conta",
+      "hasAccount": "Já tem uma conta?",
+      "login": "Entrar",
+      "name": "Nome",
+      "email": "Email",
+      "password": "Senha",
+      "genericError": "Não conseguimos criar a conta. Tente novamente.",
+      "submitting": "Criando conta…",
+      "submit": "Criar conta"
+    }
   }
 }

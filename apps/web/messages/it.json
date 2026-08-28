@@ -297,5 +297,30 @@
     "pageTitle": "Note — Lumis",
     "heading": "Note",
     "body": "Qui potrai vedere tutte le tue recensioni, evidenziazioni e note in un unico posto. Stiamo ancora costruendo questa vista — per ora, controlla le tue note ed evidenziazioni direttamente da ogni libro nella <link>tua libreria</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Accedi — Lumis",
+      "heading": "Accedi",
+      "noAccount": "Non hai un account?",
+      "createOne": "Creane uno",
+      "email": "Email",
+      "password": "Password",
+      "genericError": "Non siamo riusciti ad accedere. Riprova.",
+      "submitting": "Accesso…",
+      "submit": "Accedi"
+    },
+    "register": {
+      "pageTitle": "Crea account — Lumis",
+      "heading": "Crea account",
+      "hasAccount": "Hai già un account?",
+      "login": "Accedi",
+      "name": "Nome",
+      "email": "Email",
+      "password": "Password",
+      "genericError": "Non siamo riusciti a creare l'account. Riprova.",
+      "submitting": "Creazione account…",
+      "submit": "Crea account"
+    }
   }
 }

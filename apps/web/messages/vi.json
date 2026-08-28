@@ -297,5 +297,30 @@
     "pageTitle": "Ghi chú — Lumis",
     "heading": "Ghi chú",
     "body": "Tại đây bạn sẽ có thể xem tất cả bài đánh giá, phần tô sáng và ghi chú ở một nơi. Chúng tôi vẫn đang xây dựng giao diện này — hiện tại, hãy xem ghi chú và phần tô sáng trực tiếp từ mỗi cuốn sách trong <link>thư viện của bạn</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Đăng nhập — Lumis",
+      "heading": "Đăng nhập",
+      "noAccount": "Chưa có tài khoản?",
+      "createOne": "Tạo tài khoản",
+      "email": "Email",
+      "password": "Mật khẩu",
+      "genericError": "Không thể đăng nhập. Vui lòng thử lại.",
+      "submitting": "Đang đăng nhập…",
+      "submit": "Đăng nhập"
+    },
+    "register": {
+      "pageTitle": "Tạo tài khoản — Lumis",
+      "heading": "Tạo tài khoản",
+      "hasAccount": "Đã có tài khoản?",
+      "login": "Đăng nhập",
+      "name": "Tên",
+      "email": "Email",
+      "password": "Mật khẩu",
+      "genericError": "Không thể tạo tài khoản. Vui lòng thử lại.",
+      "submitting": "Đang tạo tài khoản…",
+      "submit": "Tạo tài khoản"
+    }
   }
 }

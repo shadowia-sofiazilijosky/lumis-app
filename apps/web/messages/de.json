@@ -297,5 +297,30 @@
     "pageTitle": "Notizen — Lumis",
     "heading": "Notizen",
     "body": "Hier kannst du bald alle deine Rezensionen, Markierungen und Notizen an einem Ort sehen. Wir arbeiten noch an dieser Ansicht — schau dir deine Notizen und Markierungen vorerst direkt bei jedem Buch in <link>deiner Bibliothek</link> an."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Anmelden — Lumis",
+      "heading": "Anmelden",
+      "noAccount": "Noch kein Konto?",
+      "createOne": "Jetzt erstellen",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "genericError": "Anmeldung fehlgeschlagen. Bitte erneut versuchen.",
+      "submitting": "Wird angemeldet…",
+      "submit": "Anmelden"
+    },
+    "register": {
+      "pageTitle": "Konto erstellen — Lumis",
+      "heading": "Konto erstellen",
+      "hasAccount": "Schon ein Konto?",
+      "login": "Anmelden",
+      "name": "Name",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "genericError": "Konto konnte nicht erstellt werden. Bitte erneut versuchen.",
+      "submitting": "Konto wird erstellt…",
+      "submit": "Konto erstellen"
+    }
   }
 }

@@ -297,5 +297,30 @@
     "pageTitle": "메모 — Lumis",
     "heading": "메모",
     "body": "여기서 모든 리뷰, 하이라이트, 메모를 한곳에서 볼 수 있게 될 예정입니다. 아직 이 화면을 만드는 중입니다 — 지금은 <link>내 서재</link>의 각 책에서 직접 메모와 하이라이트를 확인해 주세요."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "로그인 — Lumis",
+      "heading": "로그인",
+      "noAccount": "계정이 없으신가요?",
+      "createOne": "계정 만들기",
+      "email": "이메일",
+      "password": "비밀번호",
+      "genericError": "로그인하지 못했습니다. 다시 시도해 주세요.",
+      "submitting": "로그인 중…",
+      "submit": "로그인"
+    },
+    "register": {
+      "pageTitle": "계정 만들기 — Lumis",
+      "heading": "계정 만들기",
+      "hasAccount": "이미 계정이 있으신가요?",
+      "login": "로그인",
+      "name": "이름",
+      "email": "이메일",
+      "password": "비밀번호",
+      "genericError": "계정을 만들지 못했습니다. 다시 시도해 주세요.",
+      "submitting": "계정 생성 중…",
+      "submit": "계정 만들기"
+    }
   }
 }

@@ -297,5 +297,30 @@
     "pageTitle": "Notities — Lumis",
     "heading": "Notities",
     "body": "Hier kun je straks al je recensies, markeringen en notities op één plek zien. We bouwen deze weergave nog — bekijk je notities en markeringen voorlopig rechtstreeks vanuit elk boek in <link>jouw bibliotheek</link>."
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Inloggen — Lumis",
+      "heading": "Inloggen",
+      "noAccount": "Nog geen account?",
+      "createOne": "Maak er een aan",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "genericError": "We konden je niet inloggen. Probeer het opnieuw.",
+      "submitting": "Inloggen…",
+      "submit": "Inloggen"
+    },
+    "register": {
+      "pageTitle": "Account aanmaken — Lumis",
+      "heading": "Account aanmaken",
+      "hasAccount": "Heb je al een account?",
+      "login": "Inloggen",
+      "name": "Naam",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "genericError": "We konden het account niet aanmaken. Probeer het opnieuw.",
+      "submitting": "Account aanmaken…",
+      "submit": "Account aanmaken"
+    }
   }
 }

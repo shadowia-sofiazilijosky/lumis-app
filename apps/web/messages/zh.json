@@ -297,5 +297,30 @@
     "pageTitle": "笔记 — Lumis",
     "heading": "笔记",
     "body": "在这里你将能够在一个地方查看所有的书评、高亮和笔记。这个视图还在建设中——目前，请直接从<link>你的书库</link>中的每本书查看你的笔记和高亮。"
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "登录 — Lumis",
+      "heading": "登录",
+      "noAccount": "还没有账户？",
+      "createOne": "创建一个",
+      "email": "电子邮箱",
+      "password": "密码",
+      "genericError": "无法登录，请重试。",
+      "submitting": "登录中…",
+      "submit": "登录"
+    },
+    "register": {
+      "pageTitle": "创建账户 — Lumis",
+      "heading": "创建账户",
+      "hasAccount": "已经有账户了？",
+      "login": "登录",
+      "name": "姓名",
+      "email": "电子邮箱",
+      "password": "密码",
+      "genericError": "无法创建账户，请重试。",
+      "submitting": "正在创建账户…",
+      "submit": "创建账户"
+    }
   }
 }
