@@ -682,6 +682,9 @@ header nav a {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--profile-gold) 22%, transparent),
+    0 0 22px 4px color-mix(in srgb, var(--profile-gold) 45%, transparent);
 }
 
 .profile-avatar img {
@@ -722,6 +725,10 @@ header nav a {
   font-size: 0.82rem;
 }
 
+.profile-avatar-field button svg {
+  color: var(--profile-gold);
+}
+
 .profile-header-info {
   display: flex;
   flex-direction: column;
@@ -740,10 +747,10 @@ header nav a {
 .profile-header-name-edit {
   background: transparent;
   border: none;
-  color: var(--foreground);
-  opacity: 0.55;
+  color: var(--profile-gold);
   cursor: pointer;
   padding: 0.2rem;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--profile-gold) 55%, transparent));
 }
 
 .profile-header-bio {
@@ -764,6 +771,10 @@ header nav a {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+}
+
+.profile-header-meta svg {
+  color: var(--profile-wine);
 }
 
 .profile-header-quote {
@@ -814,7 +825,19 @@ header nav a {
 .profile-stat-icon img,
 .profile-section-heading img,
 .profile-achievement-icon img {
-  filter: saturate(2.4) contrast(1.2) brightness(0.94);
+  filter: saturate(4.5) contrast(1.5) brightness(0.85);
+}
+
+.profile-stat-icon-gold {
+  box-shadow: 0 0 16px 3px color-mix(in srgb, var(--profile-gold) 55%, transparent);
+}
+
+.profile-stat-icon-wine {
+  box-shadow: 0 0 16px 3px color-mix(in srgb, var(--profile-wine) 55%, transparent);
+}
+
+.profile-stat-icon-olive {
+  box-shadow: 0 0 16px 3px color-mix(in srgb, var(--profile-olive) 55%, transparent);
 }
 
 .profile-stat-icon-gold {
@@ -1096,7 +1119,9 @@ header nav a {
   align-items: center;
   justify-content: center;
   background: var(--profile-gold-bg);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--profile-gold) 30%, transparent);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--profile-gold) 35%, transparent),
+    0 0 18px 4px color-mix(in srgb, var(--profile-gold) 55%, transparent);
 }
 
 .profile-achievement-title {
