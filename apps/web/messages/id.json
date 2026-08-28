@@ -386,5 +386,13 @@
       "cta": "Mulai perpustakaanku",
       "fineprint": "Tanpa kartu kredit. Gratis untuk memulai."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Tentang Lumis",
+    "heading": "Tentang Lumis",
+    "p1": "Lumis lahir dari sebuah ide sederhana: membaca seharusnya tidak terasa seperti membuka sebuah berkas. Saat kamu mulai membaca buku di komputer, ponsel, atau di mana pun, itu harus terasa seperti membuka buku sungguhan — dengan sensasi halaman yang berbalik, menemukan tepat di mana kamu berhenti, memiliki perpustakaan sendiri di tangan alih-alih folder penuh PDF yang berantakan.",
+    "p2": "Itulah sebabnya Lumis menggabungkan dua hal yang biasanya terpisah: pembaca universal yang memahami PDF, EPUB, MOBI, CBR, CBZ, dan TXT dengan sama baiknya — dengan efek balik halaman yang sama di setiap format, sorotan, catatan di pinggir, dan penanda buku yang tepat di tempat kamu berhenti — serta rak visual yang bisa kamu bangun dan hias seolah itu sudut nyata di rumahmu. Kamu memilih perabotnya, dinding latarnya, di mana setiap buku diletakkan, tanaman kecil atau lampu apa yang kamu taruh di sebelahnya. Ini bukan daftar. Ini ruangmu.",
+    "p3": "Namanya berasal dari “lumen”, satuan cahaya. Kami menyukainya karena membaca selalu, dalam beberapa hal, tentang menemukan cahaya: cahaya lampu tidur di malam hari, cahaya layar saat kamu tak bisa berhenti sebelum satu bab lagi, cahaya yang masuk lewat jendela ke kursi favoritmu. Lumis ingin menjadi cahaya kecil dan personal itu yang membuat kembali ke perpustakaanmu terasa menyenangkan, bukan sebuah kewajiban.",
+    "p4": "Proyek ini dibuat untuk orang-orang yang mencintai menata ruang bacanya sama besarnya dengan mencintai membaca itu sendiri — untuk mereka yang punya rak tersimpan “suatu hari nanti” di Pinterest, untuk mereka yang mencoret-coret kutipan di pinggir halaman, untuk mereka yang percaya bahwa buku yang dirawat baik juga merupakan bentuk kasih sayang. Jika itu kamu, Lumis adalah sudutmu."
   }
 }

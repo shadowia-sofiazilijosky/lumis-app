@@ -386,5 +386,13 @@
       "cta": "Meine Bibliothek starten",
       "fineprint": "Keine Kreditkarte nötig. Kostenlos starten."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Über Lumis",
+    "heading": "Über Lumis",
+    "p1": "Lumis entstand aus einer einfachen Idee: Lesen sollte sich nicht anfühlen wie das Öffnen einer Datei. Wenn du ein Buch auf dem Computer, dem Handy oder sonst wo beginnst, sollte es sich anfühlen wie das Öffnen eines echten Buches — mit diesem Gefühl einer umblätternden Seite, dem genauen Wiederfinden der Stelle, an der du aufgehört hast, deiner eigenen Bibliothek griffbereit statt eines Ordners voller loser PDFs.",
+    "p2": "Deshalb vereint Lumis zwei Dinge, die normalerweise getrennt existieren: einen universellen Reader, der PDF, EPUB, MOBI, CBR, CBZ und TXT gleichermaßen versteht — mit demselben Seitenumblätter-Effekt in jedem Format, Markierungen, Randnotizen und genau dem Lesezeichen, an dem du aufgehört hast — und ein visuelles Regal, das du aufbauen und dekorieren kannst, als wäre es eine echte Ecke deines Zuhauses. Du wählst das Möbelstück, die Hintergrundwand, wo jedes Buch steht, welche kleine Pflanze oder welches Licht du daneben stellst. Es ist keine Liste. Es ist dein Raum.",
+    "p3": "Der Name kommt von „lumen“, der Einheit des Lichts. Uns gefiel das, weil Lesen schon immer, auf irgendeine Weise, das Finden von Licht war: das der Nachttischlampe, das des Bildschirms, wenn du nicht mit einem Kapitel aufhören kannst, das durchs Fenster auf deinen Lieblingssessel fällt. Lumis möchte dieses kleine, persönliche Licht sein, das die Rückkehr zu deiner Bibliothek zu einer Freude macht, nicht zu einer Pflicht.",
+    "p4": "Dieses Projekt ist für Menschen gedacht, die es ebenso lieben, ihren Leseraum zu gestalten, wie das Lesen selbst — für alle mit einem Regal, das „für irgendwann“ auf Pinterest gespeichert ist, für alle, die Zitate an den Rand kritzeln, für alle, die glauben, dass ein gut aufbewahrtes Buch auch eine Form von Zuneigung ist. Wenn das zu dir passt, ist Lumis deine Ecke."
   }
 }

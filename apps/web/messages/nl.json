@@ -386,5 +386,13 @@
       "cta": "Start mijn bibliotheek",
       "fineprint": "Geen creditcard nodig. Gratis om te starten."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Over Lumis",
+    "heading": "Over Lumis",
+    "p1": "Lumis is ontstaan uit een simpel idee: lezen zou niet moeten aanvoelen als het openen van een bestand. Wanneer je een boek begint op je computer, telefoon of waar dan ook, zou het moeten aanvoelen als het openen van een echt boek — dat gevoel van een omslaande pagina, het precies terugvinden waar je gebleven was, je eigen bibliotheek bij de hand hebben in plaats van een map vol losse pdf's.",
+    "p2": "Daarom combineert Lumis twee dingen die normaal gesproken gescheiden bestaan: een universele lezer die PDF, EPUB, MOBI, CBR, CBZ en TXT allemaal even goed begrijpt — met hetzelfde bladereffect in elk formaat, markeringen, kanttekeningen, en precies de bladwijzer waar je gebleven was — en een visuele plank die je kunt bouwen en versieren alsof het een echt hoekje van je huis is. Jij kiest het meubel, de achtergrondmuur, waar elk boek staat, welk plantje of lichtje je ernaast zet. Het is geen lijst. Het is jouw ruimte.",
+    "p3": "De naam komt van “lumen”, de eenheid van licht. We vonden dat mooi omdat lezen altijd, op een bepaalde manier, het vinden van licht is geweest: dat van het nachtlampje, dat van het scherm wanneer je niet kunt stoppen na nog één hoofdstuk, dat door het raam op je favoriete stoel valt. Lumis wil dat kleine, persoonlijke licht zijn dat maakt dat terugkeren naar je bibliotheek een plezier is, geen klusje.",
+    "p4": "Dit project is gemaakt voor mensen die net zo veel houden van het inrichten van hun leesruimte als van lezen zelf — voor wie een plank heeft opgeslagen “voor ooit” op Pinterest, voor wie citaten in de kantlijn krabbelt, voor wie gelooft dat een goed bewaard boek ook een vorm van liefde is. Als jij zo iemand bent, is Lumis jouw hoekje."
   }
 }

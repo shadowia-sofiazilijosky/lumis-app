@@ -386,5 +386,13 @@
       "cta": "Inizia la mia libreria",
       "fineprint": "Nessuna carta di credito richiesta. Gratis per iniziare."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Su Lumis",
+    "heading": "Su Lumis",
+    "p1": "Lumis nasce da un'idea semplice: leggere non dovrebbe sembrare aprire un file. Quando inizi un libro sul computer, sul telefono o ovunque, dovrebbe sembrare aprire un vero libro — con quella sensazione di pagina che si volta, di ritrovare esattamente il punto in cui avevi lasciato, di avere la tua libreria a portata di mano invece di una cartella piena di PDF sparsi.",
+    "p2": "Per questo Lumis unisce due cose che di solito vivono separate: un lettore universale che capisce PDF, EPUB, MOBI, CBR, CBZ e TXT allo stesso modo — con lo stesso effetto di sfogliare le pagine in qualsiasi formato, evidenziazioni, note a margine, e il segnalibro esatto dove avevi lasciato — e uno scaffale visivo che puoi costruire e decorare come se fosse un vero angolo di casa tua. Scegli il mobile, la parete di sfondo, dove va ogni libro, quale pianta o lucina ci metti accanto. Non è una lista. È il tuo spazio.",
+    "p3": "Il nome viene da “lumen”, l'unità di luce. Ci è piaciuto perché leggere è sempre stato, in qualche modo, trovare luce: quella dell'abat-jour di notte, quella dello schermo quando non riesci a fermarti a un capitolo in più, quella che entra dalla finestra sulla tua poltrona preferita. Lumis vuole essere quella piccola luce personale che rende il tornare alla tua libreria un piacere, non un dovere.",
+    "p4": "Questo progetto è pensato per chi ama costruire il proprio spazio di lettura tanto quanto leggere in sé — per chi ha uno scaffale salvato “per un giorno” su Pinterest, per chi scarabocchia frasi a margine, per chi crede che un libro ben custodito sia anche una forma di affetto. Se sei una di queste persone, Lumis è il tuo angolo."
   }
 }

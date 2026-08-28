@@ -386,5 +386,13 @@
       "cta": "Start my library",
       "fineprint": "No credit card. Free to start."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "About Lumis",
+    "heading": "About Lumis",
+    "p1": "Lumis was born from a simple idea: reading shouldn't feel like opening a file. When you start a book on your computer, your phone, or anywhere else, it should feel like opening a real book — that feeling of a page turning, of finding exactly where you left off, of having your own library at hand instead of a folder full of loose PDFs.",
+    "p2": "That's why Lumis combines two things that usually live apart: a universal reader that understands PDF, EPUB, MOBI, CBR, CBZ and TXT alike — with the same page-turn effect across every format, highlights, margin notes, and the exact bookmark where you left off — and a visual shelf you can build and decorate as if it were a real corner of your home. You choose the furniture, the background wall, where each book goes, which little plant or light you put next to it. It's not a list. It's your space.",
+    "p3": "The name comes from “lumen”, the unit of light. We liked it because reading has always been, in some way, about finding light: the bedside lamp at night, the screen glow when you can't stop for just one more chapter, the light coming through the window onto your favorite armchair. Lumis wants to be that small, personal light that makes coming back to your library a pleasure, not a chore.",
+    "p4": "This project is made for people who love building their reading space as much as reading itself — for those with a shelf saved “for someday” on Pinterest, for those who scribble quotes in the margins, for those who believe a well-kept book is also a form of care. If that's you, Lumis is your corner."
   }
 }

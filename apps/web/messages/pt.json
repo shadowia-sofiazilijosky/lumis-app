@@ -386,5 +386,13 @@
       "cta": "Começar minha biblioteca",
       "fineprint": "Sem cartão de crédito. Grátis para começar."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Sobre a Lumis",
+    "heading": "Sobre a Lumis",
+    "p1": "A Lumis nasceu de uma ideia simples: ler não deveria parecer abrir um arquivo. Quando você começa um livro no computador, no celular ou onde for, tem que parecer abrir um livro de verdade — com aquela sensação de página virando, de encontrar exatamente onde você parou, de ter sua própria biblioteca à mão em vez de uma pasta cheia de PDFs soltos.",
+    "p2": "Por isso a Lumis combina duas coisas que normalmente vivem separadas: um leitor universal que entende PDF, EPUB, MOBI, CBR, CBZ e TXT igualmente — com o mesmo efeito de virar página em qualquer formato, destaques, notas nas margens, e o marcador exato de onde você parou — e uma estante visual que você pode montar e decorar como se fosse um cantinho real da sua casa. Você escolhe o móvel, a parede de fundo, onde vai cada livro, qual plantinha ou luzinha coloca ao lado. Não é uma lista. É o seu espaço.",
+    "p3": "O nome vem de “lumen”, a unidade de luz. Gostamos porque ler sempre foi, de certa forma, encontrar luz: a do abajur à noite, a da tela quando você não consegue parar por mais um capítulo, a que entra pela janela na sua poltrona favorita. A Lumis quer ser essa luz pequena e pessoal que faz voltar à sua biblioteca um prazer, não uma obrigação.",
+    "p4": "Este projeto é pensado para pessoas que amam montar seu espaço de leitura tanto quanto ler em si — para quem tem uma estante salva “para algum dia” no Pinterest, para quem anota frases nas margens, para quem acredita que um livro bem guardado também é uma forma de carinho. Se você é assim, a Lumis é o seu cantinho."
   }
 }

@@ -386,5 +386,13 @@
       "cta": "Anzisha maktaba yangu",
       "fineprint": "Hakuna kadi ya mkopo inayohitajika. Bure kuanza."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Kuhusu Lumis",
+    "heading": "Kuhusu Lumis",
+    "p1": "Lumis ilizaliwa kutokana na wazo rahisi: kusoma haipaswi kuhisi kama kufungua faili. Unapoanza kitabu kwenye kompyuta, simu, au popote, kinapaswa kuhisi kama kufungua kitabu halisi — hisia ile ya ukurasa unaogeuka, kupata mahali halisi ulipoacha, kuwa na maktaba yako mwenyewe mkononi badala ya folda iliyojaa PDF zilizotawanyika.",
+    "p2": "Ndio maana Lumis inaunganisha vitu viwili ambavyo kwa kawaida hukaa mbali: msomaji wa aina zote anayeelewa PDF, EPUB, MOBI, CBR, CBZ na TXT sawasawa — na athari ile ile ya kugeuza ukurasa katika muundo wowote, miangaza, vidokezo pembeni, na alama halisi ya mahali ulipoacha — na rafu ya kuona unayoweza kuijenga na kuipamba kana kwamba ni kona halisi ya nyumbani kwako. Unachagua fanicha, ukuta wa nyuma, kila kitabu kinaenda wapi, mmea au taa gani unayoweka karibu nayo. Si orodha. Ni nafasi yako.",
+    "p3": "Jina linatokana na “lumen”, kipimo cha mwanga. Tulipenda hilo kwa sababu kusoma daima kumekuwa, kwa namna fulani, kutafuta mwanga: ule wa taa ya kando ya kitanda usiku, ule wa skrini pale usipoweza kuacha bila kusoma sura moja zaidi, ule unaoingia dirishani kwenye kiti chako unachokipenda. Lumis inataka kuwa mwanga huo mdogo, wa kibinafsi unaofanya kurudi kwenye maktaba yako kuwa raha, si wajibu.",
+    "p4": "Mradi huu umeundwa kwa ajili ya watu wanaopenda kupanga nafasi yao ya kusoma kama vile wanavyopenda kusoma yenyewe — kwa wale wenye rafu iliyohifadhiwa “kwa siku moja” kwenye Pinterest, kwa wale wanaoandika maneno pembeni mwa kurasa, kwa wale wanaoamini kwamba kitabu kilichohifadhiwa vizuri pia ni aina ya upendo. Kama wewe ni mtu kama huyo, Lumis ni kona yako."
   }
 }

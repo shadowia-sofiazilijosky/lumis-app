@@ -386,5 +386,13 @@
       "cta": "Kütüphanemi başlat",
       "fineprint": "Kredi kartı gerekmez. Başlamak ücretsiz."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Lumis Hakkında",
+    "heading": "Lumis Hakkında",
+    "p1": "Lumis basit bir fikirden doğdu: Okumak bir dosya açmak gibi hissettirmemeli. Bilgisayarında, telefonunda ya da her neredeysen bir kitaba başladığında, gerçek bir kitap açmak gibi hissettirmeli — sayfa çevrilme hissi, kaldığın yeri tam olarak bulma, dağınık bir PDF klasörü yerine elinin altında kendi kütüphanenin olması.",
+    "p2": "Bu yüzden Lumis genellikle ayrı yaşayan iki şeyi birleştiriyor: PDF, EPUB, MOBI, CBR, CBZ ve TXT'yi aynı şekilde anlayan evrensel bir okuyucu — her formatta aynı sayfa çevirme efekti, vurgular, kenar notları ve tam olarak kaldığın yer işareti — ve evinin gerçek bir köşesi gibi kurup süsleyebileceğin görsel bir raf. Mobilyayı, arka plan duvarını, her kitabın nereye gideceğini, yanına hangi küçük bitkiyi veya ışığı koyacağını sen seçiyorsun. Bu bir liste değil. Senin alanın.",
+    "p3": "İsim, ışık birimi olan “lumen”den geliyor. Bunu sevdik çünkü okumak her zaman, bir şekilde, ışık bulmakla ilgiliydi: geceleyin başucu lambasının ışığı, bir bölüm daha okumadan duramadığında ekranın ışığı, sevdiğin koltuğa penceren'den vuran ışık. Lumis, kütüphanene dönmeyi bir angarya değil bir keyif haline getiren o küçük, kişisel ışık olmak istiyor.",
+    "p4": "Bu proje, okumayı sevdiği kadar okuma alanını düzenlemeyi de seven insanlar için tasarlandı — Pinterest'te “bir gün” diye kaydedilmiş bir rafı olanlar için, kenarlara alıntılar karalayanlar için, iyi saklanmış bir kitabın da bir ilgi biçimi olduğuna inananlar için. Eğer sen de bu insanlardansan, Lumis senin köşen."
   }
 }

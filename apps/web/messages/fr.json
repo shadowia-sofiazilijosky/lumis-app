@@ -386,5 +386,13 @@
       "cta": "Créer ma bibliothèque",
       "fineprint": "Pas de carte bancaire. Gratuit pour commencer."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "À propos de Lumis",
+    "heading": "À propos de Lumis",
+    "p1": "Lumis est né d'une idée simple : lire ne devrait pas ressembler à ouvrir un fichier. Quand tu commences un livre sur ton ordinateur, ton téléphone ou ailleurs, ça devrait ressembler à ouvrir un vrai livre — avec cette sensation de page qui se tourne, de retrouver exactement l'endroit où tu t'étais arrêté(e), d'avoir ta propre bibliothèque à portée de main plutôt qu'un dossier de PDF éparpillés.",
+    "p2": "C'est pourquoi Lumis combine deux choses qui vivent habituellement séparément : un lecteur universel qui comprend le PDF, l'EPUB, le MOBI, le CBR, le CBZ et le TXT de la même façon — avec le même effet de page qui tourne quel que soit le format, des surlignages, des notes en marge, et le marque-page exact où tu t'étais arrêté(e) — et une étagère visuelle que tu peux construire et décorer comme un vrai coin de ta maison. Tu choisis le meuble, le mur de fond, où va chaque livre, quelle petite plante ou lumière tu mets à côté. Ce n'est pas une liste. C'est ton espace.",
+    "p3": "Le nom vient de « lumen », l'unité de lumière. On a aimé ça parce que lire a toujours été, d'une certaine façon, une quête de lumière : celle de la lampe de chevet la nuit, celle de l'écran quand tu ne peux pas t'arrêter avant un chapitre de plus, celle qui entre par la fenêtre sur ton fauteuil préféré. Lumis veut être cette petite lumière personnelle qui fait que revenir à ta bibliothèque est un plaisir, pas une corvée.",
+    "p4": "Ce projet est pensé pour les gens qui aiment construire leur espace de lecture autant que lire lui-même — pour celles et ceux qui ont une étagère enregistrée « pour un jour » sur Pinterest, qui griffonnent des citations dans les marges, qui croient qu'un livre bien gardé est aussi une forme d'attention. Si c'est toi, Lumis est ton coin."
   }
 }

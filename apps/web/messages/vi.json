@@ -386,5 +386,13 @@
       "cta": "Bắt đầu thư viện của tôi",
       "fineprint": "Không cần thẻ tín dụng. Miễn phí để bắt đầu."
     }
+  },
+  "aboutPage": {
+    "pageTitle": "Về Lumis",
+    "heading": "Về Lumis",
+    "p1": "Lumis ra đời từ một ý tưởng đơn giản: đọc sách không nên giống như mở một tệp tin. Khi bạn bắt đầu một cuốn sách trên máy tính, điện thoại hay bất cứ đâu, nó phải mang lại cảm giác như mở một cuốn sách thật sự — cảm giác lật trang, tìm đúng chỗ bạn đã dừng lại, có thư viện của riêng mình trong tầm tay thay vì một thư mục PDF lộn xộn.",
+    "p2": "Đó là lý do Lumis kết hợp hai thứ thường tách biệt: một trình đọc đa năng hiểu PDF, EPUB, MOBI, CBR, CBZ và TXT như nhau — với cùng hiệu ứng lật trang ở mọi định dạng, phần tô sáng, ghi chú bên lề, và đúng vị trí đánh dấu nơi bạn đã dừng lại — và một kệ sách trực quan mà bạn có thể xây dựng và trang trí như một góc thật sự trong nhà mình. Bạn chọn đồ nội thất, bức tường nền, mỗi cuốn sách đặt ở đâu, cây nhỏ hay ánh đèn nào đặt bên cạnh. Đây không phải là một danh sách. Đây là không gian của bạn.",
+    "p3": "Cái tên bắt nguồn từ “lumen”, đơn vị đo ánh sáng. Chúng tôi thích nó vì đọc sách luôn, theo một cách nào đó, là đi tìm ánh sáng: ánh đèn ngủ ban đêm, ánh sáng màn hình khi bạn không thể dừng lại chỉ vì một chương nữa, ánh sáng lọt qua cửa sổ lên chiếc ghế bành yêu thích. Lumis muốn trở thành ánh sáng nhỏ bé, riêng tư đó, khiến việc quay lại thư viện của bạn trở thành niềm vui, chứ không phải nghĩa vụ.",
+    "p4": "Dự án này dành cho những người yêu thích việc xây dựng không gian đọc sách của mình cũng nhiều như yêu bản thân việc đọc — dành cho những ai có một chiếc kệ được lưu “để dành cho một ngày nào đó” trên Pinterest, những ai viết nguệch ngoạc câu trích dẫn bên lề trang sách, những ai tin rằng một cuốn sách được giữ gìn cẩn thận cũng là một hình thức yêu thương. Nếu đó là bạn, Lumis chính là góc nhỏ của bạn."
   }
 }
