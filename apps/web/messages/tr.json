@@ -292,5 +292,10 @@
       "watercolor": "Sulu boya fırçası",
       "eraser": "Silgi"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Notlar — Lumis",
+    "heading": "Notlar",
+    "body": "Burada tüm yorumlarını, vurgularını ve notlarını tek bir yerde görebileceksin. Bu görünümü hâlâ oluşturuyoruz — şimdilik notlarını ve vurgularını doğrudan <link>kütüphanen</link> içindeki her kitaptan kontrol et."
   }
 }

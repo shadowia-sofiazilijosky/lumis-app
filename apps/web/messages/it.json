@@ -292,5 +292,10 @@
       "watercolor": "Pennello ad acquerello",
       "eraser": "Gomma"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Note — Lumis",
+    "heading": "Note",
+    "body": "Qui potrai vedere tutte le tue recensioni, evidenziazioni e note in un unico posto. Stiamo ancora costruendo questa vista — per ora, controlla le tue note ed evidenziazioni direttamente da ogni libro nella <link>tua libreria</link>."
   }
 }

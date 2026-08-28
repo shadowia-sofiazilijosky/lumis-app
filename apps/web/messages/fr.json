@@ -292,5 +292,10 @@
       "watercolor": "Pinceau aquarelle",
       "eraser": "Gomme"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Notes — Lumis",
+    "heading": "Notes",
+    "body": "Ici, tu pourras voir toutes tes critiques, surlignages et notes au même endroit. Nous sommes encore en train de construire cette vue — pour l'instant, consulte tes notes et surlignages directement depuis chaque livre dans <link>ta bibliothèque</link>."
   }
 }

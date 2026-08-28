@@ -292,5 +292,10 @@
       "watercolor": "Aquarelpenseel",
       "eraser": "Gum"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Notities — Lumis",
+    "heading": "Notities",
+    "body": "Hier kun je straks al je recensies, markeringen en notities op één plek zien. We bouwen deze weergave nog — bekijk je notities en markeringen voorlopig rechtstreeks vanuit elk boek in <link>jouw bibliotheek</link>."
   }
 }

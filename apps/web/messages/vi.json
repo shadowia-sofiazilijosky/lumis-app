@@ -292,5 +292,10 @@
       "watercolor": "Cọ màu nước",
       "eraser": "Cục tẩy"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Ghi chú — Lumis",
+    "heading": "Ghi chú",
+    "body": "Tại đây bạn sẽ có thể xem tất cả bài đánh giá, phần tô sáng và ghi chú ở một nơi. Chúng tôi vẫn đang xây dựng giao diện này — hiện tại, hãy xem ghi chú và phần tô sáng trực tiếp từ mỗi cuốn sách trong <link>thư viện của bạn</link>."
   }
 }

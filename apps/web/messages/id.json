@@ -292,5 +292,10 @@
       "watercolor": "Kuas cat air",
       "eraser": "Penghapus"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Catatan — Lumis",
+    "heading": "Catatan",
+    "body": "Di sini kamu akan bisa melihat semua ulasan, sorotan, dan catatanmu di satu tempat. Kami masih membangun tampilan ini — untuk saat ini, lihat catatan dan sorotanmu langsung dari setiap buku di <link>perpustakaanmu</link>."
   }
 }

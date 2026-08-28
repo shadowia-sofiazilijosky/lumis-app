@@ -292,5 +292,10 @@
       "watercolor": "Aquarellpinsel",
       "eraser": "Radiergummi"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Notizen — Lumis",
+    "heading": "Notizen",
+    "body": "Hier kannst du bald alle deine Rezensionen, Markierungen und Notizen an einem Ort sehen. Wir arbeiten noch an dieser Ansicht — schau dir deine Notizen und Markierungen vorerst direkt bei jedem Buch in <link>deiner Bibliothek</link> an."
   }
 }

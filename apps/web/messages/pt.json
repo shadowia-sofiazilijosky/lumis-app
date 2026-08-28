@@ -292,5 +292,10 @@
       "watercolor": "Pincel aquarela",
       "eraser": "Borracha"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Notas — Lumis",
+    "heading": "Notas",
+    "body": "Aqui você poderá ver todas as suas resenhas, destaques e notas em um só lugar. Ainda estamos construindo esta visualização — por enquanto, veja suas notas e destaques diretamente em cada livro na <link>sua biblioteca</link>."
   }
 }

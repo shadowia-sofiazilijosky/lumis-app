@@ -292,5 +292,10 @@
       "watercolor": "Pędzel akwarelowy",
       "eraser": "Gumka"
     }
+  },
+  "notesPage": {
+    "pageTitle": "Notatki — Lumis",
+    "heading": "Notatki",
+    "body": "Tutaj będziesz mógł/mogła zobaczyć wszystkie swoje recenzje, zaznaczenia i notatki w jednym miejscu. Wciąż budujemy ten widok — na razie sprawdzaj swoje notatki i zaznaczenia bezpośrednio przy każdej książce w <link>swojej bibliotece</link>."
   }
 }

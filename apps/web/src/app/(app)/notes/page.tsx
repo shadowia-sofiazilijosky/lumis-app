@@ -1,18 +1,20 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Notas — Lumis",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("notesPage");
+  return { title: t("pageTitle") };
+}
 
-export default function NotesPage() {
+export default async function NotesPage() {
+  const t = await getTranslations("notesPage");
   return (
     <section>
-      <h1>Notas</h1>
+      <h1>{t("heading")}</h1>
       <p>
-        Acá vas a poder ver todas tus reseñas, resaltados y notas en un solo
-        lugar. Todavía estamos armando esta vista — por ahora, revisá tus
-        notas y resaltados directamente desde cada libro en{" "}
-        <Link href="/library">tu biblioteca</Link>.
+        {t.rich("body", {
+          link: (chunks) => <Link href="/library">{chunks}</Link>,
+        })}
       </p>
     </section>
   );
