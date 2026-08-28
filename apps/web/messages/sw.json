@@ -161,5 +161,70 @@
       "uploading": "Inapakia…",
       "submit": "Pakia kitabu"
     }
+  },
+  "bookDetail": {
+    "loading": "Inapakia…",
+    "loadError": "Hatukuweza kupakia kitabu hiki.",
+    "format": "Muundo",
+    "pages": "Kurasa",
+    "size": "Ukubwa",
+    "downloadOriginal": "Pakua asili",
+    "read": "Soma",
+    "deleteBook": "Futa kitabu",
+    "deleting": "Inafuta…",
+    "deleteConfirm": "Futa \"{title}\"? Hii pia itakiondoa kwenye rafu yoyote."
+  },
+  "ficha": {
+    "loading": "Inapakia kadi ya usomaji…",
+    "title": "Kadi ya usomaji",
+    "saving": "Inahifadhi…",
+    "saved": "Imehifadhiwa",
+    "save": "Hifadhi mabadiliko",
+    "status": "Hali",
+    "statusOptions": {
+      "TBR": "Kusomwa",
+      "READING": "Ninasoma",
+      "PAUSED": "Imesitishwa",
+      "FINISHED": "Imekamilika",
+      "REREAD": "Imesomwa tena",
+      "ABANDONED": "Imeachwa"
+    },
+    "genre": "Aina",
+    "genrePlaceholder": "Ndoto, mapenzi…",
+    "startedAt": "Nilianza",
+    "finishedAt": "Nilimaliza",
+    "readingTime": "Muda wa kusoma",
+    "days": "{count, plural, one {siku #} other {siku #}}",
+    "ratings": {
+      "rating": "Kiwango",
+      "romance": "Mapenzi",
+      "plot": "Msuko",
+      "sadness": "Huzuni",
+      "humor": "Ucheshi",
+      "spicy": "Ukali",
+      "mystery": "Fumbo",
+      "ariaScale": "{step} kati ya 5"
+    },
+    "favoriteCharacter": "Mhusika ninayempenda zaidi",
+    "leastFavoriteCharacter": "Mhusika ninayempenda kidogo",
+    "favoriteQuote": "Msemo ninaoupenda",
+    "cried": "Nililia?",
+    "yes": "Ndiyo",
+    "no": "Hapana",
+    "recommend": "Ninapendekeza",
+    "recommendYes": "Ndiyo",
+    "recommendMaybe": "Labda",
+    "recommendNo": "Hapana",
+    "bookNumberOfYear": "Kitabu #  cha mwaka",
+    "mood": "Hali ya moyo",
+    "moodPlaceholder": "Cha kustarehesha, chenye uchungu na utamu…",
+    "notes": "Vidokezo",
+    "myOpinion": "Maoni yangu",
+    "richText": {
+      "bold": "Nzito",
+      "italic": "Mlalo",
+      "list": "Orodha",
+      "placeholder": "Andika maoni yako…"
+    }
   }
 }

@@ -161,5 +161,70 @@
       "uploading": "Enviando…",
       "submit": "Enviar livro"
     }
+  },
+  "bookDetail": {
+    "loading": "Carregando…",
+    "loadError": "Não conseguimos carregar este livro.",
+    "format": "Formato",
+    "pages": "Páginas",
+    "size": "Tamanho",
+    "downloadOriginal": "Baixar original",
+    "read": "Ler",
+    "deleteBook": "Excluir livro",
+    "deleting": "Excluindo…",
+    "deleteConfirm": "Excluir \"{title}\"? Isso também o remove de qualquer estante."
+  },
+  "ficha": {
+    "loading": "Carregando ficha…",
+    "title": "Ficha de leitura",
+    "saving": "Salvando…",
+    "saved": "Salvo",
+    "save": "Salvar alterações",
+    "status": "Status",
+    "statusOptions": {
+      "TBR": "Para ler",
+      "READING": "Lendo",
+      "PAUSED": "Pausado",
+      "FINISHED": "Terminado",
+      "REREAD": "Relido",
+      "ABANDONED": "Abandonado"
+    },
+    "genre": "Gênero",
+    "genrePlaceholder": "Fantasia, romance…",
+    "startedAt": "Comecei em",
+    "finishedAt": "Terminei em",
+    "readingTime": "Tempo de leitura",
+    "days": "{count, plural, one {# dia} other {# dias}}",
+    "ratings": {
+      "rating": "Avaliação",
+      "romance": "Romance",
+      "plot": "Enredo",
+      "sadness": "Tristeza",
+      "humor": "Humor",
+      "spicy": "Picante",
+      "mystery": "Mistério",
+      "ariaScale": "{step} de 5"
+    },
+    "favoriteCharacter": "Personagem favorito",
+    "leastFavoriteCharacter": "O que menos gostei",
+    "favoriteQuote": "Frase favorita",
+    "cried": "Chorei?",
+    "yes": "Sim",
+    "no": "Não",
+    "recommend": "Recomendo",
+    "recommendYes": "Sim",
+    "recommendMaybe": "Talvez",
+    "recommendNo": "Não",
+    "bookNumberOfYear": "Livro # do ano",
+    "mood": "Mood",
+    "moodPlaceholder": "Aconchegante, agridoce…",
+    "notes": "Notas",
+    "myOpinion": "Minha opinião",
+    "richText": {
+      "bold": "Negrito",
+      "italic": "Itálico",
+      "list": "Lista",
+      "placeholder": "Escreva sua resenha…"
+    }
   }
 }

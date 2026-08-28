@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
 
 interface RichTextEditorProps {
@@ -15,6 +16,7 @@ interface RichTextEditorProps {
  * supported for exactly this kind of basic inline formatting.
  */
 export function RichTextEditor({ initialHtml, onChange }: RichTextEditorProps) {
+  const t = useTranslations("ficha.richText");
   const editorRef = useRef<HTMLDivElement>(null);
   const didInit = useRef(false);
 
@@ -33,16 +35,16 @@ export function RichTextEditor({ initialHtml, onChange }: RichTextEditorProps) {
   return (
     <div className="rich-text-editor">
       <div className="rich-text-toolbar">
-        <button type="button" onClick={() => exec("bold")} aria-label="Negrita">
+        <button type="button" onClick={() => exec("bold")} aria-label={t("bold")}>
           <strong>N</strong>
         </button>
-        <button type="button" onClick={() => exec("italic")} aria-label="Cursiva">
+        <button type="button" onClick={() => exec("italic")} aria-label={t("italic")}>
           <em>I</em>
         </button>
         <button
           type="button"
           onClick={() => exec("insertUnorderedList")}
-          aria-label="Lista"
+          aria-label={t("list")}
         >
           •—
         </button>
@@ -53,7 +55,7 @@ export function RichTextEditor({ initialHtml, onChange }: RichTextEditorProps) {
         contentEditable
         suppressContentEditableWarning
         onInput={() => onChange(editorRef.current?.innerHTML ?? "")}
-        data-placeholder="Escribí tu reseña…"
+        data-placeholder={t("placeholder")}
       />
     </div>
   );

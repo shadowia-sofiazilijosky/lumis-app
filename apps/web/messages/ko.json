@@ -161,5 +161,70 @@
       "uploading": "업로드 중…",
       "submit": "책 업로드"
     }
+  },
+  "bookDetail": {
+    "loading": "불러오는 중…",
+    "loadError": "이 책을 불러오지 못했습니다.",
+    "format": "형식",
+    "pages": "페이지 수",
+    "size": "크기",
+    "downloadOriginal": "원본 다운로드",
+    "read": "읽기",
+    "deleteBook": "책 삭제",
+    "deleting": "삭제 중…",
+    "deleteConfirm": "\"{title}\"을(를) 삭제할까요? 모든 책장에서도 제거됩니다."
+  },
+  "ficha": {
+    "loading": "독서 카드 불러오는 중…",
+    "title": "독서 카드",
+    "saving": "저장 중…",
+    "saved": "저장됨",
+    "save": "변경사항 저장",
+    "status": "상태",
+    "statusOptions": {
+      "TBR": "읽을 예정",
+      "READING": "읽는 중",
+      "PAUSED": "중단",
+      "FINISHED": "완독",
+      "REREAD": "재독",
+      "ABANDONED": "포기"
+    },
+    "genre": "장르",
+    "genrePlaceholder": "판타지, 로맨스…",
+    "startedAt": "시작일",
+    "finishedAt": "완독일",
+    "readingTime": "독서 기간",
+    "days": "{count, plural, other {#일}}",
+    "ratings": {
+      "rating": "평점",
+      "romance": "로맨스",
+      "plot": "플롯",
+      "sadness": "슬픔 지수",
+      "humor": "유머 지수",
+      "spicy": "매운맛 지수",
+      "mystery": "미스터리 지수",
+      "ariaScale": "5점 중 {step}점"
+    },
+    "favoriteCharacter": "가장 좋아하는 캐릭터",
+    "leastFavoriteCharacter": "가장 별로였던 캐릭터",
+    "favoriteQuote": "좋아하는 구절",
+    "cried": "울었나요?",
+    "yes": "네",
+    "no": "아니요",
+    "recommend": "추천 여부",
+    "recommendYes": "네",
+    "recommendMaybe": "글쎄요",
+    "recommendNo": "아니요",
+    "bookNumberOfYear": "올해 #번째 책",
+    "mood": "분위기",
+    "moodPlaceholder": "포근한, 씁쓸달콤한…",
+    "notes": "메모",
+    "myOpinion": "내 생각",
+    "richText": {
+      "bold": "굵게",
+      "italic": "기울임",
+      "list": "목록",
+      "placeholder": "리뷰를 작성하세요…"
+    }
   }
 }

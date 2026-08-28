@@ -161,5 +161,70 @@
       "uploading": "Uploading…",
       "submit": "Upload book"
     }
+  },
+  "bookDetail": {
+    "loading": "Loading…",
+    "loadError": "We couldn't load this book.",
+    "format": "Format",
+    "pages": "Pages",
+    "size": "Size",
+    "downloadOriginal": "Download original",
+    "read": "Read",
+    "deleteBook": "Delete book",
+    "deleting": "Deleting…",
+    "deleteConfirm": "Delete \"{title}\"? This also removes it from any shelf."
+  },
+  "ficha": {
+    "loading": "Loading review sheet…",
+    "title": "Reading review",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "save": "Save changes",
+    "status": "Status",
+    "statusOptions": {
+      "TBR": "To read",
+      "READING": "Reading",
+      "PAUSED": "Paused",
+      "FINISHED": "Finished",
+      "REREAD": "Reread",
+      "ABANDONED": "Abandoned"
+    },
+    "genre": "Genre",
+    "genrePlaceholder": "Fantasy, romance…",
+    "startedAt": "Started on",
+    "finishedAt": "Finished on",
+    "readingTime": "Reading time",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "ratings": {
+      "rating": "Rating",
+      "romance": "Romance",
+      "plot": "Plot",
+      "sadness": "Sadness",
+      "humor": "Humor",
+      "spicy": "Spicy",
+      "mystery": "Mystery",
+      "ariaScale": "{step} out of 5"
+    },
+    "favoriteCharacter": "Favorite character",
+    "leastFavoriteCharacter": "Least favorite character",
+    "favoriteQuote": "Favorite quote",
+    "cried": "Did I cry?",
+    "yes": "Yes",
+    "no": "No",
+    "recommend": "Would recommend",
+    "recommendYes": "Yes",
+    "recommendMaybe": "Maybe",
+    "recommendNo": "No",
+    "bookNumberOfYear": "Book # of the year",
+    "mood": "Mood",
+    "moodPlaceholder": "Cozy, bittersweet…",
+    "notes": "Notes",
+    "myOpinion": "My opinion",
+    "richText": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "list": "List",
+      "placeholder": "Write your review…"
+    }
   }
 }

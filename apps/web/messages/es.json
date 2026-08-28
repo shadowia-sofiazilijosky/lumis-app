@@ -161,5 +161,70 @@
       "uploading": "Subiendo…",
       "submit": "Subir libro"
     }
+  },
+  "bookDetail": {
+    "loading": "Cargando…",
+    "loadError": "No pudimos cargar este libro.",
+    "format": "Formato",
+    "pages": "Páginas",
+    "size": "Tamaño",
+    "downloadOriginal": "Descargar original",
+    "read": "Leer",
+    "deleteBook": "Borrar libro",
+    "deleting": "Borrando…",
+    "deleteConfirm": "¿Borrar \"{title}\"? Esto también lo quita de cualquier estantería."
+  },
+  "ficha": {
+    "loading": "Cargando ficha…",
+    "title": "Ficha de lectura",
+    "saving": "Guardando…",
+    "saved": "Guardado",
+    "save": "Guardar cambios",
+    "status": "Estado",
+    "statusOptions": {
+      "TBR": "Por leer",
+      "READING": "Leyendo",
+      "PAUSED": "Pausado",
+      "FINISHED": "Terminado",
+      "REREAD": "Releído",
+      "ABANDONED": "Abandonado"
+    },
+    "genre": "Género",
+    "genrePlaceholder": "Fantasía, romance…",
+    "startedAt": "Empecé el",
+    "finishedAt": "Terminé el",
+    "readingTime": "Tiempo de lectura",
+    "days": "{count, plural, one {# día} other {# días}}",
+    "ratings": {
+      "rating": "Calificación",
+      "romance": "Romance",
+      "plot": "Plot",
+      "sadness": "Tristeza",
+      "humor": "Humor",
+      "spicy": "Spicy",
+      "mystery": "Misterio",
+      "ariaScale": "{step} de 5"
+    },
+    "favoriteCharacter": "Personaje favorito",
+    "leastFavoriteCharacter": "El que menos me gustó",
+    "favoriteQuote": "Frase favorita",
+    "cried": "¿Lloré?",
+    "yes": "Sí",
+    "no": "No",
+    "recommend": "Recomiendo",
+    "recommendYes": "Sí",
+    "recommendMaybe": "Tal vez",
+    "recommendNo": "No",
+    "bookNumberOfYear": "Libro # del año",
+    "mood": "Mood",
+    "moodPlaceholder": "Acogedor, agridulce…",
+    "notes": "Notas",
+    "myOpinion": "Mi opinión",
+    "richText": {
+      "bold": "Negrita",
+      "italic": "Cursiva",
+      "list": "Lista",
+      "placeholder": "Escribí tu reseña…"
+    }
   }
 }

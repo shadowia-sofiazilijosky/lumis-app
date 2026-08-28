@@ -1,6 +1,7 @@
 "use client";
 
 import { BookFormat, type BookDetail } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,6 +16,7 @@ function formatFileSize(bytes: number): string {
 
 export function BookDetailView({ bookId }: { bookId: string }) {
   const router = useRouter();
+  const t = useTranslations("bookDetail");
   const [book, setBook] = useState<BookDetail | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
     "loading",
@@ -41,9 +43,7 @@ export function BookDetailView({ bookId }: { bookId: string }) {
 
   async function handleDelete() {
     if (!book) return;
-    const confirmed = window.confirm(
-      `¿Borrar "${book.title}"? Esto también lo quita de cualquier estantería.`,
-    );
+    const confirmed = window.confirm(t("deleteConfirm", { title: book.title }));
     if (!confirmed) return;
 
     setIsDeleting(true);
@@ -56,11 +56,11 @@ export function BookDetailView({ bookId }: { bookId: string }) {
   }
 
   if (status === "loading") {
-    return <p>Cargando…</p>;
+    return <p>{t("loading")}</p>;
   }
 
   if (status === "error" || !book) {
-    return <p>No pudimos cargar este libro.</p>;
+    return <p>{t("loadError")}</p>;
   }
 
   return (
@@ -80,17 +80,17 @@ export function BookDetailView({ bookId }: { bookId: string }) {
           {book.author && <p className="book-detail-author">{book.author}</p>}
 
           <dl>
-            <dt>Formato</dt>
+            <dt>{t("format")}</dt>
             <dd>{book.format}</dd>
             {book.pageCount !== null && (
               <>
-                <dt>Páginas</dt>
+                <dt>{t("pages")}</dt>
                 <dd>{book.pageCount}</dd>
               </>
             )}
             {book.fileSizeBytes !== null && (
               <>
-                <dt>Tamaño</dt>
+                <dt>{t("size")}</dt>
                 <dd>{formatFileSize(book.fileSizeBytes)}</dd>
               </>
             )}
@@ -98,13 +98,13 @@ export function BookDetailView({ bookId }: { bookId: string }) {
 
           {book.fileUrl && (
             <a href={book.fileUrl} target="_blank" rel="noreferrer">
-              Descargar original
+              {t("downloadOriginal")}
             </a>
           )}
 
           <div className="book-detail-actions">
             {book.format !== BookFormat.MOBI && (
-              <Link href={`/read/${book.id}`}>Leer</Link>
+              <Link href={`/read/${book.id}`}>{t("read")}</Link>
             )}
             <button
               type="button"
@@ -112,7 +112,7 @@ export function BookDetailView({ bookId }: { bookId: string }) {
               onClick={handleDelete}
               disabled={isDeleting}
             >
-              {isDeleting ? "Borrando…" : "Borrar libro"}
+              {isDeleting ? t("deleting") : t("deleteBook")}
             </button>
           </div>
         </div>

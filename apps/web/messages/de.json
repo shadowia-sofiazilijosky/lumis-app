@@ -161,5 +161,70 @@
       "uploading": "Wird hochgeladen…",
       "submit": "Buch hochladen"
     }
+  },
+  "bookDetail": {
+    "loading": "Wird geladen…",
+    "loadError": "Dieses Buch konnte nicht geladen werden.",
+    "format": "Format",
+    "pages": "Seiten",
+    "size": "Größe",
+    "downloadOriginal": "Original herunterladen",
+    "read": "Lesen",
+    "deleteBook": "Buch löschen",
+    "deleting": "Wird gelöscht…",
+    "deleteConfirm": "\"{title}\" löschen? Dies entfernt es auch aus jedem Regal."
+  },
+  "ficha": {
+    "loading": "Lesekarte wird geladen…",
+    "title": "Lesekarte",
+    "saving": "Wird gespeichert…",
+    "saved": "Gespeichert",
+    "save": "Änderungen speichern",
+    "status": "Status",
+    "statusOptions": {
+      "TBR": "Zu lesen",
+      "READING": "Lese gerade",
+      "PAUSED": "Pausiert",
+      "FINISHED": "Beendet",
+      "REREAD": "Erneut gelesen",
+      "ABANDONED": "Abgebrochen"
+    },
+    "genre": "Genre",
+    "genrePlaceholder": "Fantasy, Romance…",
+    "startedAt": "Begonnen am",
+    "finishedAt": "Beendet am",
+    "readingTime": "Lesezeit",
+    "days": "{count, plural, one {# Tag} other {# Tage}}",
+    "ratings": {
+      "rating": "Bewertung",
+      "romance": "Romance",
+      "plot": "Handlung",
+      "sadness": "Traurigkeit",
+      "humor": "Humor",
+      "spicy": "Spicy",
+      "mystery": "Mystery",
+      "ariaScale": "{step} von 5"
+    },
+    "favoriteCharacter": "Lieblingscharakter",
+    "leastFavoriteCharacter": "Am wenigsten gemocht",
+    "favoriteQuote": "Lieblingszitat",
+    "cried": "Habe ich geweint?",
+    "yes": "Ja",
+    "no": "Nein",
+    "recommend": "Empfehlung",
+    "recommendYes": "Ja",
+    "recommendMaybe": "Vielleicht",
+    "recommendNo": "Nein",
+    "bookNumberOfYear": "Buch # des Jahres",
+    "mood": "Stimmung",
+    "moodPlaceholder": "Gemütlich, bittersüß…",
+    "notes": "Notizen",
+    "myOpinion": "Meine Meinung",
+    "richText": {
+      "bold": "Fett",
+      "italic": "Kursiv",
+      "list": "Liste",
+      "placeholder": "Schreib deine Rezension…"
+    }
   }
 }

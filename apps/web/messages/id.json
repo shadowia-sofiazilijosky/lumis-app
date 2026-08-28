@@ -161,5 +161,70 @@
       "uploading": "Mengunggah…",
       "submit": "Unggah buku"
     }
+  },
+  "bookDetail": {
+    "loading": "Memuat…",
+    "loadError": "Kami tidak dapat memuat buku ini.",
+    "format": "Format",
+    "pages": "Halaman",
+    "size": "Ukuran",
+    "downloadOriginal": "Unduh asli",
+    "read": "Baca",
+    "deleteBook": "Hapus buku",
+    "deleting": "Menghapus…",
+    "deleteConfirm": "Hapus \"{title}\"? Ini juga akan menghapusnya dari rak mana pun."
+  },
+  "ficha": {
+    "loading": "Memuat kartu ulasan…",
+    "title": "Kartu ulasan baca",
+    "saving": "Menyimpan…",
+    "saved": "Tersimpan",
+    "save": "Simpan perubahan",
+    "status": "Status",
+    "statusOptions": {
+      "TBR": "Akan dibaca",
+      "READING": "Sedang dibaca",
+      "PAUSED": "Dijeda",
+      "FINISHED": "Selesai",
+      "REREAD": "Dibaca ulang",
+      "ABANDONED": "Ditinggalkan"
+    },
+    "genre": "Genre",
+    "genrePlaceholder": "Fantasi, romansa…",
+    "startedAt": "Mulai pada",
+    "finishedAt": "Selesai pada",
+    "readingTime": "Waktu membaca",
+    "days": "{count, plural, other {# hari}}",
+    "ratings": {
+      "rating": "Peringkat",
+      "romance": "Romansa",
+      "plot": "Alur",
+      "sadness": "Kesedihan",
+      "humor": "Humor",
+      "spicy": "Kepedasan",
+      "mystery": "Misteri",
+      "ariaScale": "{step} dari 5"
+    },
+    "favoriteCharacter": "Karakter favorit",
+    "leastFavoriteCharacter": "Karakter paling tidak disukai",
+    "favoriteQuote": "Kutipan favorit",
+    "cried": "Apakah menangis?",
+    "yes": "Ya",
+    "no": "Tidak",
+    "recommend": "Merekomendasikan",
+    "recommendYes": "Ya",
+    "recommendMaybe": "Mungkin",
+    "recommendNo": "Tidak",
+    "bookNumberOfYear": "Buku ke-# tahun ini",
+    "mood": "Suasana",
+    "moodPlaceholder": "Nyaman, pahit manis…",
+    "notes": "Catatan",
+    "myOpinion": "Pendapatku",
+    "richText": {
+      "bold": "Tebal",
+      "italic": "Miring",
+      "list": "Daftar",
+      "placeholder": "Tulis ulasanmu…"
+    }
   }
 }

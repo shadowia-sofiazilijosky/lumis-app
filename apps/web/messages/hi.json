@@ -161,5 +161,70 @@
       "uploading": "अपलोड हो रहा है…",
       "submit": "किताब अपलोड करें"
     }
+  },
+  "bookDetail": {
+    "loading": "लोड हो रहा है…",
+    "loadError": "हम यह किताब लोड नहीं कर सके।",
+    "format": "प्रारूप",
+    "pages": "पृष्ठ",
+    "size": "आकार",
+    "downloadOriginal": "मूल डाउनलोड करें",
+    "read": "पढ़ें",
+    "deleteBook": "किताब हटाएं",
+    "deleting": "हटाया जा रहा है…",
+    "deleteConfirm": "\"{title}\" हटाएं? यह इसे किसी भी शेल्फ़ से भी हटा देगा।"
+  },
+  "ficha": {
+    "loading": "समीक्षा कार्ड लोड हो रहा है…",
+    "title": "पठन समीक्षा",
+    "saving": "सहेजा जा रहा है…",
+    "saved": "सहेजा गया",
+    "save": "बदलाव सहेजें",
+    "status": "स्थिति",
+    "statusOptions": {
+      "TBR": "पढ़ना है",
+      "READING": "पढ़ रहे हैं",
+      "PAUSED": "रुका हुआ",
+      "FINISHED": "पूरा हुआ",
+      "REREAD": "दोबारा पढ़ा",
+      "ABANDONED": "छोड़ दिया"
+    },
+    "genre": "विधा",
+    "genrePlaceholder": "फ़ैंटेसी, रोमांस…",
+    "startedAt": "शुरू किया",
+    "finishedAt": "खत्म किया",
+    "readingTime": "पढ़ने का समय",
+    "days": "{count, plural, one {# दिन} other {# दिन}}",
+    "ratings": {
+      "rating": "रेटिंग",
+      "romance": "रोमांस",
+      "plot": "कथानक",
+      "sadness": "उदासी",
+      "humor": "हास्य",
+      "spicy": "स्पाइसी",
+      "mystery": "रहस्य",
+      "ariaScale": "5 में से {step}"
+    },
+    "favoriteCharacter": "पसंदीदा किरदार",
+    "leastFavoriteCharacter": "सबसे कम पसंदीदा किरदार",
+    "favoriteQuote": "पसंदीदा उद्धरण",
+    "cried": "क्या मैं रोया/रोई?",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "recommend": "सिफारिश करूं?",
+    "recommendYes": "हाँ",
+    "recommendMaybe": "शायद",
+    "recommendNo": "नहीं",
+    "bookNumberOfYear": "साल की # वीं किताब",
+    "mood": "मूड",
+    "moodPlaceholder": "आरामदायक, कड़वा-मीठा…",
+    "notes": "टिप्पणियाँ",
+    "myOpinion": "मेरी राय",
+    "richText": {
+      "bold": "बोल्ड",
+      "italic": "इटैलिक",
+      "list": "सूची",
+      "placeholder": "अपनी समीक्षा लिखें…"
+    }
   }
 }

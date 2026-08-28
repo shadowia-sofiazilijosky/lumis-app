@@ -2,8 +2,9 @@
 
 import { ReadingStatus, RecommendLevel } from "@lumis/shared-types";
 import { BookOpen, Droplets, Heart, Laugh, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { READING_STATUS_LABELS, fetchReview, saveReview } from "../api/reviews-client";
+import { fetchReview, saveReview } from "../api/reviews-client";
 import { ChiliPepperIcon, CrystalBallIcon } from "./rating-icons";
 import { RatingPicker } from "./rating-picker";
 import { RichTextEditor } from "./rich-text-editor";
@@ -15,12 +16,6 @@ const STATUS_ORDER: ReadingStatus[] = [
   ReadingStatus.FINISHED,
   ReadingStatus.REREAD,
   ReadingStatus.ABANDONED,
-];
-
-const RECOMMEND_OPTIONS: { value: RecommendLevel; label: string }[] = [
-  { value: RecommendLevel.YES, label: "Sí" },
-  { value: RecommendLevel.MAYBE, label: "Tal vez" },
-  { value: RecommendLevel.NO, label: "No" },
 ];
 
 const AUTOSAVE_DELAY_MS = 1000;
@@ -39,6 +34,12 @@ function daysBetween(start: string, end: string): number | null {
 }
 
 export function ReviewEditor({ bookId }: { bookId: string }) {
+  const t = useTranslations("ficha");
+  const RECOMMEND_OPTIONS: { value: RecommendLevel; label: string }[] = [
+    { value: RecommendLevel.YES, label: t("recommendYes") },
+    { value: RecommendLevel.MAYBE, label: t("recommendMaybe") },
+    { value: RecommendLevel.NO, label: t("recommendNo") },
+  ];
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState<ReadingStatus>(ReadingStatus.TBR);
   const [genre, setGenre] = useState("");
@@ -207,7 +208,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
   const readingDays = useMemo(() => daysBetween(startedAt, finishedAt), [startedAt, finishedAt]);
 
   if (!loaded) {
-    return <p>Cargando ficha…</p>;
+    return <p>{t("loading")}</p>;
   }
 
   return (
@@ -218,42 +219,42 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
       <span className="ficha-corner ficha-corner-br" aria-hidden="true" />
 
       <div className="ficha-lectura-header">
-        <h2>Ficha de lectura</h2>
-        {saveState === "saving" && <span className="save-status">Guardando…</span>}
-        {saveState === "saved" && <span className="save-status">Guardado</span>}
+        <h2>{t("title")}</h2>
+        {saveState === "saving" && <span className="save-status">{t("saving")}</span>}
+        {saveState === "saved" && <span className="save-status">{t("saved")}</span>}
         <button type="button" className="ficha-save-button" onClick={saveNow}>
-          Guardar cambios
+          {t("save")}
         </button>
       </div>
 
       <div className="ficha-section">
         <div className="ficha-field-row">
           <label className="ficha-field">
-            Estado
+            {t("status")}
             <select
               value={status}
               onChange={(event) => markDirty(setStatus)(event.target.value as ReadingStatus)}
             >
               {STATUS_ORDER.map((option) => (
                 <option key={option} value={option}>
-                  {READING_STATUS_LABELS[option]}
+                  {t(`statusOptions.${option}`)}
                 </option>
               ))}
             </select>
           </label>
 
           <label className="ficha-field">
-            Género
+            {t("genre")}
             <input
               type="text"
-              placeholder="Fantasía, romance…"
+              placeholder={t("genrePlaceholder")}
               value={genre}
               onChange={(event) => markDirty(setGenre)(event.target.value)}
             />
           </label>
 
           <label className="ficha-field">
-            Empecé el
+            {t("startedAt")}
             <input
               type="date"
               value={startedAt}
@@ -262,7 +263,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
           </label>
 
           <label className="ficha-field">
-            Terminé el
+            {t("finishedAt")}
             <input
               type="date"
               value={finishedAt}
@@ -272,8 +273,8 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
 
           {readingDays !== null && (
             <div className="ficha-field ficha-reading-days">
-              Tiempo de lectura
-              <span>{readingDays} {readingDays === 1 ? "día" : "días"}</span>
+              {t("readingTime")}
+              <span>{t("days", { count: readingDays })}</span>
             </div>
           )}
         </div>
@@ -283,49 +284,49 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
 
       <div className="ficha-section ficha-ratings">
         <RatingPicker
-          label="Calificación"
+          label={t("ratings.rating")}
           icon={Star}
           tone="star"
           value={rating}
           onChange={markDirty(setRating)}
         />
         <RatingPicker
-          label="Romance"
+          label={t("ratings.romance")}
           icon={Heart}
           tone="romance"
           value={romanceRating}
           onChange={markDirty(setRomanceRating)}
         />
         <RatingPicker
-          label="Plot"
+          label={t("ratings.plot")}
           icon={BookOpen}
           tone="plot"
           value={plotRating}
           onChange={markDirty(setPlotRating)}
         />
         <RatingPicker
-          label="Tristeza"
+          label={t("ratings.sadness")}
           icon={Droplets}
           tone="sadness"
           value={sadnessRating}
           onChange={markDirty(setSadnessRating)}
         />
         <RatingPicker
-          label="Humor"
+          label={t("ratings.humor")}
           icon={Laugh}
           tone="humor"
           value={humorRating}
           onChange={markDirty(setHumorRating)}
         />
         <RatingPicker
-          label="Spicy"
+          label={t("ratings.spicy")}
           icon={ChiliPepperIcon}
           tone="spicy"
           value={spicyRating}
           onChange={markDirty(setSpicyRating)}
         />
         <RatingPicker
-          label="Misterio"
+          label={t("ratings.mystery")}
           icon={CrystalBallIcon}
           tone="mystery"
           value={mysteryRating}
@@ -338,7 +339,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
       <div className="ficha-section">
         <div className="ficha-field-row">
           <label className="ficha-field ficha-field-grow">
-            Personaje favorito
+            {t("favoriteCharacter")}
             <input
               type="text"
               value={favoriteCharacter}
@@ -347,7 +348,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
           </label>
 
           <label className="ficha-field ficha-field-grow">
-            El que menos me gustó
+            {t("leastFavoriteCharacter")}
             <input
               type="text"
               value={leastFavoriteCharacter}
@@ -357,7 +358,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
         </div>
 
         <label className="ficha-field">
-          Frase favorita
+          {t("favoriteQuote")}
           <textarea
             className="ficha-quote"
             rows={2}
@@ -368,27 +369,27 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
 
         <div className="ficha-field-row ficha-field-row-align-end">
           <div className="ficha-field">
-            ¿Lloré?
+            {t("cried")}
             <div className="ficha-toggle-group">
               <button
                 type="button"
                 className={cried === true ? "ficha-toggle-active" : ""}
                 onClick={() => markDirty(setCried)(cried === true ? null : true)}
               >
-                Sí
+                {t("yes")}
               </button>
               <button
                 type="button"
                 className={cried === false ? "ficha-toggle-active" : ""}
                 onClick={() => markDirty(setCried)(cried === false ? null : false)}
               >
-                No
+                {t("no")}
               </button>
             </div>
           </div>
 
           <div className="ficha-field">
-            Recomiendo
+            {t("recommend")}
             <div className="ficha-toggle-group">
               {RECOMMEND_OPTIONS.map((option) => (
                 <button
@@ -406,7 +407,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
           </div>
 
           <label className="ficha-field ficha-field-narrow">
-            Libro # del año
+            {t("bookNumberOfYear")}
             <input
               type="number"
               min={1}
@@ -416,10 +417,10 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
           </label>
 
           <label className="ficha-field">
-            Mood
+            {t("mood")}
             <input
               type="text"
-              placeholder="Acogedor, agridulce…"
+              placeholder={t("moodPlaceholder")}
               value={mood}
               onChange={(event) => markDirty(setMood)(event.target.value)}
             />
@@ -431,7 +432,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
 
       <div className="ficha-section">
         <label className="ficha-field">
-          Notas
+          {t("notes")}
           <textarea
             rows={3}
             value={notes}
@@ -440,7 +441,7 @@ export function ReviewEditor({ bookId }: { bookId: string }) {
         </label>
 
         <label className="ficha-field">
-          Mi opinión
+          {t("myOpinion")}
           <RichTextEditor initialHtml={bodyHtml} onChange={markDirty(setBodyHtml)} />
         </label>
       </div>

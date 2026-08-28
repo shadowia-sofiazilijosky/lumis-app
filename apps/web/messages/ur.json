@@ -161,5 +161,70 @@
       "uploading": "اپ لوڈ ہو رہا ہے…",
       "submit": "کتاب اپ لوڈ کریں"
     }
+  },
+  "bookDetail": {
+    "loading": "لوڈ ہو رہا ہے…",
+    "loadError": "ہم یہ کتاب لوڈ نہیں کر سکے۔",
+    "format": "فارمیٹ",
+    "pages": "صفحات",
+    "size": "سائز",
+    "downloadOriginal": "اصل ڈاؤن لوڈ کریں",
+    "read": "پڑھیں",
+    "deleteBook": "کتاب حذف کریں",
+    "deleting": "حذف ہو رہا ہے…",
+    "deleteConfirm": "\"{title}\" حذف کریں؟ یہ اسے کسی بھی شیلف سے بھی ہٹا دے گا۔"
+  },
+  "ficha": {
+    "loading": "ریویو کارڈ لوڈ ہو رہا ہے…",
+    "title": "مطالعہ ریویو",
+    "saving": "محفوظ ہو رہا ہے…",
+    "saved": "محفوظ ہو گیا",
+    "save": "تبدیلیاں محفوظ کریں",
+    "status": "حالت",
+    "statusOptions": {
+      "TBR": "پڑھنا باقی",
+      "READING": "پڑھ رہے ہیں",
+      "PAUSED": "رکا ہوا",
+      "FINISHED": "مکمل",
+      "REREAD": "دوبارہ پڑھا",
+      "ABANDONED": "چھوڑ دیا"
+    },
+    "genre": "صنف",
+    "genrePlaceholder": "فینٹسی، رومانس…",
+    "startedAt": "شروع کیا",
+    "finishedAt": "مکمل کیا",
+    "readingTime": "پڑھنے کا وقت",
+    "days": "{count, plural, one {# دن} other {# دن}}",
+    "ratings": {
+      "rating": "درجہ بندی",
+      "romance": "رومانس",
+      "plot": "کہانی",
+      "sadness": "اداسی",
+      "humor": "مزاح",
+      "spicy": "تیزی",
+      "mystery": "اسرار",
+      "ariaScale": "5 میں سے {step}"
+    },
+    "favoriteCharacter": "پسندیدہ کردار",
+    "leastFavoriteCharacter": "کم پسندیدہ کردار",
+    "favoriteQuote": "پسندیدہ اقتباس",
+    "cried": "کیا میں رویا/روئی؟",
+    "yes": "ہاں",
+    "no": "نہیں",
+    "recommend": "تجویز کرتا ہوں",
+    "recommendYes": "ہاں",
+    "recommendMaybe": "شاید",
+    "recommendNo": "نہیں",
+    "bookNumberOfYear": "سال کی # نمبر کتاب",
+    "mood": "موڈ",
+    "moodPlaceholder": "آرام دہ، تلخ میٹھا…",
+    "notes": "نوٹس",
+    "myOpinion": "میری رائے",
+    "richText": {
+      "bold": "بولڈ",
+      "italic": "ترچھا",
+      "list": "فہرست",
+      "placeholder": "اپنا جائزہ لکھیں…"
+    }
   }
 }

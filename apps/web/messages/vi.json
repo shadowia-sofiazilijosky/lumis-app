@@ -161,5 +161,70 @@
       "uploading": "Đang tải lên…",
       "submit": "Tải sách lên"
     }
+  },
+  "bookDetail": {
+    "loading": "Đang tải…",
+    "loadError": "Không thể tải cuốn sách này.",
+    "format": "Định dạng",
+    "pages": "Số trang",
+    "size": "Kích thước",
+    "downloadOriginal": "Tải bản gốc",
+    "read": "Đọc",
+    "deleteBook": "Xóa sách",
+    "deleting": "Đang xóa…",
+    "deleteConfirm": "Xóa \"{title}\"? Thao tác này cũng sẽ xóa nó khỏi mọi kệ sách."
+  },
+  "ficha": {
+    "loading": "Đang tải phiếu đọc…",
+    "title": "Phiếu đọc sách",
+    "saving": "Đang lưu…",
+    "saved": "Đã lưu",
+    "save": "Lưu thay đổi",
+    "status": "Trạng thái",
+    "statusOptions": {
+      "TBR": "Sẽ đọc",
+      "READING": "Đang đọc",
+      "PAUSED": "Tạm dừng",
+      "FINISHED": "Đã đọc xong",
+      "REREAD": "Đọc lại",
+      "ABANDONED": "Bỏ dở"
+    },
+    "genre": "Thể loại",
+    "genrePlaceholder": "Giả tưởng, lãng mạn…",
+    "startedAt": "Bắt đầu vào",
+    "finishedAt": "Kết thúc vào",
+    "readingTime": "Thời gian đọc",
+    "days": "{count, plural, other {# ngày}}",
+    "ratings": {
+      "rating": "Đánh giá",
+      "romance": "Lãng mạn",
+      "plot": "Cốt truyện",
+      "sadness": "Nỗi buồn",
+      "humor": "Sự hài hước",
+      "spicy": "Độ nóng bỏng",
+      "mystery": "Bí ẩn",
+      "ariaScale": "{step} trên 5"
+    },
+    "favoriteCharacter": "Nhân vật yêu thích",
+    "leastFavoriteCharacter": "Nhân vật ít yêu thích nhất",
+    "favoriteQuote": "Câu trích dẫn yêu thích",
+    "cried": "Có khóc không?",
+    "yes": "Có",
+    "no": "Không",
+    "recommend": "Có giới thiệu không",
+    "recommendYes": "Có",
+    "recommendMaybe": "Có thể",
+    "recommendNo": "Không",
+    "bookNumberOfYear": "Cuốn sách thứ # trong năm",
+    "mood": "Tâm trạng",
+    "moodPlaceholder": "Ấm áp, ngọt ngào xen lẫn đắng cay…",
+    "notes": "Ghi chú",
+    "myOpinion": "Ý kiến của tôi",
+    "richText": {
+      "bold": "Đậm",
+      "italic": "Nghiêng",
+      "list": "Danh sách",
+      "placeholder": "Viết bài đánh giá của bạn…"
+    }
   }
 }

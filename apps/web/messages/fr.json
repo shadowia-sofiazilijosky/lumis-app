@@ -161,5 +161,70 @@
       "uploading": "Téléversement…",
       "submit": "Téléverser le livre"
     }
+  },
+  "bookDetail": {
+    "loading": "Chargement…",
+    "loadError": "Impossible de charger ce livre.",
+    "format": "Format",
+    "pages": "Pages",
+    "size": "Taille",
+    "downloadOriginal": "Télécharger l'original",
+    "read": "Lire",
+    "deleteBook": "Supprimer le livre",
+    "deleting": "Suppression…",
+    "deleteConfirm": "Supprimer « {title} » ? Cela le retire aussi de toute étagère."
+  },
+  "ficha": {
+    "loading": "Chargement de la fiche…",
+    "title": "Fiche de lecture",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré",
+    "save": "Enregistrer",
+    "status": "Statut",
+    "statusOptions": {
+      "TBR": "À lire",
+      "READING": "En cours",
+      "PAUSED": "En pause",
+      "FINISHED": "Terminé",
+      "REREAD": "Relu",
+      "ABANDONED": "Abandonné"
+    },
+    "genre": "Genre",
+    "genrePlaceholder": "Fantasy, romance…",
+    "startedAt": "Commencé le",
+    "finishedAt": "Terminé le",
+    "readingTime": "Temps de lecture",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "ratings": {
+      "rating": "Note",
+      "romance": "Romance",
+      "plot": "Intrigue",
+      "sadness": "Tristesse",
+      "humor": "Humour",
+      "spicy": "Spicy",
+      "mystery": "Mystère",
+      "ariaScale": "{step} sur 5"
+    },
+    "favoriteCharacter": "Personnage préféré",
+    "leastFavoriteCharacter": "Celui que j'ai le moins aimé",
+    "favoriteQuote": "Citation préférée",
+    "cried": "J'ai pleuré ?",
+    "yes": "Oui",
+    "no": "Non",
+    "recommend": "Je recommande",
+    "recommendYes": "Oui",
+    "recommendMaybe": "Peut-être",
+    "recommendNo": "Non",
+    "bookNumberOfYear": "Livre # de l'année",
+    "mood": "Ambiance",
+    "moodPlaceholder": "Doux, doux-amer…",
+    "notes": "Notes",
+    "myOpinion": "Mon avis",
+    "richText": {
+      "bold": "Gras",
+      "italic": "Italique",
+      "list": "Liste",
+      "placeholder": "Écris ta critique…"
+    }
   }
 }

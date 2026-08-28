@@ -161,5 +161,70 @@
       "uploading": "Загрузка…",
       "submit": "Загрузить книгу"
     }
+  },
+  "bookDetail": {
+    "loading": "Загрузка…",
+    "loadError": "Не удалось загрузить эту книгу.",
+    "format": "Формат",
+    "pages": "Страниц",
+    "size": "Размер",
+    "downloadOriginal": "Скачать оригинал",
+    "read": "Читать",
+    "deleteBook": "Удалить книгу",
+    "deleting": "Удаление…",
+    "deleteConfirm": "Удалить «{title}»? Она также будет убрана со всех полок."
+  },
+  "ficha": {
+    "loading": "Загрузка карточки…",
+    "title": "Карточка чтения",
+    "saving": "Сохранение…",
+    "saved": "Сохранено",
+    "save": "Сохранить изменения",
+    "status": "Статус",
+    "statusOptions": {
+      "TBR": "В планах",
+      "READING": "Читаю",
+      "PAUSED": "На паузе",
+      "FINISHED": "Прочитано",
+      "REREAD": "Перечитано",
+      "ABANDONED": "Брошено"
+    },
+    "genre": "Жанр",
+    "genrePlaceholder": "Фэнтези, романтика…",
+    "startedAt": "Начал(а)",
+    "finishedAt": "Закончил(а)",
+    "readingTime": "Время чтения",
+    "days": "{count, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+    "ratings": {
+      "rating": "Оценка",
+      "romance": "Романтика",
+      "plot": "Сюжет",
+      "sadness": "Грусть",
+      "humor": "Юмор",
+      "spicy": "Острота",
+      "mystery": "Тайна",
+      "ariaScale": "{step} из 5"
+    },
+    "favoriteCharacter": "Любимый персонаж",
+    "leastFavoriteCharacter": "Наименее любимый персонаж",
+    "favoriteQuote": "Любимая цитата",
+    "cried": "Плакал(а)?",
+    "yes": "Да",
+    "no": "Нет",
+    "recommend": "Рекомендую",
+    "recommendYes": "Да",
+    "recommendMaybe": "Может быть",
+    "recommendNo": "Нет",
+    "bookNumberOfYear": "Книга # этого года",
+    "mood": "Настроение",
+    "moodPlaceholder": "Уютное, горько-сладкое…",
+    "notes": "Заметки",
+    "myOpinion": "Моё мнение",
+    "richText": {
+      "bold": "Жирный",
+      "italic": "Курсив",
+      "list": "Список",
+      "placeholder": "Напишите свой отзыв…"
+    }
   }
 }

@@ -161,5 +161,70 @@
       "uploading": "আপলোড হচ্ছে…",
       "submit": "বই আপলোড করুন"
     }
+  },
+  "bookDetail": {
+    "loading": "লোড হচ্ছে…",
+    "loadError": "আমরা এই বইটি লোড করতে পারিনি।",
+    "format": "ফরম্যাট",
+    "pages": "পৃষ্ঠা",
+    "size": "আকার",
+    "downloadOriginal": "মূল ডাউনলোড করুন",
+    "read": "পড়ুন",
+    "deleteBook": "বই মুছুন",
+    "deleting": "মুছে ফেলা হচ্ছে…",
+    "deleteConfirm": "\"{title}\" মুছবেন? এটি যেকোনো শেলফ থেকেও সরিয়ে দেবে।"
+  },
+  "ficha": {
+    "loading": "রিভিউ কার্ড লোড হচ্ছে…",
+    "title": "পঠন পর্যালোচনা",
+    "saving": "সংরক্ষণ হচ্ছে…",
+    "saved": "সংরক্ষিত হয়েছে",
+    "save": "পরিবর্তন সংরক্ষণ করুন",
+    "status": "অবস্থা",
+    "statusOptions": {
+      "TBR": "পড়ার অপেক্ষায়",
+      "READING": "পড়ছি",
+      "PAUSED": "থামানো",
+      "FINISHED": "শেষ হয়েছে",
+      "REREAD": "পুনরায় পড়া",
+      "ABANDONED": "ছেড়ে দেওয়া"
+    },
+    "genre": "ধরন",
+    "genrePlaceholder": "ফ্যান্টাসি, রোমান্স…",
+    "startedAt": "শুরু করেছি",
+    "finishedAt": "শেষ করেছি",
+    "readingTime": "পড়ার সময়",
+    "days": "{count, plural, other {# দিন}}",
+    "ratings": {
+      "rating": "রেটিং",
+      "romance": "রোমান্স",
+      "plot": "কাহিনী",
+      "sadness": "বিষণ্ণতা",
+      "humor": "হাস্যরস",
+      "spicy": "স্পাইসি",
+      "mystery": "রহস্য",
+      "ariaScale": "৫ এর মধ্যে {step}"
+    },
+    "favoriteCharacter": "প্রিয় চরিত্র",
+    "leastFavoriteCharacter": "সবচেয়ে কম প্রিয় চরিত্র",
+    "favoriteQuote": "প্রিয় উক্তি",
+    "cried": "কেঁদেছি?",
+    "yes": "হ্যাঁ",
+    "no": "না",
+    "recommend": "সুপারিশ করি",
+    "recommendYes": "হ্যাঁ",
+    "recommendMaybe": "হয়তো",
+    "recommendNo": "না",
+    "bookNumberOfYear": "বছরের # নম্বর বই",
+    "mood": "মেজাজ",
+    "moodPlaceholder": "আরামদায়ক, তিক্ত-মিষ্টি…",
+    "notes": "নোট",
+    "myOpinion": "আমার মতামত",
+    "richText": {
+      "bold": "বোল্ড",
+      "italic": "ইটালিক",
+      "list": "তালিকা",
+      "placeholder": "আপনার পর্যালোচনা লিখুন…"
+    }
   }
 }

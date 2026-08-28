@@ -161,5 +161,70 @@
       "uploading": "正在上传…",
       "submit": "上传书籍"
     }
+  },
+  "bookDetail": {
+    "loading": "加载中…",
+    "loadError": "无法加载此书。",
+    "format": "格式",
+    "pages": "页数",
+    "size": "大小",
+    "downloadOriginal": "下载原文件",
+    "read": "阅读",
+    "deleteBook": "删除书籍",
+    "deleting": "正在删除…",
+    "deleteConfirm": "删除“{title}”？这也会将它从所有书架上移除。"
+  },
+  "ficha": {
+    "loading": "正在加载书评卡…",
+    "title": "阅读书评卡",
+    "saving": "正在保存…",
+    "saved": "已保存",
+    "save": "保存更改",
+    "status": "状态",
+    "statusOptions": {
+      "TBR": "待读",
+      "READING": "在读",
+      "PAUSED": "暂停",
+      "FINISHED": "已完成",
+      "REREAD": "重读",
+      "ABANDONED": "弃读"
+    },
+    "genre": "类型",
+    "genrePlaceholder": "奇幻、言情…",
+    "startedAt": "开始于",
+    "finishedAt": "完成于",
+    "readingTime": "阅读用时",
+    "days": "{count, plural, other {# 天}}",
+    "ratings": {
+      "rating": "评分",
+      "romance": "浪漫",
+      "plot": "情节",
+      "sadness": "悲伤度",
+      "humor": "幽默度",
+      "spicy": "尺度",
+      "mystery": "悬疑度",
+      "ariaScale": "{step} 分（满分5分）"
+    },
+    "favoriteCharacter": "最喜欢的角色",
+    "leastFavoriteCharacter": "最不喜欢的角色",
+    "favoriteQuote": "最喜欢的一句话",
+    "cried": "哭了吗？",
+    "yes": "是",
+    "no": "否",
+    "recommend": "推荐吗",
+    "recommendYes": "是",
+    "recommendMaybe": "也许",
+    "recommendNo": "否",
+    "bookNumberOfYear": "本年度第 # 本书",
+    "mood": "氛围",
+    "moodPlaceholder": "温馨、苦乐参半…",
+    "notes": "笔记",
+    "myOpinion": "我的看法",
+    "richText": {
+      "bold": "加粗",
+      "italic": "斜体",
+      "list": "列表",
+      "placeholder": "写下你的书评…"
+    }
   }
 }

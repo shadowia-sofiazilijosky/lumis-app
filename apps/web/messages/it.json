@@ -161,5 +161,70 @@
       "uploading": "Caricamento…",
       "submit": "Carica libro"
     }
+  },
+  "bookDetail": {
+    "loading": "Caricamento…",
+    "loadError": "Non siamo riusciti a caricare questo libro.",
+    "format": "Formato",
+    "pages": "Pagine",
+    "size": "Dimensione",
+    "downloadOriginal": "Scarica originale",
+    "read": "Leggi",
+    "deleteBook": "Elimina libro",
+    "deleting": "Eliminazione…",
+    "deleteConfirm": "Eliminare \"{title}\"? Verrà rimosso anche da qualsiasi scaffale."
+  },
+  "ficha": {
+    "loading": "Caricamento scheda…",
+    "title": "Scheda di lettura",
+    "saving": "Salvataggio…",
+    "saved": "Salvato",
+    "save": "Salva modifiche",
+    "status": "Stato",
+    "statusOptions": {
+      "TBR": "Da leggere",
+      "READING": "In lettura",
+      "PAUSED": "In pausa",
+      "FINISHED": "Finito",
+      "REREAD": "Riletto",
+      "ABANDONED": "Abbandonato"
+    },
+    "genre": "Genere",
+    "genrePlaceholder": "Fantasy, romance…",
+    "startedAt": "Iniziato il",
+    "finishedAt": "Finito il",
+    "readingTime": "Tempo di lettura",
+    "days": "{count, plural, one {# giorno} other {# giorni}}",
+    "ratings": {
+      "rating": "Valutazione",
+      "romance": "Romance",
+      "plot": "Trama",
+      "sadness": "Tristezza",
+      "humor": "Umorismo",
+      "spicy": "Spicy",
+      "mystery": "Mistero",
+      "ariaScale": "{step} su 5"
+    },
+    "favoriteCharacter": "Personaggio preferito",
+    "leastFavoriteCharacter": "Quello che mi è piaciuto meno",
+    "favoriteQuote": "Citazione preferita",
+    "cried": "Ho pianto?",
+    "yes": "Sì",
+    "no": "No",
+    "recommend": "Consiglio",
+    "recommendYes": "Sì",
+    "recommendMaybe": "Forse",
+    "recommendNo": "No",
+    "bookNumberOfYear": "Libro # dell'anno",
+    "mood": "Mood",
+    "moodPlaceholder": "Accogliente, agrodolce…",
+    "notes": "Note",
+    "myOpinion": "La mia opinione",
+    "richText": {
+      "bold": "Grassetto",
+      "italic": "Corsivo",
+      "list": "Elenco",
+      "placeholder": "Scrivi la tua recensione…"
+    }
   }
 }

@@ -161,5 +161,70 @@
       "uploading": "Przesyłanie…",
       "submit": "Prześlij książkę"
     }
+  },
+  "bookDetail": {
+    "loading": "Ładowanie…",
+    "loadError": "Nie udało się załadować tej książki.",
+    "format": "Format",
+    "pages": "Strony",
+    "size": "Rozmiar",
+    "downloadOriginal": "Pobierz oryginał",
+    "read": "Czytaj",
+    "deleteBook": "Usuń książkę",
+    "deleting": "Usuwanie…",
+    "deleteConfirm": "Usunąć \"{title}\"? Zostanie też usunięta z każdej półki."
+  },
+  "ficha": {
+    "loading": "Ładowanie karty…",
+    "title": "Karta lektury",
+    "saving": "Zapisywanie…",
+    "saved": "Zapisano",
+    "save": "Zapisz zmiany",
+    "status": "Status",
+    "statusOptions": {
+      "TBR": "Do przeczytania",
+      "READING": "Czytam",
+      "PAUSED": "Wstrzymane",
+      "FINISHED": "Ukończone",
+      "REREAD": "Ponownie przeczytane",
+      "ABANDONED": "Porzucone"
+    },
+    "genre": "Gatunek",
+    "genrePlaceholder": "Fantasy, romans…",
+    "startedAt": "Zaczęłam/em",
+    "finishedAt": "Skończyłam/em",
+    "readingTime": "Czas czytania",
+    "days": "{count, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}",
+    "ratings": {
+      "rating": "Ocena",
+      "romance": "Romans",
+      "plot": "Fabuła",
+      "sadness": "Smutek",
+      "humor": "Humor",
+      "spicy": "Pikanteria",
+      "mystery": "Tajemniczość",
+      "ariaScale": "{step} z 5"
+    },
+    "favoriteCharacter": "Ulubiona postać",
+    "leastFavoriteCharacter": "Najmniej lubiana postać",
+    "favoriteQuote": "Ulubiony cytat",
+    "cried": "Płakałam/em?",
+    "yes": "Tak",
+    "no": "Nie",
+    "recommend": "Polecam",
+    "recommendYes": "Tak",
+    "recommendMaybe": "Może",
+    "recommendNo": "Nie",
+    "bookNumberOfYear": "Książka # roku",
+    "mood": "Nastrój",
+    "moodPlaceholder": "Przytulny, słodko-gorzki…",
+    "notes": "Notatki",
+    "myOpinion": "Moja opinia",
+    "richText": {
+      "bold": "Pogrubienie",
+      "italic": "Kursywa",
+      "list": "Lista",
+      "placeholder": "Napisz swoją recenzję…"
+    }
   }
 }

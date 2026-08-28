@@ -161,5 +161,70 @@
       "uploading": "Uploaden…",
       "submit": "Boek uploaden"
     }
+  },
+  "bookDetail": {
+    "loading": "Laden…",
+    "loadError": "We konden dit boek niet laden.",
+    "format": "Formaat",
+    "pages": "Pagina's",
+    "size": "Grootte",
+    "downloadOriginal": "Origineel downloaden",
+    "read": "Lezen",
+    "deleteBook": "Boek verwijderen",
+    "deleting": "Verwijderen…",
+    "deleteConfirm": "\"{title}\" verwijderen? Dit verwijdert het ook van elke plank."
+  },
+  "ficha": {
+    "loading": "Leeskaart laden…",
+    "title": "Leeskaart",
+    "saving": "Opslaan…",
+    "saved": "Opgeslagen",
+    "save": "Wijzigingen opslaan",
+    "status": "Status",
+    "statusOptions": {
+      "TBR": "Te lezen",
+      "READING": "Aan het lezen",
+      "PAUSED": "Gepauzeerd",
+      "FINISHED": "Uitgelezen",
+      "REREAD": "Herlezen",
+      "ABANDONED": "Gestaakt"
+    },
+    "genre": "Genre",
+    "genrePlaceholder": "Fantasy, romance…",
+    "startedAt": "Begonnen op",
+    "finishedAt": "Uitgelezen op",
+    "readingTime": "Leestijd",
+    "days": "{count, plural, one {# dag} other {# dagen}}",
+    "ratings": {
+      "rating": "Beoordeling",
+      "romance": "Romantiek",
+      "plot": "Plot",
+      "sadness": "Verdriet",
+      "humor": "Humor",
+      "spicy": "Pittigheid",
+      "mystery": "Mysterie",
+      "ariaScale": "{step} van 5"
+    },
+    "favoriteCharacter": "Favoriete personage",
+    "leastFavoriteCharacter": "Minst favoriete personage",
+    "favoriteQuote": "Favoriete citaat",
+    "cried": "Heb ik gehuild?",
+    "yes": "Ja",
+    "no": "Nee",
+    "recommend": "Aanbeveling",
+    "recommendYes": "Ja",
+    "recommendMaybe": "Misschien",
+    "recommendNo": "Nee",
+    "bookNumberOfYear": "Boek # van het jaar",
+    "mood": "Sfeer",
+    "moodPlaceholder": "Knus, bitterzoet…",
+    "notes": "Notities",
+    "myOpinion": "Mijn mening",
+    "richText": {
+      "bold": "Vet",
+      "italic": "Cursief",
+      "list": "Lijst",
+      "placeholder": "Schrijf je recensie…"
+    }
   }
 }

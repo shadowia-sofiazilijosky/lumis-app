@@ -161,5 +161,70 @@
       "uploading": "جارٍ الرفع…",
       "submit": "رفع الكتاب"
     }
+  },
+  "bookDetail": {
+    "loading": "جارٍ التحميل…",
+    "loadError": "تعذر تحميل هذا الكتاب.",
+    "format": "التنسيق",
+    "pages": "الصفحات",
+    "size": "الحجم",
+    "downloadOriginal": "تنزيل الأصلي",
+    "read": "قراءة",
+    "deleteBook": "حذف الكتاب",
+    "deleting": "جارٍ الحذف…",
+    "deleteConfirm": "حذف \"{title}\"؟ سيتم إزالته أيضًا من أي رف."
+  },
+  "ficha": {
+    "loading": "جارٍ تحميل بطاقة القراءة…",
+    "title": "بطاقة القراءة",
+    "saving": "جارٍ الحفظ…",
+    "saved": "تم الحفظ",
+    "save": "حفظ التغييرات",
+    "status": "الحالة",
+    "statusOptions": {
+      "TBR": "للقراءة لاحقًا",
+      "READING": "قيد القراءة",
+      "PAUSED": "متوقف مؤقتًا",
+      "FINISHED": "منتهٍ",
+      "REREAD": "أعيدت قراءته",
+      "ABANDONED": "متروك"
+    },
+    "genre": "النوع",
+    "genrePlaceholder": "خيال، رومانسي…",
+    "startedAt": "بدأت في",
+    "finishedAt": "انتهيت في",
+    "readingTime": "مدة القراءة",
+    "days": "{count, plural, one {يوم واحد} other {# أيام}}",
+    "ratings": {
+      "rating": "التقييم",
+      "romance": "الرومانسية",
+      "plot": "الحبكة",
+      "sadness": "الحزن",
+      "humor": "الفكاهة",
+      "spicy": "الجرأة",
+      "mystery": "الغموض",
+      "ariaScale": "{step} من 5"
+    },
+    "favoriteCharacter": "الشخصية المفضلة",
+    "leastFavoriteCharacter": "الشخصية الأقل تفضيلاً",
+    "favoriteQuote": "الاقتباس المفضل",
+    "cried": "هل بكيت؟",
+    "yes": "نعم",
+    "no": "لا",
+    "recommend": "أوصي به",
+    "recommendYes": "نعم",
+    "recommendMaybe": "ربما",
+    "recommendNo": "لا",
+    "bookNumberOfYear": "الكتاب رقم # هذا العام",
+    "mood": "المزاج",
+    "moodPlaceholder": "دافئ، حلو مر…",
+    "notes": "ملاحظات",
+    "myOpinion": "رأيي",
+    "richText": {
+      "bold": "غامق",
+      "italic": "مائل",
+      "list": "قائمة",
+      "placeholder": "اكتب مراجعتك…"
+    }
   }
 }

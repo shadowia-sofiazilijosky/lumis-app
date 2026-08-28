@@ -161,5 +161,70 @@
       "uploading": "アップロード中…",
       "submit": "本をアップロード"
     }
+  },
+  "bookDetail": {
+    "loading": "読み込み中…",
+    "loadError": "この本を読み込めませんでした。",
+    "format": "形式",
+    "pages": "ページ数",
+    "size": "サイズ",
+    "downloadOriginal": "オリジナルをダウンロード",
+    "read": "読む",
+    "deleteBook": "本を削除",
+    "deleting": "削除中…",
+    "deleteConfirm": "「{title}」を削除しますか？すべての本棚からも削除されます。"
+  },
+  "ficha": {
+    "loading": "読書カードを読み込み中…",
+    "title": "読書カード",
+    "saving": "保存中…",
+    "saved": "保存しました",
+    "save": "変更を保存",
+    "status": "ステータス",
+    "statusOptions": {
+      "TBR": "積読",
+      "READING": "読書中",
+      "PAUSED": "中断中",
+      "FINISHED": "読了",
+      "REREAD": "再読",
+      "ABANDONED": "中断"
+    },
+    "genre": "ジャンル",
+    "genrePlaceholder": "ファンタジー、ロマンス…",
+    "startedAt": "開始日",
+    "finishedAt": "読了日",
+    "readingTime": "読書期間",
+    "days": "{count, plural, other {#日}}",
+    "ratings": {
+      "rating": "評価",
+      "romance": "ロマンス度",
+      "plot": "プロット",
+      "sadness": "切なさ",
+      "humor": "ユーモア",
+      "spicy": "スパイシー度",
+      "mystery": "ミステリー度",
+      "ariaScale": "5点中{step}点"
+    },
+    "favoriteCharacter": "好きなキャラクター",
+    "leastFavoriteCharacter": "苦手なキャラクター",
+    "favoriteQuote": "好きな一節",
+    "cried": "泣いた？",
+    "yes": "はい",
+    "no": "いいえ",
+    "recommend": "おすすめ度",
+    "recommendYes": "はい",
+    "recommendMaybe": "たぶん",
+    "recommendNo": "いいえ",
+    "bookNumberOfYear": "今年の#冊目",
+    "mood": "ムード",
+    "moodPlaceholder": "居心地よい、ほろ苦い…",
+    "notes": "メモ",
+    "myOpinion": "感想",
+    "richText": {
+      "bold": "太字",
+      "italic": "斜体",
+      "list": "リスト",
+      "placeholder": "感想を書く…"
+    }
   }
 }

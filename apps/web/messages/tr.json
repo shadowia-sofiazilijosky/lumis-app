@@ -161,5 +161,70 @@
       "uploading": "Yükleniyor…",
       "submit": "Kitabı yükle"
     }
+  },
+  "bookDetail": {
+    "loading": "Yükleniyor…",
+    "loadError": "Bu kitabı yükleyemedik.",
+    "format": "Biçim",
+    "pages": "Sayfa",
+    "size": "Boyut",
+    "downloadOriginal": "Orijinali indir",
+    "read": "Oku",
+    "deleteBook": "Kitabı sil",
+    "deleting": "Siliniyor…",
+    "deleteConfirm": "\"{title}\" silinsin mi? Bu, kitabı tüm raflardan da kaldırır."
+  },
+  "ficha": {
+    "loading": "Kitap kartı yükleniyor…",
+    "title": "Okuma kartı",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi",
+    "save": "Değişiklikleri kaydet",
+    "status": "Durum",
+    "statusOptions": {
+      "TBR": "Okunacak",
+      "READING": "Okunuyor",
+      "PAUSED": "Duraklatıldı",
+      "FINISHED": "Bitti",
+      "REREAD": "Yeniden okundu",
+      "ABANDONED": "Yarım bırakıldı"
+    },
+    "genre": "Tür",
+    "genrePlaceholder": "Fantastik, romantik…",
+    "startedAt": "Başlangıç",
+    "finishedAt": "Bitiş",
+    "readingTime": "Okuma süresi",
+    "days": "{count, plural, other {# gün}}",
+    "ratings": {
+      "rating": "Puan",
+      "romance": "Romantizm",
+      "plot": "Kurgu",
+      "sadness": "Hüzün",
+      "humor": "Mizah",
+      "spicy": "Baharatlılık",
+      "mystery": "Gizem",
+      "ariaScale": "5 üzerinden {step}"
+    },
+    "favoriteCharacter": "En sevilen karakter",
+    "leastFavoriteCharacter": "En az sevilen karakter",
+    "favoriteQuote": "En sevilen alıntı",
+    "cried": "Ağladım mı?",
+    "yes": "Evet",
+    "no": "Hayır",
+    "recommend": "Tavsiye ederim",
+    "recommendYes": "Evet",
+    "recommendMaybe": "Belki",
+    "recommendNo": "Hayır",
+    "bookNumberOfYear": "Yılın # numaralı kitabı",
+    "mood": "Ruh hali",
+    "moodPlaceholder": "Sıcak, tatlı-buruk…",
+    "notes": "Notlar",
+    "myOpinion": "Görüşüm",
+    "richText": {
+      "bold": "Kalın",
+      "italic": "İtalik",
+      "list": "Liste",
+      "placeholder": "Yorumunu yaz…"
+    }
   }
 }

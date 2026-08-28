@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { ComponentType } from "react";
 import type { RatingIconProps } from "./rating-icons";
 
@@ -26,6 +27,7 @@ interface RatingPickerProps {
  * "ficha de lectura" (star, spicy/chile, romance, plot, tristeza, humor,
  * misterio). */
 export function RatingPicker({ label, icon: Icon, tone, value, onChange }: RatingPickerProps) {
+  const t = useTranslations("ficha.ratings");
   return (
     <div className="rating-picker">
       <span className="rating-picker-label">{label}</span>
@@ -37,7 +39,7 @@ export function RatingPicker({ label, icon: Icon, tone, value, onChange }: Ratin
               key={step}
               type="button"
               className={`rating-picker-icon rating-picker-icon-${tone} ${filled ? "rating-picker-icon-filled" : ""}`}
-              aria-label={`${step} de 5`}
+              aria-label={t("ariaScale", { step })}
               aria-pressed={value === step}
               onClick={() => onChange(value === step ? null : step)}
             >

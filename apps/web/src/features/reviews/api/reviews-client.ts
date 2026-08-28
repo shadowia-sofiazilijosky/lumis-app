@@ -1,4 +1,4 @@
-import type { ReadingStatus, Review, UpsertReviewDto } from "@lumis/shared-types";
+import type { Review, UpsertReviewDto } from "@lumis/shared-types";
 
 export async function fetchReview(bookId: string): Promise<Review | null> {
   const response = await fetch(`/api/books/${bookId}/review`);
@@ -18,12 +18,3 @@ export async function saveReview(
   if (!response.ok) return null;
   return response.json();
 }
-
-export const READING_STATUS_LABELS: Record<ReadingStatus, string> = {
-  TBR: "Por leer",
-  READING: "Leyendo",
-  PAUSED: "Pausado",
-  FINISHED: "Terminado",
-  REREAD: "Releído",
-  ABANDONED: "Abandonado",
-};
