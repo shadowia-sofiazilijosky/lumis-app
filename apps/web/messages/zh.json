@@ -62,5 +62,86 @@
     "open": "打开书架",
     "settingsFor": "配置 {name}",
     "pageTitle": "你的书架 — Lumis"
+  },
+  "shelfEditor": {
+    "back": "返回书架列表",
+    "titlePrefix": "书架：{name}",
+    "loading": "正在加载书架…",
+    "loadError": "无法加载此书架。",
+    "save": "保存更改",
+    "saveStatus": {
+      "saving": "正在保存…",
+      "saved": "已保存",
+      "error": "无法保存"
+    },
+    "delete": "删除书架",
+    "deleteConfirm": "删除书架“{name}”？书籍不会被删除，只是从这里移除。",
+    "settings": {
+      "name": "名称",
+      "genre": "类型"
+    },
+    "bookPicker": {
+      "addBook": "+ 添加书籍",
+      "searchLabel": "在你的书库中搜索",
+      "searchPlaceholder": "书名…",
+      "add": "添加",
+      "empty": "没有可添加的书籍。",
+      "close": "关闭"
+    },
+    "customization": {
+      "tabBackground": "背景",
+      "tabShelf": "书架",
+      "tabDecoration": "装饰",
+      "chooseBackground": "选择你的背景",
+      "dragShelfHint": "把书架拖到画布上放置。点击可更改已放置书架的颜色。",
+      "availableDecorations": "可用装饰",
+      "useOnCanvas": "在画布上使用：{label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "奶油色",
+        "solid-rose": "陈玫瑰色",
+        "solid-forest": "森林绿",
+        "solid-navy": "夜蓝色",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "极简风"
+      },
+      "frame": {
+        "clara": "浅色木",
+        "media": "中色木",
+        "negra": "黑色木",
+        "blanca": "白色木"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "全部",
+        "Plantas": "植物",
+        "Luces": "灯饰",
+        "Velas": "蜡烛",
+        "Marcos": "相框",
+        "Objetos": "物品"
+      },
+      "items": {
+        "light-warm": "暖光灯",
+        "light-string": "灯串",
+        "plant-fern": "蕨类植物",
+        "plant-succulent": "多肉植物"
+      },
+      "empty": "此类别暂无装饰。",
+      "toolbarLabel": "可用装饰",
+      "addAria": "添加装饰：{label}"
+    },
+    "item": {
+      "moveShelf": "移动书架：{type}",
+      "moveDecoration": "移动装饰：{type}",
+      "pin": "固定",
+      "unpin": "取消固定",
+      "remove": "移除",
+      "selectOrMoveBook": "选择或移动“{title}”",
+      "removeFromShelf": "从书架移除"
+    }
   }
 }

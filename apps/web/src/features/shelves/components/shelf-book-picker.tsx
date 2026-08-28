@@ -1,6 +1,7 @@
 "use client";
 
 import type { BookSummary, ShelfWithBooks } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import { fetchBooks } from "@/features/books/api/books-client";
 import { addBookToShelf } from "../api/shelves-client";
@@ -8,6 +9,7 @@ import { DEFAULT_BOOK_POSITION } from "../lib/canvas";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 
 export function ShelfBookPicker({ shelf }: { shelf: ShelfWithBooks }) {
+  const t = useTranslations("shelfEditor.bookPicker");
   const addBookLocally = useShelfEditorStore((state) => state.addBookLocally);
   const [books, setBooks] = useState<BookSummary[]>([]);
   const [query, setQuery] = useState("");
@@ -45,33 +47,33 @@ export function ShelfBookPicker({ shelf }: { shelf: ShelfWithBooks }) {
   if (!isOpen) {
     return (
       <button type="button" onClick={() => setIsOpen(true)}>
-        + Agregar libro
+        {t("addBook")}
       </button>
     );
   }
 
   return (
     <div className="shelf-book-picker">
-      <label htmlFor="book-picker-search">Buscar en tu biblioteca</label>
+      <label htmlFor="book-picker-search">{t("searchLabel")}</label>
       <input
         id="book-picker-search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Título…"
+        placeholder={t("searchPlaceholder")}
       />
       <ul>
         {availableBooks.map((book) => (
           <li key={book.id}>
             <span>{book.title}</span>
             <button type="button" onClick={() => handleAdd(book)}>
-              Agregar
+              {t("add")}
             </button>
           </li>
         ))}
-        {availableBooks.length === 0 && <li>No hay libros para agregar.</li>}
+        {availableBooks.length === 0 && <li>{t("empty")}</li>}
       </ul>
       <button type="button" onClick={() => setIsOpen(false)}>
-        Cerrar
+        {t("close")}
       </button>
     </div>
   );

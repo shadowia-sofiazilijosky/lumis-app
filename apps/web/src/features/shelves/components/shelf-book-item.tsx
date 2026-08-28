@@ -4,6 +4,7 @@ import type { BookSummary, Position } from "@lumis/shared-types";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Lock, Unlock } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import { DEFAULT_BOOK_COVER_SIZE } from "../lib/canvas";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
@@ -23,6 +24,7 @@ export function ShelfBookItem({
   onRemove,
   editMode,
 }: ShelfBookItemProps) {
+  const t = useTranslations("shelfEditor.item");
   const isLocked = position.locked ?? false;
 
   const { attributes, listeners, setNodeRef, transform, isDragging } =
@@ -65,7 +67,7 @@ export function ShelfBookItem({
         {...listeners}
         {...attributes}
         className="shelf-book-cover"
-        aria-label={`Seleccionar o mover "${book.title}"`}
+        aria-label={t("selectOrMoveBook", { title: book.title })}
         aria-pressed={isSelected}
       >
         {book.coverUrl ? (
@@ -84,7 +86,7 @@ export function ShelfBookItem({
           <button
             type="button"
             className="shelf-item-action"
-            aria-label={isLocked ? "Desfijar" : "Fijar"}
+            aria-label={isLocked ? t("unpin") : t("pin")}
             onClick={(event) => {
               event.stopPropagation();
               toggleBookLock(bookId);
@@ -95,7 +97,7 @@ export function ShelfBookItem({
           <button
             type="button"
             className="shelf-item-action shelf-item-action-danger"
-            aria-label="Quitar de la estantería"
+            aria-label={t("removeFromShelf")}
             onClick={(event) => {
               event.stopPropagation();
               onRemove(bookId);

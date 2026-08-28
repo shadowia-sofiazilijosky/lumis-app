@@ -62,5 +62,86 @@
     "open": "Open shelf",
     "settingsFor": "Configure {name}",
     "pageTitle": "Your shelves — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Back to shelves",
+    "titlePrefix": "Shelf: {name}",
+    "loading": "Loading shelf…",
+    "loadError": "We couldn't load this shelf.",
+    "save": "Save changes",
+    "saveStatus": {
+      "saving": "Saving…",
+      "saved": "Saved",
+      "error": "Couldn't save"
+    },
+    "delete": "Delete shelf",
+    "deleteConfirm": "Delete the shelf \"{name}\"? Books aren't deleted, only removed from here.",
+    "settings": {
+      "name": "Name",
+      "genre": "Genre"
+    },
+    "bookPicker": {
+      "addBook": "+ Add book",
+      "searchLabel": "Search your library",
+      "searchPlaceholder": "Title…",
+      "add": "Add",
+      "empty": "No books to add.",
+      "close": "Close"
+    },
+    "customization": {
+      "tabBackground": "Background",
+      "tabShelf": "Shelf",
+      "tabDecoration": "Decoration",
+      "chooseBackground": "Choose your background",
+      "dragShelfHint": "Drag a shelf onto the canvas to place it. Click to change the color of ones you already placed.",
+      "availableDecorations": "Available decorations",
+      "useOnCanvas": "Use on canvas: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Cream",
+        "solid-rose": "Old rose",
+        "solid-forest": "Forest green",
+        "solid-navy": "Night blue",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalist"
+      },
+      "frame": {
+        "clara": "Light wood",
+        "media": "Medium wood",
+        "negra": "Black wood",
+        "blanca": "White wood"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "All",
+        "Plantas": "Plants",
+        "Luces": "Lights",
+        "Velas": "Candles",
+        "Marcos": "Frames",
+        "Objetos": "Objects"
+      },
+      "items": {
+        "light-warm": "Warm light",
+        "light-string": "String lights",
+        "plant-fern": "Fern",
+        "plant-succulent": "Succulent"
+      },
+      "empty": "No decorations in this category yet.",
+      "toolbarLabel": "Available decorations",
+      "addAria": "Add decoration: {label}"
+    },
+    "item": {
+      "moveShelf": "Move shelf: {type}",
+      "moveDecoration": "Move decoration: {type}",
+      "pin": "Pin",
+      "unpin": "Unpin",
+      "remove": "Remove",
+      "selectOrMoveBook": "Select or move \"{title}\"",
+      "removeFromShelf": "Remove from shelf"
+    }
   }
 }

@@ -62,5 +62,86 @@
     "open": "Открыть полку",
     "settingsFor": "Настроить {name}",
     "pageTitle": "Ваши полки — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Назад к полкам",
+    "titlePrefix": "Полка: {name}",
+    "loading": "Загрузка полки…",
+    "loadError": "Не удалось загрузить эту полку.",
+    "save": "Сохранить изменения",
+    "saveStatus": {
+      "saving": "Сохранение…",
+      "saved": "Сохранено",
+      "error": "Не удалось сохранить"
+    },
+    "delete": "Удалить полку",
+    "deleteConfirm": "Удалить полку «{name}»? Книги не удаляются, только убираются отсюда.",
+    "settings": {
+      "name": "Название",
+      "genre": "Жанр"
+    },
+    "bookPicker": {
+      "addBook": "+ Добавить книгу",
+      "searchLabel": "Поиск в вашей библиотеке",
+      "searchPlaceholder": "Название…",
+      "add": "Добавить",
+      "empty": "Нет книг для добавления.",
+      "close": "Закрыть"
+    },
+    "customization": {
+      "tabBackground": "Фон",
+      "tabShelf": "Полка",
+      "tabDecoration": "Декор",
+      "chooseBackground": "Выберите фон",
+      "dragShelfHint": "Перетащите полку на холст, чтобы разместить её. Нажмите, чтобы изменить цвет уже размещённых.",
+      "availableDecorations": "Доступный декор",
+      "useOnCanvas": "Использовать на холсте: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Кремовый",
+        "solid-rose": "Старая роза",
+        "solid-forest": "Лесной зелёный",
+        "solid-navy": "Ночной синий",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Минимализм"
+      },
+      "frame": {
+        "clara": "Светлое дерево",
+        "media": "Среднее дерево",
+        "negra": "Чёрное дерево",
+        "blanca": "Белое дерево"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Все",
+        "Plantas": "Растения",
+        "Luces": "Огни",
+        "Velas": "Свечи",
+        "Marcos": "Рамки",
+        "Objetos": "Предметы"
+      },
+      "items": {
+        "light-warm": "Тёплый свет",
+        "light-string": "Гирлянда",
+        "plant-fern": "Папоротник",
+        "plant-succulent": "Суккулент"
+      },
+      "empty": "В этой категории пока нет декора.",
+      "toolbarLabel": "Доступный декор",
+      "addAria": "Добавить декор: {label}"
+    },
+    "item": {
+      "moveShelf": "Переместить полку: {type}",
+      "moveDecoration": "Переместить декор: {type}",
+      "pin": "Закрепить",
+      "unpin": "Открепить",
+      "remove": "Удалить",
+      "selectOrMoveBook": "Выбрать или переместить «{title}»",
+      "removeFromShelf": "Убрать с полки"
+    }
   }
 }

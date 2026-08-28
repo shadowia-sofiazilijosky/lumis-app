@@ -62,5 +62,86 @@
     "open": "Rafı aç",
     "settingsFor": "{name} yapılandır",
     "pageTitle": "Rafların — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Raflara dön",
+    "titlePrefix": "Raf: {name}",
+    "loading": "Raf yükleniyor…",
+    "loadError": "Bu rafı yükleyemedik.",
+    "save": "Değişiklikleri kaydet",
+    "saveStatus": {
+      "saving": "Kaydediliyor…",
+      "saved": "Kaydedildi",
+      "error": "Kaydedilemedi"
+    },
+    "delete": "Rafı sil",
+    "deleteConfirm": "\"{name}\" rafı silinsin mi? Kitaplar silinmez, sadece buradan kaldırılır.",
+    "settings": {
+      "name": "İsim",
+      "genre": "Tür"
+    },
+    "bookPicker": {
+      "addBook": "+ Kitap ekle",
+      "searchLabel": "Kütüphanende ara",
+      "searchPlaceholder": "Başlık…",
+      "add": "Ekle",
+      "empty": "Eklenecek kitap yok.",
+      "close": "Kapat"
+    },
+    "customization": {
+      "tabBackground": "Arka plan",
+      "tabShelf": "Raf",
+      "tabDecoration": "Dekorasyon",
+      "chooseBackground": "Arka planını seç",
+      "dragShelfHint": "Bir rafı yerleştirmek için tuvale sürükle. Zaten yerleştirilmiş olanların rengini değiştirmek için tıkla.",
+      "availableDecorations": "Kullanılabilir dekorasyonlar",
+      "useOnCanvas": "Tuvalde kullan: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Krem",
+        "solid-rose": "Eski gül",
+        "solid-forest": "Orman yeşili",
+        "solid-navy": "Gece mavisi",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalist"
+      },
+      "frame": {
+        "clara": "Açık ahşap",
+        "media": "Orta ahşap",
+        "negra": "Siyah ahşap",
+        "blanca": "Beyaz ahşap"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Tümü",
+        "Plantas": "Bitkiler",
+        "Luces": "Işıklar",
+        "Velas": "Mumlar",
+        "Marcos": "Çerçeveler",
+        "Objetos": "Nesneler"
+      },
+      "items": {
+        "light-warm": "Sıcak ışık",
+        "light-string": "Işık zinciri",
+        "plant-fern": "Eğrelti otu",
+        "plant-succulent": "Sukulent"
+      },
+      "empty": "Bu kategoride henüz dekorasyon yok.",
+      "toolbarLabel": "Kullanılabilir dekorasyonlar",
+      "addAria": "Dekorasyon ekle: {label}"
+    },
+    "item": {
+      "moveShelf": "Rafı taşı: {type}",
+      "moveDecoration": "Dekorasyonu taşı: {type}",
+      "pin": "Sabitle",
+      "unpin": "Sabitlemeyi kaldır",
+      "remove": "Kaldır",
+      "selectOrMoveBook": "\"{title}\" seç veya taşı",
+      "removeFromShelf": "Raftan kaldır"
+    }
   }
 }

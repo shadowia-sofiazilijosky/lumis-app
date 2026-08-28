@@ -62,5 +62,86 @@
     "open": "Ouvrir l'étagère",
     "settingsFor": "Configurer {name}",
     "pageTitle": "Tes étagères — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Retour aux étagères",
+    "titlePrefix": "Étagère : {name}",
+    "loading": "Chargement de l'étagère…",
+    "loadError": "Impossible de charger cette étagère.",
+    "save": "Enregistrer",
+    "saveStatus": {
+      "saving": "Enregistrement…",
+      "saved": "Enregistré",
+      "error": "Impossible d'enregistrer"
+    },
+    "delete": "Supprimer l'étagère",
+    "deleteConfirm": "Supprimer l'étagère « {name} » ? Les livres ne sont pas supprimés, juste retirés d'ici.",
+    "settings": {
+      "name": "Nom",
+      "genre": "Genre"
+    },
+    "bookPicker": {
+      "addBook": "+ Ajouter un livre",
+      "searchLabel": "Rechercher dans ta bibliothèque",
+      "searchPlaceholder": "Titre…",
+      "add": "Ajouter",
+      "empty": "Aucun livre à ajouter.",
+      "close": "Fermer"
+    },
+    "customization": {
+      "tabBackground": "Fond",
+      "tabShelf": "Étagère",
+      "tabDecoration": "Décoration",
+      "chooseBackground": "Choisis ton fond",
+      "dragShelfHint": "Fais glisser une étagère sur le canvas pour la placer. Clique pour changer la couleur de celles déjà placées.",
+      "availableDecorations": "Décorations disponibles",
+      "useOnCanvas": "Utiliser sur le canvas : {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Crème",
+        "solid-rose": "Vieux rose",
+        "solid-forest": "Vert forêt",
+        "solid-navy": "Bleu nuit",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimaliste"
+      },
+      "frame": {
+        "clara": "Bois clair",
+        "media": "Bois moyen",
+        "negra": "Bois noir",
+        "blanca": "Bois blanc"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Tout",
+        "Plantas": "Plantes",
+        "Luces": "Lumières",
+        "Velas": "Bougies",
+        "Marcos": "Cadres",
+        "Objetos": "Objets"
+      },
+      "items": {
+        "light-warm": "Lumière chaude",
+        "light-string": "Guirlande lumineuse",
+        "plant-fern": "Fougère",
+        "plant-succulent": "Succulente"
+      },
+      "empty": "Pas encore de décorations dans cette catégorie.",
+      "toolbarLabel": "Décorations disponibles",
+      "addAria": "Ajouter une décoration : {label}"
+    },
+    "item": {
+      "moveShelf": "Déplacer l'étagère : {type}",
+      "moveDecoration": "Déplacer la décoration : {type}",
+      "pin": "Épingler",
+      "unpin": "Désépingler",
+      "remove": "Retirer",
+      "selectOrMoveBook": "Sélectionner ou déplacer « {title} »",
+      "removeFromShelf": "Retirer de l'étagère"
+    }
   }
 }

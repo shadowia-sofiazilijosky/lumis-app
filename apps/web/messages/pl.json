@@ -62,5 +62,86 @@
     "open": "Otwórz półkę",
     "settingsFor": "Skonfiguruj {name}",
     "pageTitle": "Twoje półki — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Wróć do półek",
+    "titlePrefix": "Półka: {name}",
+    "loading": "Ładowanie półki…",
+    "loadError": "Nie udało się załadować tej półki.",
+    "save": "Zapisz zmiany",
+    "saveStatus": {
+      "saving": "Zapisywanie…",
+      "saved": "Zapisano",
+      "error": "Nie udało się zapisać"
+    },
+    "delete": "Usuń półkę",
+    "deleteConfirm": "Usunąć półkę \"{name}\"? Książki nie zostaną usunięte, tylko stąd zdjęte.",
+    "settings": {
+      "name": "Nazwa",
+      "genre": "Gatunek"
+    },
+    "bookPicker": {
+      "addBook": "+ Dodaj książkę",
+      "searchLabel": "Szukaj w swojej bibliotece",
+      "searchPlaceholder": "Tytuł…",
+      "add": "Dodaj",
+      "empty": "Brak książek do dodania.",
+      "close": "Zamknij"
+    },
+    "customization": {
+      "tabBackground": "Tło",
+      "tabShelf": "Półka",
+      "tabDecoration": "Dekoracja",
+      "chooseBackground": "Wybierz swoje tło",
+      "dragShelfHint": "Przeciągnij półkę na płótno, aby ją umieścić. Kliknij, aby zmienić kolor już umieszczonych.",
+      "availableDecorations": "Dostępne dekoracje",
+      "useOnCanvas": "Użyj na płótnie: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Kremowy",
+        "solid-rose": "Stary róż",
+        "solid-forest": "Leśna zieleń",
+        "solid-navy": "Nocny granat",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalistyczny"
+      },
+      "frame": {
+        "clara": "Jasne drewno",
+        "media": "Średnie drewno",
+        "negra": "Czarne drewno",
+        "blanca": "Białe drewno"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Wszystko",
+        "Plantas": "Rośliny",
+        "Luces": "Światła",
+        "Velas": "Świece",
+        "Marcos": "Ramki",
+        "Objetos": "Przedmioty"
+      },
+      "items": {
+        "light-warm": "Ciepłe światło",
+        "light-string": "Lampki choinkowe",
+        "plant-fern": "Paproć",
+        "plant-succulent": "Sukulent"
+      },
+      "empty": "W tej kategorii nie ma jeszcze dekoracji.",
+      "toolbarLabel": "Dostępne dekoracje",
+      "addAria": "Dodaj dekorację: {label}"
+    },
+    "item": {
+      "moveShelf": "Przenieś półkę: {type}",
+      "moveDecoration": "Przenieś dekorację: {type}",
+      "pin": "Przypnij",
+      "unpin": "Odepnij",
+      "remove": "Usuń",
+      "selectOrMoveBook": "Wybierz lub przenieś \"{title}\"",
+      "removeFromShelf": "Usuń z półki"
+    }
   }
 }

@@ -62,5 +62,86 @@
     "open": "Mở kệ sách",
     "settingsFor": "Cấu hình {name}",
     "pageTitle": "Kệ sách của bạn — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Quay lại danh sách kệ sách",
+    "titlePrefix": "Kệ sách: {name}",
+    "loading": "Đang tải kệ sách…",
+    "loadError": "Không thể tải kệ sách này.",
+    "save": "Lưu thay đổi",
+    "saveStatus": {
+      "saving": "Đang lưu…",
+      "saved": "Đã lưu",
+      "error": "Không thể lưu"
+    },
+    "delete": "Xóa kệ sách",
+    "deleteConfirm": "Xóa kệ sách \"{name}\"? Sách sẽ không bị xóa, chỉ bị gỡ khỏi đây.",
+    "settings": {
+      "name": "Tên",
+      "genre": "Thể loại"
+    },
+    "bookPicker": {
+      "addBook": "+ Thêm sách",
+      "searchLabel": "Tìm trong thư viện của bạn",
+      "searchPlaceholder": "Tên sách…",
+      "add": "Thêm",
+      "empty": "Không có sách để thêm.",
+      "close": "Đóng"
+    },
+    "customization": {
+      "tabBackground": "Nền",
+      "tabShelf": "Kệ sách",
+      "tabDecoration": "Trang trí",
+      "chooseBackground": "Chọn nền của bạn",
+      "dragShelfHint": "Kéo một kệ sách vào khung vẽ để đặt nó. Nhấp để đổi màu những kệ đã đặt.",
+      "availableDecorations": "Đồ trang trí có sẵn",
+      "useOnCanvas": "Dùng trên khung vẽ: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Kem",
+        "solid-rose": "Hồng cổ",
+        "solid-forest": "Xanh rừng",
+        "solid-navy": "Xanh đêm",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Tối giản"
+      },
+      "frame": {
+        "clara": "Gỗ sáng màu",
+        "media": "Gỗ trung bình",
+        "negra": "Gỗ đen",
+        "blanca": "Gỗ trắng"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Tất cả",
+        "Plantas": "Cây cối",
+        "Luces": "Đèn",
+        "Velas": "Nến",
+        "Marcos": "Khung ảnh",
+        "Objetos": "Đồ vật"
+      },
+      "items": {
+        "light-warm": "Đèn ấm",
+        "light-string": "Dây đèn",
+        "plant-fern": "Dương xỉ",
+        "plant-succulent": "Cây mọng nước"
+      },
+      "empty": "Chưa có đồ trang trí nào trong danh mục này.",
+      "toolbarLabel": "Đồ trang trí có sẵn",
+      "addAria": "Thêm đồ trang trí: {label}"
+    },
+    "item": {
+      "moveShelf": "Di chuyển kệ sách: {type}",
+      "moveDecoration": "Di chuyển đồ trang trí: {type}",
+      "pin": "Ghim",
+      "unpin": "Bỏ ghim",
+      "remove": "Xóa",
+      "selectOrMoveBook": "Chọn hoặc di chuyển \"{title}\"",
+      "removeFromShelf": "Xóa khỏi kệ sách"
+    }
   }
 }

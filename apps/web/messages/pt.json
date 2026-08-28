@@ -62,5 +62,86 @@
     "open": "Abrir estante",
     "settingsFor": "Configurar {name}",
     "pageTitle": "Suas estantes — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Voltar às estantes",
+    "titlePrefix": "Estante: {name}",
+    "loading": "Carregando estante…",
+    "loadError": "Não conseguimos carregar esta estante.",
+    "save": "Salvar alterações",
+    "saveStatus": {
+      "saving": "Salvando…",
+      "saved": "Salvo",
+      "error": "Não foi possível salvar"
+    },
+    "delete": "Excluir estante",
+    "deleteConfirm": "Excluir a estante \"{name}\"? Os livros não são excluídos, só removidos daqui.",
+    "settings": {
+      "name": "Nome",
+      "genre": "Gênero"
+    },
+    "bookPicker": {
+      "addBook": "+ Adicionar livro",
+      "searchLabel": "Buscar na sua biblioteca",
+      "searchPlaceholder": "Título…",
+      "add": "Adicionar",
+      "empty": "Nenhum livro para adicionar.",
+      "close": "Fechar"
+    },
+    "customization": {
+      "tabBackground": "Fundo",
+      "tabShelf": "Estante",
+      "tabDecoration": "Decoração",
+      "chooseBackground": "Escolha seu fundo",
+      "dragShelfHint": "Arraste uma estante para o canvas para posicioná-la. Clique para mudar a cor das que já colocou.",
+      "availableDecorations": "Decorações disponíveis",
+      "useOnCanvas": "Usar no canvas: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Creme",
+        "solid-rose": "Rosa antigo",
+        "solid-forest": "Verde floresta",
+        "solid-navy": "Azul noite",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalista"
+      },
+      "frame": {
+        "clara": "Madeira clara",
+        "media": "Madeira média",
+        "negra": "Madeira preta",
+        "blanca": "Madeira branca"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Tudo",
+        "Plantas": "Plantas",
+        "Luces": "Luzes",
+        "Velas": "Velas",
+        "Marcos": "Molduras",
+        "Objetos": "Objetos"
+      },
+      "items": {
+        "light-warm": "Luz quente",
+        "light-string": "Cordão de luzes",
+        "plant-fern": "Samambaia",
+        "plant-succulent": "Suculenta"
+      },
+      "empty": "Ainda não há decorações nessa categoria.",
+      "toolbarLabel": "Decorações disponíveis",
+      "addAria": "Adicionar decoração: {label}"
+    },
+    "item": {
+      "moveShelf": "Mover estante: {type}",
+      "moveDecoration": "Mover decoração: {type}",
+      "pin": "Fixar",
+      "unpin": "Desafixar",
+      "remove": "Remover",
+      "selectOrMoveBook": "Selecionar ou mover \"{title}\"",
+      "removeFromShelf": "Remover da estante"
+    }
   }
 }

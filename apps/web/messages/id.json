@@ -62,5 +62,86 @@
     "open": "Buka rak",
     "settingsFor": "Konfigurasi {name}",
     "pageTitle": "Rak Anda — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Kembali ke rak",
+    "titlePrefix": "Rak: {name}",
+    "loading": "Memuat rak…",
+    "loadError": "Kami tidak dapat memuat rak ini.",
+    "save": "Simpan perubahan",
+    "saveStatus": {
+      "saving": "Menyimpan…",
+      "saved": "Tersimpan",
+      "error": "Gagal menyimpan"
+    },
+    "delete": "Hapus rak",
+    "deleteConfirm": "Hapus rak \"{name}\"? Buku tidak dihapus, hanya dikeluarkan dari sini.",
+    "settings": {
+      "name": "Nama",
+      "genre": "Genre"
+    },
+    "bookPicker": {
+      "addBook": "+ Tambah buku",
+      "searchLabel": "Cari di perpustakaanmu",
+      "searchPlaceholder": "Judul…",
+      "add": "Tambah",
+      "empty": "Tidak ada buku untuk ditambahkan.",
+      "close": "Tutup"
+    },
+    "customization": {
+      "tabBackground": "Latar belakang",
+      "tabShelf": "Rak",
+      "tabDecoration": "Dekorasi",
+      "chooseBackground": "Pilih latar belakangmu",
+      "dragShelfHint": "Seret rak ke kanvas untuk menempatkannya. Klik untuk mengubah warna rak yang sudah ditempatkan.",
+      "availableDecorations": "Dekorasi yang tersedia",
+      "useOnCanvas": "Gunakan di kanvas: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Krem",
+        "solid-rose": "Mawar tua",
+        "solid-forest": "Hijau hutan",
+        "solid-navy": "Biru malam",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalis"
+      },
+      "frame": {
+        "clara": "Kayu terang",
+        "media": "Kayu sedang",
+        "negra": "Kayu hitam",
+        "blanca": "Kayu putih"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Semua",
+        "Plantas": "Tanaman",
+        "Luces": "Lampu",
+        "Velas": "Lilin",
+        "Marcos": "Bingkai",
+        "Objetos": "Benda"
+      },
+      "items": {
+        "light-warm": "Cahaya hangat",
+        "light-string": "Lampu string",
+        "plant-fern": "Pakis",
+        "plant-succulent": "Sukulen"
+      },
+      "empty": "Belum ada dekorasi di kategori ini.",
+      "toolbarLabel": "Dekorasi yang tersedia",
+      "addAria": "Tambah dekorasi: {label}"
+    },
+    "item": {
+      "moveShelf": "Pindahkan rak: {type}",
+      "moveDecoration": "Pindahkan dekorasi: {type}",
+      "pin": "Sematkan",
+      "unpin": "Lepas sematan",
+      "remove": "Hapus",
+      "selectOrMoveBook": "Pilih atau pindahkan \"{title}\"",
+      "removeFromShelf": "Hapus dari rak"
+    }
   }
 }

@@ -1,13 +1,16 @@
 "use client";
 
 import { useDraggable } from "@dnd-kit/core";
+import { useTranslations } from "next-intl";
 import {
   DECORATION_CATALOG,
   type DecorationCatalogItem,
   type DecorationCategory,
 } from "../lib/decoration-catalog";
 
-function PaletteItem({ type, variant, label, Icon }: DecorationCatalogItem) {
+function PaletteItem({ type, variant, Icon }: DecorationCatalogItem) {
+  const t = useTranslations("shelfEditor.decoration");
+  const label = t(`items.${type}-${variant}`);
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: `palette-${type}-${variant}`,
     data: { kind: "palette", type, variant },
@@ -21,7 +24,7 @@ function PaletteItem({ type, variant, label, Icon }: DecorationCatalogItem) {
       {...attributes}
       className="decoration-palette-item"
       style={{ opacity: isDragging ? 0.4 : 1 }}
-      aria-label={`Agregar decoración: ${label}`}
+      aria-label={t("addAria", { label })}
     >
       <Icon />
       <span>{label}</span>
@@ -34,17 +37,16 @@ export function DecorationPalette({
 }: {
   category?: DecorationCategory;
 }) {
+  const t = useTranslations("shelfEditor.decoration");
   const items =
     category === "Todo"
       ? DECORATION_CATALOG
       : DECORATION_CATALOG.filter((item) => item.category === category);
 
   return (
-    <div className="decoration-palette" role="toolbar" aria-label="Decoraciones disponibles">
+    <div className="decoration-palette" role="toolbar" aria-label={t("toolbarLabel")}>
       {items.length === 0 ? (
-        <p className="decoration-palette-empty">
-          Todavía no hay decoraciones en esta categoría.
-        </p>
+        <p className="decoration-palette-empty">{t("empty")}</p>
       ) : (
         items.map((item) => <PaletteItem key={`${item.type}-${item.variant}`} {...item} />)
       )}

@@ -62,5 +62,86 @@
     "open": "Fungua rafu",
     "settingsFor": "Sanidi {name}",
     "pageTitle": "Rafu zako — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Rudi kwenye rafu",
+    "titlePrefix": "Rafu: {name}",
+    "loading": "Inapakia rafu…",
+    "loadError": "Hatukuweza kupakia rafu hii.",
+    "save": "Hifadhi mabadiliko",
+    "saveStatus": {
+      "saving": "Inahifadhi…",
+      "saved": "Imehifadhiwa",
+      "error": "Imeshindwa kuhifadhi"
+    },
+    "delete": "Futa rafu",
+    "deleteConfirm": "Futa rafu \"{name}\"? Vitabu havitafutwa, vitaondolewa tu hapa.",
+    "settings": {
+      "name": "Jina",
+      "genre": "Aina"
+    },
+    "bookPicker": {
+      "addBook": "+ Ongeza kitabu",
+      "searchLabel": "Tafuta katika maktaba yako",
+      "searchPlaceholder": "Kichwa…",
+      "add": "Ongeza",
+      "empty": "Hakuna vitabu vya kuongeza.",
+      "close": "Funga"
+    },
+    "customization": {
+      "tabBackground": "Mandhari",
+      "tabShelf": "Rafu",
+      "tabDecoration": "Mapambo",
+      "chooseBackground": "Chagua mandhari yako",
+      "dragShelfHint": "Buruta rafu kwenye turubai kuiweka. Bofya kubadilisha rangi ya zilizowekwa tayari.",
+      "availableDecorations": "Mapambo yanayopatikana",
+      "useOnCanvas": "Tumia kwenye turubai: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Krimu",
+        "solid-rose": "Waridi la zamani",
+        "solid-forest": "Kijani cha msitu",
+        "solid-navy": "Buluu la usiku",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Rahisi"
+      },
+      "frame": {
+        "clara": "Mbao nyepesi",
+        "media": "Mbao ya wastani",
+        "negra": "Mbao nyeusi",
+        "blanca": "Mbao nyeupe"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Yote",
+        "Plantas": "Mimea",
+        "Luces": "Taa",
+        "Velas": "Mishumaa",
+        "Marcos": "Fremu",
+        "Objetos": "Vitu"
+      },
+      "items": {
+        "light-warm": "Taa ya joto",
+        "light-string": "Mfuatano wa taa",
+        "plant-fern": "Feri",
+        "plant-succulent": "Mmea wa succulent"
+      },
+      "empty": "Bado hakuna mapambo katika kundi hili.",
+      "toolbarLabel": "Mapambo yanayopatikana",
+      "addAria": "Ongeza mapambo: {label}"
+    },
+    "item": {
+      "moveShelf": "Sogeza rafu: {type}",
+      "moveDecoration": "Sogeza pambo: {type}",
+      "pin": "Bandika",
+      "unpin": "Ondoa bandiko",
+      "remove": "Ondoa",
+      "selectOrMoveBook": "Chagua au sogeza \"{title}\"",
+      "removeFromShelf": "Ondoa kwenye rafu"
+    }
   }
 }

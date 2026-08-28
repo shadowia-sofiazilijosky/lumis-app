@@ -62,5 +62,86 @@
     "open": "Plank openen",
     "settingsFor": "{name} configureren",
     "pageTitle": "Jouw planken — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Terug naar planken",
+    "titlePrefix": "Plank: {name}",
+    "loading": "Plank laden…",
+    "loadError": "We konden deze plank niet laden.",
+    "save": "Wijzigingen opslaan",
+    "saveStatus": {
+      "saving": "Opslaan…",
+      "saved": "Opgeslagen",
+      "error": "Kon niet opslaan"
+    },
+    "delete": "Plank verwijderen",
+    "deleteConfirm": "Plank \"{name}\" verwijderen? Boeken worden niet verwijderd, alleen hiervandaan gehaald.",
+    "settings": {
+      "name": "Naam",
+      "genre": "Genre"
+    },
+    "bookPicker": {
+      "addBook": "+ Boek toevoegen",
+      "searchLabel": "Zoek in je bibliotheek",
+      "searchPlaceholder": "Titel…",
+      "add": "Toevoegen",
+      "empty": "Geen boeken om toe te voegen.",
+      "close": "Sluiten"
+    },
+    "customization": {
+      "tabBackground": "Achtergrond",
+      "tabShelf": "Plank",
+      "tabDecoration": "Decoratie",
+      "chooseBackground": "Kies je achtergrond",
+      "dragShelfHint": "Sleep een plank naar het canvas om te plaatsen. Klik om de kleur van geplaatste planken te wijzigen.",
+      "availableDecorations": "Beschikbare decoraties",
+      "useOnCanvas": "Gebruiken op canvas: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Crème",
+        "solid-rose": "Oudroze",
+        "solid-forest": "Bosgroen",
+        "solid-navy": "Nachtblauw",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalistisch"
+      },
+      "frame": {
+        "clara": "Licht hout",
+        "media": "Middel hout",
+        "negra": "Zwart hout",
+        "blanca": "Wit hout"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Alles",
+        "Plantas": "Planten",
+        "Luces": "Lichtjes",
+        "Velas": "Kaarsen",
+        "Marcos": "Lijsten",
+        "Objetos": "Objecten"
+      },
+      "items": {
+        "light-warm": "Warm licht",
+        "light-string": "Lichtsnoer",
+        "plant-fern": "Varen",
+        "plant-succulent": "Vetplant"
+      },
+      "empty": "Nog geen decoraties in deze categorie.",
+      "toolbarLabel": "Beschikbare decoraties",
+      "addAria": "Decoratie toevoegen: {label}"
+    },
+    "item": {
+      "moveShelf": "Plank verplaatsen: {type}",
+      "moveDecoration": "Decoratie verplaatsen: {type}",
+      "pin": "Vastzetten",
+      "unpin": "Losmaken",
+      "remove": "Verwijderen",
+      "selectOrMoveBook": "\"{title}\" selecteren of verplaatsen",
+      "removeFromShelf": "Van plank verwijderen"
+    }
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import type { ShelfWithBooks } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useState, type FormEvent } from "react";
 import { useDebouncedCallback } from "@/shared/hooks/use-debounced-callback";
 import { updateShelf } from "../api/shelves-client";
@@ -12,6 +13,7 @@ interface TextFieldPatch {
 }
 
 export function ShelfSettingsPanel({ shelf }: { shelf: ShelfWithBooks }) {
+  const t = useTranslations("shelfEditor.settings");
   const patchShelfMeta = useShelfEditorStore((state) => state.patchShelfMeta);
 
   const [name, setName] = useState(shelf.name);
@@ -31,7 +33,7 @@ export function ShelfSettingsPanel({ shelf }: { shelf: ShelfWithBooks }) {
       onSubmit={(event: FormEvent) => event.preventDefault()}
     >
       <div>
-        <label htmlFor="shelf-name">Nombre</label>
+        <label htmlFor="shelf-name">{t("name")}</label>
         <input
           id="shelf-name"
           value={name}
@@ -43,7 +45,7 @@ export function ShelfSettingsPanel({ shelf }: { shelf: ShelfWithBooks }) {
       </div>
 
       <div>
-        <label htmlFor="shelf-genre">Género</label>
+        <label htmlFor="shelf-genre">{t("genre")}</label>
         <input
           id="shelf-genre"
           value={genre}

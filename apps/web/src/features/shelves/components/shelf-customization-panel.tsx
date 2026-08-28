@@ -3,6 +3,7 @@
 import type { ShelfWithBooks, UpdateShelfInput } from "@lumis/shared-types";
 import { useDraggable } from "@dnd-kit/core";
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import {
   BACKGROUND_OPTIONS,
@@ -21,10 +22,12 @@ function ShelfFramePaletteItem({
   option: ShelfFrameOption;
   onQuickApply: (option: ShelfFrameOption) => void;
 }) {
+  const t = useTranslations("shelfEditor");
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: `palette-shelf-${option.key}`,
     data: { kind: "palette", type: "shelf", variant: option.key },
   });
+  const label = t(`appearance.frame.${option.key}`);
 
   return (
     <button
@@ -34,7 +37,7 @@ function ShelfFramePaletteItem({
       {...attributes}
       onClick={() => onQuickApply(option)}
       className="shelf-appearance-thumb"
-      aria-label={`Usar en el canvas: ${option.label}`}
+      aria-label={t("customization.useOnCanvas", { label })}
       style={{
         opacity: isDragging ? 0.4 : 1,
         backgroundImage: `url(${option.imageUrl})`,
@@ -47,13 +50,13 @@ function ShelfFramePaletteItem({
 
 type Tab = "fondo" | "estanteria" | "decoracion";
 
-const TABS: { key: Tab; label: string }[] = [
-  { key: "fondo", label: "Fondo" },
-  { key: "estanteria", label: "Estantería" },
-  { key: "decoracion", label: "Decoración" },
-];
-
 export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
+  const t = useTranslations("shelfEditor");
+  const TABS: { key: Tab; label: string }[] = [
+    { key: "fondo", label: t("customization.tabBackground") },
+    { key: "estanteria", label: t("customization.tabShelf") },
+    { key: "decoracion", label: t("customization.tabDecoration") },
+  ];
   const [tab, setTab] = useState<Tab>("fondo");
   const [decorationCategory, setDecorationCategory] =
     useState<DecorationCategory>("Todo");
@@ -112,7 +115,7 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
 
       {tab === "fondo" && (
         <div className="shelf-customization-body">
-          <p className="shelf-customization-hint">Elige tu fondo</p>
+          <p className="shelf-customization-hint">{t("customization.chooseBackground")}</p>
           <div className="shelf-appearance-grid">
             {BACKGROUND_OPTIONS.map((option) => {
               const isSelected =
@@ -126,7 +129,7 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
                   type="button"
                   className="shelf-appearance-thumb"
                   aria-pressed={isSelected}
-                  aria-label={option.label}
+                  aria-label={t(`appearance.background.${option.key}`)}
                   onClick={() =>
                     save(
                       option.kind === "photo"
@@ -158,10 +161,7 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
 
       {tab === "estanteria" && (
         <div className="shelf-customization-body">
-          <p className="shelf-customization-hint">
-            Arrastrá una estantería al canvas para colocarla. Clic para
-            cambiar el color de las que ya pusiste.
-          </p>
+          <p className="shelf-customization-hint">{t("customization.dragShelfHint")}</p>
           <div className="shelf-appearance-grid">
             {SHELF_FRAME_OPTIONS.map((option) => (
               <ShelfFramePaletteItem
@@ -176,7 +176,7 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
 
       {tab === "decoracion" && (
         <div className="shelf-customization-body">
-          <p className="shelf-customization-hint">Decoraciones disponibles</p>
+          <p className="shelf-customization-hint">{t("customization.availableDecorations")}</p>
           <div className="decoration-category-chips">
             {DECORATION_CATEGORIES.map((category) => (
               <button
@@ -187,7 +187,7 @@ export function ShelfCustomizationPanel({ shelf }: { shelf: ShelfWithBooks }) {
                 }`}
                 onClick={() => setDecorationCategory(category)}
               >
-                {category}
+                {t(`decoration.categories.${category}`)}
               </button>
             ))}
           </div>

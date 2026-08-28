@@ -62,5 +62,86 @@
     "open": "本棚を開く",
     "settingsFor": "{name}を設定",
     "pageTitle": "あなたの本棚 — Lumis"
+  },
+  "shelfEditor": {
+    "back": "本棚一覧に戻る",
+    "titlePrefix": "本棚：{name}",
+    "loading": "本棚を読み込み中…",
+    "loadError": "この本棚を読み込めませんでした。",
+    "save": "変更を保存",
+    "saveStatus": {
+      "saving": "保存中…",
+      "saved": "保存しました",
+      "error": "保存できませんでした"
+    },
+    "delete": "本棚を削除",
+    "deleteConfirm": "本棚「{name}」を削除しますか？本は削除されず、ここから外れるだけです。",
+    "settings": {
+      "name": "名前",
+      "genre": "ジャンル"
+    },
+    "bookPicker": {
+      "addBook": "+ 本を追加",
+      "searchLabel": "ライブラリを検索",
+      "searchPlaceholder": "タイトル…",
+      "add": "追加",
+      "empty": "追加できる本がありません。",
+      "close": "閉じる"
+    },
+    "customization": {
+      "tabBackground": "背景",
+      "tabShelf": "本棚",
+      "tabDecoration": "装飾",
+      "chooseBackground": "背景を選択",
+      "dragShelfHint": "本棚をキャンバスにドラッグして配置します。配置済みの本棚をクリックすると色を変更できます。",
+      "availableDecorations": "利用可能な装飾",
+      "useOnCanvas": "キャンバスで使用：{label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "クリーム",
+        "solid-rose": "オールドローズ",
+        "solid-forest": "フォレストグリーン",
+        "solid-navy": "ナイトブルー",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "ミニマル"
+      },
+      "frame": {
+        "clara": "ライトウッド",
+        "media": "ミディアムウッド",
+        "negra": "ブラックウッド",
+        "blanca": "ホワイトウッド"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "すべて",
+        "Plantas": "植物",
+        "Luces": "ライト",
+        "Velas": "キャンドル",
+        "Marcos": "フレーム",
+        "Objetos": "小物"
+      },
+      "items": {
+        "light-warm": "暖色ライト",
+        "light-string": "イルミネーション",
+        "plant-fern": "シダ",
+        "plant-succulent": "多肉植物"
+      },
+      "empty": "このカテゴリにはまだ装飾がありません。",
+      "toolbarLabel": "利用可能な装飾",
+      "addAria": "装飾を追加：{label}"
+    },
+    "item": {
+      "moveShelf": "本棚を移動：{type}",
+      "moveDecoration": "装飾を移動：{type}",
+      "pin": "固定",
+      "unpin": "固定解除",
+      "remove": "削除",
+      "selectOrMoveBook": "「{title}」を選択・移動",
+      "removeFromShelf": "本棚から削除"
+    }
   }
 }

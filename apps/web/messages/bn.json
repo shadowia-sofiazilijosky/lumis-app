@@ -62,5 +62,86 @@
     "open": "শেলফ খুলুন",
     "settingsFor": "{name} কনফিগার করুন",
     "pageTitle": "আপনার শেলফ — Lumis"
+  },
+  "shelfEditor": {
+    "back": "শেলফে ফিরে যান",
+    "titlePrefix": "শেলফ: {name}",
+    "loading": "শেলফ লোড হচ্ছে…",
+    "loadError": "আমরা এই শেলফটি লোড করতে পারিনি।",
+    "save": "পরিবর্তন সংরক্ষণ করুন",
+    "saveStatus": {
+      "saving": "সংরক্ষণ হচ্ছে…",
+      "saved": "সংরক্ষিত হয়েছে",
+      "error": "সংরক্ষণ করা যায়নি"
+    },
+    "delete": "শেলফ মুছুন",
+    "deleteConfirm": "\"{name}\" শেলফটি মুছবেন? বইগুলো মুছবে না, শুধু এখান থেকে সরানো হবে।",
+    "settings": {
+      "name": "নাম",
+      "genre": "ধরন"
+    },
+    "bookPicker": {
+      "addBook": "+ বই যোগ করুন",
+      "searchLabel": "আপনার লাইব্রেরিতে খুঁজুন",
+      "searchPlaceholder": "শিরোনাম…",
+      "add": "যোগ করুন",
+      "empty": "যোগ করার মতো কোনো বই নেই।",
+      "close": "বন্ধ করুন"
+    },
+    "customization": {
+      "tabBackground": "পটভূমি",
+      "tabShelf": "শেলফ",
+      "tabDecoration": "সাজসজ্জা",
+      "chooseBackground": "আপনার পটভূমি বেছে নিন",
+      "dragShelfHint": "একটি শেলফ ক্যানভাসে টেনে রাখুন। ইতিমধ্যে রাখা শেলফের রং পরিবর্তন করতে ক্লিক করুন।",
+      "availableDecorations": "উপলব্ধ সাজসজ্জা",
+      "useOnCanvas": "ক্যানভাসে ব্যবহার করুন: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "ক্রিম",
+        "solid-rose": "পুরনো গোলাপি",
+        "solid-forest": "বন সবুজ",
+        "solid-navy": "রাত্রি নীল",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "মিনিমালিস্ট"
+      },
+      "frame": {
+        "clara": "হালকা কাঠ",
+        "media": "মাঝারি কাঠ",
+        "negra": "কালো কাঠ",
+        "blanca": "সাদা কাঠ"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "সব",
+        "Plantas": "গাছপালা",
+        "Luces": "আলো",
+        "Velas": "মোমবাতি",
+        "Marcos": "ফ্রেম",
+        "Objetos": "বস্তু"
+      },
+      "items": {
+        "light-warm": "উষ্ণ আলো",
+        "light-string": "লাইট স্ট্রিং",
+        "plant-fern": "ফার্ন",
+        "plant-succulent": "সাকুলেন্ট"
+      },
+      "empty": "এই বিভাগে এখনো কোনো সাজসজ্জা নেই।",
+      "toolbarLabel": "উপলব্ধ সাজসজ্জা",
+      "addAria": "সাজসজ্জা যোগ করুন: {label}"
+    },
+    "item": {
+      "moveShelf": "শেলফ সরান: {type}",
+      "moveDecoration": "সাজসজ্জা সরান: {type}",
+      "pin": "পিন করুন",
+      "unpin": "আনপিন করুন",
+      "remove": "সরান",
+      "selectOrMoveBook": "\"{title}\" নির্বাচন বা সরান",
+      "removeFromShelf": "শেলফ থেকে সরান"
+    }
   }
 }

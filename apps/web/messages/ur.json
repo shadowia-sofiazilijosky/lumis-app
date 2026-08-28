@@ -62,5 +62,86 @@
     "open": "شیلف کھولیں",
     "settingsFor": "{name} ترتیب دیں",
     "pageTitle": "آپ کی شیلف — Lumis"
+  },
+  "shelfEditor": {
+    "back": "شیلفوں پر واپس جائیں",
+    "titlePrefix": "شیلف: {name}",
+    "loading": "شیلف لوڈ ہو رہی ہے…",
+    "loadError": "ہم یہ شیلف لوڈ نہیں کر سکے۔",
+    "save": "تبدیلیاں محفوظ کریں",
+    "saveStatus": {
+      "saving": "محفوظ ہو رہا ہے…",
+      "saved": "محفوظ ہو گیا",
+      "error": "محفوظ نہیں ہو سکا"
+    },
+    "delete": "شیلف حذف کریں",
+    "deleteConfirm": "شیلف \"{name}\" حذف کریں؟ کتابیں حذف نہیں ہوں گی، صرف یہاں سے ہٹائی جائیں گی۔",
+    "settings": {
+      "name": "نام",
+      "genre": "صنف"
+    },
+    "bookPicker": {
+      "addBook": "+ کتاب شامل کریں",
+      "searchLabel": "اپنی لائبریری میں تلاش کریں",
+      "searchPlaceholder": "عنوان…",
+      "add": "شامل کریں",
+      "empty": "شامل کرنے کے لیے کوئی کتاب نہیں۔",
+      "close": "بند کریں"
+    },
+    "customization": {
+      "tabBackground": "پس منظر",
+      "tabShelf": "شیلف",
+      "tabDecoration": "سجاوٹ",
+      "chooseBackground": "اپنا پس منظر چنیں",
+      "dragShelfHint": "شیلف کو کینوس پر رکھنے کے لیے گھسیٹیں۔ پہلے سے رکھی شیلفوں کا رنگ بدلنے کے لیے کلک کریں۔",
+      "availableDecorations": "دستیاب سجاوٹ",
+      "useOnCanvas": "کینوس پر استعمال کریں: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "کریمی",
+        "solid-rose": "پرانا گلابی",
+        "solid-forest": "جنگل سبز",
+        "solid-navy": "رات نیلا",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "سادہ"
+      },
+      "frame": {
+        "clara": "ہلکی لکڑی",
+        "media": "درمیانی لکڑی",
+        "negra": "کالی لکڑی",
+        "blanca": "سفید لکڑی"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "سب",
+        "Plantas": "پودے",
+        "Luces": "روشنیاں",
+        "Velas": "موم بتیاں",
+        "Marcos": "فریم",
+        "Objetos": "اشیاء"
+      },
+      "items": {
+        "light-warm": "گرم روشنی",
+        "light-string": "لائٹ اسٹرنگ",
+        "plant-fern": "فرن",
+        "plant-succulent": "سکیولنٹ"
+      },
+      "empty": "اس زمرے میں ابھی کوئی سجاوٹ نہیں ہے۔",
+      "toolbarLabel": "دستیاب سجاوٹ",
+      "addAria": "سجاوٹ شامل کریں: {label}"
+    },
+    "item": {
+      "moveShelf": "شیلف منتقل کریں: {type}",
+      "moveDecoration": "سجاوٹ منتقل کریں: {type}",
+      "pin": "پن کریں",
+      "unpin": "پن ہٹائیں",
+      "remove": "ہٹائیں",
+      "selectOrMoveBook": "\"{title}\" منتخب یا منتقل کریں",
+      "removeFromShelf": "شیلف سے ہٹائیں"
+    }
   }
 }

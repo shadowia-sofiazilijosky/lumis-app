@@ -62,5 +62,86 @@
     "open": "Regal öffnen",
     "settingsFor": "{name} konfigurieren",
     "pageTitle": "Deine Regale — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Zurück zu den Regalen",
+    "titlePrefix": "Regal: {name}",
+    "loading": "Regal wird geladen…",
+    "loadError": "Dieses Regal konnte nicht geladen werden.",
+    "save": "Änderungen speichern",
+    "saveStatus": {
+      "saving": "Wird gespeichert…",
+      "saved": "Gespeichert",
+      "error": "Konnte nicht gespeichert werden"
+    },
+    "delete": "Regal löschen",
+    "deleteConfirm": "Regal \"{name}\" löschen? Bücher werden nicht gelöscht, nur von hier entfernt.",
+    "settings": {
+      "name": "Name",
+      "genre": "Genre"
+    },
+    "bookPicker": {
+      "addBook": "+ Buch hinzufügen",
+      "searchLabel": "In deiner Bibliothek suchen",
+      "searchPlaceholder": "Titel…",
+      "add": "Hinzufügen",
+      "empty": "Keine Bücher zum Hinzufügen.",
+      "close": "Schließen"
+    },
+    "customization": {
+      "tabBackground": "Hintergrund",
+      "tabShelf": "Regal",
+      "tabDecoration": "Dekoration",
+      "chooseBackground": "Wähle deinen Hintergrund",
+      "dragShelfHint": "Ziehe ein Regal auf die Leinwand, um es zu platzieren. Klicke, um die Farbe bereits platzierter zu ändern.",
+      "availableDecorations": "Verfügbare Dekorationen",
+      "useOnCanvas": "Auf der Leinwand verwenden: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Creme",
+        "solid-rose": "Altrosa",
+        "solid-forest": "Waldgrün",
+        "solid-navy": "Nachtblau",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalistisch"
+      },
+      "frame": {
+        "clara": "Helles Holz",
+        "media": "Mittleres Holz",
+        "negra": "Schwarzes Holz",
+        "blanca": "Weißes Holz"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Alle",
+        "Plantas": "Pflanzen",
+        "Luces": "Lichter",
+        "Velas": "Kerzen",
+        "Marcos": "Rahmen",
+        "Objetos": "Objekte"
+      },
+      "items": {
+        "light-warm": "Warmes Licht",
+        "light-string": "Lichterkette",
+        "plant-fern": "Farn",
+        "plant-succulent": "Sukkulente"
+      },
+      "empty": "In dieser Kategorie gibt es noch keine Dekorationen.",
+      "toolbarLabel": "Verfügbare Dekorationen",
+      "addAria": "Dekoration hinzufügen: {label}"
+    },
+    "item": {
+      "moveShelf": "Regal bewegen: {type}",
+      "moveDecoration": "Dekoration bewegen: {type}",
+      "pin": "Anheften",
+      "unpin": "Lösen",
+      "remove": "Entfernen",
+      "selectOrMoveBook": "\"{title}\" auswählen oder bewegen",
+      "removeFromShelf": "Vom Regal entfernen"
+    }
   }
 }

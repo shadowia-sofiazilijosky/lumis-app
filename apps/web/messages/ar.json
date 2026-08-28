@@ -62,5 +62,86 @@
     "open": "فتح الرف",
     "settingsFor": "إعداد {name}",
     "pageTitle": "رفوفك — Lumis"
+  },
+  "shelfEditor": {
+    "back": "العودة إلى الرفوف",
+    "titlePrefix": "الرف: {name}",
+    "loading": "جارٍ تحميل الرف…",
+    "loadError": "تعذر تحميل هذا الرف.",
+    "save": "حفظ التغييرات",
+    "saveStatus": {
+      "saving": "جارٍ الحفظ…",
+      "saved": "تم الحفظ",
+      "error": "تعذر الحفظ"
+    },
+    "delete": "حذف الرف",
+    "deleteConfirm": "حذف الرف \"{name}\"؟ لا يتم حذف الكتب، بل إزالتها من هنا فقط.",
+    "settings": {
+      "name": "الاسم",
+      "genre": "النوع"
+    },
+    "bookPicker": {
+      "addBook": "+ إضافة كتاب",
+      "searchLabel": "ابحث في مكتبتك",
+      "searchPlaceholder": "العنوان…",
+      "add": "إضافة",
+      "empty": "لا توجد كتب لإضافتها.",
+      "close": "إغلاق"
+    },
+    "customization": {
+      "tabBackground": "الخلفية",
+      "tabShelf": "الرف",
+      "tabDecoration": "الديكور",
+      "chooseBackground": "اختر خلفيتك",
+      "dragShelfHint": "اسحب رفًا إلى اللوحة لوضعه. انقر لتغيير لون الرفوف الموضوعة بالفعل.",
+      "availableDecorations": "الديكورات المتاحة",
+      "useOnCanvas": "استخدام في اللوحة: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "كريمي",
+        "solid-rose": "وردي عتيق",
+        "solid-forest": "أخضر الغابة",
+        "solid-navy": "أزرق ليلي",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "بسيط"
+      },
+      "frame": {
+        "clara": "خشب فاتح",
+        "media": "خشب متوسط",
+        "negra": "خشب أسود",
+        "blanca": "خشب أبيض"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "الكل",
+        "Plantas": "نباتات",
+        "Luces": "أضواء",
+        "Velas": "شموع",
+        "Marcos": "إطارات",
+        "Objetos": "أغراض"
+      },
+      "items": {
+        "light-warm": "ضوء دافئ",
+        "light-string": "سلسلة أضواء",
+        "plant-fern": "سرخس",
+        "plant-succulent": "نبتة عصارية"
+      },
+      "empty": "لا توجد ديكورات في هذه الفئة بعد.",
+      "toolbarLabel": "الديكورات المتاحة",
+      "addAria": "إضافة ديكور: {label}"
+    },
+    "item": {
+      "moveShelf": "تحريك الرف: {type}",
+      "moveDecoration": "تحريك الديكور: {type}",
+      "pin": "تثبيت",
+      "unpin": "إلغاء التثبيت",
+      "remove": "إزالة",
+      "selectOrMoveBook": "تحديد أو تحريك \"{title}\"",
+      "removeFromShelf": "إزالة من الرف"
+    }
   }
 }

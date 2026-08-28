@@ -62,5 +62,86 @@
     "open": "शेल्फ़ खोलें",
     "settingsFor": "{name} कॉन्फ़िगर करें",
     "pageTitle": "आपकी शेल्फ़ — Lumis"
+  },
+  "shelfEditor": {
+    "back": "शेल्फ़ में वापस जाएं",
+    "titlePrefix": "शेल्फ़: {name}",
+    "loading": "शेल्फ़ लोड हो रही है…",
+    "loadError": "हम इस शेल्फ़ को लोड नहीं कर सके।",
+    "save": "बदलाव सहेजें",
+    "saveStatus": {
+      "saving": "सहेजा जा रहा है…",
+      "saved": "सहेजा गया",
+      "error": "सहेज नहीं सके"
+    },
+    "delete": "शेल्फ़ हटाएं",
+    "deleteConfirm": "शेल्फ़ \"{name}\" हटाएं? किताबें हटाई नहीं जातीं, बस यहाँ से निकाली जाती हैं।",
+    "settings": {
+      "name": "नाम",
+      "genre": "विधा"
+    },
+    "bookPicker": {
+      "addBook": "+ किताब जोड़ें",
+      "searchLabel": "अपनी लाइब्रेरी में खोजें",
+      "searchPlaceholder": "शीर्षक…",
+      "add": "जोड़ें",
+      "empty": "जोड़ने के लिए कोई किताब नहीं।",
+      "close": "बंद करें"
+    },
+    "customization": {
+      "tabBackground": "पृष्ठभूमि",
+      "tabShelf": "शेल्फ़",
+      "tabDecoration": "सजावट",
+      "chooseBackground": "अपनी पृष्ठभूमि चुनें",
+      "dragShelfHint": "शेल्फ़ को कैनवास पर खींचकर रखें। पहले से रखी शेल्फ़ का रंग बदलने के लिए क्लिक करें।",
+      "availableDecorations": "उपलब्ध सजावट",
+      "useOnCanvas": "कैनवास पर उपयोग करें: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "क्रीम",
+        "solid-rose": "पुराना गुलाबी",
+        "solid-forest": "जंगल हरा",
+        "solid-navy": "रात्रि नीला",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "मिनिमलिस्ट"
+      },
+      "frame": {
+        "clara": "हल्की लकड़ी",
+        "media": "मध्यम लकड़ी",
+        "negra": "काली लकड़ी",
+        "blanca": "सफ़ेद लकड़ी"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "सभी",
+        "Plantas": "पौधे",
+        "Luces": "रोशनी",
+        "Velas": "मोमबत्तियां",
+        "Marcos": "फ़्रेम",
+        "Objetos": "वस्तुएं"
+      },
+      "items": {
+        "light-warm": "गर्म रोशनी",
+        "light-string": "लड़ी रोशनी",
+        "plant-fern": "फ़र्न",
+        "plant-succulent": "सक्युलेंट"
+      },
+      "empty": "इस श्रेणी में अभी कोई सजावट नहीं है।",
+      "toolbarLabel": "उपलब्ध सजावट",
+      "addAria": "सजावट जोड़ें: {label}"
+    },
+    "item": {
+      "moveShelf": "शेल्फ़ ले जाएं: {type}",
+      "moveDecoration": "सजावट ले जाएं: {type}",
+      "pin": "पिन करें",
+      "unpin": "अनपिन करें",
+      "remove": "हटाएं",
+      "selectOrMoveBook": "\"{title}\" चुनें या ले जाएं",
+      "removeFromShelf": "शेल्फ़ से हटाएं"
+    }
   }
 }

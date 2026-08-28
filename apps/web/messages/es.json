@@ -62,5 +62,86 @@
     "open": "Abrir estantería",
     "settingsFor": "Configurar {name}",
     "pageTitle": "Tus estanterías — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Volver a estanterías",
+    "titlePrefix": "Estantería: {name}",
+    "loading": "Cargando estantería…",
+    "loadError": "No pudimos cargar esta estantería.",
+    "save": "Guardar cambios",
+    "saveStatus": {
+      "saving": "Guardando…",
+      "saved": "Guardado",
+      "error": "No se pudo guardar"
+    },
+    "delete": "Borrar estantería",
+    "deleteConfirm": "¿Borrar la estantería \"{name}\"? Los libros no se borran, solo se quitan de acá.",
+    "settings": {
+      "name": "Nombre",
+      "genre": "Género"
+    },
+    "bookPicker": {
+      "addBook": "+ Agregar libro",
+      "searchLabel": "Buscar en tu biblioteca",
+      "searchPlaceholder": "Título…",
+      "add": "Agregar",
+      "empty": "No hay libros para agregar.",
+      "close": "Cerrar"
+    },
+    "customization": {
+      "tabBackground": "Fondo",
+      "tabShelf": "Estantería",
+      "tabDecoration": "Decoración",
+      "chooseBackground": "Elige tu fondo",
+      "dragShelfHint": "Arrastrá una estantería al canvas para colocarla. Clic para cambiar el color de las que ya pusiste.",
+      "availableDecorations": "Decoraciones disponibles",
+      "useOnCanvas": "Usar en el canvas: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Crema",
+        "solid-rose": "Rosa viejo",
+        "solid-forest": "Verde bosque",
+        "solid-navy": "Azul noche",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalista"
+      },
+      "frame": {
+        "clara": "Madera clara",
+        "media": "Madera media",
+        "negra": "Madera negra",
+        "blanca": "Madera blanca"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Todo",
+        "Plantas": "Plantas",
+        "Luces": "Luces",
+        "Velas": "Velas",
+        "Marcos": "Marcos",
+        "Objetos": "Objetos"
+      },
+      "items": {
+        "light-warm": "Luz cálida",
+        "light-string": "Guirnalda de luces",
+        "plant-fern": "Helecho",
+        "plant-succulent": "Suculenta"
+      },
+      "empty": "Todavía no hay decoraciones en esta categoría.",
+      "toolbarLabel": "Decoraciones disponibles",
+      "addAria": "Agregar decoración: {label}"
+    },
+    "item": {
+      "moveShelf": "Mover estantería: {type}",
+      "moveDecoration": "Mover decoración: {type}",
+      "pin": "Fijar",
+      "unpin": "Desfijar",
+      "remove": "Quitar",
+      "selectOrMoveBook": "Seleccionar o mover \"{title}\"",
+      "removeFromShelf": "Quitar de la estantería"
+    }
   }
 }

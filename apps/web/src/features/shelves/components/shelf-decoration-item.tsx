@@ -4,6 +4,7 @@ import type { ShelfDecoration } from "@lumis/shared-types";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Lock, Unlock } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DEFAULT_DECORATION_SIZE, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
@@ -26,6 +27,7 @@ export function ShelfDecorationItem({
   onRemove,
   editMode,
 }: ShelfDecorationItemProps) {
+  const t = useTranslations("shelfEditor.item");
   const isLocked = decoration.locked ?? false;
 
   const { attributes, listeners, setNodeRef, transform, isDragging } =
@@ -95,7 +97,11 @@ export function ShelfDecorationItem({
         className={
           isShelfFrame ? "shelf-decoration-frame" : "shelf-decoration-item"
         }
-        aria-label={`Mover ${isShelfFrame ? "estantería" : "decoración"}: ${decoration.type}`}
+        aria-label={
+          isShelfFrame
+            ? t("moveShelf", { type: decoration.type })
+            : t("moveDecoration", { type: decoration.type })
+        }
         aria-pressed={isSelected}
       >
         {frameImage ? (
@@ -113,7 +119,7 @@ export function ShelfDecorationItem({
             <button
               type="button"
               className="shelf-item-action"
-              aria-label={isLocked ? "Desfijar" : "Fijar"}
+              aria-label={isLocked ? t("unpin") : t("pin")}
               onClick={(event) => {
                 event.stopPropagation();
                 toggleDecorationLock(decoration.id);
@@ -124,7 +130,7 @@ export function ShelfDecorationItem({
             <button
               type="button"
               className="shelf-item-action shelf-item-action-danger"
-              aria-label="Quitar"
+              aria-label={t("remove")}
               onClick={(event) => {
                 event.stopPropagation();
                 onRemove(decoration.id);

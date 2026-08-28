@@ -62,5 +62,86 @@
     "open": "Apri scaffale",
     "settingsFor": "Configura {name}",
     "pageTitle": "I tuoi scaffali — Lumis"
+  },
+  "shelfEditor": {
+    "back": "Torna agli scaffali",
+    "titlePrefix": "Scaffale: {name}",
+    "loading": "Caricamento scaffale…",
+    "loadError": "Non siamo riusciti a caricare questo scaffale.",
+    "save": "Salva modifiche",
+    "saveStatus": {
+      "saving": "Salvataggio…",
+      "saved": "Salvato",
+      "error": "Impossibile salvare"
+    },
+    "delete": "Elimina scaffale",
+    "deleteConfirm": "Eliminare lo scaffale \"{name}\"? I libri non vengono eliminati, solo rimossi da qui.",
+    "settings": {
+      "name": "Nome",
+      "genre": "Genere"
+    },
+    "bookPicker": {
+      "addBook": "+ Aggiungi libro",
+      "searchLabel": "Cerca nella tua libreria",
+      "searchPlaceholder": "Titolo…",
+      "add": "Aggiungi",
+      "empty": "Nessun libro da aggiungere.",
+      "close": "Chiudi"
+    },
+    "customization": {
+      "tabBackground": "Sfondo",
+      "tabShelf": "Scaffale",
+      "tabDecoration": "Decorazione",
+      "chooseBackground": "Scegli il tuo sfondo",
+      "dragShelfHint": "Trascina uno scaffale sul canvas per posizionarlo. Clicca per cambiare il colore di quelli già messi.",
+      "availableDecorations": "Decorazioni disponibili",
+      "useOnCanvas": "Usa sul canvas: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "Crema",
+        "solid-rose": "Rosa antico",
+        "solid-forest": "Verde foresta",
+        "solid-navy": "Blu notte",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "Minimalista"
+      },
+      "frame": {
+        "clara": "Legno chiaro",
+        "media": "Legno medio",
+        "negra": "Legno nero",
+        "blanca": "Legno bianco"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "Tutto",
+        "Plantas": "Piante",
+        "Luces": "Luci",
+        "Velas": "Candele",
+        "Marcos": "Cornici",
+        "Objetos": "Oggetti"
+      },
+      "items": {
+        "light-warm": "Luce calda",
+        "light-string": "Lucine",
+        "plant-fern": "Felce",
+        "plant-succulent": "Succulenta"
+      },
+      "empty": "Non ci sono ancora decorazioni in questa categoria.",
+      "toolbarLabel": "Decorazioni disponibili",
+      "addAria": "Aggiungi decorazione: {label}"
+    },
+    "item": {
+      "moveShelf": "Sposta scaffale: {type}",
+      "moveDecoration": "Sposta decorazione: {type}",
+      "pin": "Blocca",
+      "unpin": "Sblocca",
+      "remove": "Rimuovi",
+      "selectOrMoveBook": "Seleziona o sposta \"{title}\"",
+      "removeFromShelf": "Rimuovi dallo scaffale"
+    }
   }
 }

@@ -62,5 +62,86 @@
     "open": "책장 열기",
     "settingsFor": "{name} 설정",
     "pageTitle": "내 책장 — Lumis"
+  },
+  "shelfEditor": {
+    "back": "책장 목록으로 돌아가기",
+    "titlePrefix": "책장: {name}",
+    "loading": "책장을 불러오는 중…",
+    "loadError": "이 책장을 불러오지 못했습니다.",
+    "save": "변경사항 저장",
+    "saveStatus": {
+      "saving": "저장 중…",
+      "saved": "저장됨",
+      "error": "저장하지 못했습니다"
+    },
+    "delete": "책장 삭제",
+    "deleteConfirm": "\"{name}\" 책장을 삭제할까요? 책은 삭제되지 않고 여기서만 제거됩니다.",
+    "settings": {
+      "name": "이름",
+      "genre": "장르"
+    },
+    "bookPicker": {
+      "addBook": "+ 책 추가",
+      "searchLabel": "서재에서 검색",
+      "searchPlaceholder": "제목…",
+      "add": "추가",
+      "empty": "추가할 책이 없습니다.",
+      "close": "닫기"
+    },
+    "customization": {
+      "tabBackground": "배경",
+      "tabShelf": "책장",
+      "tabDecoration": "장식",
+      "chooseBackground": "배경을 선택하세요",
+      "dragShelfHint": "책장을 캔버스로 드래그해서 배치하세요. 이미 배치된 책장은 클릭해서 색을 바꿀 수 있습니다.",
+      "availableDecorations": "사용 가능한 장식",
+      "useOnCanvas": "캔버스에 사용: {label}"
+    },
+    "appearance": {
+      "background": {
+        "solid-cream": "크림색",
+        "solid-rose": "올드 로즈",
+        "solid-forest": "포레스트 그린",
+        "solid-navy": "나이트 블루",
+        "romantasy": "Romantasy",
+        "dark-academia": "Dark academia",
+        "dark-romance": "Dark romance",
+        "minimalista": "미니멀"
+      },
+      "frame": {
+        "clara": "밝은 나무",
+        "media": "중간 나무",
+        "negra": "검은 나무",
+        "blanca": "흰 나무"
+      }
+    },
+    "decoration": {
+      "categories": {
+        "Todo": "전체",
+        "Plantas": "식물",
+        "Luces": "조명",
+        "Velas": "양초",
+        "Marcos": "액자",
+        "Objetos": "소품"
+      },
+      "items": {
+        "light-warm": "따뜻한 조명",
+        "light-string": "전구 장식",
+        "plant-fern": "고사리",
+        "plant-succulent": "다육식물"
+      },
+      "empty": "이 카테고리에는 아직 장식이 없습니다.",
+      "toolbarLabel": "사용 가능한 장식",
+      "addAria": "장식 추가: {label}"
+    },
+    "item": {
+      "moveShelf": "책장 이동: {type}",
+      "moveDecoration": "장식 이동: {type}",
+      "pin": "고정",
+      "unpin": "고정 해제",
+      "remove": "제거",
+      "selectOrMoveBook": "\"{title}\" 선택 또는 이동",
+      "removeFromShelf": "책장에서 제거"
+    }
   }
 }
