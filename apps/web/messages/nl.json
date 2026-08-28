@@ -447,5 +447,104 @@
       "title": "11. Contact",
       "bodyBeforeEmail": "Voor vragen over deze Voorwaarden kun je ons schrijven op"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Privacybeleid — Lumis",
+    "heading": "Privacybeleid",
+    "updated": "Laatst bijgewerkt: 18 augustus 2026",
+    "intro": "Dit Privacybeleid beschrijft hoe Lumis je persoonlijke gegevens verzamelt, gebruikt, opslaat en beschermt, in overeenstemming met Wet nr. 25.326 inzake de Bescherming van Persoonsgegevens van de Argentijnse Republiek en de aanvullende regelgeving.",
+    "s1": {
+      "title": "1. Verwerkingsverantwoordelijke",
+      "bodyBeforeEmail": "De verwerkingsverantwoordelijke voor de via Lumis verzamelde persoonsgegevens is bereikbaar op"
+    },
+    "s2": {
+      "title": "2. Gegevens die we verzamelen",
+      "intro": "We verzamelen de volgende persoonsgegevens wanneer je Lumis gebruikt:",
+      "items": {
+        "account": {
+          "label": "Accountgegevens:",
+          "desc": "e-mailadres, weergavenaam en wachtwoord (versleuteld opgeslagen, nooit in platte tekst)."
+        },
+        "files": {
+          "label": "Geüploade bestanden:",
+          "desc": "de digitale boeken die je naar het Platform uploadt (PDF, EPUB, MOBI, CBR, CBZ, TXT) en de bijbehorende metadata (titel, auteur, omslag)."
+        },
+        "usage": {
+          "label": "Gebruiksgegevens:",
+          "desc": "leesvoortgang, markeringen, notities, recensies en de configuratie van je planken."
+        },
+        "prefs": {
+          "label": "Voorkeuren:",
+          "desc": "je themavoorkeur (licht/donker/systeem) en leesmodus."
+        },
+        "technical": {
+          "label": "Technische gegevens:",
+          "desc": "sessiecookies die strikt noodzakelijk zijn om je geïdentificeerd te houden (authenticatie) en om je themavoorkeur te onthouden."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Doel van de verwerking",
+      "intro": "We gebruiken je gegevens uitsluitend om:",
+      "items": {
+        "account": "Je account aan te maken en te beheren en je veilig te laten inloggen.",
+        "store": "Je boeken, planken, leesvoortgang, markeringen en notities op te slaan en te tonen.",
+        "prefs": "Je personalisatievoorkeuren (thema, leesmodus) te onthouden.",
+        "improve": "De werking van de Dienst te verbeteren en te onderhouden.",
+        "contact": "Met je te communiceren over vragen of problemen die je bij ons aankaart."
+      }
+    },
+    "s4": {
+      "title": "4. Geen verkoop of overdracht van gegevens aan derden",
+      "body": "Lumis verkoopt, verhuurt of verhandelt je persoonsgegevens of de inhoud van je bestanden niet aan derden. Je gegevens worden alleen gedeeld met infrastructuurleveranciers die strikt noodzakelijk zijn om de Dienst te exploiteren (bijvoorbeeld cloudopslag en databases), die optreden als verwerkers onder de instructies van Lumis en met passende garanties voor vertrouwelijkheid en beveiliging."
+    },
+    "s5": {
+      "title": "5. Cookies",
+      "body": "We gebruiken technische cookies die strikt noodzakelijk zijn voor de werking van de Dienst: een sessiecookie om je login actief te houden, en een cookie om je licht-/donkerthemavoorkeur te onthouden. We gebruiken geen advertentie- of trackingcookies van derden."
+    },
+    "s6": {
+      "title": "6. Gegevensbeveiliging",
+      "body": "We nemen redelijke technische en organisatorische maatregelen om je persoonsgegevens te beschermen tegen ongeoorloofde toegang, verlies of wijziging, waaronder privé-opslag van bestanden, versleutelde wachtwoorden en versleutelde communicatie (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Rechten van de betrokkene",
+      "intro": "Overeenkomstig Wet nr. 25.326 heb je het recht op:",
+      "items": {
+        "access": {
+          "label": "Inzage:",
+          "desc": "informatie opvragen over welke persoonsgegevens van jou we verwerken."
+        },
+        "rectification": {
+          "label": "Rectificatie:",
+          "desc": "correctie vragen van onjuiste of verouderde gegevens."
+        },
+        "cancellation": {
+          "label": "Annulering/Verwijdering:",
+          "desc": "verwijdering vragen van je gegevens en account, inclusief bestanden die je hebt geüpload."
+        },
+        "opposition": {
+          "label": "Bezwaar:",
+          "desc": "bezwaar maken tegen de verwerking van je gegevens in de door de wet voorziene gevallen."
+        }
+      },
+      "exerciseBeforeEmail": "Je kunt deze rechten op elk moment uitoefenen door ons te schrijven op",
+      "exerciseAfterEmail": ". Het Agentschap voor Toegang tot Publieke Informatie, als Controleorgaan van Wet nr. 25.326, is bevoegd om klachten en claims met betrekking tot niet-naleving van de regels inzake gegevensbescherming te behandelen."
+    },
+    "s8": {
+      "title": "8. Bewaring van gegevens",
+      "body": "We bewaren je persoonsgegevens zolang je account actief blijft. Als je verzoekt om verwijdering van je account, worden je gegevens en bestanden binnen een redelijke termijn uit onze systemen verwijderd, tenzij er een wettelijke verplichting bestaat om ze langer te bewaren."
+    },
+    "s9": {
+      "title": "9. Minderjarigen",
+      "body": "Lumis is niet gericht op kinderen jonger dan 13 jaar. Als we ontdekken dat we gegevens van een minderjarige hebben verzameld zonder passende toestemming, nemen we de nodige stappen om deze te verwijderen."
+    },
+    "s10": {
+      "title": "10. Wijzigingen in dit beleid",
+      "body": "We kunnen dit Privacybeleid periodiek bijwerken. Belangrijke wijzigingen worden gecommuniceerd via het Platform."
+    },
+    "s11": {
+      "title": "11. Contact",
+      "bodyBeforeEmail": "Voor vragen over dit Privacybeleid of om je rechten uit te oefenen, schrijf ons op"
+    }
   }
 }

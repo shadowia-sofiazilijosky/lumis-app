@@ -447,5 +447,104 @@
       "title": "11. Kontak",
       "bodyBeforeEmail": "Untuk pertanyaan apa pun tentang Ketentuan ini, kamu dapat menghubungi kami di"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Kebijakan privasi — Lumis",
+    "heading": "Kebijakan Privasi",
+    "updated": "Pembaruan terakhir: 18 Agustus 2026",
+    "intro": "Kebijakan Privasi ini menjelaskan bagaimana Lumis mengumpulkan, menggunakan, menyimpan, dan melindungi data pribadimu, sesuai dengan Undang-Undang No. 25.326 tentang Perlindungan Data Pribadi Republik Argentina dan peraturan pelengkapnya.",
+    "s1": {
+      "title": "1. Pengendali data",
+      "bodyBeforeEmail": "Pihak yang bertanggung jawab atas pemrosesan data pribadi yang dikumpulkan melalui Lumis dapat dihubungi di"
+    },
+    "s2": {
+      "title": "2. Data yang kami kumpulkan",
+      "intro": "Kami mengumpulkan data pribadi berikut saat kamu menggunakan Lumis:",
+      "items": {
+        "account": {
+          "label": "Data akun:",
+          "desc": "alamat email, nama tampilan, dan kata sandi (disimpan terenkripsi, tidak pernah dalam teks biasa)."
+        },
+        "files": {
+          "label": "Berkas yang diunggah:",
+          "desc": "buku digital yang kamu unggah ke Platform (PDF, EPUB, MOBI, CBR, CBZ, TXT) dan metadata terkait (judul, penulis, sampul)."
+        },
+        "usage": {
+          "label": "Data penggunaan:",
+          "desc": "progres membaca, sorotan, catatan, ulasan, dan konfigurasi rakmu."
+        },
+        "prefs": {
+          "label": "Preferensi:",
+          "desc": "preferensi temamu (terang/gelap/sistem) dan mode membaca."
+        },
+        "technical": {
+          "label": "Data teknis:",
+          "desc": "cookie sesi yang benar-benar diperlukan untuk menjagamu tetap teridentifikasi (autentikasi) dan mengingat preferensi temamu."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Tujuan pemrosesan",
+      "intro": "Kami menggunakan datamu secara eksklusif untuk:",
+      "items": {
+        "account": "Membuat dan mengelola akunmu serta memungkinkanmu masuk dengan aman.",
+        "store": "Menyimpan dan menampilkan buku, rak, progres membaca, sorotan, dan catatanmu.",
+        "prefs": "Mengingat preferensi kustomisasimu (tema, mode membaca).",
+        "improve": "Meningkatkan dan memelihara pengoperasian Layanan.",
+        "contact": "Berkomunikasi denganmu terkait pertanyaan atau masalah yang kamu sampaikan kepada kami."
+      }
+    },
+    "s4": {
+      "title": "4. Tidak menjual atau mengalihkan data ke pihak ketiga",
+      "body": "Lumis tidak menjual, menyewakan, atau memperdagangkan data pribadimu atau isi berkasmu kepada pihak ketiga. Datamu hanya dibagikan dengan penyedia infrastruktur yang benar-benar diperlukan untuk mengoperasikan Layanan (misalnya, penyimpanan cloud dan basis data), yang bertindak sebagai pemroses data di bawah instruksi Lumis dan dengan jaminan kerahasiaan dan keamanan yang sesuai."
+    },
+    "s5": {
+      "title": "5. Cookie",
+      "body": "Kami menggunakan cookie teknis yang benar-benar diperlukan untuk pengoperasian Layanan: cookie sesi untuk menjaga status masukmu tetap aktif, dan cookie untuk mengingat preferensi tema terang/gelapmu. Kami tidak menggunakan cookie iklan atau pelacakan pihak ketiga."
+    },
+    "s6": {
+      "title": "6. Keamanan data",
+      "body": "Kami menerapkan langkah-langkah teknis dan organisasi yang wajar untuk melindungi data pribadimu dari akses tidak sah, kehilangan, atau perubahan, termasuk penyimpanan berkas pribadi, kata sandi terenkripsi, dan komunikasi terenkripsi (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Hak subjek data",
+      "intro": "Sesuai dengan Undang-Undang No. 25.326, kamu berhak untuk:",
+      "items": {
+        "access": {
+          "label": "Akses:",
+          "desc": "meminta informasi tentang data pribadi apa milikmu yang kami proses."
+        },
+        "rectification": {
+          "label": "Perbaikan:",
+          "desc": "meminta koreksi data yang tidak akurat atau usang."
+        },
+        "cancellation": {
+          "label": "Pembatalan/Penghapusan:",
+          "desc": "meminta penghapusan data dan akunmu, termasuk berkas yang telah kamu unggah."
+        },
+        "opposition": {
+          "label": "Keberatan:",
+          "desc": "menolak pemrosesan datamu dalam kasus yang diatur oleh undang-undang."
+        }
+      },
+      "exerciseBeforeEmail": "Kamu dapat menggunakan hak-hak ini kapan saja dengan menulis kepada kami di",
+      "exerciseAfterEmail": ". Badan Akses Informasi Publik, sebagai Badan Pengawas Undang-Undang No. 25.326, memiliki kewenangan untuk menangani pengaduan dan tuntutan yang diajukan terkait ketidakpatuhan terhadap aturan perlindungan data pribadi."
+    },
+    "s8": {
+      "title": "8. Penyimpanan data",
+      "body": "Kami menyimpan data pribadimu selama akunmu tetap aktif. Jika kamu meminta penghapusan akun, data dan berkasmu akan dihapus dari sistem kami dalam jangka waktu yang wajar, kecuali ada kewajiban hukum untuk menyimpannya lebih lama."
+    },
+    "s9": {
+      "title": "9. Anak di bawah umur",
+      "body": "Lumis tidak ditujukan untuk anak-anak di bawah 13 tahun. Jika kami mengetahui bahwa kami telah mengumpulkan data anak di bawah umur tanpa persetujuan yang sesuai, kami akan mengambil langkah yang diperlukan untuk menghapusnya."
+    },
+    "s10": {
+      "title": "10. Perubahan pada kebijakan ini",
+      "body": "Kami dapat memperbarui Kebijakan Privasi ini secara berkala. Perubahan signifikan akan dikomunikasikan melalui Platform."
+    },
+    "s11": {
+      "title": "11. Kontak",
+      "bodyBeforeEmail": "Untuk pertanyaan tentang Kebijakan Privasi ini atau untuk menggunakan hakmu, tulis kepada kami di"
+    }
   }
 }

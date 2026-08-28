@@ -447,5 +447,104 @@
       "title": "11. İletişim",
       "bodyBeforeEmail": "Bu Şartlarla ilgili herhangi bir sorun için bize şu adresten yazabilirsin:"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Gizlilik politikası — Lumis",
+    "heading": "Gizlilik Politikası",
+    "updated": "Son güncelleme: 18 Ağustos 2026",
+    "intro": "Bu Gizlilik Politikası, Lumis'in kişisel verilerini Arjantin Cumhuriyeti'nin 25.326 sayılı Kişisel Verilerin Korunması Kanunu ve tamamlayıcı düzenlemelerine uygun olarak nasıl topladığını, kullandığını, sakladığını ve koruduğunu açıklar.",
+    "s1": {
+      "title": "1. Veri sorumlusu",
+      "bodyBeforeEmail": "Lumis aracılığıyla toplanan kişisel verilerin işlenmesinden sorumlu tarafla şu adresten iletişime geçilebilir:"
+    },
+    "s2": {
+      "title": "2. Topladığımız veriler",
+      "intro": "Lumis'i kullandığında aşağıdaki kişisel verileri topluyoruz:",
+      "items": {
+        "account": {
+          "label": "Hesap verileri:",
+          "desc": "e-posta adresi, görünen ad ve şifre (şifrelenmiş olarak saklanır, asla düz metin olarak değil)."
+        },
+        "files": {
+          "label": "Yüklenen dosyalar:",
+          "desc": "Platforma yüklediğin dijital kitaplar (PDF, EPUB, MOBI, CBR, CBZ, TXT) ve bunlarla ilişkili meta veriler (başlık, yazar, kapak)."
+        },
+        "usage": {
+          "label": "Kullanım verileri:",
+          "desc": "okuma ilerlemesi, vurgular, notlar, yorumlar ve raflarının yapılandırması."
+        },
+        "prefs": {
+          "label": "Tercihler:",
+          "desc": "tema tercihin (açık/koyu/sistem) ve okuma modun."
+        },
+        "technical": {
+          "label": "Teknik veriler:",
+          "desc": "seni tanımlı tutmak (kimlik doğrulama) ve tema tercihini hatırlamak için kesinlikle gerekli oturum çerezleri."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. İşlemenin amacı",
+      "intro": "Verilerini yalnızca şunlar için kullanıyoruz:",
+      "items": {
+        "account": "Hesabını oluşturmak ve yönetmek, güvenli bir şekilde giriş yapmana olanak tanımak.",
+        "store": "Kitaplarını, raflarını, okuma ilerlemeni, vurgularını ve notlarını saklamak ve göstermek.",
+        "prefs": "Kişiselleştirme tercihlerini (tema, okuma modu) hatırlamak.",
+        "improve": "Hizmetin işleyişini iyileştirmek ve sürdürmek.",
+        "contact": "Bize ilettiğin sorular veya sorunlarla ilgili seninle iletişim kurmak."
+      }
+    },
+    "s4": {
+      "title": "4. Verilerin üçüncü taraflara satılmaması veya devredilmemesi",
+      "body": "Lumis, kişisel verilerini veya dosyalarının içeriğini üçüncü taraflara satmaz, kiralamaz veya ticaretini yapmaz. Verilerin yalnızca Hizmeti işletmek için kesinlikle gerekli altyapı sağlayıcılarıyla (örneğin, bulut depolama ve veritabanı) paylaşılır; bunlar Lumis'in talimatları doğrultusunda ve uygun gizlilik ve güvenlik garantileriyle veri işleyicisi olarak hareket eder."
+    },
+    "s5": {
+      "title": "5. Çerezler",
+      "body": "Hizmetin işleyişi için kesinlikle gerekli teknik çerezler kullanıyoruz: giriş oturumunu aktif tutmak için bir oturum çerezi ve açık/koyu tema tercihini hatırlamak için bir çerez. Reklam veya üçüncü taraf izleme çerezleri kullanmıyoruz."
+    },
+    "s6": {
+      "title": "6. Veri güvenliği",
+      "body": "Özel dosya depolama, şifrelenmiş şifreler ve şifreli iletişim (HTTPS) dahil olmak üzere, kişisel verilerini yetkisiz erişime, kayba veya değişikliğe karşı korumak için makul teknik ve organizasyonel önlemler alıyoruz."
+    },
+    "s7": {
+      "title": "7. Veri sahibinin hakları",
+      "intro": "25.326 sayılı Kanun uyarınca, şu haklara sahipsin:",
+      "items": {
+        "access": {
+          "label": "Erişim:",
+          "desc": "hakkında hangi kişisel verileri işlediğimiz konusunda bilgi talep etme hakkı."
+        },
+        "rectification": {
+          "label": "Düzeltme:",
+          "desc": "yanlış veya güncel olmayan verilerin düzeltilmesini talep etme hakkı."
+        },
+        "cancellation": {
+          "label": "İptal/Silme:",
+          "desc": "yüklediğin dosyalar dahil, verilerinin ve hesabının silinmesini talep etme hakkı."
+        },
+        "opposition": {
+          "label": "İtiraz:",
+          "desc": "kanunun öngördüğü durumlarda verilerinin işlenmesine itiraz etme hakkı."
+        }
+      },
+      "exerciseBeforeEmail": "Bu hakları istediğin zaman bize şu adresten yazarak kullanabilirsin:",
+      "exerciseAfterEmail": ". Kamu Bilgiye Erişim Kurumu, 25.326 sayılı Kanunun Denetim Organı sıfatıyla, kişisel verilerin korunmasına ilişkin kurallara uyulmamasıyla ilgili yapılan şikayet ve talepleri ele alma yetkisine sahiptir."
+    },
+    "s8": {
+      "title": "8. Verilerin saklanması",
+      "body": "Hesabın aktif olduğu sürece kişisel verilerini saklarız. Hesabının silinmesini talep edersen, verilerin ve dosyaların, daha uzun süre saklanmasını gerektiren yasal bir yükümlülük olmadığı sürece, makul bir süre içinde sistemlerimizden kaldırılır."
+    },
+    "s9": {
+      "title": "9. Reşit olmayanlar",
+      "body": "Lumis, 13 yaşından küçük çocuklara yönelik değildir. Uygun onay olmadan bir reşit olmayanın verilerini topladığımızı fark edersek, bunları silmek için gerekli adımları atarız."
+    },
+    "s10": {
+      "title": "10. Bu politikadaki değişiklikler",
+      "body": "Bu Gizlilik Politikasını periyodik olarak güncelleyebiliriz. Önemli değişiklikler Platform aracılığıyla iletilecektir."
+    },
+    "s11": {
+      "title": "11. İletişim",
+      "bodyBeforeEmail": "Bu Gizlilik Politikası hakkında herhangi bir soru için veya haklarını kullanmak için bize şu adresten yazabilirsin:"
+    }
   }
 }

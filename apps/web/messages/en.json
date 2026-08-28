@@ -447,5 +447,104 @@
       "title": "11. Contact",
       "bodyBeforeEmail": "For any questions about these Terms, you can write to us at"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Privacy policy — Lumis",
+    "heading": "Privacy Policy",
+    "updated": "Last updated: August 18, 2026",
+    "intro": "This Privacy Policy describes how Lumis collects, uses, stores and protects your personal data, in compliance with Argentina's Personal Data Protection Law No. 25,326 and its supplementary regulations.",
+    "s1": {
+      "title": "1. Data controller",
+      "bodyBeforeEmail": "The party responsible for processing personal data collected through Lumis can be contacted at"
+    },
+    "s2": {
+      "title": "2. Data we collect",
+      "intro": "We collect the following personal data when you use Lumis:",
+      "items": {
+        "account": {
+          "label": "Account data:",
+          "desc": "email address, display name, and password (stored encrypted, never in plain text)."
+        },
+        "files": {
+          "label": "Uploaded files:",
+          "desc": "the digital books you upload to the Platform (PDF, EPUB, MOBI, CBR, CBZ, TXT) and their associated metadata (title, author, cover)."
+        },
+        "usage": {
+          "label": "Usage data:",
+          "desc": "reading progress, highlights, notes, reviews, and your shelf configuration."
+        },
+        "prefs": {
+          "label": "Preferences:",
+          "desc": "your theme preference (light/dark/system) and reading mode."
+        },
+        "technical": {
+          "label": "Technical data:",
+          "desc": "session cookies strictly necessary to keep you identified (authentication) and to remember your theme preference."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Purpose of processing",
+      "intro": "We use your data exclusively to:",
+      "items": {
+        "account": "Create and manage your account and let you log in securely.",
+        "store": "Store and show you your books, shelves, reading progress, highlights and notes.",
+        "prefs": "Remember your customization preferences (theme, reading mode).",
+        "improve": "Improve and maintain the Service's operation.",
+        "contact": "Communicate with you regarding questions or issues you raise with us."
+      }
+    },
+    "s4": {
+      "title": "4. No sale or transfer of data to third parties",
+      "body": "Lumis does not sell, rent or trade your personal data or the content of your files to third parties. Your data is only shared with infrastructure providers strictly necessary to operate the Service (e.g., cloud storage and databases), who act as data processors under Lumis's instructions and with appropriate confidentiality and security guarantees."
+    },
+    "s5": {
+      "title": "5. Cookies",
+      "body": "We use technical cookies strictly necessary for the Service to function: a session cookie to keep you logged in, and a cookie to remember your light/dark theme preference. We do not use advertising or third-party tracking cookies."
+    },
+    "s6": {
+      "title": "6. Data security",
+      "body": "We adopt reasonable technical and organizational measures to protect your personal data against unauthorized access, loss or alteration, including private file storage, encrypted passwords, and encrypted communication (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Data subject rights (Access, Rectification, Cancellation, Opposition)",
+      "intro": "Under Law No. 25,326, you have the right to:",
+      "items": {
+        "access": {
+          "label": "Access:",
+          "desc": "request information about what personal data of yours we process."
+        },
+        "rectification": {
+          "label": "Rectification:",
+          "desc": "request correction of inaccurate or outdated data."
+        },
+        "cancellation": {
+          "label": "Cancellation/Deletion:",
+          "desc": "request deletion of your data and account, including any files you've uploaded."
+        },
+        "opposition": {
+          "label": "Opposition:",
+          "desc": "object to the processing of your data in the cases provided for by law."
+        }
+      },
+      "exerciseBeforeEmail": "You can exercise these rights at any time by writing to us at",
+      "exerciseAfterEmail": ". The Agency for Access to Public Information, as the Control Body for Law No. 25,326, is empowered to address complaints and claims filed regarding non-compliance with personal data protection regulations."
+    },
+    "s8": {
+      "title": "8. Data retention",
+      "body": "We retain your personal data for as long as you keep your account active. If you request account deletion, your data and files will be removed from our systems within a reasonable period, unless there is a legal obligation to retain them longer."
+    },
+    "s9": {
+      "title": "9. Minors",
+      "body": "Lumis is not directed at children under 13. If we become aware that we have collected data from a minor without appropriate consent, we will take the necessary steps to delete it."
+    },
+    "s10": {
+      "title": "10. Changes to this policy",
+      "body": "We may update this Privacy Policy periodically. Significant changes will be communicated through the Platform."
+    },
+    "s11": {
+      "title": "11. Contact",
+      "bodyBeforeEmail": "For questions about this Privacy Policy or to exercise your rights, write to us at"
+    }
   }
 }

@@ -447,5 +447,104 @@
       "title": "11. Contact",
       "bodyBeforeEmail": "Pour toute question concernant ces Conditions, tu peux nous écrire à"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Politique de confidentialité — Lumis",
+    "heading": "Politique de Confidentialité",
+    "updated": "Dernière mise à jour : 18 août 2026",
+    "intro": "Cette Politique de Confidentialité décrit comment Lumis collecte, utilise, stocke et protège tes données personnelles, conformément à la loi n° 25.326 sur la protection des données personnelles de la République Argentine et à ses règlements complémentaires.",
+    "s1": {
+      "title": "1. Responsable du traitement",
+      "bodyBeforeEmail": "Le responsable du traitement des données personnelles collectées via Lumis peut être contacté à"
+    },
+    "s2": {
+      "title": "2. Données que nous collectons",
+      "intro": "Nous collectons les données personnelles suivantes lorsque tu utilises Lumis :",
+      "items": {
+        "account": {
+          "label": "Données de compte :",
+          "desc": "adresse e-mail, nom d'affichage et mot de passe (stocké de manière chiffrée, jamais en texte clair)."
+        },
+        "files": {
+          "label": "Fichiers téléversés :",
+          "desc": "les livres numériques que tu téléverses sur la Plateforme (PDF, EPUB, MOBI, CBR, CBZ, TXT) et leurs métadonnées associées (titre, auteur, couverture)."
+        },
+        "usage": {
+          "label": "Données d'utilisation :",
+          "desc": "progression de lecture, surlignages, notes, critiques et configuration de tes étagères."
+        },
+        "prefs": {
+          "label": "Préférences :",
+          "desc": "ta préférence de thème (clair/sombre/système) et de mode de lecture."
+        },
+        "technical": {
+          "label": "Données techniques :",
+          "desc": "cookies de session strictement nécessaires pour te maintenir identifié(e) (authentification) et pour mémoriser ta préférence de thème."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Finalité du traitement",
+      "intro": "Nous utilisons tes données exclusivement pour :",
+      "items": {
+        "account": "Créer et gérer ton compte et te permettre de te connecter en toute sécurité.",
+        "store": "Stocker et t'afficher tes livres, étagères, progression de lecture, surlignages et notes.",
+        "prefs": "Mémoriser tes préférences de personnalisation (thème, mode de lecture).",
+        "improve": "Améliorer et maintenir le fonctionnement du Service.",
+        "contact": "Communiquer avec toi en cas de questions ou d'incidents que tu nous soumets."
+      }
+    },
+    "s4": {
+      "title": "4. Aucune vente ni cession de données à des tiers",
+      "body": "Lumis ne vend, ne loue ni ne commercialise tes données personnelles ni le contenu de tes fichiers à des tiers. Tes données ne sont partagées qu'avec des fournisseurs d'infrastructure strictement nécessaires pour exploiter le Service (par exemple, stockage cloud et base de données), qui agissent en tant que sous-traitants sous les instructions de Lumis et avec les garanties appropriées de confidentialité et de sécurité."
+    },
+    "s5": {
+      "title": "5. Cookies",
+      "body": "Nous utilisons des cookies techniques strictement nécessaires au fonctionnement du Service : un cookie de session pour maintenir ta connexion active, et un cookie pour mémoriser ta préférence de thème clair/sombre. Nous n'utilisons pas de cookies publicitaires ni de suivi tiers."
+    },
+    "s6": {
+      "title": "6. Sécurité des données",
+      "body": "Nous adoptons des mesures techniques et organisationnelles raisonnables pour protéger tes données personnelles contre l'accès non autorisé, la perte ou l'altération, y compris le stockage privé des fichiers, des mots de passe chiffrés et une communication chiffrée (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Droits du titulaire des données",
+      "intro": "Conformément à la loi n° 25.326, tu as le droit de :",
+      "items": {
+        "access": {
+          "label": "Accès :",
+          "desc": "demander des informations sur les données personnelles te concernant que nous traitons."
+        },
+        "rectification": {
+          "label": "Rectification :",
+          "desc": "demander la correction de données inexactes ou obsolètes."
+        },
+        "cancellation": {
+          "label": "Annulation/Suppression :",
+          "desc": "demander la suppression de tes données et de ton compte, y compris les fichiers que tu as téléversés."
+        },
+        "opposition": {
+          "label": "Opposition :",
+          "desc": "t'opposer au traitement de tes données dans les cas prévus par la loi."
+        }
+      },
+      "exerciseBeforeEmail": "Tu peux exercer ces droits à tout moment en nous écrivant à",
+      "exerciseAfterEmail": ". L'Agence d'Accès à l'Information Publique, en tant qu'Organe de Contrôle de la loi n° 25.326, a le pouvoir de traiter les plaintes et réclamations déposées concernant le non-respect des règles de protection des données personnelles."
+    },
+    "s8": {
+      "title": "8. Conservation des données",
+      "body": "Nous conservons tes données personnelles tant que ton compte reste actif. Si tu demandes la suppression de ton compte, tes données et fichiers seront supprimés de nos systèmes dans un délai raisonnable, sauf obligation légale de les conserver plus longtemps."
+    },
+    "s9": {
+      "title": "9. Mineurs",
+      "body": "Lumis ne s'adresse pas aux mineurs de moins de 13 ans. Si nous prenons connaissance du fait que nous avons collecté des données d'un mineur sans le consentement approprié, nous prendrons les mesures nécessaires pour les supprimer."
+    },
+    "s10": {
+      "title": "10. Modifications de cette politique",
+      "body": "Nous pouvons mettre à jour cette Politique de Confidentialité périodiquement. Les changements importants seront communiqués via la Plateforme."
+    },
+    "s11": {
+      "title": "11. Contact",
+      "bodyBeforeEmail": "Pour toute question sur cette Politique de Confidentialité ou pour exercer tes droits, écris-nous à"
+    }
   }
 }

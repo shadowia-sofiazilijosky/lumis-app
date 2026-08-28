@@ -447,5 +447,104 @@
       "title": "11. Liên hệ",
       "bodyBeforeEmail": "Nếu có bất kỳ thắc mắc nào về các Điều Khoản này, bạn có thể viết thư cho chúng tôi tại"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Chính sách bảo mật — Lumis",
+    "heading": "Chính Sách Bảo Mật",
+    "updated": "Cập nhật lần cuối: 18 tháng 8 năm 2026",
+    "intro": "Chính Sách Bảo Mật này mô tả cách Lumis thu thập, sử dụng, lưu trữ và bảo vệ dữ liệu cá nhân của bạn, tuân thủ Luật Bảo Vệ Dữ Liệu Cá Nhân số 25.326 của Cộng hòa Argentina và các quy định bổ sung.",
+    "s1": {
+      "title": "1. Bên chịu trách nhiệm xử lý",
+      "bodyBeforeEmail": "Bên chịu trách nhiệm xử lý dữ liệu cá nhân được thu thập thông qua Lumis có thể được liên hệ tại"
+    },
+    "s2": {
+      "title": "2. Dữ liệu chúng tôi thu thập",
+      "intro": "Chúng tôi thu thập các dữ liệu cá nhân sau khi bạn sử dụng Lumis:",
+      "items": {
+        "account": {
+          "label": "Dữ liệu tài khoản:",
+          "desc": "địa chỉ email, tên hiển thị và mật khẩu (được lưu trữ dưới dạng mã hóa, không bao giờ ở dạng văn bản thuần túy)."
+        },
+        "files": {
+          "label": "Tệp đã tải lên:",
+          "desc": "các cuốn sách điện tử bạn tải lên Nền Tảng (PDF, EPUB, MOBI, CBR, CBZ, TXT) và siêu dữ liệu liên quan (tên, tác giả, bìa)."
+        },
+        "usage": {
+          "label": "Dữ liệu sử dụng:",
+          "desc": "tiến trình đọc, phần tô sáng, ghi chú, đánh giá và cấu hình kệ sách của bạn."
+        },
+        "prefs": {
+          "label": "Tùy chọn:",
+          "desc": "tùy chọn giao diện của bạn (sáng/tối/hệ thống) và chế độ đọc."
+        },
+        "technical": {
+          "label": "Dữ liệu kỹ thuật:",
+          "desc": "cookie phiên hoàn toàn cần thiết để giữ bạn được xác định (xác thực) và ghi nhớ tùy chọn giao diện của bạn."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Mục đích xử lý",
+      "intro": "Chúng tôi chỉ sử dụng dữ liệu của bạn để:",
+      "items": {
+        "account": "Tạo và quản lý tài khoản của bạn và cho phép bạn đăng nhập an toàn.",
+        "store": "Lưu trữ và hiển thị sách, kệ sách, tiến trình đọc, phần tô sáng và ghi chú của bạn.",
+        "prefs": "Ghi nhớ các tùy chọn cá nhân hóa của bạn (giao diện, chế độ đọc).",
+        "improve": "Cải thiện và duy trì hoạt động của Dịch Vụ.",
+        "contact": "Liên hệ với bạn về các thắc mắc hoặc sự cố bạn đã báo cho chúng tôi."
+      }
+    },
+    "s4": {
+      "title": "4. Không bán hoặc chuyển giao dữ liệu cho bên thứ ba",
+      "body": "Lumis không bán, cho thuê hay mua bán dữ liệu cá nhân hoặc nội dung tệp của bạn cho bên thứ ba. Dữ liệu của bạn chỉ được chia sẻ với các nhà cung cấp hạ tầng hoàn toàn cần thiết để vận hành Dịch Vụ (ví dụ: lưu trữ đám mây và cơ sở dữ liệu), những bên hoạt động như bên xử lý dữ liệu theo hướng dẫn của Lumis và với các đảm bảo bảo mật và an ninh thích hợp."
+    },
+    "s5": {
+      "title": "5. Cookie",
+      "body": "Chúng tôi sử dụng cookie kỹ thuật hoàn toàn cần thiết cho hoạt động của Dịch Vụ: một cookie phiên để duy trì trạng thái đăng nhập của bạn, và một cookie để ghi nhớ tùy chọn giao diện sáng/tối của bạn. Chúng tôi không sử dụng cookie quảng cáo hoặc theo dõi của bên thứ ba."
+    },
+    "s6": {
+      "title": "6. Bảo mật dữ liệu",
+      "body": "Chúng tôi áp dụng các biện pháp kỹ thuật và tổ chức hợp lý để bảo vệ dữ liệu cá nhân của bạn khỏi truy cập trái phép, mất mát hoặc thay đổi, bao gồm lưu trữ tệp riêng tư, mật khẩu được mã hóa và giao tiếp được mã hóa (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Quyền của chủ thể dữ liệu",
+      "intro": "Theo Luật số 25.326, bạn có quyền:",
+      "items": {
+        "access": {
+          "label": "Truy cập:",
+          "desc": "yêu cầu thông tin về dữ liệu cá nhân nào của bạn mà chúng tôi xử lý."
+        },
+        "rectification": {
+          "label": "Chỉnh sửa:",
+          "desc": "yêu cầu sửa dữ liệu không chính xác hoặc lỗi thời."
+        },
+        "cancellation": {
+          "label": "Hủy/Xóa:",
+          "desc": "yêu cầu xóa dữ liệu và tài khoản của bạn, bao gồm các tệp bạn đã tải lên."
+        },
+        "opposition": {
+          "label": "Phản đối:",
+          "desc": "phản đối việc xử lý dữ liệu của bạn trong các trường hợp pháp luật quy định."
+        }
+      },
+      "exerciseBeforeEmail": "Bạn có thể thực hiện các quyền này bất cứ lúc nào bằng cách viết thư cho chúng tôi tại",
+      "exerciseAfterEmail": ". Cơ quan Tiếp cận Thông tin Công, với tư cách là Cơ quan Kiểm soát của Luật số 25.326, có thẩm quyền xử lý các khiếu nại và yêu cầu liên quan đến việc không tuân thủ các quy định về bảo vệ dữ liệu cá nhân."
+    },
+    "s8": {
+      "title": "8. Lưu giữ dữ liệu",
+      "body": "Chúng tôi lưu giữ dữ liệu cá nhân của bạn trong khi tài khoản của bạn vẫn hoạt động. Nếu bạn yêu cầu xóa tài khoản, dữ liệu và tệp của bạn sẽ bị xóa khỏi hệ thống của chúng tôi trong một khoảng thời gian hợp lý, trừ khi có nghĩa vụ pháp lý phải lưu giữ chúng lâu hơn."
+    },
+    "s9": {
+      "title": "9. Trẻ vị thành niên",
+      "body": "Lumis không hướng đến trẻ em dưới 13 tuổi. Nếu chúng tôi biết rằng đã thu thập dữ liệu của trẻ vị thành niên mà không có sự đồng ý phù hợp, chúng tôi sẽ thực hiện các biện pháp cần thiết để xóa chúng."
+    },
+    "s10": {
+      "title": "10. Thay đổi đối với chính sách này",
+      "body": "Chúng tôi có thể cập nhật Chính Sách Bảo Mật này định kỳ. Các thay đổi quan trọng sẽ được thông báo qua Nền Tảng."
+    },
+    "s11": {
+      "title": "11. Liên hệ",
+      "bodyBeforeEmail": "Nếu có bất kỳ thắc mắc nào về Chính Sách Bảo Mật này hoặc để thực hiện quyền của bạn, hãy viết thư cho chúng tôi tại"
+    }
   }
 }

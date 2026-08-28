@@ -447,5 +447,104 @@
       "title": "11. Kontakt",
       "bodyBeforeEmail": "Bei Fragen zu diesen Bedingungen kannst du uns schreiben an"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Datenschutzrichtlinie — Lumis",
+    "heading": "Datenschutzrichtlinie",
+    "updated": "Letzte Aktualisierung: 18. August 2026",
+    "intro": "Diese Datenschutzrichtlinie beschreibt, wie Lumis deine personenbezogenen Daten in Übereinstimmung mit dem argentinischen Datenschutzgesetz Nr. 25.326 und seinen ergänzenden Vorschriften erhebt, verwendet, speichert und schützt.",
+    "s1": {
+      "title": "1. Verantwortlicher für die Verarbeitung",
+      "bodyBeforeEmail": "Der Verantwortliche für die Verarbeitung der über Lumis erhobenen personenbezogenen Daten ist erreichbar unter"
+    },
+    "s2": {
+      "title": "2. Von uns erhobene Daten",
+      "intro": "Wir erheben folgende personenbezogene Daten, wenn du Lumis nutzt:",
+      "items": {
+        "account": {
+          "label": "Kontodaten:",
+          "desc": "E-Mail-Adresse, Anzeigename und Passwort (verschlüsselt gespeichert, niemals im Klartext)."
+        },
+        "files": {
+          "label": "Hochgeladene Dateien:",
+          "desc": "die digitalen Bücher, die du auf die Plattform hochlädst (PDF, EPUB, MOBI, CBR, CBZ, TXT), und die zugehörigen Metadaten (Titel, Autor, Cover)."
+        },
+        "usage": {
+          "label": "Nutzungsdaten:",
+          "desc": "Lesefortschritt, Markierungen, Notizen, Rezensionen und die Konfiguration deiner Regale."
+        },
+        "prefs": {
+          "label": "Präferenzen:",
+          "desc": "deine Theme-Präferenz (hell/dunkel/System) und deinen Lesemodus."
+        },
+        "technical": {
+          "label": "Technische Daten:",
+          "desc": "Sitzungscookies, die zwingend erforderlich sind, um dich identifiziert zu halten (Authentifizierung) und um deine Theme-Präferenz zu speichern."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Zweck der Verarbeitung",
+      "intro": "Wir verwenden deine Daten ausschließlich, um:",
+      "items": {
+        "account": "Dein Konto zu erstellen und zu verwalten und dir eine sichere Anmeldung zu ermöglichen.",
+        "store": "Deine Bücher, Regale, deinen Lesefortschritt, Markierungen und Notizen zu speichern und anzuzeigen.",
+        "prefs": "Deine Personalisierungspräferenzen (Theme, Lesemodus) zu speichern.",
+        "improve": "Den Betrieb des Dienstes zu verbessern und aufrechtzuerhalten.",
+        "contact": "Mit dir bei Anfragen oder von dir gemeldeten Problemen zu kommunizieren."
+      }
+    },
+    "s4": {
+      "title": "4. Kein Verkauf oder keine Weitergabe von Daten an Dritte",
+      "body": "Lumis verkauft, vermietet oder vermarktet deine personenbezogenen Daten oder den Inhalt deiner Dateien nicht an Dritte. Deine Daten werden nur mit Infrastrukturanbietern geteilt, die für den Betrieb des Dienstes zwingend erforderlich sind (z. B. Cloud-Speicher und Datenbanken), die als Auftragsverarbeiter nach Anweisung von Lumis und mit angemessenen Vertraulichkeits- und Sicherheitsgarantien handeln."
+    },
+    "s5": {
+      "title": "5. Cookies",
+      "body": "Wir verwenden technische Cookies, die für den Betrieb des Dienstes zwingend erforderlich sind: ein Sitzungscookie, um deine Anmeldung aktiv zu halten, und ein Cookie, um deine Hell-/Dunkel-Theme-Präferenz zu speichern. Wir verwenden keine Werbe- oder Tracking-Cookies von Dritten."
+    },
+    "s6": {
+      "title": "6. Datensicherheit",
+      "body": "Wir ergreifen angemessene technische und organisatorische Maßnahmen, um deine personenbezogenen Daten vor unbefugtem Zugriff, Verlust oder Veränderung zu schützen, einschließlich privater Dateispeicherung, verschlüsselter Passwörter und verschlüsselter Kommunikation (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Rechte der betroffenen Person",
+      "intro": "Gemäß Gesetz Nr. 25.326 hast du das Recht auf:",
+      "items": {
+        "access": {
+          "label": "Auskunft:",
+          "desc": "Informationen darüber zu verlangen, welche personenbezogenen Daten von dir wir verarbeiten."
+        },
+        "rectification": {
+          "label": "Berichtigung:",
+          "desc": "die Korrektur ungenauer oder veralteter Daten zu verlangen."
+        },
+        "cancellation": {
+          "label": "Löschung:",
+          "desc": "die Löschung deiner Daten und deines Kontos zu verlangen, einschließlich der von dir hochgeladenen Dateien."
+        },
+        "opposition": {
+          "label": "Widerspruch:",
+          "desc": "der Verarbeitung deiner Daten in den gesetzlich vorgesehenen Fällen zu widersprechen."
+        }
+      },
+      "exerciseBeforeEmail": "Du kannst diese Rechte jederzeit ausüben, indem du uns schreibst an",
+      "exerciseAfterEmail": ". Die Agentur für den Zugang zu öffentlichen Informationen ist als Kontrollorgan des Gesetzes Nr. 25.326 befugt, Beschwerden und Ansprüche im Zusammenhang mit der Nichteinhaltung der Datenschutzbestimmungen zu bearbeiten."
+    },
+    "s8": {
+      "title": "8. Aufbewahrung der Daten",
+      "body": "Wir bewahren deine personenbezogenen Daten auf, solange dein Konto aktiv bleibt. Wenn du die Löschung deines Kontos beantragst, werden deine Daten und Dateien innerhalb einer angemessenen Frist aus unseren Systemen entfernt, sofern keine gesetzliche Verpflichtung zur längeren Aufbewahrung besteht."
+    },
+    "s9": {
+      "title": "9. Minderjährige",
+      "body": "Lumis richtet sich nicht an Kinder unter 13 Jahren. Sollten wir feststellen, dass wir Daten eines Minderjährigen ohne entsprechende Einwilligung erhoben haben, werden wir die notwendigen Schritte zu deren Löschung unternehmen."
+    },
+    "s10": {
+      "title": "10. Änderungen dieser Richtlinie",
+      "body": "Wir können diese Datenschutzrichtlinie regelmäßig aktualisieren. Wesentliche Änderungen werden über die Plattform mitgeteilt."
+    },
+    "s11": {
+      "title": "11. Kontakt",
+      "bodyBeforeEmail": "Bei Fragen zu dieser Datenschutzrichtlinie oder zur Ausübung deiner Rechte schreibe uns an"
+    }
   }
 }

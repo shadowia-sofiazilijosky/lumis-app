@@ -447,5 +447,104 @@
       "title": "11. Mawasiliano",
       "bodyBeforeEmail": "Kwa swali lolote kuhusu Masharti haya, unaweza kutuandikia"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Sera ya faragha — Lumis",
+    "heading": "Sera ya Faragha",
+    "updated": "Sasisho la mwisho: Agosti 18, 2026",
+    "intro": "Sera hii ya Faragha inaelezea jinsi Lumis inavyokusanya, kutumia, kuhifadhi na kulinda data yako binafsi, kwa kuzingatia Sheria Na. 25.326 ya Ulinzi wa Data Binafsi ya Jamhuri ya Argentina na kanuni zake za ziada.",
+    "s1": {
+      "title": "1. Mwajibikaji wa uchakataji",
+      "bodyBeforeEmail": "Mwajibikaji wa uchakataji wa data binafsi zinazokusanywa kupitia Lumis anaweza kuwasiliana naye kupitia"
+    },
+    "s2": {
+      "title": "2. Data tunazokusanya",
+      "intro": "Tunakusanya data binafsi zifuatazo unapotumia Lumis:",
+      "items": {
+        "account": {
+          "label": "Data ya akaunti:",
+          "desc": "anwani ya barua pepe, jina la kuonyesha, na nenosiri (limehifadhiwa kwa njia ya usimbaji fiche, kamwe si kwa maandishi wazi)."
+        },
+        "files": {
+          "label": "Faili zilizopakiwa:",
+          "desc": "vitabu vya kidijitali unavyopakia kwenye Jukwaa (PDF, EPUB, MOBI, CBR, CBZ, TXT) na taarifa za ziada zinazohusiana (kichwa, mwandishi, jalada)."
+        },
+        "usage": {
+          "label": "Data ya matumizi:",
+          "desc": "maendeleo ya usomaji, miangaza, vidokezo, maoni, na mpangilio wa rafu zako."
+        },
+        "prefs": {
+          "label": "Mapendeleo:",
+          "desc": "mapendeleo yako ya mandhari (nuru/giza/mfumo) na hali ya usomaji."
+        },
+        "technical": {
+          "label": "Data ya kiufundi:",
+          "desc": "vidakuzi vya kikao vinavyohitajika kabisa kukuweka umetambuliwa (uthibitishaji) na kukumbuka mapendeleo yako ya mandhari."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Kusudi la uchakataji",
+      "intro": "Tunatumia data yako pekee kwa:",
+      "items": {
+        "account": "Kuunda na kusimamia akaunti yako na kukuruhusu kuingia kwa usalama.",
+        "store": "Kuhifadhi na kukuonyesha vitabu vyako, rafu, maendeleo ya usomaji, miangaza na vidokezo.",
+        "prefs": "Kukumbuka mapendeleo yako ya ubinafsishaji (mandhari, hali ya usomaji).",
+        "improve": "Kuboresha na kudumisha uendeshaji wa Huduma.",
+        "contact": "Kuwasiliana nawe kuhusu maswali au matatizo unayotuletea."
+      }
+    },
+    "s4": {
+      "title": "4. Hakuna kuuza wala kuhamisha data kwa wahusika wengine",
+      "body": "Lumis haiuzi, haikodishi wala kuuza data yako binafsi wala maudhui ya faili zako kwa wahusika wengine. Data yako inashirikiwa tu na watoa huduma za miundombinu wanaohitajika kabisa kuendesha Huduma (kwa mfano, hifadhi ya wingu na hifadhidata), ambao hutenda kama wachakataji wa data chini ya maelekezo ya Lumis na kwa dhamana zinazofaa za usiri na usalama."
+    },
+    "s5": {
+      "title": "5. Vidakuzi",
+      "body": "Tunatumia vidakuzi vya kiufundi vinavyohitajika kabisa kwa uendeshaji wa Huduma: kidakuzi cha kikao ili kudumisha kuingia kwako kukiwa hai, na kidakuzi cha kukumbuka mapendeleo yako ya mandhari ya nuru/giza. Hatutumii vidakuzi vya matangazo wala vya kufuatilia wahusika wengine."
+    },
+    "s6": {
+      "title": "6. Usalama wa data",
+      "body": "Tunachukua hatua za busara za kiufundi na kiutawala kulinda data yako binafsi dhidi ya ufikiaji usioidhinishwa, upotevu au mabadiliko, ikiwa ni pamoja na hifadhi ya faragha ya faili, manenosiri yaliyosimbwa, na mawasiliano yaliyosimbwa (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Haki za mmiliki wa data",
+      "intro": "Kwa mujibu wa Sheria Na. 25.326, una haki ya:",
+      "items": {
+        "access": {
+          "label": "Ufikiaji:",
+          "desc": "kuomba taarifa kuhusu data zipi zako binafsi tunazochakata."
+        },
+        "rectification": {
+          "label": "Marekebisho:",
+          "desc": "kuomba urekebishaji wa data zisizo sahihi au za zamani."
+        },
+        "cancellation": {
+          "label": "Ughairi/Ufutaji:",
+          "desc": "kuomba ufutaji wa data yako na akaunti, ikiwa ni pamoja na faili ulizopakia."
+        },
+        "opposition": {
+          "label": "Upinzani:",
+          "desc": "kupinga uchakataji wa data yako katika hali zilizoainishwa na sheria."
+        }
+      },
+      "exerciseBeforeEmail": "Unaweza kutumia haki hizi wakati wowote kwa kutuandikia kupitia",
+      "exerciseAfterEmail": ". Wakala wa Ufikiaji wa Taarifa za Umma, kama Chombo cha Udhibiti cha Sheria Na. 25.326, ana mamlaka ya kushughulikia malalamiko na madai yanayowasilishwa kuhusiana na kutozingatia kanuni za ulinzi wa data binafsi."
+    },
+    "s8": {
+      "title": "8. Uhifadhi wa data",
+      "body": "Tunahifadhi data yako binafsi wakati akaunti yako inaendelea kuwa hai. Ukiomba ufutaji wa akaunti yako, data na faili zako zitaondolewa kutoka mifumo yetu ndani ya muda unaofaa, isipokuwa kuna wajibu wa kisheria wa kuzihifadhi kwa muda mrefu zaidi."
+    },
+    "s9": {
+      "title": "9. Watoto wadogo",
+      "body": "Lumis haielekezwi kwa watoto walio chini ya miaka 13. Ikiwa tutagundua kuwa tumekusanya data ya mtoto mdogo bila idhini inayofaa, tutachukua hatua zinazohitajika kuzifuta."
+    },
+    "s10": {
+      "title": "10. Mabadiliko kwenye sera hii",
+      "body": "Tunaweza kusasisha Sera hii ya Faragha mara kwa mara. Mabadiliko muhimu yatawasilishwa kupitia Jukwaa."
+    },
+    "s11": {
+      "title": "11. Mawasiliano",
+      "bodyBeforeEmail": "Kwa swali lolote kuhusu Sera hii ya Faragha au kutumia haki zako, tuandikie kupitia"
+    }
   }
 }

@@ -447,5 +447,104 @@
       "title": "11. Kontakt",
       "bodyBeforeEmail": "W przypadku jakichkolwiek pytań dotyczących niniejszego Regulaminu możesz napisać do nas na adres"
     }
+  },
+  "privacyPage": {
+    "pageTitle": "Polityka prywatności — Lumis",
+    "heading": "Polityka Prywatności",
+    "updated": "Ostatnia aktualizacja: 18 sierpnia 2026 r.",
+    "intro": "Niniejsza Polityka Prywatności opisuje, w jaki sposób Lumis gromadzi, wykorzystuje, przechowuje i chroni Twoje dane osobowe, zgodnie z ustawą nr 25.326 o ochronie danych osobowych Republiki Argentyńskiej i jej przepisami uzupełniającymi.",
+    "s1": {
+      "title": "1. Administrator danych",
+      "bodyBeforeEmail": "Z administratorem danych osobowych gromadzonych za pośrednictwem Lumis można skontaktować się pod adresem"
+    },
+    "s2": {
+      "title": "2. Dane, które gromadzimy",
+      "intro": "Gromadzimy następujące dane osobowe, gdy korzystasz z Lumis:",
+      "items": {
+        "account": {
+          "label": "Dane konta:",
+          "desc": "adres e-mail, wyświetlana nazwa i hasło (przechowywane w postaci zaszyfrowanej, nigdy jako zwykły tekst)."
+        },
+        "files": {
+          "label": "Przesłane pliki:",
+          "desc": "cyfrowe książki, które przesyłasz na Platformę (PDF, EPUB, MOBI, CBR, CBZ, TXT) oraz powiązane metadane (tytuł, autor, okładka)."
+        },
+        "usage": {
+          "label": "Dane o użytkowaniu:",
+          "desc": "postęp czytania, zaznaczenia, notatki, recenzje oraz konfigurację Twoich półek."
+        },
+        "prefs": {
+          "label": "Preferencje:",
+          "desc": "Twoją preferencję motywu (jasny/ciemny/systemowy) i trybu czytania."
+        },
+        "technical": {
+          "label": "Dane techniczne:",
+          "desc": "pliki cookie sesji absolutnie niezbędne do utrzymania Twojej tożsamości (uwierzytelnianie) oraz zapamiętania preferencji motywu."
+        }
+      }
+    },
+    "s3": {
+      "title": "3. Cel przetwarzania",
+      "intro": "Wykorzystujemy Twoje dane wyłącznie w celu:",
+      "items": {
+        "account": "Utworzenia i zarządzania Twoim kontem oraz umożliwienia Ci bezpiecznego logowania.",
+        "store": "Przechowywania i wyświetlania Twoich książek, półek, postępu czytania, zaznaczeń i notatek.",
+        "prefs": "Zapamiętywania Twoich preferencji personalizacji (motyw, tryb czytania).",
+        "improve": "Ulepszania i utrzymywania działania Usługi.",
+        "contact": "Kontaktowania się z Tobą w związku z pytaniami lub problemami, które nam zgłaszasz."
+      }
+    },
+    "s4": {
+      "title": "4. Brak sprzedaży ani przekazywania danych osobom trzecim",
+      "body": "Lumis nie sprzedaje, nie wynajmuje ani nie handluje Twoimi danymi osobowymi ani zawartością Twoich plików osobom trzecim. Twoje dane są udostępniane wyłącznie dostawcom infrastruktury absolutnie niezbędnym do prowadzenia Usługi (np. przechowywanie w chmurze i bazy danych), którzy działają jako podmioty przetwarzające na polecenie Lumis i z odpowiednimi gwarancjami poufności i bezpieczeństwa."
+    },
+    "s5": {
+      "title": "5. Pliki cookie",
+      "body": "Używamy technicznych plików cookie absolutnie niezbędnych do działania Usługi: pliku cookie sesji, aby utrzymać Twoje logowanie aktywne, oraz pliku cookie, aby zapamiętać Twoją preferencję jasnego/ciemnego motywu. Nie używamy plików cookie reklamowych ani śledzących osób trzecich."
+    },
+    "s6": {
+      "title": "6. Bezpieczeństwo danych",
+      "body": "Podejmujemy rozsądne środki techniczne i organizacyjne, aby chronić Twoje dane osobowe przed nieautoryzowanym dostępem, utratą lub zmianą, w tym prywatne przechowywanie plików, zaszyfrowane hasła i szyfrowaną komunikację (HTTPS)."
+    },
+    "s7": {
+      "title": "7. Prawa osoby, której dane dotyczą",
+      "intro": "Zgodnie z ustawą nr 25.326, masz prawo do:",
+      "items": {
+        "access": {
+          "label": "Dostępu:",
+          "desc": "żądania informacji o tym, jakie Twoje dane osobowe przetwarzamy."
+        },
+        "rectification": {
+          "label": "Sprostowania:",
+          "desc": "żądania poprawienia niedokładnych lub nieaktualnych danych."
+        },
+        "cancellation": {
+          "label": "Anulowania/Usunięcia:",
+          "desc": "żądania usunięcia Twoich danych i konta, w tym przesłanych plików."
+        },
+        "opposition": {
+          "label": "Sprzeciwu:",
+          "desc": "sprzeciwienia się przetwarzaniu Twoich danych w przypadkach przewidzianych przez prawo."
+        }
+      },
+      "exerciseBeforeEmail": "Możesz skorzystać z tych praw w dowolnym momencie, pisząc do nas na adres",
+      "exerciseAfterEmail": ". Agencja Dostępu do Informacji Publicznej, jako Organ Kontrolny ustawy nr 25.326, jest uprawniona do rozpatrywania skarg i roszczeń wnoszonych w związku z nieprzestrzeganiem przepisów o ochronie danych osobowych."
+    },
+    "s8": {
+      "title": "8. Przechowywanie danych",
+      "body": "Przechowujemy Twoje dane osobowe tak długo, jak Twoje konto pozostaje aktywne. Jeśli poprosisz o usunięcie konta, Twoje dane i pliki zostaną usunięte z naszych systemów w rozsądnym terminie, chyba że istnieje prawny obowiązek ich dłuższego przechowywania."
+    },
+    "s9": {
+      "title": "9. Osoby niepełnoletnie",
+      "body": "Lumis nie jest skierowany do dzieci poniżej 13 roku życia. Jeśli dowiemy się, że zebraliśmy dane osoby niepełnoletniej bez odpowiedniej zgody, podejmiemy niezbędne kroki, aby je usunąć."
+    },
+    "s10": {
+      "title": "10. Zmiany w tej polityce",
+      "body": "Możemy okresowo aktualizować niniejszą Politykę Prywatności. Istotne zmiany będą komunikowane za pośrednictwem Platformy."
+    },
+    "s11": {
+      "title": "11. Kontakt",
+      "bodyBeforeEmail": "W przypadku pytań dotyczących niniejszej Polityki Prywatności lub w celu skorzystania ze swoich praw, napisz do nas na adres"
+    }
   }
 }
