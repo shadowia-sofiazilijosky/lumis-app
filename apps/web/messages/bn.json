@@ -48,5 +48,19 @@
       "saved": "সংরক্ষিত হয়েছে",
       "saveError": "সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।"
     }
+  },
+  "shelvesList": {
+    "loading": "লোড হচ্ছে…",
+    "loadError": "আমরা আপনার শেলফ লোড করতে পারিনি।",
+    "title": "আপনার শেলফ",
+    "namePlaceholder": "যেমন: ফ্যান্টাসি, রোমান্স…",
+    "creating": "তৈরি হচ্ছে…",
+    "create": "তৈরি করুন",
+    "createNew": "নতুন শেলফ তৈরি করুন",
+    "createSubtitle": "আপনার পড়ার জায়গা কাস্টমাইজ করুন",
+    "bookCount": "{count, plural, one {# বই} other {# বই}}",
+    "open": "শেলফ খুলুন",
+    "settingsFor": "{name} কনফিগার করুন",
+    "pageTitle": "আপনার শেলফ — Lumis"
   }
 }

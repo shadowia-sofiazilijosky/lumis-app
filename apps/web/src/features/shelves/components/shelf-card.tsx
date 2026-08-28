@@ -1,5 +1,6 @@
 import type { ShelfListItem } from "@lumis/shared-types";
 import { Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import {
   CANVAS_HEIGHT,
@@ -21,6 +22,7 @@ export function ShelfCard({
   shelf: ShelfListItem;
   index?: number;
 }) {
+  const t = useTranslations("shelvesList");
   const { color, Icon } = getGenreStyle(shelf.genre, index);
 
   // Items are placed in real canvas pixels, not a fixed logical space — the
@@ -40,9 +42,7 @@ export function ShelfCard({
           </span>
           <div className="shelf-card-topbar-text">
             <h3>{shelf.name}</h3>
-            <p>
-              {shelf.bookCount} {shelf.bookCount === 1 ? "libro" : "libros"}
-            </p>
+            <p>{t("bookCount", { count: shelf.bookCount })}</p>
           </div>
         </div>
 
@@ -128,12 +128,12 @@ export function ShelfCard({
 
       <div className="shelf-card-footer">
         <Link href={`/shelves/${shelf.id}`} className="shelf-card-open-button">
-          Abrir estantería
+          {t("open")}
         </Link>
         <Link
           href={`/shelves/${shelf.id}`}
           className="shelf-card-settings"
-          aria-label={`Configurar ${shelf.name}`}
+          aria-label={t("settingsFor", { name: shelf.name })}
         >
           <Settings size={16} />
         </Link>

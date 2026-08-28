@@ -48,5 +48,19 @@
       "saved": "Imehifadhiwa",
       "saveError": "Imeshindwa kuhifadhi. Jaribu tena."
     }
+  },
+  "shelvesList": {
+    "loading": "Inapakia…",
+    "loadError": "Hatukuweza kupakia rafu zako.",
+    "title": "Rafu zako",
+    "namePlaceholder": "Mf: Ndoto, Mapenzi…",
+    "creating": "Inaunda…",
+    "create": "Unda",
+    "createNew": "Unda rafu mpya",
+    "createSubtitle": "Badilisha nafasi yako ya kusoma",
+    "bookCount": "{count, plural, one {kitabu #} other {vitabu #}}",
+    "open": "Fungua rafu",
+    "settingsFor": "Sanidi {name}",
+    "pageTitle": "Rafu zako — Lumis"
   }
 }

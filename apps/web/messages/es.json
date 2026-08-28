@@ -48,5 +48,19 @@
       "saved": "Guardado",
       "saveError": "No pudimos guardar. Probá de nuevo."
     }
+  },
+  "shelvesList": {
+    "loading": "Cargando…",
+    "loadError": "No pudimos cargar tus estanterías.",
+    "title": "Tus estanterías",
+    "namePlaceholder": "Ej: Fantasía, Romance…",
+    "creating": "Creando…",
+    "create": "Crear",
+    "createNew": "Crear nueva estantería",
+    "createSubtitle": "Personaliza tu espacio de lectura",
+    "bookCount": "{count, plural, one {# libro} other {# libros}}",
+    "open": "Abrir estantería",
+    "settingsFor": "Configurar {name}",
+    "pageTitle": "Tus estanterías — Lumis"
   }
 }

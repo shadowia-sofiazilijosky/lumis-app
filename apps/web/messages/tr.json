@@ -48,5 +48,19 @@
       "saved": "Kaydedildi",
       "saveError": "Kaydedilemedi. Tekrar dene."
     }
+  },
+  "shelvesList": {
+    "loading": "Yükleniyor…",
+    "loadError": "Raflarını yükleyemedik.",
+    "title": "Rafların",
+    "namePlaceholder": "Örn: Fantastik, Romantik…",
+    "creating": "Oluşturuluyor…",
+    "create": "Oluştur",
+    "createNew": "Yeni raf oluştur",
+    "createSubtitle": "Okuma alanını özelleştir",
+    "bookCount": "{count, plural, other {# kitap}}",
+    "open": "Rafı aç",
+    "settingsFor": "{name} yapılandır",
+    "pageTitle": "Rafların — Lumis"
   }
 }

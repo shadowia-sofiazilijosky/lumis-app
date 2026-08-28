@@ -48,5 +48,19 @@
       "saved": "Salvo",
       "saveError": "Não foi possível salvar. Tente novamente."
     }
+  },
+  "shelvesList": {
+    "loading": "Carregando…",
+    "loadError": "Não conseguimos carregar suas estantes.",
+    "title": "Suas estantes",
+    "namePlaceholder": "Ex: Fantasia, Romance…",
+    "creating": "Criando…",
+    "create": "Criar",
+    "createNew": "Criar nova estante",
+    "createSubtitle": "Personalize seu espaço de leitura",
+    "bookCount": "{count, plural, one {# livro} other {# livros}}",
+    "open": "Abrir estante",
+    "settingsFor": "Configurar {name}",
+    "pageTitle": "Suas estantes — Lumis"
   }
 }

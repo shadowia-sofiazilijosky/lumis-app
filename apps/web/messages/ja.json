@@ -48,5 +48,19 @@
       "saved": "保存しました",
       "saveError": "保存できませんでした。もう一度お試しください。"
     }
+  },
+  "shelvesList": {
+    "loading": "読み込み中…",
+    "loadError": "本棚を読み込めませんでした。",
+    "title": "あなたの本棚",
+    "namePlaceholder": "例：ファンタジー、ロマンス…",
+    "creating": "作成中…",
+    "create": "作成",
+    "createNew": "新しい本棚を作成",
+    "createSubtitle": "読書スペースをカスタマイズ",
+    "bookCount": "{count, plural, other {#冊}}",
+    "open": "本棚を開く",
+    "settingsFor": "{name}を設定",
+    "pageTitle": "あなたの本棚 — Lumis"
   }
 }

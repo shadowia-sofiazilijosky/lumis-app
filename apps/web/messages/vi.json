@@ -48,5 +48,19 @@
       "saved": "Đã lưu",
       "saveError": "Không thể lưu. Vui lòng thử lại."
     }
+  },
+  "shelvesList": {
+    "loading": "Đang tải…",
+    "loadError": "Không thể tải kệ sách của bạn.",
+    "title": "Kệ sách của bạn",
+    "namePlaceholder": "VD: Giả tưởng, Lãng mạn…",
+    "creating": "Đang tạo…",
+    "create": "Tạo",
+    "createNew": "Tạo kệ sách mới",
+    "createSubtitle": "Tùy chỉnh không gian đọc của bạn",
+    "bookCount": "{count, plural, other {# cuốn sách}}",
+    "open": "Mở kệ sách",
+    "settingsFor": "Cấu hình {name}",
+    "pageTitle": "Kệ sách của bạn — Lumis"
   }
 }

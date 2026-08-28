@@ -48,5 +48,19 @@
       "saved": "저장됨",
       "saveError": "저장하지 못했습니다. 다시 시도해 주세요."
     }
+  },
+  "shelvesList": {
+    "loading": "불러오는 중…",
+    "loadError": "책장을 불러오지 못했습니다.",
+    "title": "내 책장",
+    "namePlaceholder": "예: 판타지, 로맨스…",
+    "creating": "만드는 중…",
+    "create": "만들기",
+    "createNew": "새 책장 만들기",
+    "createSubtitle": "독서 공간을 꾸며보세요",
+    "bookCount": "{count, plural, other {책 #권}}",
+    "open": "책장 열기",
+    "settingsFor": "{name} 설정",
+    "pageTitle": "내 책장 — Lumis"
   }
 }

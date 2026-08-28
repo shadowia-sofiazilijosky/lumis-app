@@ -48,5 +48,19 @@
       "saved": "Tersimpan",
       "saveError": "Gagal menyimpan. Coba lagi."
     }
+  },
+  "shelvesList": {
+    "loading": "Memuat…",
+    "loadError": "Kami tidak dapat memuat rak Anda.",
+    "title": "Rak Anda",
+    "namePlaceholder": "Cth: Fantasi, Romansa…",
+    "creating": "Membuat…",
+    "create": "Buat",
+    "createNew": "Buat rak baru",
+    "createSubtitle": "Sesuaikan ruang bacamu",
+    "bookCount": "{count, plural, other {# buku}}",
+    "open": "Buka rak",
+    "settingsFor": "Konfigurasi {name}",
+    "pageTitle": "Rak Anda — Lumis"
   }
 }

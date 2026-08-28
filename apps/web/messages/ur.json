@@ -48,5 +48,19 @@
       "saved": "محفوظ ہو گیا",
       "saveError": "محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔"
     }
+  },
+  "shelvesList": {
+    "loading": "لوڈ ہو رہا ہے…",
+    "loadError": "ہم آپ کی شیلف لوڈ نہیں کر سکے۔",
+    "title": "آپ کی شیلف",
+    "namePlaceholder": "مثلاً: فینٹسی، رومانس…",
+    "creating": "بن رہا ہے…",
+    "create": "بنائیں",
+    "createNew": "نئی شیلف بنائیں",
+    "createSubtitle": "اپنی پڑھنے کی جگہ کو حسب ضرورت بنائیں",
+    "bookCount": "{count, plural, one {# کتاب} other {# کتابیں}}",
+    "open": "شیلف کھولیں",
+    "settingsFor": "{name} ترتیب دیں",
+    "pageTitle": "آپ کی شیلف — Lumis"
   }
 }

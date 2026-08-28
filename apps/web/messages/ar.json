@@ -48,5 +48,19 @@
       "saved": "تم الحفظ",
       "saveError": "تعذر الحفظ. حاول مرة أخرى."
     }
+  },
+  "shelvesList": {
+    "loading": "جارٍ التحميل…",
+    "loadError": "تعذر تحميل رفوفك.",
+    "title": "رفوفك",
+    "namePlaceholder": "مثال: خيال، رومانسي…",
+    "creating": "جارٍ الإنشاء…",
+    "create": "إنشاء",
+    "createNew": "إنشاء رف جديد",
+    "createSubtitle": "خصّص مساحة قراءتك",
+    "bookCount": "{count, plural, one {كتاب واحد} other {# كتب}}",
+    "open": "فتح الرف",
+    "settingsFor": "إعداد {name}",
+    "pageTitle": "رفوفك — Lumis"
   }
 }

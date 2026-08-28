@@ -48,5 +48,19 @@
       "saved": "Salvato",
       "saveError": "Impossibile salvare. Riprova."
     }
+  },
+  "shelvesList": {
+    "loading": "Caricamento…",
+    "loadError": "Non siamo riusciti a caricare i tuoi scaffali.",
+    "title": "I tuoi scaffali",
+    "namePlaceholder": "Es: Fantasy, Romance…",
+    "creating": "Creazione…",
+    "create": "Crea",
+    "createNew": "Crea nuovo scaffale",
+    "createSubtitle": "Personalizza il tuo spazio di lettura",
+    "bookCount": "{count, plural, one {# libro} other {# libri}}",
+    "open": "Apri scaffale",
+    "settingsFor": "Configura {name}",
+    "pageTitle": "I tuoi scaffali — Lumis"
   }
 }

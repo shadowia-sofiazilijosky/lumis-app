@@ -48,5 +48,19 @@
       "saved": "Opgeslagen",
       "saveError": "Kon niet opslaan. Probeer het opnieuw."
     }
+  },
+  "shelvesList": {
+    "loading": "Laden…",
+    "loadError": "We konden je planken niet laden.",
+    "title": "Jouw planken",
+    "namePlaceholder": "Bijv: Fantasy, Romance…",
+    "creating": "Aanmaken…",
+    "create": "Aanmaken",
+    "createNew": "Nieuwe plank maken",
+    "createSubtitle": "Personaliseer je leesruimte",
+    "bookCount": "{count, plural, one {# boek} other {# boeken}}",
+    "open": "Plank openen",
+    "settingsFor": "{name} configureren",
+    "pageTitle": "Jouw planken — Lumis"
   }
 }

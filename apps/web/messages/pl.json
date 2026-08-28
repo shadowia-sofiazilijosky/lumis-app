@@ -48,5 +48,19 @@
       "saved": "Zapisano",
       "saveError": "Nie udało się zapisać. Spróbuj ponownie."
     }
+  },
+  "shelvesList": {
+    "loading": "Ładowanie…",
+    "loadError": "Nie udało się załadować Twoich półek.",
+    "title": "Twoje półki",
+    "namePlaceholder": "Np: Fantasy, Romans…",
+    "creating": "Tworzenie…",
+    "create": "Utwórz",
+    "createNew": "Utwórz nową półkę",
+    "createSubtitle": "Dostosuj swoją przestrzeń do czytania",
+    "bookCount": "{count, plural, one {# książka} few {# książki} many {# książek} other {# książki}}",
+    "open": "Otwórz półkę",
+    "settingsFor": "Skonfiguruj {name}",
+    "pageTitle": "Twoje półki — Lumis"
   }
 }

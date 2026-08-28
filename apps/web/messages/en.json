@@ -48,5 +48,19 @@
       "saved": "Saved",
       "saveError": "We couldn't save. Please try again."
     }
+  },
+  "shelvesList": {
+    "loading": "Loading…",
+    "loadError": "We couldn't load your shelves.",
+    "title": "Your shelves",
+    "namePlaceholder": "E.g. Fantasy, Romance…",
+    "creating": "Creating…",
+    "create": "Create",
+    "createNew": "Create new shelf",
+    "createSubtitle": "Customize your reading space",
+    "bookCount": "{count, plural, one {# book} other {# books}}",
+    "open": "Open shelf",
+    "settingsFor": "Configure {name}",
+    "pageTitle": "Your shelves — Lumis"
   }
 }

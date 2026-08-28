@@ -48,5 +48,19 @@
       "saved": "Enregistré",
       "saveError": "Impossible d'enregistrer. Réessaie."
     }
+  },
+  "shelvesList": {
+    "loading": "Chargement…",
+    "loadError": "Impossible de charger tes étagères.",
+    "title": "Tes étagères",
+    "namePlaceholder": "Ex : Fantasy, Romance…",
+    "creating": "Création…",
+    "create": "Créer",
+    "createNew": "Créer une nouvelle étagère",
+    "createSubtitle": "Personnalise ton espace de lecture",
+    "bookCount": "{count, plural, one {# livre} other {# livres}}",
+    "open": "Ouvrir l'étagère",
+    "settingsFor": "Configurer {name}",
+    "pageTitle": "Tes étagères — Lumis"
   }
 }

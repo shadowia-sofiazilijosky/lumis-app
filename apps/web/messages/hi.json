@@ -48,5 +48,19 @@
       "saved": "सहेजा गया",
       "saveError": "सहेज नहीं सके। फिर से कोशिश करें।"
     }
+  },
+  "shelvesList": {
+    "loading": "लोड हो रहा है…",
+    "loadError": "हम आपकी शेल्फ़ लोड नहीं कर सके।",
+    "title": "आपकी शेल्फ़",
+    "namePlaceholder": "जैसे: फ़ैंटेसी, रोमांस…",
+    "creating": "बनाया जा रहा है…",
+    "create": "बनाएं",
+    "createNew": "नई शेल्फ़ बनाएं",
+    "createSubtitle": "अपनी पढ़ने की जगह को अनुकूलित करें",
+    "bookCount": "{count, plural, one {# किताब} other {# किताबें}}",
+    "open": "शेल्फ़ खोलें",
+    "settingsFor": "{name} कॉन्फ़िगर करें",
+    "pageTitle": "आपकी शेल्फ़ — Lumis"
   }
 }

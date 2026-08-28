@@ -48,5 +48,19 @@
       "saved": "Gespeichert",
       "saveError": "Konnte nicht gespeichert werden. Bitte erneut versuchen."
     }
+  },
+  "shelvesList": {
+    "loading": "Wird geladen…",
+    "loadError": "Deine Regale konnten nicht geladen werden.",
+    "title": "Deine Regale",
+    "namePlaceholder": "Z.B. Fantasy, Romance…",
+    "creating": "Wird erstellt…",
+    "create": "Erstellen",
+    "createNew": "Neues Regal erstellen",
+    "createSubtitle": "Gestalte deinen Leseraum",
+    "bookCount": "{count, plural, one {# Buch} other {# Bücher}}",
+    "open": "Regal öffnen",
+    "settingsFor": "{name} konfigurieren",
+    "pageTitle": "Deine Regale — Lumis"
   }
 }

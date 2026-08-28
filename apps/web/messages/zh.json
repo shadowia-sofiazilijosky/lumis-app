@@ -48,5 +48,19 @@
       "saved": "已保存",
       "saveError": "无法保存，请重试。"
     }
+  },
+  "shelvesList": {
+    "loading": "加载中…",
+    "loadError": "无法加载你的书架。",
+    "title": "你的书架",
+    "namePlaceholder": "例如：奇幻、言情…",
+    "creating": "创建中…",
+    "create": "创建",
+    "createNew": "创建新书架",
+    "createSubtitle": "自定义你的阅读空间",
+    "bookCount": "{count, plural, other {# 本书}}",
+    "open": "打开书架",
+    "settingsFor": "配置 {name}",
+    "pageTitle": "你的书架 — Lumis"
   }
 }

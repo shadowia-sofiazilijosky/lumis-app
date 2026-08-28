@@ -1,8 +1,10 @@
+import { getTranslations } from "next-intl/server";
 import { ShelfList } from "@/features/shelves/components/shelf-list";
 
-export const metadata = {
-  title: "Tus estanterías — Lumis",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("shelvesList");
+  return { title: t("pageTitle") };
+}
 
 export default function ShelvesPage() {
   return (

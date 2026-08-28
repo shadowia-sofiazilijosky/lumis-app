@@ -48,5 +48,19 @@
       "saved": "Сохранено",
       "saveError": "Не удалось сохранить. Попробуйте снова."
     }
+  },
+  "shelvesList": {
+    "loading": "Загрузка…",
+    "loadError": "Не удалось загрузить ваши полки.",
+    "title": "Ваши полки",
+    "namePlaceholder": "Напр.: Фэнтези, Романтика…",
+    "creating": "Создание…",
+    "create": "Создать",
+    "createNew": "Создать новую полку",
+    "createSubtitle": "Настройте своё пространство для чтения",
+    "bookCount": "{count, plural, one {# книга} few {# книги} many {# книг} other {# книги}}",
+    "open": "Открыть полку",
+    "settingsFor": "Настроить {name}",
+    "pageTitle": "Ваши полки — Lumis"
   }
 }
