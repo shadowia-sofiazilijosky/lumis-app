@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Tutto",
-        "Plantas": "Piante",
-        "Luces": "Luci",
-        "Velas": "Candele",
-        "Marcos": "Cornici",
-        "Objetos": "Oggetti"
+        "Dragones": "Draghi"
       },
       "items": {
-        "light-warm": "Luce calda",
-        "light-string": "Lucine",
-        "plant-fern": "Felce",
-        "plant-succulent": "Succulenta"
+        "dragon-vitral": "Drago vetrata",
+        "dragon-fuego-izq": "Drago di fuoco (sinistra)",
+        "dragon-fuego-der": "Drago di fuoco (destra)",
+        "dragon-lector": "Drago lettore",
+        "dragon-negro-cabeza": "Drago nero (testa)",
+        "dragon-negro-cola": "Drago nero (coda)",
+        "dragon-dorado": "Drago dorato",
+        "dragon-rosa": "Drago rosa",
+        "dragon-huevo": "Uovo di drago",
+        "dragon-garra": "Artiglio di drago"
       },
       "empty": "Non ci sono ancora decorazioni in questa categoria.",
       "toolbarLabel": "Decorazioni disponibili",

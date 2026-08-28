@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "الكل",
-        "Plantas": "نباتات",
-        "Luces": "أضواء",
-        "Velas": "شموع",
-        "Marcos": "إطارات",
-        "Objetos": "أغراض"
+        "Dragones": "تنانين"
       },
       "items": {
-        "light-warm": "ضوء دافئ",
-        "light-string": "سلسلة أضواء",
-        "plant-fern": "سرخس",
-        "plant-succulent": "نبتة عصارية"
+        "dragon-vitral": "تنين الزجاج المعشق",
+        "dragon-fuego-izq": "تنين النار (يسار)",
+        "dragon-fuego-der": "تنين النار (يمين)",
+        "dragon-lector": "تنين القارئ",
+        "dragon-negro-cabeza": "تنين أسود (الرأس)",
+        "dragon-negro-cola": "تنين أسود (الذيل)",
+        "dragon-dorado": "تنين ذهبي",
+        "dragon-rosa": "تنين وردي",
+        "dragon-huevo": "بيضة تنين",
+        "dragon-garra": "مخلب تنين"
       },
       "empty": "لا توجد ديكورات في هذه الفئة بعد.",
       "toolbarLabel": "الديكورات المتاحة",

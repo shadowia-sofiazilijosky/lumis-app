@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Tümü",
-        "Plantas": "Bitkiler",
-        "Luces": "Işıklar",
-        "Velas": "Mumlar",
-        "Marcos": "Çerçeveler",
-        "Objetos": "Nesneler"
+        "Dragones": "Ejderhalar"
       },
       "items": {
-        "light-warm": "Sıcak ışık",
-        "light-string": "Işık zinciri",
-        "plant-fern": "Eğrelti otu",
-        "plant-succulent": "Sukulent"
+        "dragon-vitral": "Vitray ejderha",
+        "dragon-fuego-izq": "Ateş ejderhası (sol)",
+        "dragon-fuego-der": "Ateş ejderhası (sağ)",
+        "dragon-lector": "Okuyan ejderha",
+        "dragon-negro-cabeza": "Siyah ejderha (baş)",
+        "dragon-negro-cola": "Siyah ejderha (kuyruk)",
+        "dragon-dorado": "Altın ejderha",
+        "dragon-rosa": "Pembe ejderha",
+        "dragon-huevo": "Ejderha yumurtası",
+        "dragon-garra": "Ejderha pençesi"
       },
       "empty": "Bu kategoride henüz dekorasyon yok.",
       "toolbarLabel": "Kullanılabilir dekorasyonlar",

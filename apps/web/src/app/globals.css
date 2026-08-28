@@ -1643,6 +1643,12 @@ html[data-theme="light"] {
   pointer-events: none;
 }
 
+.shelf-card-decoration-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .shelf-card-footer {
   display: flex;
   align-items: center;
@@ -1858,6 +1864,12 @@ html[data-theme="light"] {
   background: var(--surface);
   cursor: grab;
   font-size: 0.75rem;
+}
+
+.decoration-palette-item-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 /* --- Shelf editor customization panel (Fondo / Estantería / Decoración) --- */
@@ -2159,9 +2171,11 @@ html[data-theme="light"] {
   filter: drop-shadow(2px 3px 4px rgba(20, 10, 10, 0.35));
 }
 
-.shelf-decoration-item svg {
+.shelf-decoration-item svg,
+.shelf-decoration-item-image {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .shelf-decoration-frame-image {

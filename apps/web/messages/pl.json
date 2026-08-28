@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Wszystko",
-        "Plantas": "Rośliny",
-        "Luces": "Światła",
-        "Velas": "Świece",
-        "Marcos": "Ramki",
-        "Objetos": "Przedmioty"
+        "Dragones": "Smoki"
       },
       "items": {
-        "light-warm": "Ciepłe światło",
-        "light-string": "Lampki choinkowe",
-        "plant-fern": "Paproć",
-        "plant-succulent": "Sukulent"
+        "dragon-vitral": "Smok witrażowy",
+        "dragon-fuego-izq": "Ognisty smok (lewy)",
+        "dragon-fuego-der": "Ognisty smok (prawy)",
+        "dragon-lector": "Czytający smok",
+        "dragon-negro-cabeza": "Czarny smok (głowa)",
+        "dragon-negro-cola": "Czarny smok (ogon)",
+        "dragon-dorado": "Złoty smok",
+        "dragon-rosa": "Różowy smok",
+        "dragon-huevo": "Jajo smoka",
+        "dragon-garra": "Pazur smoka"
       },
       "empty": "W tej kategorii nie ma jeszcze dekoracji.",
       "toolbarLabel": "Dostępne dekoracje",

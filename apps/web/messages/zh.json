@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "全部",
-        "Plantas": "植物",
-        "Luces": "灯饰",
-        "Velas": "蜡烛",
-        "Marcos": "相框",
-        "Objetos": "物品"
+        "Dragones": "龙"
       },
       "items": {
-        "light-warm": "暖光灯",
-        "light-string": "灯串",
-        "plant-fern": "蕨类植物",
-        "plant-succulent": "多肉植物"
+        "dragon-vitral": "彩绘玻璃龙",
+        "dragon-fuego-izq": "火焰龙（左）",
+        "dragon-fuego-der": "火焰龙（右）",
+        "dragon-lector": "读书龙",
+        "dragon-negro-cabeza": "黑龙（头部）",
+        "dragon-negro-cola": "黑龙（尾部）",
+        "dragon-dorado": "金龙",
+        "dragon-rosa": "粉色龙",
+        "dragon-huevo": "龙蛋",
+        "dragon-garra": "龙爪"
       },
       "empty": "此类别暂无装饰。",
       "toolbarLabel": "可用装饰",

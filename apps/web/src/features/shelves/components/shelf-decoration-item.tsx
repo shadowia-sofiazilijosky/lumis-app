@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DEFAULT_DECORATION_SIZE, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
-import { DECORATION_ICONS } from "../lib/decoration-catalog";
+import { findDecorationImage } from "../lib/decoration-catalog";
 import { useResizableBox } from "../hooks/use-resizable-box";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { ResizeHandles } from "./resize-handles";
@@ -63,7 +63,9 @@ export function ShelfDecorationItem({
     onResizeEnd: (size) => resizeDecoration(decoration.id, size),
   });
 
-  const Icon = DECORATION_ICONS[decoration.type]?.[decoration.variant ?? ""];
+  const decorationImage = isShelfFrame
+    ? null
+    : findDecorationImage(decoration.type, decoration.variant ?? null);
   const frameImage = isShelfFrame ? findShelfFrameImage(decoration.variant ?? null) : null;
   const rotation = decoration.rotation ?? 0;
 
@@ -107,8 +109,9 @@ export function ShelfDecorationItem({
         {frameImage ? (
           // eslint-disable-next-line @next/next/no-img-element -- local static asset, dimensions vary with the box
           <img src={frameImage} alt="" className="shelf-decoration-frame-image" />
-        ) : Icon ? (
-          <Icon />
+        ) : decorationImage ? (
+          // eslint-disable-next-line @next/next/no-img-element -- local static asset, dimensions vary with the box
+          <img src={decorationImage} alt="" className="shelf-decoration-item-image" />
         ) : null}
       </button>
 

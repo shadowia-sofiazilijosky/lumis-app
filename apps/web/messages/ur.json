@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "سب",
-        "Plantas": "پودے",
-        "Luces": "روشنیاں",
-        "Velas": "موم بتیاں",
-        "Marcos": "فریم",
-        "Objetos": "اشیاء"
+        "Dragones": "ڈریگن"
       },
       "items": {
-        "light-warm": "گرم روشنی",
-        "light-string": "لائٹ اسٹرنگ",
-        "plant-fern": "فرن",
-        "plant-succulent": "سکیولنٹ"
+        "dragon-vitral": "رنگین شیشے کا ڈریگن",
+        "dragon-fuego-izq": "آگ کا ڈریگن (بائیں)",
+        "dragon-fuego-der": "آگ کا ڈریگن (دائیں)",
+        "dragon-lector": "پڑھنے والا ڈریگن",
+        "dragon-negro-cabeza": "کالا ڈریگن (سر)",
+        "dragon-negro-cola": "کالا ڈریگن (دم)",
+        "dragon-dorado": "سنہری ڈریگن",
+        "dragon-rosa": "گلابی ڈریگن",
+        "dragon-huevo": "ڈریگن کا انڈا",
+        "dragon-garra": "ڈریگن کا پنجہ"
       },
       "empty": "اس زمرے میں ابھی کوئی سجاوٹ نہیں ہے۔",
       "toolbarLabel": "دستیاب سجاوٹ",

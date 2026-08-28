@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Все",
-        "Plantas": "Растения",
-        "Luces": "Огни",
-        "Velas": "Свечи",
-        "Marcos": "Рамки",
-        "Objetos": "Предметы"
+        "Dragones": "Драконы"
       },
       "items": {
-        "light-warm": "Тёплый свет",
-        "light-string": "Гирлянда",
-        "plant-fern": "Папоротник",
-        "plant-succulent": "Суккулент"
+        "dragon-vitral": "Витражный дракон",
+        "dragon-fuego-izq": "Огненный дракон (слева)",
+        "dragon-fuego-der": "Огненный дракон (справа)",
+        "dragon-lector": "Дракон-читатель",
+        "dragon-negro-cabeza": "Чёрный дракон (голова)",
+        "dragon-negro-cola": "Чёрный дракон (хвост)",
+        "dragon-dorado": "Золотой дракон",
+        "dragon-rosa": "Розовый дракон",
+        "dragon-huevo": "Яйцо дракона",
+        "dragon-garra": "Коготь дракона"
       },
       "empty": "В этой категории пока нет декора.",
       "toolbarLabel": "Доступный декор",

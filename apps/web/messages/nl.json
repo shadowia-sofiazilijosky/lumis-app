@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Alles",
-        "Plantas": "Planten",
-        "Luces": "Lichtjes",
-        "Velas": "Kaarsen",
-        "Marcos": "Lijsten",
-        "Objetos": "Objecten"
+        "Dragones": "Draken"
       },
       "items": {
-        "light-warm": "Warm licht",
-        "light-string": "Lichtsnoer",
-        "plant-fern": "Varen",
-        "plant-succulent": "Vetplant"
+        "dragon-vitral": "Glas-in-lood draak",
+        "dragon-fuego-izq": "Vuurdraak (links)",
+        "dragon-fuego-der": "Vuurdraak (rechts)",
+        "dragon-lector": "Lezende draak",
+        "dragon-negro-cabeza": "Zwarte draak (kop)",
+        "dragon-negro-cola": "Zwarte draak (staart)",
+        "dragon-dorado": "Gouden draak",
+        "dragon-rosa": "Roze draak",
+        "dragon-huevo": "Drakenei",
+        "dragon-garra": "Drakenklauw"
       },
       "empty": "Nog geen decoraties in deze categorie.",
       "toolbarLabel": "Beschikbare decoraties",

@@ -17,7 +17,7 @@ import { useMemo, useState } from "react";
 import { removeBookFromShelf, updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
-import { DECORATION_ICONS } from "../lib/decoration-catalog";
+import { findDecorationImage } from "../lib/decoration-catalog";
 import { useObservedSize } from "../hooks/use-observed-size";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { ResizableCanvasBox } from "./resizable-canvas-box";
@@ -238,14 +238,12 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         ? findShelfFrameImage(activeDecoration.variant ?? null)
         : null;
 
-  const ActiveIcon =
+  const activeDecorationImage =
     activeDrag?.kind === "palette"
-      ? DECORATION_ICONS[activeDrag.type]?.[activeDrag.variant]
+      ? findDecorationImage(activeDrag.type, activeDrag.variant)
       : activeDrag?.kind === "decoration" && activeDecoration
-        ? DECORATION_ICONS[activeDecoration.type]?.[
-            activeDecoration.variant ?? ""
-          ]
-        : undefined;
+        ? findDecorationImage(activeDecoration.type, activeDecoration.variant ?? null)
+        : null;
 
   return (
     <div className="shelf-editor">
@@ -299,8 +297,9 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
           ) : activeFrameImage ? (
             // eslint-disable-next-line @next/next/no-img-element -- local static asset
             <img src={activeFrameImage} alt="" className="shelf-frame-drag-preview" />
-          ) : ActiveIcon ? (
-            <ActiveIcon />
+          ) : activeDecorationImage ? (
+            // eslint-disable-next-line @next/next/no-img-element -- local static asset
+            <img src={activeDecorationImage} alt="" className="shelf-frame-drag-preview" />
           ) : null}
         </DragOverlay>
       </DndContext>

@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "전체",
-        "Plantas": "식물",
-        "Luces": "조명",
-        "Velas": "양초",
-        "Marcos": "액자",
-        "Objetos": "소품"
+        "Dragones": "드래곤"
       },
       "items": {
-        "light-warm": "따뜻한 조명",
-        "light-string": "전구 장식",
-        "plant-fern": "고사리",
-        "plant-succulent": "다육식물"
+        "dragon-vitral": "스테인드글라스 드래곤",
+        "dragon-fuego-izq": "불의 드래곤 (왼쪽)",
+        "dragon-fuego-der": "불의 드래곤 (오른쪽)",
+        "dragon-lector": "독서하는 드래곤",
+        "dragon-negro-cabeza": "검은 드래곤 (머리)",
+        "dragon-negro-cola": "검은 드래곤 (꼬리)",
+        "dragon-dorado": "황금 드래곤",
+        "dragon-rosa": "분홍 드래곤",
+        "dragon-huevo": "용의 알",
+        "dragon-garra": "용의 발톱"
       },
       "empty": "이 카테고리에는 아직 장식이 없습니다.",
       "toolbarLabel": "사용 가능한 장식",

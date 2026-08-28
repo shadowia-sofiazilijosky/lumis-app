@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "すべて",
-        "Plantas": "植物",
-        "Luces": "ライト",
-        "Velas": "キャンドル",
-        "Marcos": "フレーム",
-        "Objetos": "小物"
+        "Dragones": "ドラゴン"
       },
       "items": {
-        "light-warm": "暖色ライト",
-        "light-string": "イルミネーション",
-        "plant-fern": "シダ",
-        "plant-succulent": "多肉植物"
+        "dragon-vitral": "ステンドグラスのドラゴン",
+        "dragon-fuego-izq": "火のドラゴン（左）",
+        "dragon-fuego-der": "火のドラゴン（右）",
+        "dragon-lector": "読書ドラゴン",
+        "dragon-negro-cabeza": "黒いドラゴン（頭）",
+        "dragon-negro-cola": "黒いドラゴン（尾）",
+        "dragon-dorado": "金色のドラゴン",
+        "dragon-rosa": "ピンクのドラゴン",
+        "dragon-huevo": "ドラゴンの卵",
+        "dragon-garra": "ドラゴンの爪"
       },
       "empty": "このカテゴリにはまだ装飾がありません。",
       "toolbarLabel": "利用可能な装飾",

@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Alle",
-        "Plantas": "Pflanzen",
-        "Luces": "Lichter",
-        "Velas": "Kerzen",
-        "Marcos": "Rahmen",
-        "Objetos": "Objekte"
+        "Dragones": "Drachen"
       },
       "items": {
-        "light-warm": "Warmes Licht",
-        "light-string": "Lichterkette",
-        "plant-fern": "Farn",
-        "plant-succulent": "Sukkulente"
+        "dragon-vitral": "Glasfenster-Drache",
+        "dragon-fuego-izq": "Feuerdrache (links)",
+        "dragon-fuego-der": "Feuerdrache (rechts)",
+        "dragon-lector": "Lesender Drache",
+        "dragon-negro-cabeza": "Schwarzer Drache (Kopf)",
+        "dragon-negro-cola": "Schwarzer Drache (Schwanz)",
+        "dragon-dorado": "Goldener Drache",
+        "dragon-rosa": "Rosa Drache",
+        "dragon-huevo": "Drachenei",
+        "dragon-garra": "Drachenkralle"
       },
       "empty": "In dieser Kategorie gibt es noch keine Dekorationen.",
       "toolbarLabel": "Verfügbare Dekorationen",

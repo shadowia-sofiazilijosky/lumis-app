@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Tudo",
-        "Plantas": "Plantas",
-        "Luces": "Luzes",
-        "Velas": "Velas",
-        "Marcos": "Molduras",
-        "Objetos": "Objetos"
+        "Dragones": "Dragões"
       },
       "items": {
-        "light-warm": "Luz quente",
-        "light-string": "Cordão de luzes",
-        "plant-fern": "Samambaia",
-        "plant-succulent": "Suculenta"
+        "dragon-vitral": "Dragão de vitral",
+        "dragon-fuego-izq": "Dragão de fogo (esquerda)",
+        "dragon-fuego-der": "Dragão de fogo (direita)",
+        "dragon-lector": "Dragão leitor",
+        "dragon-negro-cabeza": "Dragão negro (cabeça)",
+        "dragon-negro-cola": "Dragão negro (cauda)",
+        "dragon-dorado": "Dragão dourado",
+        "dragon-rosa": "Dragão rosa",
+        "dragon-huevo": "Ovo de dragão",
+        "dragon-garra": "Garra de dragão"
       },
       "empty": "Ainda não há decorações nessa categoria.",
       "toolbarLabel": "Decorações disponíveis",

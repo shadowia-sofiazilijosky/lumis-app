@@ -10,7 +10,7 @@ import {
   DEFAULT_SHELF_FRAME_SIZE,
 } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
-import { DECORATION_ICONS } from "../lib/decoration-catalog";
+import { findDecorationImage } from "../lib/decoration-catalog";
 import { getGenreStyle } from "../lib/genre-catalog";
 
 const PREVIEW_ASPECT = CANVAS_WIDTH / CANVAS_HEIGHT;
@@ -103,9 +103,11 @@ export function ShelfCard({
           {shelf.decorations
             .filter((decoration) => decoration.type !== "shelf")
             .map((decoration) => {
-              const DecorationIcon =
-                DECORATION_ICONS[decoration.type]?.[decoration.variant ?? ""];
-              if (!DecorationIcon) return null;
+              const decorationImage = findDecorationImage(
+                decoration.type,
+                decoration.variant ?? null,
+              );
+              if (!decorationImage) return null;
               const width = decoration.width ?? DEFAULT_DECORATION_SIZE.width;
               const height = decoration.height ?? DEFAULT_DECORATION_SIZE.height;
               return (
@@ -119,7 +121,8 @@ export function ShelfCard({
                     height: `${(height / refHeight) * 100}%`,
                   }}
                 >
-                  <DecorationIcon />
+                  {/* eslint-disable-next-line @next/next/no-img-element -- local static asset, tiny preview thumbnail */}
+                  <img src={decorationImage} alt="" className="shelf-card-decoration-image" />
                 </span>
               );
             })}

@@ -8,7 +8,7 @@ import {
   type DecorationCategory,
 } from "../lib/decoration-catalog";
 
-function PaletteItem({ type, variant, Icon }: DecorationCatalogItem) {
+function PaletteItem({ type, variant, imageUrl }: DecorationCatalogItem) {
   const t = useTranslations("shelfEditor.decoration");
   const label = t(`items.${type}-${variant}`);
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
@@ -26,7 +26,8 @@ function PaletteItem({ type, variant, Icon }: DecorationCatalogItem) {
       style={{ opacity: isDragging ? 0.4 : 1 }}
       aria-label={t("addAria", { label })}
     >
-      <Icon />
+      {/* eslint-disable-next-line @next/next/no-img-element -- local static asset, tiny palette thumbnail */}
+      <img src={imageUrl} alt="" className="decoration-palette-item-image" />
       <span>{label}</span>
     </button>
   );

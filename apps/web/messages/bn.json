@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "সব",
-        "Plantas": "গাছপালা",
-        "Luces": "আলো",
-        "Velas": "মোমবাতি",
-        "Marcos": "ফ্রেম",
-        "Objetos": "বস্তু"
+        "Dragones": "ড্রাগন"
       },
       "items": {
-        "light-warm": "উষ্ণ আলো",
-        "light-string": "লাইট স্ট্রিং",
-        "plant-fern": "ফার্ন",
-        "plant-succulent": "সাকুলেন্ট"
+        "dragon-vitral": "স্টেইনড-গ্লাস ড্রাগন",
+        "dragon-fuego-izq": "আগুনের ড্রাগন (বাম)",
+        "dragon-fuego-der": "আগুনের ড্রাগন (ডান)",
+        "dragon-lector": "পাঠক ড্রাগন",
+        "dragon-negro-cabeza": "কালো ড্রাগন (মাথা)",
+        "dragon-negro-cola": "কালো ড্রাগন (লেজ)",
+        "dragon-dorado": "সোনালি ড্রাগন",
+        "dragon-rosa": "গোলাপি ড্রাগন",
+        "dragon-huevo": "ড্রাগনের ডিম",
+        "dragon-garra": "ড্রাগনের নখ"
       },
       "empty": "এই বিভাগে এখনো কোনো সাজসজ্জা নেই।",
       "toolbarLabel": "উপলব্ধ সাজসজ্জা",

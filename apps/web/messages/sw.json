@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Yote",
-        "Plantas": "Mimea",
-        "Luces": "Taa",
-        "Velas": "Mishumaa",
-        "Marcos": "Fremu",
-        "Objetos": "Vitu"
+        "Dragones": "Joka"
       },
       "items": {
-        "light-warm": "Taa ya joto",
-        "light-string": "Mfuatano wa taa",
-        "plant-fern": "Feri",
-        "plant-succulent": "Mmea wa succulent"
+        "dragon-vitral": "Joka la kioo cha rangi",
+        "dragon-fuego-izq": "Joka la moto (kushoto)",
+        "dragon-fuego-der": "Joka la moto (kulia)",
+        "dragon-lector": "Joka msomaji",
+        "dragon-negro-cabeza": "Joka jeusi (kichwa)",
+        "dragon-negro-cola": "Joka jeusi (mkia)",
+        "dragon-dorado": "Joka la dhahabu",
+        "dragon-rosa": "Joka la waridi",
+        "dragon-huevo": "Yai la joka",
+        "dragon-garra": "Ukucha wa joka"
       },
       "empty": "Bado hakuna mapambo katika kundi hili.",
       "toolbarLabel": "Mapambo yanayopatikana",

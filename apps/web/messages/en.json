@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "All",
-        "Plantas": "Plants",
-        "Luces": "Lights",
-        "Velas": "Candles",
-        "Marcos": "Frames",
-        "Objetos": "Objects"
+        "Dragones": "Dragons"
       },
       "items": {
-        "light-warm": "Warm light",
-        "light-string": "String lights",
-        "plant-fern": "Fern",
-        "plant-succulent": "Succulent"
+        "dragon-vitral": "Stained-glass dragon",
+        "dragon-fuego-izq": "Fire dragon (left)",
+        "dragon-fuego-der": "Fire dragon (right)",
+        "dragon-lector": "Reading dragon",
+        "dragon-negro-cabeza": "Black dragon (head)",
+        "dragon-negro-cola": "Black dragon (tail)",
+        "dragon-dorado": "Golden dragon",
+        "dragon-rosa": "Pink dragon",
+        "dragon-huevo": "Dragon egg",
+        "dragon-garra": "Dragon claw"
       },
       "empty": "No decorations in this category yet.",
       "toolbarLabel": "Available decorations",

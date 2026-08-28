@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "सभी",
-        "Plantas": "पौधे",
-        "Luces": "रोशनी",
-        "Velas": "मोमबत्तियां",
-        "Marcos": "फ़्रेम",
-        "Objetos": "वस्तुएं"
+        "Dragones": "ड्रैगन"
       },
       "items": {
-        "light-warm": "गर्म रोशनी",
-        "light-string": "लड़ी रोशनी",
-        "plant-fern": "फ़र्न",
-        "plant-succulent": "सक्युलेंट"
+        "dragon-vitral": "रंगीन शीशे वाला ड्रैगन",
+        "dragon-fuego-izq": "आग का ड्रैगन (बाएं)",
+        "dragon-fuego-der": "आग का ड्रैगन (दाएं)",
+        "dragon-lector": "पढ़ने वाला ड्रैगन",
+        "dragon-negro-cabeza": "काला ड्रैगन (सिर)",
+        "dragon-negro-cola": "काला ड्रैगन (पूंछ)",
+        "dragon-dorado": "सुनहरा ड्रैगन",
+        "dragon-rosa": "गुलाबी ड्रैगन",
+        "dragon-huevo": "ड्रैगन का अंडा",
+        "dragon-garra": "ड्रैगन का पंजा"
       },
       "empty": "इस श्रेणी में अभी कोई सजावट नहीं है।",
       "toolbarLabel": "उपलब्ध सजावट",

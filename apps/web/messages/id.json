@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Semua",
-        "Plantas": "Tanaman",
-        "Luces": "Lampu",
-        "Velas": "Lilin",
-        "Marcos": "Bingkai",
-        "Objetos": "Benda"
+        "Dragones": "Naga"
       },
       "items": {
-        "light-warm": "Cahaya hangat",
-        "light-string": "Lampu string",
-        "plant-fern": "Pakis",
-        "plant-succulent": "Sukulen"
+        "dragon-vitral": "Naga kaca patri",
+        "dragon-fuego-izq": "Naga api (kiri)",
+        "dragon-fuego-der": "Naga api (kanan)",
+        "dragon-lector": "Naga pembaca",
+        "dragon-negro-cabeza": "Naga hitam (kepala)",
+        "dragon-negro-cola": "Naga hitam (ekor)",
+        "dragon-dorado": "Naga emas",
+        "dragon-rosa": "Naga merah muda",
+        "dragon-huevo": "Telur naga",
+        "dragon-garra": "Cakar naga"
       },
       "empty": "Belum ada dekorasi di kategori ini.",
       "toolbarLabel": "Dekorasi yang tersedia",

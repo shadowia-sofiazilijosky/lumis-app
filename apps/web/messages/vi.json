@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Tất cả",
-        "Plantas": "Cây cối",
-        "Luces": "Đèn",
-        "Velas": "Nến",
-        "Marcos": "Khung ảnh",
-        "Objetos": "Đồ vật"
+        "Dragones": "Rồng"
       },
       "items": {
-        "light-warm": "Đèn ấm",
-        "light-string": "Dây đèn",
-        "plant-fern": "Dương xỉ",
-        "plant-succulent": "Cây mọng nước"
+        "dragon-vitral": "Rồng kính màu",
+        "dragon-fuego-izq": "Rồng lửa (trái)",
+        "dragon-fuego-der": "Rồng lửa (phải)",
+        "dragon-lector": "Rồng đọc sách",
+        "dragon-negro-cabeza": "Rồng đen (đầu)",
+        "dragon-negro-cola": "Rồng đen (đuôi)",
+        "dragon-dorado": "Rồng vàng",
+        "dragon-rosa": "Rồng hồng",
+        "dragon-huevo": "Trứng rồng",
+        "dragon-garra": "Móng vuốt rồng"
       },
       "empty": "Chưa có đồ trang trí nào trong danh mục này.",
       "toolbarLabel": "Đồ trang trí có sẵn",

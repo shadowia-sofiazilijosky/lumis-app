@@ -118,17 +118,19 @@
     "decoration": {
       "categories": {
         "Todo": "Tout",
-        "Plantas": "Plantes",
-        "Luces": "Lumières",
-        "Velas": "Bougies",
-        "Marcos": "Cadres",
-        "Objetos": "Objets"
+        "Dragones": "Dragons"
       },
       "items": {
-        "light-warm": "Lumière chaude",
-        "light-string": "Guirlande lumineuse",
-        "plant-fern": "Fougère",
-        "plant-succulent": "Succulente"
+        "dragon-vitral": "Dragon vitrail",
+        "dragon-fuego-izq": "Dragon de feu (gauche)",
+        "dragon-fuego-der": "Dragon de feu (droite)",
+        "dragon-lector": "Dragon lecteur",
+        "dragon-negro-cabeza": "Dragon noir (tête)",
+        "dragon-negro-cola": "Dragon noir (queue)",
+        "dragon-dorado": "Dragon doré",
+        "dragon-rosa": "Dragon rose",
+        "dragon-huevo": "Œuf de dragon",
+        "dragon-garra": "Griffe de dragon"
       },
       "empty": "Pas encore de décorations dans cette catégorie.",
       "toolbarLabel": "Décorations disponibles",
