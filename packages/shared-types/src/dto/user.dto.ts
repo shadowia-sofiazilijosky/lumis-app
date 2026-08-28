@@ -13,4 +13,6 @@ export interface UpdateUserDto {
   country?: string;
   /** IANA timezone name. */
   timezone?: string;
+  /** ISO 639-1, one of SUPPORTED_LOCALE_CODES. */
+  language?: string;
 }

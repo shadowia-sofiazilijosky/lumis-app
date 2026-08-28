@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "책장",
+    "library": "리더",
+    "notes": "메모",
+    "profile": "프로필",
+    "openMenu": "메뉴 열기",
+    "expand": "메뉴 펼치기",
+    "collapse": "메뉴 접기",
+    "greeting": "안녕하세요, {name}님",
+    "logout": "로그아웃"
+  },
+  "profile": {
+    "title": "내 프로필",
+    "tabOverview": "개요",
+    "tabEdit": "프로필 편집",
+    "loadingStats": "통계를 불러오는 중…",
+    "stats": {
+      "libraryCount": "서재에 있는 책",
+      "readCount": "읽은 책",
+      "reviewCount": "작성한 리뷰",
+      "streakCount": "연속 기록 일수",
+      "viewAll": "전체 보기",
+      "viewAllFem": "전체 보기",
+      "viewStreak": "연속 기록 보기"
+    },
+    "edit": {
+      "changePhoto": "사진 변경",
+      "uploading": "업로드 중…",
+      "avatarError": "사진을 업로드하지 못했습니다. 5MB 미만의 JPG, PNG 또는 WEBP를 사용해 보세요.",
+      "name": "이름",
+      "bio": "소개",
+      "bioPlaceholder": "독자로서의 당신에 대해 이야기해 주세요…",
+      "location": "위치",
+      "locationPlaceholder": "도시, 국가",
+      "readingGoal": "연간 독서 목표",
+      "readingGoalPlaceholder": "예: 80",
+      "quote": "개인 명언",
+      "quotePlaceholder": "당신을 나타내는 문구…",
+      "country": "국가",
+      "countryUnset": "설정 안 됨",
+      "timezone": "시간대",
+      "timezoneHint": "실제 현지 시간을 기준으로 연속 기록과 \"야간 독서\" 상태를 계산하는 데 사용됩니다.",
+      "language": "플랫폼 언어",
+      "languageHint": "전체 플랫폼의 언어를 변경합니다. 저장 시 적용됩니다.",
+      "save": "변경사항 저장",
+      "saving": "저장 중…",
+      "saved": "저장됨",
+      "saveError": "저장하지 못했습니다. 다시 시도해 주세요."
+    }
+  }
+}

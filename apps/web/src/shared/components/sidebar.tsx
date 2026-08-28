@@ -1,6 +1,7 @@
 "use client";
 
 import { BookOpen, Library, Menu, StickyNote, User, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,10 +12,10 @@ import { ThemeToggle } from "./theme-toggle";
 const COLLAPSED_STORAGE_KEY = "lumis-sidebar-collapsed";
 
 const NAV_ITEMS = [
-  { href: "/shelves", label: "Estantería", Icon: Library },
-  { href: "/library", label: "Lector", Icon: BookOpen },
-  { href: "/notes", label: "Notas", Icon: StickyNote },
-  { href: "/profile", label: "Perfil", Icon: User },
+  { href: "/shelves", key: "shelves" as const, Icon: Library },
+  { href: "/library", key: "library" as const, Icon: BookOpen },
+  { href: "/notes", key: "notes" as const, Icon: StickyNote },
+  { href: "/profile", key: "profile" as const, Icon: User },
 ];
 
 /**
@@ -25,6 +26,7 @@ const NAV_ITEMS = [
  */
 export function Sidebar({ initialTheme }: { initialTheme: ThemeMode | null }) {
   const pathname = usePathname();
+  const t = useTranslations("nav");
   // Lazy initializer (not an effect): reads the persisted preference once,
   // synchronously, on the client. Server-rendered markup always starts
   // expanded — a possible one-frame hydration flash beats the cascading
@@ -55,7 +57,7 @@ export function Sidebar({ initialTheme }: { initialTheme: ThemeMode | null }) {
           type="button"
           className="sidebar-mobile-trigger"
           onClick={toggle}
-          aria-label="Abrir navegación"
+          aria-label={t("openMenu")}
         >
           <Menu size={22} />
         </button>
@@ -86,16 +88,17 @@ export function Sidebar({ initialTheme }: { initialTheme: ThemeMode | null }) {
             type="button"
             className="sidebar-collapse-toggle"
             onClick={toggle}
-            aria-label={collapsed ? "Expandir navegación" : "Colapsar navegación"}
+            aria-label={collapsed ? t("expand") : t("collapse")}
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
 
         <nav className="sidebar-nav">
-          {NAV_ITEMS.map(({ href, label, Icon }) => {
+          {NAV_ITEMS.map(({ href, key, Icon }) => {
             const isActive =
               pathname === href || pathname?.startsWith(`${href}/`);
+            const label = t(key);
             return (
               <Link
                 key={href}

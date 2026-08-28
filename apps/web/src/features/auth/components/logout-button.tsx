@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { logout } from "../api/auth-client";
@@ -7,6 +8,7 @@ import { useAuthStore } from "../store/auth-store";
 
 export function LogoutButton() {
   const router = useRouter();
+  const t = useTranslations("nav");
   const setUser = useAuthStore((state) => state.setUser);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -24,7 +26,7 @@ export function LogoutButton() {
 
   return (
     <button type="button" onClick={handleLogout} disabled={isSubmitting}>
-      {isSubmitting ? "Saliendo…" : "Cerrar sesión"}
+      {t("logout")}
     </button>
   );
 }

@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "书架",
+    "library": "阅读器",
+    "notes": "笔记",
+    "profile": "个人资料",
+    "openMenu": "打开导航",
+    "expand": "展开导航",
+    "collapse": "收起导航",
+    "greeting": "你好，{name}",
+    "logout": "退出登录"
+  },
+  "profile": {
+    "title": "我的资料",
+    "tabOverview": "概览",
+    "tabEdit": "编辑资料",
+    "loadingStats": "正在加载统计数据…",
+    "stats": {
+      "libraryCount": "你书库中的书籍",
+      "readCount": "已读书籍",
+      "reviewCount": "已写书评",
+      "streakCount": "连续阅读天数",
+      "viewAll": "查看全部",
+      "viewAllFem": "查看全部",
+      "viewStreak": "查看连续记录"
+    },
+    "edit": {
+      "changePhoto": "更换照片",
+      "uploading": "正在上传…",
+      "avatarError": "无法上传照片。请尝试小于5MB的JPG、PNG或WEBP格式。",
+      "name": "姓名",
+      "bio": "简介",
+      "bioPlaceholder": "介绍一下作为读者的你…",
+      "location": "所在地",
+      "locationPlaceholder": "城市，国家",
+      "readingGoal": "年度阅读目标",
+      "readingGoalPlaceholder": "例如：80",
+      "quote": "个人格言",
+      "quotePlaceholder": "一句能代表你的话…",
+      "country": "国家",
+      "countryUnset": "未设置",
+      "timezone": "时区",
+      "timezoneHint": "用于按你的真实当地时间计算连续阅读天数和\"夜读\"状态。",
+      "language": "平台语言",
+      "languageHint": "更改整个平台的语言。保存后生效。",
+      "save": "保存更改",
+      "saving": "正在保存…",
+      "saved": "已保存",
+      "saveError": "无法保存，请重试。"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Estante",
+    "library": "Leitor",
+    "notes": "Notas",
+    "profile": "Perfil",
+    "openMenu": "Abrir navegação",
+    "expand": "Expandir navegação",
+    "collapse": "Recolher navegação",
+    "greeting": "Olá, {name}",
+    "logout": "Sair"
+  },
+  "profile": {
+    "title": "Meu perfil",
+    "tabOverview": "Visão geral",
+    "tabEdit": "Editar perfil",
+    "loadingStats": "Carregando estatísticas…",
+    "stats": {
+      "libraryCount": "Livros na sua biblioteca",
+      "readCount": "Livros lidos",
+      "reviewCount": "Resenhas escritas",
+      "streakCount": "Dias de sequência",
+      "viewAll": "Ver todos",
+      "viewAllFem": "Ver todas",
+      "viewStreak": "Ver sequência"
+    },
+    "edit": {
+      "changePhoto": "Trocar foto",
+      "uploading": "Enviando…",
+      "avatarError": "Não conseguimos enviar a foto. Tente um JPG, PNG ou WEBP de até 5MB.",
+      "name": "Nome",
+      "bio": "Bio",
+      "bioPlaceholder": "Conte algo sobre você como leitor(a)…",
+      "location": "Localização",
+      "locationPlaceholder": "Cidade, país",
+      "readingGoal": "Meta anual de leitura",
+      "readingGoalPlaceholder": "Ex: 80",
+      "quote": "Citação pessoal",
+      "quotePlaceholder": "Uma frase que te represente…",
+      "country": "País",
+      "countryUnset": "Não especificado",
+      "timezone": "Fuso horário",
+      "timezoneHint": "Usado para calcular sua sequência e status de \"leitor noturno\" no seu horário real.",
+      "language": "Idioma da plataforma",
+      "languageHint": "Muda o idioma de toda a plataforma. Aplicado ao salvar.",
+      "save": "Salvar alterações",
+      "saving": "Salvando…",
+      "saved": "Salvo",
+      "saveError": "Não foi possível salvar. Tente novamente."
+    }
+  }
+}

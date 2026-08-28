@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "شیلف",
+    "library": "ریڈر",
+    "notes": "نوٹس",
+    "profile": "پروفائل",
+    "openMenu": "نیویگیشن کھولیں",
+    "expand": "نیویگیشن بڑھائیں",
+    "collapse": "نیویگیشن سکیڑیں",
+    "greeting": "ہیلو، {name}",
+    "logout": "لاگ آؤٹ"
+  },
+  "profile": {
+    "title": "میری پروفائل",
+    "tabOverview": "جائزہ",
+    "tabEdit": "پروفائل میں ترمیم کریں",
+    "loadingStats": "اعداد و شمار لوڈ ہو رہے ہیں…",
+    "stats": {
+      "libraryCount": "آپ کی لائبریری میں کتابیں",
+      "readCount": "پڑھی گئی کتابیں",
+      "reviewCount": "لکھے گئے جائزے",
+      "streakCount": "لگاتار دن",
+      "viewAll": "سب دیکھیں",
+      "viewAllFem": "سب دیکھیں",
+      "viewStreak": "سلسلہ دیکھیں"
+    },
+    "edit": {
+      "changePhoto": "تصویر تبدیل کریں",
+      "uploading": "اپ لوڈ ہو رہا ہے…",
+      "avatarError": "تصویر اپ لوڈ نہیں ہو سکی۔ 5MB سے کم JPG، PNG یا WEBP آزمائیں۔",
+      "name": "نام",
+      "bio": "بائیو",
+      "bioPlaceholder": "ایک قاری کے طور پر اپنے بارے میں کچھ بتائیں…",
+      "location": "مقام",
+      "locationPlaceholder": "شہر، ملک",
+      "readingGoal": "سالانہ مطالعہ کا ہدف",
+      "readingGoalPlaceholder": "مثلاً: 80",
+      "quote": "ذاتی اقتباس",
+      "quotePlaceholder": "ایک جملہ جو آپ کی نمائندگی کرے…",
+      "country": "ملک",
+      "countryUnset": "متعین نہیں",
+      "timezone": "ٹائم زون",
+      "timezoneHint": "آپ کے اصل مقامی وقت میں سلسلہ اور \"رات کے قاری\" کی حیثیت کا حساب لگانے کے لیے استعمال ہوتا ہے۔",
+      "language": "پلیٹ فارم کی زبان",
+      "languageHint": "پورے پلیٹ فارم کی زبان تبدیل کرتا ہے۔ محفوظ کرنے پر لاگو ہوتا ہے۔",
+      "save": "تبدیلیاں محفوظ کریں",
+      "saving": "محفوظ ہو رہا ہے…",
+      "saved": "محفوظ ہو گیا",
+      "saveError": "محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔"
+    }
+  }
+}

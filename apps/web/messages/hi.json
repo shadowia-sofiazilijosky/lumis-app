@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "शेल्फ़",
+    "library": "रीडर",
+    "notes": "नोट्स",
+    "profile": "प्रोफ़ाइल",
+    "openMenu": "नेविगेशन खोलें",
+    "expand": "नेविगेशन बड़ा करें",
+    "collapse": "नेविगेशन छोटा करें",
+    "greeting": "नमस्ते, {name}",
+    "logout": "लॉग आउट"
+  },
+  "profile": {
+    "title": "मेरी प्रोफ़ाइल",
+    "tabOverview": "अवलोकन",
+    "tabEdit": "प्रोफ़ाइल संपादित करें",
+    "loadingStats": "आँकड़े लोड हो रहे हैं…",
+    "stats": {
+      "libraryCount": "आपकी लाइब्रेरी की किताबें",
+      "readCount": "पढ़ी गई किताबें",
+      "reviewCount": "लिखी गई समीक्षाएँ",
+      "streakCount": "स्ट्रीक के दिन",
+      "viewAll": "सभी देखें",
+      "viewAllFem": "सभी देखें",
+      "viewStreak": "स्ट्रीक देखें"
+    },
+    "edit": {
+      "changePhoto": "फ़ोटो बदलें",
+      "uploading": "अपलोड हो रहा है…",
+      "avatarError": "फ़ोटो अपलोड नहीं हो सकी। 5MB से कम का JPG, PNG या WEBP आज़माएँ।",
+      "name": "नाम",
+      "bio": "बायो",
+      "bioPlaceholder": "एक पाठक के रूप में अपने बारे में कुछ बताएँ…",
+      "location": "स्थान",
+      "locationPlaceholder": "शहर, देश",
+      "readingGoal": "वार्षिक पठन लक्ष्य",
+      "readingGoalPlaceholder": "उदा: 80",
+      "quote": "व्यक्तिगत उद्धरण",
+      "quotePlaceholder": "एक वाक्य जो आपको दर्शाता हो…",
+      "country": "देश",
+      "countryUnset": "निर्दिष्ट नहीं",
+      "timezone": "समय क्षेत्र",
+      "timezoneHint": "आपके वास्तविक स्थानीय समय में स्ट्रीक और \"नाइट रीडर\" स्थिति की गणना के लिए उपयोग किया जाता है।",
+      "language": "प्लेटफ़ॉर्म भाषा",
+      "languageHint": "पूरे प्लेटफ़ॉर्म की भाषा बदलता है। सेव करने पर लागू होता है।",
+      "save": "बदलाव सहेजें",
+      "saving": "सहेजा जा रहा है…",
+      "saved": "सहेजा गया",
+      "saveError": "सहेज नहीं सके। फिर से कोशिश करें।"
+    }
+  }
+}

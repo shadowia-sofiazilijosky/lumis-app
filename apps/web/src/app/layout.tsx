@@ -1,4 +1,7 @@
+import { SUPPORTED_LOCALES } from "@lumis/shared-types";
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { Caveat, Geist, Geist_Mono, Inter, Lora, Playfair_Display } from "next/font/google";
 import { AuthProvider } from "@/features/auth/components/auth-provider";
 import { getFontCookie } from "@/shared/lib/font-cookie";
@@ -47,17 +50,26 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const [theme, font] = await Promise.all([getThemeCookie(), getFontCookie()]);
+  const [theme, font, locale, messages] = await Promise.all([
+    getThemeCookie(),
+    getFontCookie(),
+    getLocale(),
+    getMessages(),
+  ]);
+  const isRtl = SUPPORTED_LOCALES.find((l) => l.code === locale)?.rtl ?? false;
 
   return (
     <html
-      lang="es"
+      lang={locale}
+      dir={isRtl ? "rtl" : "ltr"}
       data-theme={theme ?? undefined}
       data-font={font ?? undefined}
       className={`${geistSans.variable} ${geistMono.variable} ${lora.variable} ${playfairDisplay.variable} ${inter.variable} ${caveat.variable}`}
     >
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <AuthProvider>{children}</AuthProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

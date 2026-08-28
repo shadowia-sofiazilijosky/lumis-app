@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Plank",
+    "library": "Lezer",
+    "notes": "Notities",
+    "profile": "Profiel",
+    "openMenu": "Navigatie openen",
+    "expand": "Navigatie uitklappen",
+    "collapse": "Navigatie inklappen",
+    "greeting": "Hoi, {name}",
+    "logout": "Uitloggen"
+  },
+  "profile": {
+    "title": "Mijn profiel",
+    "tabOverview": "Overzicht",
+    "tabEdit": "Profiel bewerken",
+    "loadingStats": "Statistieken laden…",
+    "stats": {
+      "libraryCount": "Boeken in je bibliotheek",
+      "readCount": "Gelezen boeken",
+      "reviewCount": "Geschreven recensies",
+      "streakCount": "Streak-dagen",
+      "viewAll": "Bekijk alles",
+      "viewAllFem": "Bekijk alles",
+      "viewStreak": "Bekijk streak"
+    },
+    "edit": {
+      "changePhoto": "Foto wijzigen",
+      "uploading": "Uploaden…",
+      "avatarError": "We konden de foto niet uploaden. Probeer een JPG, PNG of WEBP onder 5MB.",
+      "name": "Naam",
+      "bio": "Bio",
+      "bioPlaceholder": "Vertel iets over jezelf als lezer…",
+      "location": "Locatie",
+      "locationPlaceholder": "Stad, land",
+      "readingGoal": "Jaarlijkse leesdoel",
+      "readingGoalPlaceholder": "Bijv: 80",
+      "quote": "Persoonlijk citaat",
+      "quotePlaceholder": "Een zin die jou vertegenwoordigt…",
+      "country": "Land",
+      "countryUnset": "Niet ingesteld",
+      "timezone": "Tijdzone",
+      "timezoneHint": "Wordt gebruikt om je streak en \"nachtlezer\"-status in je echte lokale tijd te berekenen.",
+      "language": "Platformtaal",
+      "languageHint": "Wijzigt de taal van het hele platform. Wordt toegepast bij opslaan.",
+      "save": "Wijzigingen opslaan",
+      "saving": "Opslaan…",
+      "saved": "Opgeslagen",
+      "saveError": "Kon niet opslaan. Probeer het opnieuw."
+    }
+  }
+}

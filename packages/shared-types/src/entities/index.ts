@@ -8,3 +8,4 @@ export * from "./note.entity";
 export * from "./review.entity";
 export * from "./stroke.entity";
 export * from "./profile-stats.entity";
+export * from "./locale.entity";

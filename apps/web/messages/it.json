@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Scaffale",
+    "library": "Lettore",
+    "notes": "Note",
+    "profile": "Profilo",
+    "openMenu": "Apri navigazione",
+    "expand": "Espandi navigazione",
+    "collapse": "Comprimi navigazione",
+    "greeting": "Ciao, {name}",
+    "logout": "Esci"
+  },
+  "profile": {
+    "title": "Il mio profilo",
+    "tabOverview": "Panoramica",
+    "tabEdit": "Modifica profilo",
+    "loadingStats": "Caricamento statistiche…",
+    "stats": {
+      "libraryCount": "Libri nella tua libreria",
+      "readCount": "Libri letti",
+      "reviewCount": "Recensioni scritte",
+      "streakCount": "Giorni di serie",
+      "viewAll": "Vedi tutti",
+      "viewAllFem": "Vedi tutte",
+      "viewStreak": "Vedi la serie"
+    },
+    "edit": {
+      "changePhoto": "Cambia foto",
+      "uploading": "Caricamento…",
+      "avatarError": "Non siamo riusciti a caricare la foto. Prova con un JPG, PNG o WEBP sotto i 5MB.",
+      "name": "Nome",
+      "bio": "Bio",
+      "bioPlaceholder": "Raccontaci qualcosa di te come lettore/lettrice…",
+      "location": "Posizione",
+      "locationPlaceholder": "Città, paese",
+      "readingGoal": "Obiettivo di lettura annuale",
+      "readingGoalPlaceholder": "Es: 80",
+      "quote": "Citazione personale",
+      "quotePlaceholder": "Una frase che ti rappresenta…",
+      "country": "Paese",
+      "countryUnset": "Non specificato",
+      "timezone": "Fuso orario",
+      "timezoneHint": "Usato per calcolare la tua serie e lo stato di \"lettore notturno\" nel tuo orario reale.",
+      "language": "Lingua della piattaforma",
+      "languageHint": "Cambia la lingua di tutta la piattaforma. Applicato al salvataggio.",
+      "save": "Salva modifiche",
+      "saving": "Salvataggio…",
+      "saved": "Salvato",
+      "saveError": "Impossibile salvare. Riprova."
+    }
+  }
+}

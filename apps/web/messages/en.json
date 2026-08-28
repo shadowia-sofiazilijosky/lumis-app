@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Shelf",
+    "library": "Reader",
+    "notes": "Notes",
+    "profile": "Profile",
+    "openMenu": "Open navigation",
+    "expand": "Expand navigation",
+    "collapse": "Collapse navigation",
+    "greeting": "Hi, {name}",
+    "logout": "Log out"
+  },
+  "profile": {
+    "title": "My profile",
+    "tabOverview": "Overview",
+    "tabEdit": "Edit profile",
+    "loadingStats": "Loading stats…",
+    "stats": {
+      "libraryCount": "Books in your library",
+      "readCount": "Books read",
+      "reviewCount": "Reviews written",
+      "streakCount": "Streak days",
+      "viewAll": "View all",
+      "viewAllFem": "View all",
+      "viewStreak": "View streak"
+    },
+    "edit": {
+      "changePhoto": "Change photo",
+      "uploading": "Uploading…",
+      "avatarError": "We couldn't upload the photo. Try a JPG, PNG or WEBP under 5MB.",
+      "name": "Name",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell us something about you as a reader…",
+      "location": "Location",
+      "locationPlaceholder": "City, country",
+      "readingGoal": "Annual reading goal",
+      "readingGoalPlaceholder": "E.g. 80",
+      "quote": "Personal quote",
+      "quotePlaceholder": "A phrase that represents you…",
+      "country": "Country",
+      "countryUnset": "Not set",
+      "timezone": "Timezone",
+      "timezoneHint": "Used to calculate your streak and \"night reader\" status in your real local time.",
+      "language": "Platform language",
+      "languageHint": "Changes the language across the whole platform. Applied on save.",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "saveError": "We couldn't save. Please try again."
+    }
+  }
+}

@@ -1,6 +1,8 @@
+import { SUPPORTED_LOCALE_CODES } from '@lumis/shared-types';
 import { FontPreference, ThemePreference } from '@prisma/client';
 import {
   IsEnum,
+  IsIn,
   IsInt,
   IsOptional,
   IsString,
@@ -56,4 +58,10 @@ export class UpdateUserDto {
   @IsString()
   @MaxLength(64)
   timezone?: string;
+
+  // ISO 639-1, one of SUPPORTED_LOCALE_CODES.
+  @IsOptional()
+  @IsString()
+  @IsIn(SUPPORTED_LOCALE_CODES)
+  language?: string;
 }

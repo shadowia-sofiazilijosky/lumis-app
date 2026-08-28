@@ -1,7 +1,8 @@
 "use client";
 
-import type { PublicUser } from "@lumis/shared-types";
+import { SUPPORTED_LOCALES, type PublicUser } from "@lumis/shared-types";
 import { Pencil } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useMemo, useRef, useState } from "react";
 import { updateProfile, uploadAvatar } from "../api/profile-client";
 import { COUNTRIES } from "../lib/countries";
@@ -36,6 +37,7 @@ interface ProfileEditFormProps {
 }
 
 export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFormProps) {
+  const t = useTranslations("profile.edit");
   const [displayName, setDisplayName] = useState(user.displayName);
   const [bio, setBio] = useState(user.bio ?? "");
   const [location, setLocation] = useState(user.location ?? "");
@@ -43,6 +45,7 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
   const [readingGoal, setReadingGoal] = useState(user.readingGoal?.toString() ?? "");
   const [country, setCountry] = useState(user.country ?? "");
   const [timezone, setTimezone] = useState(user.timezone ?? detectTimezone());
+  const [language, setLanguage] = useState(user.language ?? "es");
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
   const [avatarUploading, setAvatarUploading] = useState(false);
@@ -63,7 +66,7 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
       setAvatarUrl(updated.avatarUrl);
       onAvatarChange(updated);
     } catch {
-      setAvatarError("No pudimos subir la foto. Probá con un JPG, PNG o WEBP de menos de 5MB.");
+      setAvatarError(t("avatarError"));
     } finally {
       setAvatarUploading(false);
     }
@@ -84,6 +87,7 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
         ...(readingGoal !== "" && !Number.isNaN(parsedGoal) && { readingGoal: parsedGoal }),
         country,
         timezone,
+        language,
       });
       onSaved(updated);
       setSaveState("saved");
@@ -112,7 +116,7 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
             onClick={() => fileInputRef.current?.click()}
             disabled={avatarUploading}
           >
-            <Pencil size={13} /> {avatarUploading ? "Subiendo…" : "Cambiar foto"}
+            <Pencil size={13} /> {avatarUploading ? t("uploading") : t("changePhoto")}
           </button>
           <input
             ref={fileInputRef}
@@ -126,7 +130,7 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
       </div>
 
       <label className="profile-field">
-        Nombre
+        {t("name")}
         <input
           type="text"
           value={displayName}
@@ -137,57 +141,57 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
       </label>
 
       <label className="profile-field">
-        Bio
+        {t("bio")}
         <textarea
           value={bio}
           onChange={(event) => setBio(event.target.value)}
           maxLength={280}
           rows={2}
-          placeholder="Contá algo sobre vos como lectora/lector…"
+          placeholder={t("bioPlaceholder")}
         />
       </label>
 
       <div className="profile-field-row">
         <label className="profile-field">
-          Ubicación
+          {t("location")}
           <input
             type="text"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
             maxLength={120}
-            placeholder="Ciudad, país"
+            placeholder={t("locationPlaceholder")}
           />
         </label>
 
         <label className="profile-field">
-          Meta anual de lectura
+          {t("readingGoal")}
           <input
             type="number"
             min={1}
             max={1000}
             value={readingGoal}
             onChange={(event) => setReadingGoal(event.target.value)}
-            placeholder="Ej: 80"
+            placeholder={t("readingGoalPlaceholder")}
           />
         </label>
       </div>
 
       <label className="profile-field">
-        Cita personal
+        {t("quote")}
         <input
           type="text"
           value={favoriteQuote}
           onChange={(event) => setFavoriteQuote(event.target.value)}
           maxLength={200}
-          placeholder="Una frase que te represente…"
+          placeholder={t("quotePlaceholder")}
         />
       </label>
 
       <div className="profile-field-row">
         <label className="profile-field">
-          País
+          {t("country")}
           <select value={country} onChange={(event) => setCountry(event.target.value)}>
-            <option value="">Sin especificar</option>
+            <option value="">{t("countryUnset")}</option>
             {COUNTRIES.map((option) => (
               <option key={option.code} value={option.code}>
                 {option.name}
@@ -197,7 +201,7 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
         </label>
 
         <label className="profile-field">
-          Huso horario
+          {t("timezone")}
           <select value={timezone} onChange={(event) => setTimezone(event.target.value)}>
             {!timezoneOptions.includes(timezone) && <option value={timezone}>{timezone}</option>}
             {timezoneOptions.map((option) => (
@@ -206,20 +210,30 @@ export function ProfileEditForm({ user, onSaved, onAvatarChange }: ProfileEditFo
               </option>
             ))}
           </select>
-          <span className="profile-field-hint">
-            Se usa para calcular tu racha y &quot;lector nocturno&quot; en tu hora real.
-          </span>
+          <span className="profile-field-hint">{t("timezoneHint")}</span>
         </label>
       </div>
 
+      <label className="profile-field">
+        {t("language")}
+        <select value={language} onChange={(event) => setLanguage(event.target.value)}>
+          {SUPPORTED_LOCALES.map((option) => (
+            <option key={option.code} value={option.code}>
+              {option.nativeName}
+            </option>
+          ))}
+        </select>
+        <span className="profile-field-hint">{t("languageHint")}</span>
+      </label>
+
       <div className="profile-edit-actions">
         <button type="submit" disabled={saveState === "saving"}>
-          {saveState === "saving" ? "Guardando…" : "Guardar cambios"}
+          {saveState === "saving" ? t("saving") : t("save")}
         </button>
-        {saveState === "saved" && <span className="profile-save-status">Guardado</span>}
+        {saveState === "saved" && <span className="profile-save-status">{t("saved")}</span>}
         {saveState === "error" && (
           <span className="profile-save-status profile-save-status-error">
-            No pudimos guardar. Probá de nuevo.
+            {t("saveError")}
           </span>
         )}
       </div>

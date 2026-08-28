@@ -22,6 +22,7 @@ const mockUser: User = {
   readingGoal: null,
   country: null,
   timezone: null,
+  language: 'es',
   role: Role.USER,
   themePreference: 'SYSTEM',
   fontPreference: 'LORA',

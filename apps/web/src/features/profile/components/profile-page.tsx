@@ -1,6 +1,7 @@
 "use client";
 
 import type { ProfileStats, PublicUser } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { fetchProfileStats } from "../api/profile-client";
@@ -17,6 +18,7 @@ type Tab = "overview" | "edit";
 
 export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
   const router = useRouter();
+  const t = useTranslations("profile");
   const [user, setUser] = useState(initialUser);
   const [stats, setStats] = useState<ProfileStats | null>(null);
   const [tab, setTab] = useState<Tab>("overview");
@@ -43,21 +45,21 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
   return (
     <section className="profile-page">
       <div className="profile-page-header">
-        <h1>Mi perfil</h1>
+        <h1>{t("title")}</h1>
         <div className="profile-tabs">
           <button
             type="button"
             className={tab === "overview" ? "profile-tab-active" : ""}
             onClick={() => setTab("overview")}
           >
-            Vista general
+            {t("tabOverview")}
           </button>
           <button
             type="button"
             className={tab === "edit" ? "profile-tab-active" : ""}
             onClick={() => setTab("edit")}
           >
-            Editar perfil
+            {t("tabEdit")}
           </button>
         </div>
       </div>
@@ -84,40 +86,40 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
                   icon="/assets/profile/icon-perfil-biblioteca.png"
                   iconTone="gold"
                   value={stats.counts.totalBooks}
-                  label="Libros en tu biblioteca"
+                  label={t("stats.libraryCount")}
                   href="/library"
-                  linkLabel="Ver todos"
+                  linkLabel={t("stats.viewAll")}
                 />
                 <StatCard
                   icon="/assets/profile/icon-perfil-leidos.png"
                   iconTone="wine"
                   value={stats.counts.totalRead}
-                  label="Libros leídos"
+                  label={t("stats.readCount")}
                   href="/library"
-                  linkLabel="Ver todos"
+                  linkLabel={t("stats.viewAll")}
                 />
                 <StatCard
                   icon="/assets/profile/icon-perfil-resenas.png"
                   iconTone="olive"
                   value={stats.counts.totalReviews}
-                  label="Reseñas escritas"
+                  label={t("stats.reviewCount")}
                   href="/library"
-                  linkLabel="Ver todas"
+                  linkLabel={t("stats.viewAllFem")}
                 />
                 <StatCard
                   icon="/assets/profile/icon-perfil-racha.png"
                   iconTone="gold"
                   value={stats.counts.currentStreak}
-                  label="Días de racha"
+                  label={t("stats.streakCount")}
                   href="/library"
-                  linkLabel="Ver racha"
+                  linkLabel={t("stats.viewStreak")}
                 />
               </div>
             )}
           </div>
 
           {!stats ? (
-            <p className="profile-loading">Cargando estadísticas…</p>
+            <p className="profile-loading">{t("loadingStats")}</p>
           ) : (
             <>
               <div className="profile-grid">

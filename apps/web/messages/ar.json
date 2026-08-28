@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "الرف",
+    "library": "القارئ",
+    "notes": "الملاحظات",
+    "profile": "الملف الشخصي",
+    "openMenu": "فتح التنقل",
+    "expand": "توسيع التنقل",
+    "collapse": "طي التنقل",
+    "greeting": "مرحبًا، {name}",
+    "logout": "تسجيل الخروج"
+  },
+  "profile": {
+    "title": "ملفي الشخصي",
+    "tabOverview": "نظرة عامة",
+    "tabEdit": "تعديل الملف الشخصي",
+    "loadingStats": "جارٍ تحميل الإحصائيات…",
+    "stats": {
+      "libraryCount": "الكتب في مكتبتك",
+      "readCount": "الكتب المقروءة",
+      "reviewCount": "المراجعات المكتوبة",
+      "streakCount": "أيام التتابع",
+      "viewAll": "عرض الكل",
+      "viewAllFem": "عرض الكل",
+      "viewStreak": "عرض التتابع"
+    },
+    "edit": {
+      "changePhoto": "تغيير الصورة",
+      "uploading": "جارٍ الرفع…",
+      "avatarError": "تعذر رفع الصورة. جرّب ملف JPG أو PNG أو WEBP أقل من 5 ميغابايت.",
+      "name": "الاسم",
+      "bio": "نبذة",
+      "bioPlaceholder": "أخبرنا بشيء عنك كقارئ…",
+      "location": "الموقع",
+      "locationPlaceholder": "المدينة، البلد",
+      "readingGoal": "هدف القراءة السنوي",
+      "readingGoalPlaceholder": "مثال: 80",
+      "quote": "اقتباس شخصي",
+      "quotePlaceholder": "عبارة تمثلك…",
+      "country": "البلد",
+      "countryUnset": "غير محدد",
+      "timezone": "المنطقة الزمنية",
+      "timezoneHint": "تُستخدم لحساب تتابعك وحالة \"القارئ الليلي\" بتوقيتك المحلي الحقيقي.",
+      "language": "لغة المنصة",
+      "languageHint": "تغيّر لغة المنصة بأكملها. يُطبَّق عند الحفظ.",
+      "save": "حفظ التغييرات",
+      "saving": "جارٍ الحفظ…",
+      "saved": "تم الحفظ",
+      "saveError": "تعذر الحفظ. حاول مرة أخرى."
+    }
+  }
+}

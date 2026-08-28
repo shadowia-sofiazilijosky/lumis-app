@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Rafu",
+    "library": "Msomaji",
+    "notes": "Vidokezo",
+    "profile": "Wasifu",
+    "openMenu": "Fungua urambazaji",
+    "expand": "Panua urambazaji",
+    "collapse": "Kunja urambazaji",
+    "greeting": "Habari, {name}",
+    "logout": "Toka"
+  },
+  "profile": {
+    "title": "Wasifu wangu",
+    "tabOverview": "Muhtasari",
+    "tabEdit": "Hariri wasifu",
+    "loadingStats": "Inapakia takwimu…",
+    "stats": {
+      "libraryCount": "Vitabu katika maktaba yako",
+      "readCount": "Vitabu vilivyosomwa",
+      "reviewCount": "Maoni yaliyoandikwa",
+      "streakCount": "Siku za mfululizo",
+      "viewAll": "Ona vyote",
+      "viewAllFem": "Ona zote",
+      "viewStreak": "Ona mfululizo"
+    },
+    "edit": {
+      "changePhoto": "Badilisha picha",
+      "uploading": "Inapakia…",
+      "avatarError": "Hatukuweza kupakia picha. Jaribu JPG, PNG au WEBP chini ya 5MB.",
+      "name": "Jina",
+      "bio": "Wasifu mfupi",
+      "bioPlaceholder": "Tuambie kitu kukuhusu ukiwa msomaji…",
+      "location": "Mahali",
+      "locationPlaceholder": "Mji, nchi",
+      "readingGoal": "Lengo la kusoma la mwaka",
+      "readingGoalPlaceholder": "Mf: 80",
+      "quote": "Nukuu binafsi",
+      "quotePlaceholder": "Sentensi inayokuwakilisha…",
+      "country": "Nchi",
+      "countryUnset": "Haijawekwa",
+      "timezone": "Ukanda wa saa",
+      "timezoneHint": "Hutumika kuhesabu mfululizo wako na hali ya \"msomaji wa usiku\" kwa saa yako halisi ya eneo.",
+      "language": "Lugha ya jukwaa",
+      "languageHint": "Hubadilisha lugha ya jukwaa lote. Hutumika baada ya kuhifadhi.",
+      "save": "Hifadhi mabadiliko",
+      "saving": "Inahifadhi…",
+      "saved": "Imehifadhiwa",
+      "saveError": "Imeshindwa kuhifadhi. Jaribu tena."
+    }
+  }
+}

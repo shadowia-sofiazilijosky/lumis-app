@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Raf",
+    "library": "Okuyucu",
+    "notes": "Notlar",
+    "profile": "Profil",
+    "openMenu": "Menüyü aç",
+    "expand": "Menüyü genişlet",
+    "collapse": "Menüyü daralt",
+    "greeting": "Merhaba, {name}",
+    "logout": "Çıkış yap"
+  },
+  "profile": {
+    "title": "Profilim",
+    "tabOverview": "Genel bakış",
+    "tabEdit": "Profili düzenle",
+    "loadingStats": "İstatistikler yükleniyor…",
+    "stats": {
+      "libraryCount": "Kütüphanendeki kitaplar",
+      "readCount": "Okunan kitaplar",
+      "reviewCount": "Yazılan yorumlar",
+      "streakCount": "Seri gün sayısı",
+      "viewAll": "Tümünü gör",
+      "viewAllFem": "Tümünü gör",
+      "viewStreak": "Seriyi gör"
+    },
+    "edit": {
+      "changePhoto": "Fotoğrafı değiştir",
+      "uploading": "Yükleniyor…",
+      "avatarError": "Fotoğraf yüklenemedi. 5MB altında bir JPG, PNG veya WEBP dene.",
+      "name": "İsim",
+      "bio": "Biyografi",
+      "bioPlaceholder": "Okur olarak kendinden bahset…",
+      "location": "Konum",
+      "locationPlaceholder": "Şehir, ülke",
+      "readingGoal": "Yıllık okuma hedefi",
+      "readingGoalPlaceholder": "Örn: 80",
+      "quote": "Kişisel alıntı",
+      "quotePlaceholder": "Seni temsil eden bir cümle…",
+      "country": "Ülke",
+      "countryUnset": "Belirtilmedi",
+      "timezone": "Saat dilimi",
+      "timezoneHint": "Serini ve \"gece okuyucu\" durumunu gerçek yerel saatinle hesaplamak için kullanılır.",
+      "language": "Platform dili",
+      "languageHint": "Tüm platformun dilini değiştirir. Kaydedince uygulanır.",
+      "save": "Değişiklikleri kaydet",
+      "saving": "Kaydediliyor…",
+      "saved": "Kaydedildi",
+      "saveError": "Kaydedilemedi. Tekrar dene."
+    }
+  }
+}

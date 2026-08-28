@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Estantería",
+    "library": "Lector",
+    "notes": "Notas",
+    "profile": "Perfil",
+    "openMenu": "Abrir navegación",
+    "expand": "Expandir navegación",
+    "collapse": "Colapsar navegación",
+    "greeting": "Hola, {name}",
+    "logout": "Cerrar sesión"
+  },
+  "profile": {
+    "title": "Mi perfil",
+    "tabOverview": "Vista general",
+    "tabEdit": "Editar perfil",
+    "loadingStats": "Cargando estadísticas…",
+    "stats": {
+      "libraryCount": "Libros en tu biblioteca",
+      "readCount": "Libros leídos",
+      "reviewCount": "Reseñas escritas",
+      "streakCount": "Días de racha",
+      "viewAll": "Ver todos",
+      "viewAllFem": "Ver todas",
+      "viewStreak": "Ver racha"
+    },
+    "edit": {
+      "changePhoto": "Cambiar foto",
+      "uploading": "Subiendo…",
+      "avatarError": "No pudimos subir la foto. Probá con un JPG, PNG o WEBP de menos de 5MB.",
+      "name": "Nombre",
+      "bio": "Bio",
+      "bioPlaceholder": "Contá algo sobre vos como lectora/lector…",
+      "location": "Ubicación",
+      "locationPlaceholder": "Ciudad, país",
+      "readingGoal": "Meta anual de lectura",
+      "readingGoalPlaceholder": "Ej: 80",
+      "quote": "Cita personal",
+      "quotePlaceholder": "Una frase que te represente…",
+      "country": "País",
+      "countryUnset": "Sin especificar",
+      "timezone": "Huso horario",
+      "timezoneHint": "Se usa para calcular tu racha y \"lector nocturno\" en tu hora real.",
+      "language": "Idioma de la plataforma",
+      "languageHint": "Cambia el idioma de toda la plataforma. Se aplica al guardar.",
+      "save": "Guardar cambios",
+      "saving": "Guardando…",
+      "saved": "Guardado",
+      "saveError": "No pudimos guardar. Probá de nuevo."
+    }
+  }
+}

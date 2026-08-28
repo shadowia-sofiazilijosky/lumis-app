@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Regal",
+    "library": "Lesegerät",
+    "notes": "Notizen",
+    "profile": "Profil",
+    "openMenu": "Navigation öffnen",
+    "expand": "Navigation erweitern",
+    "collapse": "Navigation einklappen",
+    "greeting": "Hallo, {name}",
+    "logout": "Abmelden"
+  },
+  "profile": {
+    "title": "Mein Profil",
+    "tabOverview": "Übersicht",
+    "tabEdit": "Profil bearbeiten",
+    "loadingStats": "Statistiken werden geladen…",
+    "stats": {
+      "libraryCount": "Bücher in deiner Bibliothek",
+      "readCount": "Gelesene Bücher",
+      "reviewCount": "Geschriebene Rezensionen",
+      "streakCount": "Streak-Tage",
+      "viewAll": "Alle ansehen",
+      "viewAllFem": "Alle ansehen",
+      "viewStreak": "Streak ansehen"
+    },
+    "edit": {
+      "changePhoto": "Foto ändern",
+      "uploading": "Wird hochgeladen…",
+      "avatarError": "Foto konnte nicht hochgeladen werden. Versuch's mit einem JPG, PNG oder WEBP unter 5MB.",
+      "name": "Name",
+      "bio": "Bio",
+      "bioPlaceholder": "Erzähl uns etwas über dich als Leser/in…",
+      "location": "Standort",
+      "locationPlaceholder": "Stadt, Land",
+      "readingGoal": "Jährliches Leseziel",
+      "readingGoalPlaceholder": "Z.B. 80",
+      "quote": "Persönliches Zitat",
+      "quotePlaceholder": "Ein Satz, der dich repräsentiert…",
+      "country": "Land",
+      "countryUnset": "Nicht angegeben",
+      "timezone": "Zeitzone",
+      "timezoneHint": "Wird verwendet, um deinen Streak und den \"Nachtleser\"-Status in deiner echten Ortszeit zu berechnen.",
+      "language": "Plattformsprache",
+      "languageHint": "Ändert die Sprache der gesamten Plattform. Wird beim Speichern angewendet.",
+      "save": "Änderungen speichern",
+      "saving": "Wird gespeichert…",
+      "saved": "Gespeichert",
+      "saveError": "Konnte nicht gespeichert werden. Bitte erneut versuchen."
+    }
+  }
+}

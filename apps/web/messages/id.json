@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Rak",
+    "library": "Pembaca",
+    "notes": "Catatan",
+    "profile": "Profil",
+    "openMenu": "Buka navigasi",
+    "expand": "Perluas navigasi",
+    "collapse": "Ciutkan navigasi",
+    "greeting": "Hai, {name}",
+    "logout": "Keluar"
+  },
+  "profile": {
+    "title": "Profil saya",
+    "tabOverview": "Ringkasan",
+    "tabEdit": "Edit profil",
+    "loadingStats": "Memuat statistik…",
+    "stats": {
+      "libraryCount": "Buku di perpustakaanmu",
+      "readCount": "Buku yang dibaca",
+      "reviewCount": "Ulasan yang ditulis",
+      "streakCount": "Hari beruntun",
+      "viewAll": "Lihat semua",
+      "viewAllFem": "Lihat semua",
+      "viewStreak": "Lihat rentetan"
+    },
+    "edit": {
+      "changePhoto": "Ganti foto",
+      "uploading": "Mengunggah…",
+      "avatarError": "Foto gagal diunggah. Coba JPG, PNG, atau WEBP di bawah 5MB.",
+      "name": "Nama",
+      "bio": "Bio",
+      "bioPlaceholder": "Ceritakan sedikit tentang dirimu sebagai pembaca…",
+      "location": "Lokasi",
+      "locationPlaceholder": "Kota, negara",
+      "readingGoal": "Target membaca tahunan",
+      "readingGoalPlaceholder": "Cth: 80",
+      "quote": "Kutipan pribadi",
+      "quotePlaceholder": "Kalimat yang mewakili dirimu…",
+      "country": "Negara",
+      "countryUnset": "Belum ditentukan",
+      "timezone": "Zona waktu",
+      "timezoneHint": "Digunakan untuk menghitung rentetan dan status \"pembaca malam\" sesuai waktu lokalmu yang sebenarnya.",
+      "language": "Bahasa platform",
+      "languageHint": "Mengubah bahasa untuk seluruh platform. Berlaku setelah disimpan.",
+      "save": "Simpan perubahan",
+      "saving": "Menyimpan…",
+      "saved": "Tersimpan",
+      "saveError": "Gagal menyimpan. Coba lagi."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Étagère",
+    "library": "Lecteur",
+    "notes": "Notes",
+    "profile": "Profil",
+    "openMenu": "Ouvrir la navigation",
+    "expand": "Développer la navigation",
+    "collapse": "Réduire la navigation",
+    "greeting": "Salut, {name}",
+    "logout": "Se déconnecter"
+  },
+  "profile": {
+    "title": "Mon profil",
+    "tabOverview": "Vue d'ensemble",
+    "tabEdit": "Modifier le profil",
+    "loadingStats": "Chargement des statistiques…",
+    "stats": {
+      "libraryCount": "Livres dans ta bibliothèque",
+      "readCount": "Livres lus",
+      "reviewCount": "Critiques écrites",
+      "streakCount": "Jours de série",
+      "viewAll": "Voir tous",
+      "viewAllFem": "Voir toutes",
+      "viewStreak": "Voir la série"
+    },
+    "edit": {
+      "changePhoto": "Changer la photo",
+      "uploading": "Envoi…",
+      "avatarError": "Impossible d'envoyer la photo. Essaie un JPG, PNG ou WEBP de moins de 5 Mo.",
+      "name": "Nom",
+      "bio": "Bio",
+      "bioPlaceholder": "Dis-nous quelque chose sur toi en tant que lecteur/lectrice…",
+      "location": "Lieu",
+      "locationPlaceholder": "Ville, pays",
+      "readingGoal": "Objectif de lecture annuel",
+      "readingGoalPlaceholder": "Ex : 80",
+      "quote": "Citation personnelle",
+      "quotePlaceholder": "Une phrase qui te représente…",
+      "country": "Pays",
+      "countryUnset": "Non défini",
+      "timezone": "Fuseau horaire",
+      "timezoneHint": "Utilisé pour calculer ta série et le statut \"lecteur nocturne\" à ton heure réelle.",
+      "language": "Langue de la plateforme",
+      "languageHint": "Change la langue de toute la plateforme. Appliqué à l'enregistrement.",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré",
+      "saveError": "Impossible d'enregistrer. Réessaie."
+    }
+  }
+}

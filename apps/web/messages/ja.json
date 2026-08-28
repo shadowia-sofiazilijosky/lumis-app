@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "本棚",
+    "library": "リーダー",
+    "notes": "メモ",
+    "profile": "プロフィール",
+    "openMenu": "メニューを開く",
+    "expand": "メニューを展開",
+    "collapse": "メニューを折りたたむ",
+    "greeting": "こんにちは、{name}さん",
+    "logout": "ログアウト"
+  },
+  "profile": {
+    "title": "マイプロフィール",
+    "tabOverview": "概要",
+    "tabEdit": "プロフィールを編集",
+    "loadingStats": "統計を読み込み中…",
+    "stats": {
+      "libraryCount": "ライブラリの本",
+      "readCount": "読んだ本",
+      "reviewCount": "書いたレビュー",
+      "streakCount": "連続記録日数",
+      "viewAll": "すべて見る",
+      "viewAllFem": "すべて見る",
+      "viewStreak": "連続記録を見る"
+    },
+    "edit": {
+      "changePhoto": "写真を変更",
+      "uploading": "アップロード中…",
+      "avatarError": "写真をアップロードできませんでした。5MB未満のJPG、PNG、WEBPをお試しください。",
+      "name": "名前",
+      "bio": "自己紹介",
+      "bioPlaceholder": "読書家としてのあなたについて教えてください…",
+      "location": "所在地",
+      "locationPlaceholder": "市区町村、国",
+      "readingGoal": "年間読書目標",
+      "readingGoalPlaceholder": "例：80",
+      "quote": "パーソナルな言葉",
+      "quotePlaceholder": "あなたを表す一言…",
+      "country": "国",
+      "countryUnset": "未設定",
+      "timezone": "タイムゾーン",
+      "timezoneHint": "あなたの実際の現地時間で連続記録と「夜読み」ステータスを計算するために使用されます。",
+      "language": "プラットフォームの言語",
+      "languageHint": "プラットフォーム全体の言語を変更します。保存すると適用されます。",
+      "save": "変更を保存",
+      "saving": "保存中…",
+      "saved": "保存しました",
+      "saveError": "保存できませんでした。もう一度お試しください。"
+    }
+  }
+}

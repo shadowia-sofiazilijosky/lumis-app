@@ -17,6 +17,7 @@ export interface UpdateUserData {
   readingGoal?: number;
   country?: string;
   timezone?: string;
+  language?: string;
 }
 
 @Injectable()

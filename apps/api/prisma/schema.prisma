@@ -90,6 +90,9 @@ model User {
   // unset so those features still work, just less precisely, before the
   // user (or client autodetection) sets a real one.
   timezone        String?
+  // ISO 639-1 code (e.g. "es", "en", "pt") -- UI language, independent of
+  // country (someone in the US may want the site in Spanish, etc).
+  language        String          @default("es")
   role            Role            @default(USER)
   themePreference ThemePreference @default(SYSTEM) @map("theme_preference")
   fontPreference  FontPreference  @default(LORA) @map("font_preference")

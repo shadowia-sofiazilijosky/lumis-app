@@ -18,6 +18,8 @@ export interface PublicUser {
   country: string | null;
   /** IANA timezone name. */
   timezone: string | null;
+  /** ISO 639-1 UI language code, one of SUPPORTED_LOCALE_CODES. */
+  language: string;
   role: Role;
   themePreference: ThemePreference;
   fontPreference: FontPreference;

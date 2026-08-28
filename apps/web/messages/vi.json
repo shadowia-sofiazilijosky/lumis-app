@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Kệ sách",
+    "library": "Trình đọc",
+    "notes": "Ghi chú",
+    "profile": "Hồ sơ",
+    "openMenu": "Mở điều hướng",
+    "expand": "Mở rộng điều hướng",
+    "collapse": "Thu gọn điều hướng",
+    "greeting": "Xin chào, {name}",
+    "logout": "Đăng xuất"
+  },
+  "profile": {
+    "title": "Hồ sơ của tôi",
+    "tabOverview": "Tổng quan",
+    "tabEdit": "Chỉnh sửa hồ sơ",
+    "loadingStats": "Đang tải thống kê…",
+    "stats": {
+      "libraryCount": "Sách trong thư viện của bạn",
+      "readCount": "Sách đã đọc",
+      "reviewCount": "Bài đánh giá đã viết",
+      "streakCount": "Số ngày liên tục",
+      "viewAll": "Xem tất cả",
+      "viewAllFem": "Xem tất cả",
+      "viewStreak": "Xem chuỗi ngày"
+    },
+    "edit": {
+      "changePhoto": "Đổi ảnh",
+      "uploading": "Đang tải lên…",
+      "avatarError": "Không thể tải ảnh lên. Hãy thử JPG, PNG hoặc WEBP dưới 5MB.",
+      "name": "Tên",
+      "bio": "Giới thiệu",
+      "bioPlaceholder": "Hãy kể cho chúng tôi về bạn với tư cách là người đọc…",
+      "location": "Vị trí",
+      "locationPlaceholder": "Thành phố, quốc gia",
+      "readingGoal": "Mục tiêu đọc hằng năm",
+      "readingGoalPlaceholder": "Ví dụ: 80",
+      "quote": "Câu trích dẫn cá nhân",
+      "quotePlaceholder": "Một câu đại diện cho bạn…",
+      "country": "Quốc gia",
+      "countryUnset": "Chưa đặt",
+      "timezone": "Múi giờ",
+      "timezoneHint": "Dùng để tính chuỗi ngày đọc và trạng thái \"đọc đêm\" theo giờ địa phương thực của bạn.",
+      "language": "Ngôn ngữ nền tảng",
+      "languageHint": "Thay đổi ngôn ngữ của toàn bộ nền tảng. Áp dụng khi lưu.",
+      "save": "Lưu thay đổi",
+      "saving": "Đang lưu…",
+      "saved": "Đã lưu",
+      "saveError": "Không thể lưu. Vui lòng thử lại."
+    }
+  }
+}

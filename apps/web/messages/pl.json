@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "shelves": "Półka",
+    "library": "Czytnik",
+    "notes": "Notatki",
+    "profile": "Profil",
+    "openMenu": "Otwórz nawigację",
+    "expand": "Rozwiń nawigację",
+    "collapse": "Zwiń nawigację",
+    "greeting": "Cześć, {name}",
+    "logout": "Wyloguj się"
+  },
+  "profile": {
+    "title": "Mój profil",
+    "tabOverview": "Podsumowanie",
+    "tabEdit": "Edytuj profil",
+    "loadingStats": "Ładowanie statystyk…",
+    "stats": {
+      "libraryCount": "Książki w Twojej bibliotece",
+      "readCount": "Przeczytane książki",
+      "reviewCount": "Napisane recenzje",
+      "streakCount": "Dni serii",
+      "viewAll": "Zobacz wszystkie",
+      "viewAllFem": "Zobacz wszystkie",
+      "viewStreak": "Zobacz serię"
+    },
+    "edit": {
+      "changePhoto": "Zmień zdjęcie",
+      "uploading": "Przesyłanie…",
+      "avatarError": "Nie udało się przesłać zdjęcia. Spróbuj JPG, PNG lub WEBP poniżej 5MB.",
+      "name": "Imię",
+      "bio": "Bio",
+      "bioPlaceholder": "Opowiedz coś o sobie jako czytelniku/czytelniczce…",
+      "location": "Lokalizacja",
+      "locationPlaceholder": "Miasto, kraj",
+      "readingGoal": "Roczny cel czytelniczy",
+      "readingGoalPlaceholder": "Np. 80",
+      "quote": "Osobisty cytat",
+      "quotePlaceholder": "Zdanie, które Cię reprezentuje…",
+      "country": "Kraj",
+      "countryUnset": "Nie ustawiono",
+      "timezone": "Strefa czasowa",
+      "timezoneHint": "Używana do obliczania Twojej serii i statusu \"nocnego czytelnika\" w Twoim rzeczywistym czasie lokalnym.",
+      "language": "Język platformy",
+      "languageHint": "Zmienia język całej platformy. Stosowane po zapisaniu.",
+      "save": "Zapisz zmiany",
+      "saving": "Zapisywanie…",
+      "saved": "Zapisano",
+      "saveError": "Nie udało się zapisać. Spróbuj ponownie."
+    }
+  }
+}
