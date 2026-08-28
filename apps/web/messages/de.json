@@ -322,5 +322,69 @@
       "submitting": "Konto wird erstellt…",
       "submit": "Konto erstellen"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Über Lumis",
+      "login": "Anmelden",
+      "register": "Konto erstellen"
+    },
+    "footer": {
+      "tagline": "Deine Leseecke, ganz nach dir.",
+      "copyright": "© 2026 Lumis. Alle Rechte vorbehalten.",
+      "product": "Produkt",
+      "legal": "Rechtliches",
+      "contact": "Kontakt",
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "privacy": "Datenschutzrichtlinie"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Deine Bibliothek,",
+      "titleEm": "auf deine Art",
+      "subtitle": "Die virtuelle Bibliothek, die einen universellen Reader mit anpassbaren Regalen und der Nachverfolgung deines Leseerlebnisses kombiniert.",
+      "ctaPrimary": "Meine Bibliothek starten",
+      "ctaSecondary": "Mehr erfahren",
+      "formats": "Kompatibel mit PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT und mehr."
+    },
+    "features": {
+      "shelves": {
+        "title": "Anpassbare Regale",
+        "description": "Dekoriere und organisiere deine Bücher, wie du möchtest."
+      },
+      "reader": {
+        "title": "Universeller Reader",
+        "description": "Lies deine Dateien in jedem Format mit einem immersiven Erlebnis."
+      },
+      "log": {
+        "title": "Erfasse deine Lektüre",
+        "description": "Daten, Notizen, Rezensionen, Tags und Lesestatus."
+      },
+      "spicy": {
+        "title": "Spicy & Romance",
+        "description": "Bewerte den Spicy- und Romantik-Grad deiner Geschichten."
+      },
+      "theme": {
+        "title": "Heller und dunkler Modus",
+        "description": "Wähle deine bevorzugte Lesestimmung."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Lies in deinem Tempo.",
+      "titleEm": "Wo du willst.",
+      "subtitle": "Speichere deinen Fortschritt automatisch, markiere deine Lieblingsstellen, mach dir Notizen und mach genau da weiter, wo du aufgehört hast – auf jedem Gerät.",
+      "checklist": {
+        "pageEffect": "Realistischer Seitenumblätter-Effekt",
+        "highlights": "Markierungen und Notizen",
+        "sync": "Cloud-Synchronisierung"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Erschaffe deinen Raum, erzähl deine Geschichte.",
+      "titleEm": "Starte deine Bibliothek noch heute.",
+      "cta": "Meine Bibliothek starten",
+      "fineprint": "Keine Kreditkarte nötig. Kostenlos starten."
+    }
   }
 }

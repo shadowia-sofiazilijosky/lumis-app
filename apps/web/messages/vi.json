@@ -322,5 +322,69 @@
       "submitting": "Đang tạo tài khoản…",
       "submit": "Tạo tài khoản"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Về Lumis",
+      "login": "Đăng nhập",
+      "register": "Tạo tài khoản"
+    },
+    "footer": {
+      "tagline": "Góc đọc sách của riêng bạn.",
+      "copyright": "© 2026 Lumis. Đã đăng ký bản quyền.",
+      "product": "Sản phẩm",
+      "legal": "Pháp lý",
+      "contact": "Liên hệ",
+      "terms": "Điều khoản và điều kiện",
+      "privacy": "Chính sách bảo mật"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Thư viện của bạn,",
+      "titleEm": "theo cách của bạn",
+      "subtitle": "Thư viện ảo kết hợp trình đọc đa năng với kệ sách tùy chỉnh và theo dõi trải nghiệm đọc của bạn.",
+      "ctaPrimary": "Bắt đầu thư viện của tôi",
+      "ctaSecondary": "Tìm hiểu thêm",
+      "formats": "Tương thích với PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT và nhiều hơn nữa."
+    },
+    "features": {
+      "shelves": {
+        "title": "Kệ sách tùy chỉnh",
+        "description": "Trang trí và sắp xếp sách của bạn theo ý muốn."
+      },
+      "reader": {
+        "title": "Trình đọc đa năng",
+        "description": "Đọc tệp của bạn ở bất kỳ định dạng nào với trải nghiệm sống động."
+      },
+      "log": {
+        "title": "Ghi lại việc đọc của bạn",
+        "description": "Ngày tháng, ghi chú, đánh giá, thẻ và trạng thái đọc."
+      },
+      "spicy": {
+        "title": "Spicy & Lãng mạn",
+        "description": "Đánh giá mức độ nóng bỏng và lãng mạn trong các câu chuyện của bạn."
+      },
+      "theme": {
+        "title": "Chế độ sáng và tối",
+        "description": "Chọn bầu không khí yêu thích của bạn để đọc."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Đọc theo nhịp độ của bạn.",
+      "titleEm": "Ở bất cứ đâu.",
+      "subtitle": "Tự động lưu tiến độ, tô sáng những phần yêu thích, ghi chú và tiếp tục đúng nơi bạn đã dừng lại, trên bất kỳ thiết bị nào.",
+      "checklist": {
+        "pageEffect": "Hiệu ứng lật trang chân thực",
+        "highlights": "Tô sáng và ghi chú",
+        "sync": "Đồng bộ trên đám mây"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Tạo không gian của bạn, kể câu chuyện của bạn.",
+      "titleEm": "Bắt đầu thư viện của bạn ngay hôm nay.",
+      "cta": "Bắt đầu thư viện của tôi",
+      "fineprint": "Không cần thẻ tín dụng. Miễn phí để bắt đầu."
+    }
   }
 }

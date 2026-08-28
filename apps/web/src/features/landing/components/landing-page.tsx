@@ -1,52 +1,19 @@
 import { BookOpen, Check, Moon, Sparkles, Star } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/shared/components/site-footer";
 import { SiteHeader } from "@/shared/components/site-header";
 
-const FEATURES = [
-  {
-    icon: "/assets/landing/icon-estanteria.png",
-    width: 612,
-    height: 408,
-    title: "Estanterías personalizables",
-    description: "Decora y organiza tus libros como quieras.",
-  },
-  {
-    icon: "/assets/landing/icon-libro.png",
-    width: 612,
-    height: 408,
-    title: "Lector universal",
-    description: "Lee tus archivos en cualquier formato con una experiencia inmersiva.",
-  },
-  {
-    icon: "/assets/landing/icon-diario.png",
-    width: 408,
-    height: 612,
-    title: "Registra tu lectura",
-    description: "Fechas, notas, reseñas, tags y estados de lectura.",
-  },
-  {
-    icon: "/assets/landing/icon-spicy-romance.png",
-    width: 612,
-    height: 408,
-    title: "Spicy & Romance",
-    description: "Califica el nivel de picante y romance de tus historias.",
-  },
-  {
-    icon: "/assets/landing/icon-modo-noche.png",
-    width: 612,
-    height: 408,
-    title: "Modo claro y oscuro",
-    description: "Elegí tu ambiente favorito para leer.",
-  },
+const FEATURE_ICONS: { key: string; icon: string; width: number; height: number }[] = [
+  { key: "shelves", icon: "/assets/landing/icon-estanteria.png", width: 612, height: 408 },
+  { key: "reader", icon: "/assets/landing/icon-libro.png", width: 612, height: 408 },
+  { key: "log", icon: "/assets/landing/icon-diario.png", width: 408, height: 612 },
+  { key: "spicy", icon: "/assets/landing/icon-spicy-romance.png", width: 612, height: 408 },
+  { key: "theme", icon: "/assets/landing/icon-modo-noche.png", width: 612, height: 408 },
 ];
 
-const READER_CHECKLIST = [
-  "Efecto de página realista",
-  "Resaltados y notas",
-  "Sincronización en la nube",
-];
+const CHECKLIST_KEYS = ["pageEffect", "highlights", "sync"] as const;
 
 const CTA_STARS = [
   { top: "12%", left: "48%" },
@@ -56,7 +23,8 @@ const CTA_STARS = [
   { top: "45%", left: "6%" },
 ];
 
-export function LandingPage() {
+export async function LandingPage() {
+  const t = await getTranslations("landing");
   return (
     <>
       <section className="landing-hero-v2">
@@ -77,28 +45,24 @@ export function LandingPage() {
         <div className="landing-hero-v2-content">
           <div className="landing-hero-v2-text">
             <h1 className="landing-hero-v2-title">
-              Tu biblioteca,
+              {t("hero.titleLine1")}
               <br />
-              <em>a tu manera</em>
+              <em>{t("hero.titleEm")}</em>
             </h1>
-            <p className="landing-hero-v2-subtitle">
-              La biblioteca virtual que combina un lector universal con
-              estanterías personalizables y el seguimiento de tu experiencia
-              de lectura.
-            </p>
+            <p className="landing-hero-v2-subtitle">{t("hero.subtitle")}</p>
 
             <div className="landing-hero-v2-actions">
               <Link href="/register" className="landing-cta-primary">
-                Comenzar mi biblioteca <span aria-hidden="true">→</span>
+                {t("hero.ctaPrimary")} <span aria-hidden="true">→</span>
               </Link>
               <Link href="/about" className="landing-cta-secondary">
-                Conocer más
+                {t("hero.ctaSecondary")}
               </Link>
             </div>
 
             <p className="landing-hero-v2-formats">
               <BookOpen size={22} aria-hidden="true" />
-              Compatible con PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT y más.
+              {t("hero.formats")}
             </p>
           </div>
         </div>
@@ -106,8 +70,8 @@ export function LandingPage() {
 
       <section className="landing-features">
         <div className="landing-features-grid">
-          {FEATURES.map((feature) => (
-            <div className="landing-feature" key={feature.title}>
+          {FEATURE_ICONS.map((feature) => (
+            <div className="landing-feature" key={feature.key}>
               <Image
                 src={feature.icon}
                 alt=""
@@ -115,8 +79,8 @@ export function LandingPage() {
                 height={feature.height}
                 className="landing-feature-icon"
               />
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+              <h3>{t(`features.${feature.key}.title`)}</h3>
+              <p>{t(`features.${feature.key}.description`)}</p>
             </div>
           ))}
         </div>
@@ -140,22 +104,18 @@ export function LandingPage() {
               <Sparkles size={22} />
             </p>
             <h2 className="landing-ritmo-title">
-              Lee a tu ritmo.
+              {t("ritmo.titleLine1")}
               <br />
-              <em>Donde quieras.</em>
+              <em>{t("ritmo.titleEm")}</em>
             </h2>
-            <p className="landing-ritmo-subtitle">
-              Guardá tu progreso automáticamente, resaltá tus partes
-              favoritas, tomá notas y volvé justo donde lo dejaste, en
-              cualquier dispositivo.
-            </p>
+            <p className="landing-ritmo-subtitle">{t("ritmo.subtitle")}</p>
             <ul className="landing-ritmo-checklist">
-              {READER_CHECKLIST.map((item) => (
-                <li key={item}>
+              {CHECKLIST_KEYS.map((key) => (
+                <li key={key}>
                   <span className="landing-ritmo-check" aria-hidden="true">
                     <Check size={14} strokeWidth={3} />
                   </span>
-                  {item}
+                  {t(`ritmo.checklist.${key}`)}
                 </li>
               ))}
             </ul>
@@ -194,16 +154,14 @@ export function LandingPage() {
             <div className="landing-final-cta-content">
               <Moon size={22} className="landing-final-cta-icon" aria-hidden="true" />
               <h2>
-                Crea tu espacio, cuenta tu historia.
+                {t("finalCta.titleLine1")}
                 <br />
-                <em>Empieza tu biblioteca hoy.</em>
+                <em>{t("finalCta.titleEm")}</em>
               </h2>
               <Link href="/register" className="landing-cta-primary">
-                Comenzar mi biblioteca <span aria-hidden="true">→</span>
+                {t("finalCta.cta")} <span aria-hidden="true">→</span>
               </Link>
-              <p className="landing-final-cta-fineprint">
-                Sin tarjeta de crédito. Gratis para empezar.
-              </p>
+              <p className="landing-final-cta-fineprint">{t("finalCta.fineprint")}</p>
             </div>
           </div>
         </div>

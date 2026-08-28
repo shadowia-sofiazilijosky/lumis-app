@@ -322,5 +322,69 @@
       "submitting": "Inaunda akaunti…",
       "submit": "Unda akaunti"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Kuhusu Lumis",
+      "login": "Ingia",
+      "register": "Unda akaunti"
+    },
+    "footer": {
+      "tagline": "Kona yako ya kusoma, kwa mtindo wako.",
+      "copyright": "© 2026 Lumis. Haki zote zimehifadhiwa.",
+      "product": "Bidhaa",
+      "legal": "Kisheria",
+      "contact": "Wasiliana nasi",
+      "terms": "Masharti na vigezo",
+      "privacy": "Sera ya faragha"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Maktaba yako,",
+      "titleEm": "kwa mtindo wako",
+      "subtitle": "Maktaba pepe inayochanganya msomaji wa aina zote na rafu zinazoweza kubinafsishwa pamoja na ufuatiliaji wa uzoefu wako wa kusoma.",
+      "ctaPrimary": "Anzisha maktaba yangu",
+      "ctaSecondary": "Jifunze zaidi",
+      "formats": "Inaendana na PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT na zaidi."
+    },
+    "features": {
+      "shelves": {
+        "title": "Rafu zinazoweza kubinafsishwa",
+        "description": "Pamba na panga vitabu vyako unavyotaka."
+      },
+      "reader": {
+        "title": "Msomaji wa aina zote",
+        "description": "Soma faili zako katika muundo wowote kwa uzoefu wa kina."
+      },
+      "log": {
+        "title": "Rekodi usomaji wako",
+        "description": "Tarehe, vidokezo, maoni, lebo na hali za usomaji."
+      },
+      "spicy": {
+        "title": "Ukali na Mapenzi",
+        "description": "Kadiria kiwango cha ukali na mapenzi katika hadithi zako."
+      },
+      "theme": {
+        "title": "Hali ya mwanga na giza",
+        "description": "Chagua mazingira unayoyapenda kwa kusoma."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Soma kwa kasi yako.",
+      "titleEm": "Popote ulipo.",
+      "subtitle": "Hifadhi maendeleo yako kiotomatiki, angazia sehemu unazozipenda, andika vidokezo, na endelea pale ulipoacha, kwenye kifaa chochote.",
+      "checklist": {
+        "pageEffect": "Athari halisi ya kugeuza ukurasa",
+        "highlights": "Miangaza na vidokezo",
+        "sync": "Usawazishaji wa wingu"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Unda nafasi yako, simulia hadithi yako.",
+      "titleEm": "Anzisha maktaba yako leo.",
+      "cta": "Anzisha maktaba yangu",
+      "fineprint": "Hakuna kadi ya mkopo inayohitajika. Bure kuanza."
+    }
   }
 }

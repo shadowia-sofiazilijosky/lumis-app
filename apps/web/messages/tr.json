@@ -322,5 +322,69 @@
       "submitting": "Hesap oluşturuluyor…",
       "submit": "Hesap oluştur"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Lumis Hakkında",
+      "login": "Giriş yap",
+      "register": "Hesap oluştur"
+    },
+    "footer": {
+      "tagline": "Kendi tarzında okuma köşen.",
+      "copyright": "© 2026 Lumis. Tüm hakları saklıdır.",
+      "product": "Ürün",
+      "legal": "Yasal",
+      "contact": "İletişim",
+      "terms": "Şartlar ve koşullar",
+      "privacy": "Gizlilik politikası"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Kütüphanen,",
+      "titleEm": "senin tarzında",
+      "subtitle": "Evrensel bir okuyucuyu özelleştirilebilir raflarla ve okuma deneyimi takibiyle birleştiren sanal kütüphane.",
+      "ctaPrimary": "Kütüphanemi başlat",
+      "ctaSecondary": "Daha fazla bilgi",
+      "formats": "PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT ve daha fazlasıyla uyumlu."
+    },
+    "features": {
+      "shelves": {
+        "title": "Özelleştirilebilir raflar",
+        "description": "Kitaplarını istediğin gibi süsle ve düzenle."
+      },
+      "reader": {
+        "title": "Evrensel okuyucu",
+        "description": "Dosyalarını sürükleyici bir deneyimle her formatta oku."
+      },
+      "log": {
+        "title": "Okumanı kaydet",
+        "description": "Tarihler, notlar, yorumlar, etiketler ve okuma durumları."
+      },
+      "spicy": {
+        "title": "Spicy & Romantizm",
+        "description": "Hikayelerinin baharat ve romantizm seviyesini değerlendir."
+      },
+      "theme": {
+        "title": "Açık ve koyu mod",
+        "description": "Okumak için favori atmosferini seç."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Kendi hızında oku.",
+      "titleEm": "İstediğin yerde.",
+      "subtitle": "İlerlemeni otomatik olarak kaydet, favori bölümlerini vurgula, notlar al ve herhangi bir cihazda kaldığın yerden devam et.",
+      "checklist": {
+        "pageEffect": "Gerçekçi sayfa çevirme efekti",
+        "highlights": "Vurgular ve notlar",
+        "sync": "Bulut senkronizasyonu"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Kendi alanını yarat, hikayeni anlat.",
+      "titleEm": "Kütüphaneni bugün başlat.",
+      "cta": "Kütüphanemi başlat",
+      "fineprint": "Kredi kartı gerekmez. Başlamak ücretsiz."
+    }
   }
 }

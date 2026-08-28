@@ -322,5 +322,69 @@
       "submitting": "アカウントを作成中…",
       "submit": "アカウントを作成"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Lumisについて",
+      "login": "ログイン",
+      "register": "アカウント作成"
+    },
+    "footer": {
+      "tagline": "あなただけの読書スペース。",
+      "copyright": "© 2026 Lumis. 無断複写・転載を禁じます。",
+      "product": "プロダクト",
+      "legal": "法的情報",
+      "contact": "お問い合わせ",
+      "terms": "利用規約",
+      "privacy": "プライバシーポリシー"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "あなたのライブラリを、",
+      "titleEm": "あなたらしく",
+      "subtitle": "ユニバーサルリーダーとカスタマイズ可能な本棚、そして読書体験の記録を組み合わせたバーチャルライブラリ。",
+      "ctaPrimary": "ライブラリを始める",
+      "ctaSecondary": "詳しく見る",
+      "formats": "PDF、EPUB、MOBI、AZW3、CBR/CBZ、TXTなどに対応。"
+    },
+    "features": {
+      "shelves": {
+        "title": "カスタマイズ可能な本棚",
+        "description": "好きなように本を飾って整理しよう。"
+      },
+      "reader": {
+        "title": "ユニバーサルリーダー",
+        "description": "どんな形式のファイルも没入感のある体験で読める。"
+      },
+      "log": {
+        "title": "読書を記録",
+        "description": "日付、メモ、レビュー、タグ、読書ステータス。"
+      },
+      "spicy": {
+        "title": "スパイシー＆ロマンス",
+        "description": "物語のスパイシー度とロマンス度を評価。"
+      },
+      "theme": {
+        "title": "ライト＆ダークモード",
+        "description": "お好みの読書環境を選ぼう。"
+      }
+    },
+    "ritmo": {
+      "titleLine1": "自分のペースで読もう。",
+      "titleEm": "どこにいても。",
+      "subtitle": "進捗は自動保存、お気に入りの部分をハイライトしてメモを取り、どのデバイスでも続きから読める。",
+      "checklist": {
+        "pageEffect": "リアルなページめくり効果",
+        "highlights": "ハイライトとメモ",
+        "sync": "クラウド同期"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "自分の空間を作り、物語を紡ごう。",
+      "titleEm": "今日からライブラリを始めよう。",
+      "cta": "ライブラリを始める",
+      "fineprint": "クレジットカード不要。無料で始められます。"
+    }
   }
 }

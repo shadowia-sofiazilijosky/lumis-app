@@ -322,5 +322,69 @@
       "submitting": "Account aanmaken…",
       "submit": "Account aanmaken"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Over Lumis",
+      "login": "Inloggen",
+      "register": "Account aanmaken"
+    },
+    "footer": {
+      "tagline": "Jouw leeshoekje, op jouw manier.",
+      "copyright": "© 2026 Lumis. Alle rechten voorbehouden.",
+      "product": "Product",
+      "legal": "Juridisch",
+      "contact": "Contact",
+      "terms": "Algemene voorwaarden",
+      "privacy": "Privacybeleid"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Jouw bibliotheek,",
+      "titleEm": "op jouw manier",
+      "subtitle": "De virtuele bibliotheek die een universele lezer combineert met aanpasbare planken en het bijhouden van je leeservaring.",
+      "ctaPrimary": "Start mijn bibliotheek",
+      "ctaSecondary": "Meer weten",
+      "formats": "Compatibel met PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT en meer."
+    },
+    "features": {
+      "shelves": {
+        "title": "Aanpasbare planken",
+        "description": "Versier en organiseer je boeken zoals jij dat wilt."
+      },
+      "reader": {
+        "title": "Universele lezer",
+        "description": "Lees je bestanden in elk formaat met een meeslepende ervaring."
+      },
+      "log": {
+        "title": "Houd je leesgedrag bij",
+        "description": "Data, notities, recensies, tags en leesstatussen."
+      },
+      "spicy": {
+        "title": "Spicy & Romance",
+        "description": "Beoordeel het spicy- en romanceniveau van je verhalen."
+      },
+      "theme": {
+        "title": "Lichte en donkere modus",
+        "description": "Kies je favoriete sfeer om te lezen."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Lees in jouw tempo.",
+      "titleEm": "Waar je ook bent.",
+      "subtitle": "Sla je voortgang automatisch op, markeer je favoriete stukken, maak notities en ga precies verder waar je gebleven was, op elk apparaat.",
+      "checklist": {
+        "pageEffect": "Realistisch bladereffect",
+        "highlights": "Markeringen en notities",
+        "sync": "Cloudsynchronisatie"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Creëer je eigen plek, vertel je verhaal.",
+      "titleEm": "Begin vandaag je bibliotheek.",
+      "cta": "Start mijn bibliotheek",
+      "fineprint": "Geen creditcard nodig. Gratis om te starten."
+    }
   }
 }

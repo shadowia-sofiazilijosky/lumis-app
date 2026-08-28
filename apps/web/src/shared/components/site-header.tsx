@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,8 @@ interface SiteHeaderProps {
  * cozy palette; light/dark switching only starts once you're logged in
  * (login/register onward), via the floating ThemeToggle in those layouts.
  */
-export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
+export async function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
+  const t = await getTranslations("site.nav");
   return (
     <header className={`site-header site-header-${variant}`}>
       <Link href="/" className="site-header-logo">
@@ -29,13 +31,13 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
       </Link>
       <nav className="site-header-nav">
         <Link href="/about" className="site-header-link">
-          Sobre Lumis
+          {t("about")}
         </Link>
         <Link href="/login" className="site-header-btn-secondary">
-          Iniciar sesión
+          {t("login")}
         </Link>
         <Link href="/register" className="site-header-btn-primary">
-          Crear cuenta
+          {t("register")}
         </Link>
       </nav>
     </header>

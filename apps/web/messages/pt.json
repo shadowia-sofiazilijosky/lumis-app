@@ -322,5 +322,69 @@
       "submitting": "Criando conta…",
       "submit": "Criar conta"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Sobre a Lumis",
+      "login": "Entrar",
+      "register": "Criar conta"
+    },
+    "footer": {
+      "tagline": "Seu cantinho de leitura, do seu jeito.",
+      "copyright": "© 2026 Lumis. Todos os direitos reservados.",
+      "product": "Produto",
+      "legal": "Legal",
+      "contact": "Contato",
+      "terms": "Termos e condições",
+      "privacy": "Política de privacidade"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Sua biblioteca,",
+      "titleEm": "do seu jeito",
+      "subtitle": "A biblioteca virtual que combina um leitor universal com estantes personalizáveis e o acompanhamento da sua experiência de leitura.",
+      "ctaPrimary": "Começar minha biblioteca",
+      "ctaSecondary": "Saiba mais",
+      "formats": "Compatível com PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT e mais."
+    },
+    "features": {
+      "shelves": {
+        "title": "Estantes personalizáveis",
+        "description": "Decore e organize seus livros como quiser."
+      },
+      "reader": {
+        "title": "Leitor universal",
+        "description": "Leia seus arquivos em qualquer formato com uma experiência imersiva."
+      },
+      "log": {
+        "title": "Registre sua leitura",
+        "description": "Datas, notas, resenhas, tags e status de leitura."
+      },
+      "spicy": {
+        "title": "Spicy & Romance",
+        "description": "Avalie o nível de picância e romance das suas histórias."
+      },
+      "theme": {
+        "title": "Modo claro e escuro",
+        "description": "Escolha seu ambiente favorito para ler."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Leia no seu ritmo.",
+      "titleEm": "Onde quiser.",
+      "subtitle": "Salve seu progresso automaticamente, destaque suas partes favoritas, faça anotações e volte exatamente de onde parou, em qualquer dispositivo.",
+      "checklist": {
+        "pageEffect": "Efeito realista de virar página",
+        "highlights": "Destaques e notas",
+        "sync": "Sincronização na nuvem"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Crie seu espaço, conte sua história.",
+      "titleEm": "Comece sua biblioteca hoje.",
+      "cta": "Começar minha biblioteca",
+      "fineprint": "Sem cartão de crédito. Grátis para começar."
+    }
   }
 }

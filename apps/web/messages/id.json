@@ -322,5 +322,69 @@
       "submitting": "Membuat akun…",
       "submit": "Buat akun"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Tentang Lumis",
+      "login": "Masuk",
+      "register": "Buat akun"
+    },
+    "footer": {
+      "tagline": "Sudut bacaanmu, dengan caramu.",
+      "copyright": "© 2026 Lumis. Semua hak dilindungi.",
+      "product": "Produk",
+      "legal": "Legal",
+      "contact": "Kontak",
+      "terms": "Syarat dan ketentuan",
+      "privacy": "Kebijakan privasi"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Perpustakaanmu,",
+      "titleEm": "dengan caramu",
+      "subtitle": "Perpustakaan virtual yang menggabungkan pembaca universal dengan rak yang dapat disesuaikan dan pelacakan pengalaman membacamu.",
+      "ctaPrimary": "Mulai perpustakaanku",
+      "ctaSecondary": "Pelajari lebih lanjut",
+      "formats": "Kompatibel dengan PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT dan lainnya."
+    },
+    "features": {
+      "shelves": {
+        "title": "Rak yang dapat disesuaikan",
+        "description": "Hias dan atur bukumu sesuka hati."
+      },
+      "reader": {
+        "title": "Pembaca universal",
+        "description": "Baca berkasmu dalam format apa pun dengan pengalaman yang imersif."
+      },
+      "log": {
+        "title": "Catat bacaanmu",
+        "description": "Tanggal, catatan, ulasan, tag, dan status membaca."
+      },
+      "spicy": {
+        "title": "Spicy & Romansa",
+        "description": "Nilai tingkat spicy dan romansa dari ceritamu."
+      },
+      "theme": {
+        "title": "Mode terang dan gelap",
+        "description": "Pilih suasana favoritmu untuk membaca."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Baca sesuai kecepatanmu.",
+      "titleEm": "Di mana pun kamu berada.",
+      "subtitle": "Simpan progresmu secara otomatis, soroti bagian favoritmu, buat catatan, dan lanjutkan tepat dari tempat kamu berhenti, di perangkat apa pun.",
+      "checklist": {
+        "pageEffect": "Efek balik halaman yang realistis",
+        "highlights": "Sorotan dan catatan",
+        "sync": "Sinkronisasi cloud"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Ciptakan ruangmu, ceritakan kisahmu.",
+      "titleEm": "Mulai perpustakaanmu hari ini.",
+      "cta": "Mulai perpustakaanku",
+      "fineprint": "Tanpa kartu kredit. Gratis untuk memulai."
+    }
   }
 }

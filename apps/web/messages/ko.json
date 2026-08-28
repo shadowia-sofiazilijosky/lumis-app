@@ -322,5 +322,69 @@
       "submitting": "계정 생성 중…",
       "submit": "계정 만들기"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Lumis 소개",
+      "login": "로그인",
+      "register": "계정 만들기"
+    },
+    "footer": {
+      "tagline": "당신만의 독서 공간, 당신 방식대로.",
+      "copyright": "© 2026 Lumis. 모든 권리 보유.",
+      "product": "제품",
+      "legal": "법적 정보",
+      "contact": "문의",
+      "terms": "이용약관",
+      "privacy": "개인정보 처리방침"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "당신의 서재를,",
+      "titleEm": "당신의 방식으로",
+      "subtitle": "유니버설 리더와 커스터마이징 가능한 책장, 독서 경험 추적을 결합한 가상 도서관.",
+      "ctaPrimary": "내 서재 시작하기",
+      "ctaSecondary": "더 알아보기",
+      "formats": "PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT 등과 호환됩니다."
+    },
+    "features": {
+      "shelves": {
+        "title": "커스터마이징 가능한 책장",
+        "description": "원하는 대로 책을 꾸미고 정리하세요."
+      },
+      "reader": {
+        "title": "유니버설 리더",
+        "description": "몰입감 있는 경험으로 모든 형식의 파일을 읽으세요."
+      },
+      "log": {
+        "title": "독서 기록하기",
+        "description": "날짜, 메모, 리뷰, 태그, 독서 상태."
+      },
+      "spicy": {
+        "title": "스파이시 & 로맨스",
+        "description": "이야기의 스파이시함과 로맨스 정도를 평가하세요."
+      },
+      "theme": {
+        "title": "라이트 & 다크 모드",
+        "description": "좋아하는 독서 분위기를 선택하세요."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "당신의 속도로 읽으세요.",
+      "titleEm": "어디서든.",
+      "subtitle": "진행 상황을 자동 저장하고, 좋아하는 부분을 하이라이트하고, 메모를 남기고, 어떤 기기에서든 멈춘 곳부터 다시 시작하세요.",
+      "checklist": {
+        "pageEffect": "실감나는 페이지 넘김 효과",
+        "highlights": "하이라이트와 메모",
+        "sync": "클라우드 동기화"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "당신만의 공간을 만들고, 이야기를 들려주세요.",
+      "titleEm": "오늘 서재를 시작하세요.",
+      "cta": "내 서재 시작하기",
+      "fineprint": "신용카드 불필요. 무료로 시작하세요."
+    }
   }
 }

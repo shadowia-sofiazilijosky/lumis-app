@@ -322,5 +322,69 @@
       "submitting": "Tworzenie konta…",
       "submit": "Utwórz konto"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "O Lumis",
+      "login": "Zaloguj się",
+      "register": "Utwórz konto"
+    },
+    "footer": {
+      "tagline": "Twój kącik do czytania, po Twojemu.",
+      "copyright": "© 2026 Lumis. Wszelkie prawa zastrzeżone.",
+      "product": "Produkt",
+      "legal": "Informacje prawne",
+      "contact": "Kontakt",
+      "terms": "Regulamin",
+      "privacy": "Polityka prywatności"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Twoja biblioteka,",
+      "titleEm": "po Twojemu",
+      "subtitle": "Wirtualna biblioteka łącząca uniwersalny czytnik z konfigurowalnymi półkami i śledzeniem Twojego doświadczenia czytelniczego.",
+      "ctaPrimary": "Rozpocznij moją bibliotekę",
+      "ctaSecondary": "Dowiedz się więcej",
+      "formats": "Kompatybilna z PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT i innymi."
+    },
+    "features": {
+      "shelves": {
+        "title": "Konfigurowalne półki",
+        "description": "Dekoruj i organizuj swoje książki tak, jak chcesz."
+      },
+      "reader": {
+        "title": "Uniwersalny czytnik",
+        "description": "Czytaj swoje pliki w dowolnym formacie z wciągającym doświadczeniem."
+      },
+      "log": {
+        "title": "Rejestruj swoje czytanie",
+        "description": "Daty, notatki, recenzje, tagi i statusy czytania."
+      },
+      "spicy": {
+        "title": "Pikanteria i romans",
+        "description": "Oceniaj poziom pikanterii i romansu w swoich historiach."
+      },
+      "theme": {
+        "title": "Tryb jasny i ciemny",
+        "description": "Wybierz swoją ulubioną atmosferę do czytania."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Czytaj we własnym tempie.",
+      "titleEm": "Gdziekolwiek jesteś.",
+      "subtitle": "Zapisuj postępy automatycznie, zaznaczaj ulubione fragmenty, rób notatki i wracaj dokładnie tam, gdzie skończyłaś/eś, na dowolnym urządzeniu.",
+      "checklist": {
+        "pageEffect": "Realistyczny efekt przewracania stron",
+        "highlights": "Zaznaczenia i notatki",
+        "sync": "Synchronizacja w chmurze"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Stwórz swoją przestrzeń, opowiedz swoją historię.",
+      "titleEm": "Rozpocznij swoją bibliotekę już dziś.",
+      "cta": "Rozpocznij moją bibliotekę",
+      "fineprint": "Bez karty kredytowej. Darmowy start."
+    }
   }
 }

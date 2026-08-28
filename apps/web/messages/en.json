@@ -322,5 +322,69 @@
       "submitting": "Creating account…",
       "submit": "Create account"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "About Lumis",
+      "login": "Log in",
+      "register": "Create account"
+    },
+    "footer": {
+      "tagline": "Your reading corner, your way.",
+      "copyright": "© 2026 Lumis. All rights reserved.",
+      "product": "Product",
+      "legal": "Legal",
+      "contact": "Contact",
+      "terms": "Terms and conditions",
+      "privacy": "Privacy policy"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "Your library,",
+      "titleEm": "your way",
+      "subtitle": "The virtual library that combines a universal reader with customizable shelves and reading-experience tracking.",
+      "ctaPrimary": "Start my library",
+      "ctaSecondary": "Learn more",
+      "formats": "Compatible with PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT and more."
+    },
+    "features": {
+      "shelves": {
+        "title": "Customizable shelves",
+        "description": "Decorate and organize your books however you like."
+      },
+      "reader": {
+        "title": "Universal reader",
+        "description": "Read your files in any format with an immersive experience."
+      },
+      "log": {
+        "title": "Track your reading",
+        "description": "Dates, notes, reviews, tags and reading statuses."
+      },
+      "spicy": {
+        "title": "Spicy & Romance",
+        "description": "Rate the spice and romance level of your stories."
+      },
+      "theme": {
+        "title": "Light and dark mode",
+        "description": "Pick your favorite atmosphere for reading."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Read at your pace.",
+      "titleEm": "Wherever you are.",
+      "subtitle": "Save your progress automatically, highlight your favorite parts, take notes, and pick up right where you left off, on any device.",
+      "checklist": {
+        "pageEffect": "Realistic page-turn effect",
+        "highlights": "Highlights and notes",
+        "sync": "Cloud sync"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Create your space, tell your story.",
+      "titleEm": "Start your library today.",
+      "cta": "Start my library",
+      "fineprint": "No credit card. Free to start."
+    }
   }
 }

@@ -322,5 +322,69 @@
       "submitting": "Creazione account…",
       "submit": "Crea account"
     }
+  },
+  "site": {
+    "nav": {
+      "about": "Su Lumis",
+      "login": "Accedi",
+      "register": "Crea account"
+    },
+    "footer": {
+      "tagline": "Il tuo angolo di lettura, a modo tuo.",
+      "copyright": "© 2026 Lumis. Tutti i diritti riservati.",
+      "product": "Prodotto",
+      "legal": "Legale",
+      "contact": "Contatto",
+      "terms": "Termini e condizioni",
+      "privacy": "Informativa sulla privacy"
+    }
+  },
+  "landing": {
+    "hero": {
+      "titleLine1": "La tua libreria,",
+      "titleEm": "a modo tuo",
+      "subtitle": "La libreria virtuale che unisce un lettore universale a scaffali personalizzabili e al monitoraggio della tua esperienza di lettura.",
+      "ctaPrimary": "Inizia la mia libreria",
+      "ctaSecondary": "Scopri di più",
+      "formats": "Compatibile con PDF, EPUB, MOBI, AZW3, CBR/CBZ, TXT e altro."
+    },
+    "features": {
+      "shelves": {
+        "title": "Scaffali personalizzabili",
+        "description": "Decora e organizza i tuoi libri come preferisci."
+      },
+      "reader": {
+        "title": "Lettore universale",
+        "description": "Leggi i tuoi file in qualsiasi formato con un'esperienza immersiva."
+      },
+      "log": {
+        "title": "Registra la tua lettura",
+        "description": "Date, note, recensioni, tag e stati di lettura."
+      },
+      "spicy": {
+        "title": "Spicy & Romance",
+        "description": "Valuta il livello di spicy e romance delle tue storie."
+      },
+      "theme": {
+        "title": "Modalità chiara e scura",
+        "description": "Scegli l'atmosfera che preferisci per leggere."
+      }
+    },
+    "ritmo": {
+      "titleLine1": "Leggi al tuo ritmo.",
+      "titleEm": "Ovunque tu sia.",
+      "subtitle": "Salva automaticamente i tuoi progressi, evidenzia le tue parti preferite, prendi appunti e riprendi esattamente da dove avevi lasciato, su qualsiasi dispositivo.",
+      "checklist": {
+        "pageEffect": "Effetto pagina realistico",
+        "highlights": "Evidenziazioni e note",
+        "sync": "Sincronizzazione cloud"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Crea il tuo spazio, racconta la tua storia.",
+      "titleEm": "Inizia oggi la tua libreria.",
+      "cta": "Inizia la mia libreria",
+      "fineprint": "Nessuna carta di credito richiesta. Gratis per iniziare."
+    }
   }
 }
