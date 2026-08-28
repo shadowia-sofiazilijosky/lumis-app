@@ -394,5 +394,58 @@
     "p2": "Deshalb vereint Lumis zwei Dinge, die normalerweise getrennt existieren: einen universellen Reader, der PDF, EPUB, MOBI, CBR, CBZ und TXT gleichermaßen versteht — mit demselben Seitenumblätter-Effekt in jedem Format, Markierungen, Randnotizen und genau dem Lesezeichen, an dem du aufgehört hast — und ein visuelles Regal, das du aufbauen und dekorieren kannst, als wäre es eine echte Ecke deines Zuhauses. Du wählst das Möbelstück, die Hintergrundwand, wo jedes Buch steht, welche kleine Pflanze oder welches Licht du daneben stellst. Es ist keine Liste. Es ist dein Raum.",
     "p3": "Der Name kommt von „lumen“, der Einheit des Lichts. Uns gefiel das, weil Lesen schon immer, auf irgendeine Weise, das Finden von Licht war: das der Nachttischlampe, das des Bildschirms, wenn du nicht mit einem Kapitel aufhören kannst, das durchs Fenster auf deinen Lieblingssessel fällt. Lumis möchte dieses kleine, persönliche Licht sein, das die Rückkehr zu deiner Bibliothek zu einer Freude macht, nicht zu einer Pflicht.",
     "p4": "Dieses Projekt ist für Menschen gedacht, die es ebenso lieben, ihren Leseraum zu gestalten, wie das Lesen selbst — für alle mit einem Regal, das „für irgendwann“ auf Pinterest gespeichert ist, für alle, die Zitate an den Rand kritzeln, für alle, die glauben, dass ein gut aufbewahrtes Buch auch eine Form von Zuneigung ist. Wenn das zu dir passt, ist Lumis deine Ecke."
+  },
+  "termsPage": {
+    "pageTitle": "Allgemeine Geschäftsbedingungen — Lumis",
+    "heading": "Allgemeine Geschäftsbedingungen",
+    "updated": "Letzte Aktualisierung: 18. August 2026",
+    "s1": {
+      "title": "1. Zweck",
+      "body": "Diese Allgemeinen Geschäftsbedingungen (die „Bedingungen“) regeln den Zugang zu und die Nutzung von Lumis (die „Plattform“ oder der „Dienst“), einer Webanwendung, mit der Nutzer digitale Bücher in den Formaten PDF, EPUB, MOBI, CBR, CBZ und TXT hochladen, organisieren, lesen und annotieren sowie visuell in anpassbaren Regalen organisieren können. Der Dienst wird von der Republik Argentinien aus betrieben."
+    },
+    "s2": {
+      "title": "2. Annahme der Bedingungen",
+      "body": "Durch die Registrierung und/oder Nutzung von Lumis akzeptierst du diese Bedingungen vollständig. Wenn du mit einer Bestimmung nicht einverstanden bist, darfst du den Dienst nicht nutzen. Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern, wie in Abschnitt 7 näher beschrieben."
+    },
+    "s3": {
+      "title": "3. Registrierung und Kontoverantwortung",
+      "body": "Um Lumis zu nutzen, musst du ein Konto mit gültiger E-Mail-Adresse und Passwort erstellen. Du bist für die Vertraulichkeit deiner Zugangsdaten und alle Aktivitäten unter deinem Konto verantwortlich. Du musst uns unverzüglich über jede unbefugte Nutzung deines Kontos informieren. Lumis haftet nicht für Verluste, die aus dem Missbrauch deiner Zugangsdaten durch Dritte entstehen, wenn diese Nutzung nicht auf einen Fehler des Dienstes zurückzuführen ist."
+    },
+    "s4": {
+      "title": "4. Vom Nutzer hochgeladene Inhalte",
+      "p1": "4.1. Lumis ermöglicht dir das Hochladen von digitalen Buchdateien für deinen persönlichen Gebrauch. Du bist allein verantwortlich für die Inhalte, die du auf die Plattform hochlädst.",
+      "p2": "4.2. Du versicherst und garantierst, dass du über die erforderlichen Rechte (sei es als Autor, durch eine legitime Lizenz, weil das Werk gemeinfrei ist, oder aus einem anderen gültigen Rechtsgrund) an jeder von dir hochgeladenen Datei verfügst.",
+      "p3": "4.3. Lumis hostet, verbreitet, bewirbt oder überprüft die Inhalte der von Nutzern hochgeladenen Dateien nicht über das für die Erbringung des Dienstes Notwendige hinaus (private Speicherung und Darstellung für dein eigenes Lesen). Lumis handelt nicht als Verlag oder Inhaltsvertreiber und gewährt Dritten keinen Zugriff auf deine Dateien.",
+      "p4": "4.4. Es ist untersagt, Inhalte hochzuladen, die geistige Eigentumsrechte Dritter verletzen, rechtswidrig, verleumderisch sind oder gegen geltende Vorschriften verstoßen. Lumis behält sich das Recht vor, Inhalte zu entfernen und/oder Konten zu sperren, wenn eine begründete Urheberrechtsverletzung geltend gemacht wird oder gegen diese Bedingungen verstoßen wird.",
+      "p5": "4.5. Die von dir hochgeladenen Dateien werden privat gespeichert und sind, außer bei einer gültigen gesetzlichen Anforderung, nur für dich über dein Konto zugänglich."
+    },
+    "s5": {
+      "title": "5. Erlaubte Nutzung des Dienstes",
+      "body": "Du verpflichtest dich, Lumis nur für rechtmäßige Zwecke und gemäß diesen Bedingungen zu nutzen. Untersagt sind: (a) Versuche, die Sicherheit der Plattform zu verletzen; (b) die Nutzung des Dienstes zur unautorisierten Verbreitung urheberrechtlich geschützter Inhalte Dritter; (c) Reverse Engineering, Kopieren oder Weiterverkauf des Dienstes; (d) die Nutzung von Bots oder nicht autorisierten automatisierten Mitteln zum Zugriff auf die Plattform."
+    },
+    "s6": {
+      "title": "6. Haftungsbeschränkung",
+      "body": "Der Dienst wird „wie besehen“ und „nach Verfügbarkeit“ bereitgestellt. Lumis garantiert nicht, dass der Dienst unterbrechungsfrei, fehlerfrei ist oder spezifischen Erwartungen des Nutzers entspricht. Im größtmöglichen nach geltendem Recht zulässigen Umfang haftet Lumis nicht für indirekte, zufällige, besondere oder Folgeschäden, die aus der Nutzung oder Unmöglichkeit der Nutzung des Dienstes entstehen, einschließlich des Verlusts von Dateien, Daten oder hochgeladenen Inhalten. Wir empfehlen, Sicherungskopien deiner Originaldateien außerhalb der Plattform aufzubewahren."
+    },
+    "s7": {
+      "title": "7. Änderungen des Dienstes und dieser Bedingungen",
+      "body": "Wir behalten uns das Recht vor, den Dienst (ganz oder teilweise) jederzeit mit oder ohne vorherige Ankündigung zu ändern, auszusetzen oder einzustellen. Wir können diese Bedingungen auch regelmäßig aktualisieren; wesentliche Änderungen werden über Mittel mitgeteilt, die wir für angemessen halten (z. B. einen Hinweis auf der Plattform). Die fortgesetzte Nutzung des Dienstes nach einer Änderung gilt als Annahme der aktualisierten Bedingungen."
+    },
+    "s8": {
+      "title": "8. Konto und Kündigung des Dienstes",
+      "body": "Du kannst jederzeit die Löschung deines Kontos beantragen. Wir behalten uns das Recht vor, Konten, die gegen diese Bedingungen verstoßen, nach angemessenem Ermessen und, wenn möglich, mit vorheriger Ankündigung zu sperren oder zu kündigen."
+    },
+    "s9": {
+      "title": "9. Geistiges Eigentum der Plattform",
+      "body": "Die Software, das Design, die Marke „Lumis“ und andere plattformeigene Elemente sind Eigentum ihrer Entwickler und durch geltendes Recht zum geistigen Eigentum geschützt. Diese Bedingungen gewähren dir keinerlei Rechte an diesen Elementen über die Nutzung des Dienstes gemäß diesen Bestimmungen hinaus."
+    },
+    "s10": {
+      "title": "10. Anwendbares Recht und Gerichtsstand",
+      "body": "Diese Bedingungen unterliegen den Gesetzen der Republik Argentinien. Für alle Streitigkeiten, die sich aus diesen Bedingungen oder der Nutzung des Dienstes ergeben, unterwerfen sich die Parteien der Zuständigkeit der ordentlichen Gerichte der Autonomen Stadt Buenos Aires, Argentinien, unter ausdrücklichem Verzicht auf jeden anderen Gerichtsstand."
+    },
+    "s11": {
+      "title": "11. Kontakt",
+      "bodyBeforeEmail": "Bei Fragen zu diesen Bedingungen kannst du uns schreiben an"
+    }
   }
 }

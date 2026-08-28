@@ -394,5 +394,58 @@
     "p2": "Đó là lý do Lumis kết hợp hai thứ thường tách biệt: một trình đọc đa năng hiểu PDF, EPUB, MOBI, CBR, CBZ và TXT như nhau — với cùng hiệu ứng lật trang ở mọi định dạng, phần tô sáng, ghi chú bên lề, và đúng vị trí đánh dấu nơi bạn đã dừng lại — và một kệ sách trực quan mà bạn có thể xây dựng và trang trí như một góc thật sự trong nhà mình. Bạn chọn đồ nội thất, bức tường nền, mỗi cuốn sách đặt ở đâu, cây nhỏ hay ánh đèn nào đặt bên cạnh. Đây không phải là một danh sách. Đây là không gian của bạn.",
     "p3": "Cái tên bắt nguồn từ “lumen”, đơn vị đo ánh sáng. Chúng tôi thích nó vì đọc sách luôn, theo một cách nào đó, là đi tìm ánh sáng: ánh đèn ngủ ban đêm, ánh sáng màn hình khi bạn không thể dừng lại chỉ vì một chương nữa, ánh sáng lọt qua cửa sổ lên chiếc ghế bành yêu thích. Lumis muốn trở thành ánh sáng nhỏ bé, riêng tư đó, khiến việc quay lại thư viện của bạn trở thành niềm vui, chứ không phải nghĩa vụ.",
     "p4": "Dự án này dành cho những người yêu thích việc xây dựng không gian đọc sách của mình cũng nhiều như yêu bản thân việc đọc — dành cho những ai có một chiếc kệ được lưu “để dành cho một ngày nào đó” trên Pinterest, những ai viết nguệch ngoạc câu trích dẫn bên lề trang sách, những ai tin rằng một cuốn sách được giữ gìn cẩn thận cũng là một hình thức yêu thương. Nếu đó là bạn, Lumis chính là góc nhỏ của bạn."
+  },
+  "termsPage": {
+    "pageTitle": "Điều khoản và điều kiện — Lumis",
+    "heading": "Điều Khoản và Điều Kiện Sử Dụng",
+    "updated": "Cập nhật lần cuối: 18 tháng 8 năm 2026",
+    "s1": {
+      "title": "1. Mục đích",
+      "body": "Các Điều Khoản và Điều Kiện này (“Điều Khoản”) quy định việc truy cập và sử dụng Lumis (“Nền Tảng” hoặc “Dịch Vụ”), một ứng dụng web cho phép người dùng tải lên, sắp xếp, đọc và chú thích sách điện tử ở định dạng PDF, EPUB, MOBI, CBR, CBZ và TXT, cũng như sắp xếp trực quan chúng trên các kệ sách có thể tùy chỉnh. Dịch Vụ được vận hành từ Cộng hòa Argentina."
+    },
+    "s2": {
+      "title": "2. Chấp nhận Điều Khoản",
+      "body": "Bằng việc đăng ký và/hoặc sử dụng Lumis, bạn chấp nhận toàn bộ các Điều Khoản này. Nếu bạn không đồng ý với bất kỳ điều khoản nào, bạn không được sử dụng Dịch Vụ. Chúng tôi bảo lưu quyền sửa đổi các Điều Khoản này bất cứ lúc nào, như được nêu chi tiết tại Mục 7."
+    },
+    "s3": {
+      "title": "3. Đăng ký và trách nhiệm đối với tài khoản",
+      "body": "Để sử dụng Lumis, bạn phải tạo một tài khoản với email và mật khẩu hợp lệ. Bạn chịu trách nhiệm giữ bí mật thông tin đăng nhập của mình và mọi hoạt động xảy ra dưới tài khoản của bạn. Bạn phải thông báo cho chúng tôi ngay lập tức về bất kỳ việc sử dụng trái phép tài khoản của bạn. Lumis không chịu trách nhiệm về các tổn thất phát sinh từ việc bên thứ ba lạm dụng thông tin đăng nhập của bạn khi việc sử dụng đó không phải do lỗi của Dịch Vụ."
+    },
+    "s4": {
+      "title": "4. Nội dung do người dùng tải lên",
+      "p1": "4.1. Lumis cho phép bạn tải lên các tệp sách điện tử để sử dụng cá nhân. Bạn là người chịu trách nhiệm duy nhất về nội dung bạn tải lên Nền Tảng.",
+      "p2": "4.2. Bạn cam đoan và bảo đảm rằng bạn có các quyền cần thiết (dù là tác giả, thông qua giấy phép hợp pháp, vì tác phẩm thuộc phạm vi công cộng, hoặc trên bất kỳ cơ sở pháp lý hợp lệ nào khác) đối với mọi tệp bạn tải lên.",
+      "p3": "4.3. Lumis không lưu trữ, phân phối, quảng bá hay xác minh nội dung của các tệp do người dùng tải lên ngoài phạm vi cần thiết để cung cấp Dịch Vụ (lưu trữ riêng tư và hiển thị để bạn tự đọc). Lumis không hoạt động như một nhà xuất bản hay nhà phân phối nội dung và không cấp quyền truy cập cho bên thứ ba vào các tệp của bạn.",
+      "p4": "4.4. Nghiêm cấm tải lên nội dung vi phạm quyền sở hữu trí tuệ của bên thứ ba, bất hợp pháp, phỉ báng, hoặc vi phạm bất kỳ quy định hiện hành nào. Lumis bảo lưu quyền xóa nội dung và/hoặc đình chỉ tài khoản khi có khiếu nại có căn cứ về vi phạm bản quyền hoặc vi phạm các Điều Khoản này.",
+      "p5": "4.5. Các tệp bạn tải lên được lưu trữ riêng tư và chỉ có thể được bạn truy cập thông qua tài khoản của mình, trừ khi có yêu cầu pháp lý hợp lệ."
+    },
+    "s5": {
+      "title": "5. Sử dụng Dịch Vụ được phép",
+      "body": "Bạn đồng ý chỉ sử dụng Lumis cho các mục đích hợp pháp và phù hợp với các Điều Khoản này. Nghiêm cấm: (a) cố gắng xâm phạm bảo mật của Nền Tảng; (b) sử dụng Dịch Vụ để phân phối nội dung có bản quyền của người khác mà không được phép; (c) thực hiện kỹ thuật đảo ngược, sao chép hoặc bán lại Dịch Vụ; (d) sử dụng bot hoặc phương tiện tự động trái phép để truy cập Nền Tảng."
+    },
+    "s6": {
+      "title": "6. Giới hạn trách nhiệm",
+      "body": "Dịch Vụ được cung cấp “nguyên trạng” và “tùy theo tình trạng sẵn có”. Lumis không đảm bảo rằng Dịch Vụ sẽ không bị gián đoạn, không có lỗi, hoặc đáp ứng các kỳ vọng cụ thể của người dùng. Trong phạm vi tối đa được pháp luật hiện hành cho phép, Lumis sẽ không chịu trách nhiệm về các thiệt hại gián tiếp, ngẫu nhiên, đặc biệt hoặc do hậu quả phát sinh từ việc sử dụng hoặc không thể sử dụng Dịch Vụ, bao gồm mất tệp, dữ liệu hoặc nội dung đã tải lên. Chúng tôi khuyến nghị bạn giữ các bản sao lưu tệp gốc của mình bên ngoài Nền Tảng."
+    },
+    "s7": {
+      "title": "7. Thay đổi Dịch Vụ và các Điều Khoản này",
+      "body": "Chúng tôi bảo lưu quyền sửa đổi, đình chỉ hoặc ngừng cung cấp Dịch Vụ (toàn bộ hoặc một phần) bất cứ lúc nào, có hoặc không có thông báo trước. Chúng tôi cũng có thể cập nhật các Điều Khoản này định kỳ; các thay đổi quan trọng sẽ được thông báo qua các phương tiện mà chúng tôi cho là hợp lý (ví dụ: thông báo trên Nền Tảng). Việc tiếp tục sử dụng Dịch Vụ sau khi có sửa đổi đồng nghĩa với việc chấp nhận các Điều Khoản đã cập nhật."
+    },
+    "s8": {
+      "title": "8. Tài khoản và chấm dứt Dịch Vụ",
+      "body": "Bạn có thể yêu cầu xóa tài khoản của mình bất cứ lúc nào. Chúng tôi bảo lưu quyền đình chỉ hoặc hủy các tài khoản vi phạm các Điều Khoản này, theo quyết định hợp lý của chúng tôi và, khi có thể, có thông báo trước."
+    },
+    "s9": {
+      "title": "9. Sở hữu trí tuệ của Nền Tảng",
+      "body": "Phần mềm, thiết kế, thương hiệu “Lumis” và các yếu tố khác thuộc về Nền Tảng là tài sản của các nhà phát triển và được bảo vệ bởi luật sở hữu trí tuệ hiện hành. Các Điều Khoản này không cấp cho bạn bất kỳ quyền nào đối với các yếu tố đó ngoài việc sử dụng Dịch Vụ theo quy định tại đây."
+    },
+    "s10": {
+      "title": "10. Luật áp dụng và thẩm quyền tài phán",
+      "body": "Các Điều Khoản này được điều chỉnh bởi luật pháp của Cộng hòa Argentina. Đối với bất kỳ tranh chấp nào phát sinh từ các Điều Khoản này hoặc việc sử dụng Dịch Vụ, các bên tuân theo thẩm quyền của các tòa án thông thường có thẩm quyền tại Thành phố Tự trị Buenos Aires, Argentina, và từ bỏ rõ ràng bất kỳ thẩm quyền tài phán nào khác có thể áp dụng."
+    },
+    "s11": {
+      "title": "11. Liên hệ",
+      "bodyBeforeEmail": "Nếu có bất kỳ thắc mắc nào về các Điều Khoản này, bạn có thể viết thư cho chúng tôi tại"
+    }
   }
 }

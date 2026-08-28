@@ -394,5 +394,58 @@
     "p2": "That's why Lumis combines two things that usually live apart: a universal reader that understands PDF, EPUB, MOBI, CBR, CBZ and TXT alike — with the same page-turn effect across every format, highlights, margin notes, and the exact bookmark where you left off — and a visual shelf you can build and decorate as if it were a real corner of your home. You choose the furniture, the background wall, where each book goes, which little plant or light you put next to it. It's not a list. It's your space.",
     "p3": "The name comes from “lumen”, the unit of light. We liked it because reading has always been, in some way, about finding light: the bedside lamp at night, the screen glow when you can't stop for just one more chapter, the light coming through the window onto your favorite armchair. Lumis wants to be that small, personal light that makes coming back to your library a pleasure, not a chore.",
     "p4": "This project is made for people who love building their reading space as much as reading itself — for those with a shelf saved “for someday” on Pinterest, for those who scribble quotes in the margins, for those who believe a well-kept book is also a form of care. If that's you, Lumis is your corner."
+  },
+  "termsPage": {
+    "pageTitle": "Terms and conditions — Lumis",
+    "heading": "Terms and Conditions of Use",
+    "updated": "Last updated: August 18, 2026",
+    "s1": {
+      "title": "1. Purpose",
+      "body": "These Terms and Conditions (the “Terms”) govern access to and use of Lumis (the “Platform” or the “Service”), a web application that allows users to upload, organize, read and annotate digital books in PDF, EPUB, MOBI, CBR, CBZ and TXT format, as well as visually organize them on customizable shelves. The Service is operated from the Argentine Republic."
+    },
+    "s2": {
+      "title": "2. Acceptance of the Terms",
+      "body": "By registering for and/or using Lumis, you accept these Terms in full. If you do not agree with any provision, you must not use the Service. We reserve the right to modify these Terms at any time, as detailed in Section 7."
+    },
+    "s3": {
+      "title": "3. Registration and account responsibility",
+      "body": "To use Lumis you must create an account with a valid email and password. You are responsible for keeping your login credentials confidential and for all activity that occurs under your account. You must notify us immediately of any unauthorized use of your account. Lumis is not liable for losses arising from misuse of your credentials by third parties when such use is not attributable to a Service failure."
+    },
+    "s4": {
+      "title": "4. User-uploaded content",
+      "p1": "4.1. Lumis lets you upload digital book files for your personal use. You are solely responsible for the content you upload to the Platform.",
+      "p2": "4.2. You represent and warrant that you hold the necessary rights (whether as the author, through a legitimate license, because the work is in the public domain, or on any other valid legal basis) over any file you upload.",
+      "p3": "4.3. Lumis does not host, distribute, promote or verify the content of files uploaded by users beyond what is necessary to provide the Service (private storage and rendering for your own reading). Lumis does not act as a publisher or content distributor and does not grant third parties access to your files.",
+      "p4": "4.4. Uploading content that infringes third-party intellectual property rights, is illegal, defamatory, or violates any applicable regulation is prohibited. Lumis reserves the right to remove content and/or suspend accounts upon a well-founded copyright infringement claim or a breach of these Terms.",
+      "p5": "4.5. The files you upload are stored privately and are only accessible by you through your account, except where required by a valid legal request."
+    },
+    "s5": {
+      "title": "5. Permitted use of the Service",
+      "body": "You agree to use Lumis only for lawful purposes and in accordance with these Terms. It is prohibited to: (a) attempt to breach the Platform's security; (b) use the Service to distribute copyrighted content belonging to others without authorization; (c) reverse-engineer, copy or resell the Service; (d) use bots or unauthorized automated means to access the Platform."
+    },
+    "s6": {
+      "title": "6. Limitation of liability",
+      "body": "The Service is provided “as is” and “as available.” Lumis does not guarantee that the Service will be uninterrupted, error-free, or meet any specific user expectations. To the fullest extent permitted by applicable law, Lumis will not be liable for indirect, incidental, special or consequential damages arising from use or inability to use the Service, including loss of files, data or uploaded content. We recommend keeping backup copies of your original files outside the Platform."
+    },
+    "s7": {
+      "title": "7. Changes to the Service and to these Terms",
+      "body": "We reserve the right to modify, suspend or discontinue the Service (in whole or in part) at any time, with or without prior notice. We may also update these Terms periodically; significant changes will be communicated through means we consider reasonable (for example, a notice on the Platform). Continued use of the Service after a modification implies acceptance of the updated Terms."
+    },
+    "s8": {
+      "title": "8. Account and Service cancellation",
+      "body": "You may request to delete your account at any time. We reserve the right to suspend or cancel accounts that breach these Terms, at our reasonable discretion and, when possible, with prior notice."
+    },
+    "s9": {
+      "title": "9. Platform intellectual property",
+      "body": "The software, design, the “Lumis” brand, and other elements belonging to the Platform are owned by its developers and are protected by applicable intellectual property law. These Terms do not grant you any rights over such elements beyond using the Service as set out herein."
+    },
+    "s10": {
+      "title": "10. Governing law and jurisdiction",
+      "body": "These Terms are governed by the laws of the Argentine Republic. For any dispute arising from these Terms or use of the Service, the parties submit to the jurisdiction of the competent ordinary courts of the Autonomous City of Buenos Aires, Argentina, expressly waiving any other venue or jurisdiction that might otherwise apply."
+    },
+    "s11": {
+      "title": "11. Contact",
+      "bodyBeforeEmail": "For any questions about these Terms, you can write to us at"
+    }
   }
 }

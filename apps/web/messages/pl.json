@@ -394,5 +394,58 @@
     "p2": "Dlatego Lumis łączy dwie rzeczy, które zwykle żyją osobno: uniwersalny czytnik rozumiejący jednakowo PDF, EPUB, MOBI, CBR, CBZ i TXT — z tym samym efektem przewracania stron w każdym formacie, zaznaczeniami, notatkami na marginesie i dokładną zakładką w miejscu, gdzie skończyłaś/eś — oraz wizualną półkę, którą możesz zbudować i udekorować, jakby to był prawdziwy kącik Twojego domu. Wybierasz mebel, ścianę w tle, gdzie trafia każda książka, jaką roślinkę czy światełko postawisz obok. To nie jest lista. To Twoja przestrzeń.",
     "p3": "Nazwa pochodzi od „lumenu”, jednostki światła. Spodobało nam się to, ponieważ czytanie zawsze było, w pewnym sensie, poszukiwaniem światła: światła nocnej lampki, światła ekranu, gdy nie możesz przestać po jeszcze jednym rozdziale, światła wpadającego przez okno na Twój ulubiony fotel. Lumis chce być tym małym, osobistym światłem, dzięki któremu powrót do biblioteki jest przyjemnością, a nie obowiązkiem.",
     "p4": "Ten projekt jest stworzony dla ludzi, którzy kochają budować swoją przestrzeń do czytania tak samo jak samo czytanie — dla tych, którzy mają półkę zapisaną „na kiedyś” na Pintereście, dla tych, którzy zapisują cytaty na marginesach, dla tych, którzy wierzą, że dobrze przechowywana książka to też forma troski. Jeśli jesteś taką osobą, Lumis jest Twoim kącikiem."
+  },
+  "termsPage": {
+    "pageTitle": "Regulamin — Lumis",
+    "heading": "Regulamin korzystania z serwisu",
+    "updated": "Ostatnia aktualizacja: 18 sierpnia 2026 r.",
+    "s1": {
+      "title": "1. Przedmiot",
+      "body": "Niniejszy Regulamin (“Regulamin”) reguluje dostęp do i korzystanie z Lumis (“Platforma” lub “Usługa”), aplikacji internetowej umożliwiającej użytkownikom przesyłanie, organizowanie, czytanie i adnotowanie cyfrowych książek w formatach PDF, EPUB, MOBI, CBR, CBZ i TXT, a także wizualne organizowanie ich na konfigurowalnych półkach. Usługa jest prowadzona z Republiki Argentyńskiej."
+    },
+    "s2": {
+      "title": "2. Akceptacja Regulaminu",
+      "body": "Rejestrując się i/lub korzystając z Lumis, akceptujesz niniejszy Regulamin w całości. Jeśli nie zgadzasz się z jakimkolwiek postanowieniem, nie powinieneś/aś korzystać z Usługi. Zastrzegamy sobie prawo do modyfikacji niniejszego Regulaminu w dowolnym momencie, zgodnie ze szczegółami w Sekcji 7."
+    },
+    "s3": {
+      "title": "3. Rejestracja i odpowiedzialność za konto",
+      "body": "Aby korzystać z Lumis, musisz utworzyć konto z ważnym adresem e-mail i hasłem. Jesteś odpowiedzialny/a za zachowanie poufności swoich danych logowania oraz za wszystkie działania odbywające się na Twoim koncie. Musisz niezwłocznie powiadomić nas o wszelkim nieautoryzowanym użyciu Twojego konta. Lumis nie ponosi odpowiedzialności za straty wynikające z niewłaściwego użycia Twoich danych logowania przez osoby trzecie, gdy takie użycie nie wynika z awarii Usługi."
+    },
+    "s4": {
+      "title": "4. Treści przesyłane przez użytkownika",
+      "p1": "4.1. Lumis umożliwia Ci przesyłanie plików cyfrowych książek do użytku osobistego. Ponosisz wyłączną odpowiedzialność za treści, które przesyłasz na Platformę.",
+      "p2": "4.2. Oświadczasz i gwarantujesz, że posiadasz niezbędne prawa (jako autor, poprzez uzyskanie zgodnej z prawem licencji, ponieważ dzieło jest własnością publiczną lub na jakiejkolwiek innej ważnej podstawie prawnej) do każdego przesyłanego pliku.",
+      "p3": "4.3. Lumis nie hostuje, nie dystrybuuje, nie promuje ani nie weryfikuje treści plików przesyłanych przez użytkowników poza tym, co jest niezbędne do świadczenia Usługi (prywatne przechowywanie i renderowanie do Twojego własnego czytania). Lumis nie działa jako wydawca ani dystrybutor treści i nie udziela osobom trzecim dostępu do Twoich plików.",
+      "p4": "4.4. Zabrania się przesyłania treści naruszających prawa własności intelektualnej osób trzecich, które są nielegalne, zniesławiające lub naruszają jakiekolwiek obowiązujące przepisy. Lumis zastrzega sobie prawo do usuwania treści i/lub zawieszania kont w przypadku uzasadnionego roszczenia o naruszenie praw autorskich lub naruszenia niniejszego Regulaminu.",
+      "p5": "4.5. Przesyłane przez Ciebie pliki są przechowywane prywatnie i dostępne wyłącznie dla Ciebie poprzez Twoje konto, chyba że wymaga tego ważne żądanie prawne."
+    },
+    "s5": {
+      "title": "5. Dozwolone użytkowanie Usługi",
+      "body": "Zobowiązujesz się korzystać z Lumis wyłącznie w celach zgodnych z prawem i zgodnie z niniejszym Regulaminem. Zabrania się: (a) prób naruszenia bezpieczeństwa Platformy; (b) korzystania z Usługi do dystrybucji treści chronionych prawem autorskim osób trzecich bez zezwolenia; (c) inżynierii wstecznej, kopiowania lub odsprzedaży Usługi; (d) korzystania z botów lub nieautoryzowanych zautomatyzowanych środków w celu uzyskania dostępu do Platformy."
+    },
+    "s6": {
+      "title": "6. Ograniczenie odpowiedzialności",
+      "body": "Usługa jest świadczona “tak jak jest” i “w miarę dostępności”. Lumis nie gwarantuje, że Usługa będzie nieprzerwana, wolna od błędów, ani że spełni konkretne oczekiwania użytkownika. W maksymalnym zakresie dozwolonym przez obowiązujące prawo, Lumis nie ponosi odpowiedzialności za szkody pośrednie, przypadkowe, szczególne lub wynikowe powstałe w wyniku korzystania lub niemożności korzystania z Usługi, w tym utratę plików, danych lub przesłanych treści. Zalecamy przechowywanie kopii zapasowych oryginalnych plików poza Platformą."
+    },
+    "s7": {
+      "title": "7. Zmiany Usługi i niniejszego Regulaminu",
+      "body": "Zastrzegamy sobie prawo do modyfikacji, zawieszenia lub zaprzestania świadczenia Usługi (w całości lub części) w dowolnym momencie, z powiadomieniem lub bez. Możemy również okresowo aktualizować niniejszy Regulamin; istotne zmiany będą komunikowane za pomocą środków, które uznamy za rozsądne (na przykład powiadomienie na Platformie). Dalsze korzystanie z Usługi po dokonaniu modyfikacji oznacza akceptację zaktualizowanego Regulaminu."
+    },
+    "s8": {
+      "title": "8. Konto i rezygnacja z Usługi",
+      "body": "Możesz w dowolnym momencie poprosić o usunięcie swojego konta. Zastrzegamy sobie prawo do zawieszania lub anulowania kont naruszających niniejszy Regulamin, według naszego rozsądnego uznania i, gdy to możliwe, z wcześniejszym powiadomieniem."
+    },
+    "s9": {
+      "title": "9. Własność intelektualna Platformy",
+      "body": "Oprogramowanie, projekt, marka “Lumis” i inne elementy własne Platformy są własnością jej twórców i są chronione obowiązującym prawem własności intelektualnej. Niniejszy Regulamin nie przyznaje Ci żadnych praw do tych elementów poza korzystaniem z Usługi zgodnie z niniejszymi postanowieniami."
+    },
+    "s10": {
+      "title": "10. Prawo właściwe i jurysdykcja",
+      "body": "Niniejszy Regulamin podlega prawu Republiki Argentyńskiej. W przypadku jakiegokolwiek sporu wynikającego z niniejszego Regulaminu lub korzystania z Usługi, strony poddają się jurysdykcji właściwych sądów powszechnych Autonomicznego Miasta Buenos Aires w Argentynie, wyraźnie zrzekając się jakiejkolwiek innej jurysdykcji, która mogłaby mieć zastosowanie."
+    },
+    "s11": {
+      "title": "11. Kontakt",
+      "bodyBeforeEmail": "W przypadku jakichkolwiek pytań dotyczących niniejszego Regulaminu możesz napisać do nas na adres"
+    }
   }
 }

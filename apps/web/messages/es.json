@@ -394,5 +394,58 @@
     "p2": "Por eso Lumis combina dos cosas que normalmente viven separadas: un lector universal que entiende PDF, EPUB, MOBI, CBR, CBZ y TXT por igual — con el mismo efecto de pasar página en cualquier formato, resaltados, notas al margen, y el marcapáginas exacto donde lo dejaste — y una estantería visual que podés armar y decorar como si fuera un rincón real de tu casa. Elegís el mueble, la pared de fondo, dónde va cada libro, qué plantita o lucecita le ponés al lado. No es una lista. Es tu espacio.",
     "p3": "El nombre viene de “lumen”, la unidad de luz. Nos gustó porque leer siempre fue, de alguna forma, encontrar luz: la de la lamparita a la noche, la de la pantalla cuando no podés parar un capítulo más, la que entra por la ventana en tu sillón favorito. Lumis quiere ser esa luz chiquita y personal que hace que volver a tu biblioteca sea un gusto, no un trámite.",
     "p4": "Este proyecto está pensado para gente que ama armar su espacio de lectura tanto como leer en sí — para quienes tienen una estantería guardada “para algún día” en Pinterest, para quienes anotan frases en los márgenes, para quienes creen que un libro bien guardado también es una forma de cariño. Si sos de esas personas, Lumis es tu rincón."
+  },
+  "termsPage": {
+    "pageTitle": "Términos y condiciones — Lumis",
+    "heading": "Términos y Condiciones de Uso",
+    "updated": "Última actualización: 18 de agosto de 2026",
+    "s1": {
+      "title": "1. Objeto",
+      "body": "Los presentes Términos y Condiciones (los “Términos”) regulan el acceso y uso de Lumis (la “Plataforma” o el “Servicio”), una aplicación web que permite a los usuarios subir, organizar, leer y anotar libros digitales en formato PDF, EPUB, MOBI, CBR, CBZ y TXT, así como organizarlos visualmente en estanterías personalizables. El Servicio es operado desde la República Argentina."
+    },
+    "s2": {
+      "title": "2. Aceptación de los Términos",
+      "body": "Al registrarte y/o utilizar Lumis, aceptás estos Términos en su totalidad. Si no estás de acuerdo con alguna disposición, no debés utilizar el Servicio. Nos reservamos el derecho de modificar estos Términos en cualquier momento, conforme se detalla en la Sección 7."
+    },
+    "s3": {
+      "title": "3. Registro y responsabilidad sobre la cuenta",
+      "body": "Para usar Lumis debés crear una cuenta con un email y una contraseña válidos. Sos responsable de mantener la confidencialidad de tus credenciales de acceso y de todas las actividades que ocurran bajo tu cuenta. Debés notificarnos de inmediato ante cualquier uso no autorizado de tu cuenta. Lumis no se responsabiliza por pérdidas derivadas del uso indebido de tus credenciales por parte de terceros cuando dicho uso no sea atribuible a una falla del Servicio."
+    },
+    "s4": {
+      "title": "4. Contenido subido por el usuario",
+      "p1": "4.1. Lumis te permite subir archivos de libros digitales para tu uso personal. Sos el único responsable del contenido que subís a la Plataforma.",
+      "p2": "4.2. Declarás y garantizás que contás con los derechos necesarios (ya sea por ser el autor, por haber adquirido una licencia legítima, por tratarse de una obra de dominio público, o por cualquier otra base legal válida) sobre todo archivo que subas.",
+      "p3": "4.3. Lumis no aloja, distribuye, promociona ni verifica el contenido de los archivos subidos por los usuarios más allá de lo necesario para prestar el Servicio (almacenamiento privado y renderizado para tu propia lectura). Lumis no actúa como editorial ni como distribuidor de contenido y no otorga acceso a terceros sobre tus archivos.",
+      "p4": "4.4. Queda prohibido subir contenido que infrinja derechos de propiedad intelectual de terceros, que sea ilegal, difamatorio, o que viole cualquier normativa aplicable. Lumis se reserva el derecho de eliminar contenido y/o suspender cuentas ante un reclamo fundado de infracción de derechos de autor o ante el incumplimiento de estos Términos.",
+      "p5": "4.5. Los archivos que subís se almacenan de forma privada y solo son accesibles por vos a través de tu cuenta, salvo requerimiento legal válido."
+    },
+    "s5": {
+      "title": "5. Uso permitido del Servicio",
+      "body": "Te comprometés a utilizar Lumis únicamente para fines lícitos y de acuerdo con estos Términos. Está prohibido: (a) intentar vulnerar la seguridad de la Plataforma; (b) utilizar el Servicio para distribuir contenido con derechos de autor ajenos sin autorización; (c) realizar ingeniería inversa, copiar o revender el Servicio; (d) utilizar bots o medios automatizados no autorizados para acceder a la Plataforma."
+    },
+    "s6": {
+      "title": "6. Limitación de responsabilidad",
+      "body": "El Servicio se presta “tal cual” y “según disponibilidad”. Lumis no garantiza que el Servicio será ininterrumpido, libre de errores o que cumplirá con expectativas específicas del usuario. En la máxima medida permitida por la ley aplicable, Lumis no será responsable por daños indirectos, incidentales, especiales o consecuentes derivados del uso o la imposibilidad de uso del Servicio, incluyendo la pérdida de archivos, datos o contenido subido. Recomendamos conservar copias de respaldo de tus archivos originales fuera de la Plataforma."
+    },
+    "s7": {
+      "title": "7. Modificaciones del Servicio y de estos Términos",
+      "body": "Nos reservamos el derecho de modificar, suspender o discontinuar el Servicio (total o parcialmente) en cualquier momento, con o sin previo aviso. Asimismo, podemos actualizar estos Términos periódicamente; los cambios significativos serán comunicados por los medios que consideremos razonables (por ejemplo, un aviso en la Plataforma). El uso continuado del Servicio luego de una modificación implica la aceptación de los Términos actualizados."
+    },
+    "s8": {
+      "title": "8. Cuenta y baja del Servicio",
+      "body": "Podés solicitar la baja de tu cuenta en cualquier momento. Nos reservamos el derecho de suspender o cancelar cuentas que incumplan estos Términos, a nuestro criterio razonable y, cuando sea posible, con notificación previa."
+    },
+    "s9": {
+      "title": "9. Propiedad intelectual de la Plataforma",
+      "body": "El software, diseño, marca “Lumis” y demás elementos propios de la Plataforma son propiedad de sus desarrolladores y están protegidos por la legislación de propiedad intelectual aplicable. Estos Términos no te otorgan ningún derecho sobre dichos elementos más allá del uso del Servicio conforme a lo aquí establecido."
+    },
+    "s10": {
+      "title": "10. Ley aplicable y jurisdicción",
+      "body": "Estos Términos se rigen por las leyes de la República Argentina. Para cualquier controversia derivada de estos Términos o del uso del Servicio, las partes se someten a la jurisdicción de los tribunales ordinarios competentes de la Ciudad Autónoma de Buenos Aires, Argentina, con renuncia expresa a cualquier otro fuero o jurisdicción que pudiera corresponder."
+    },
+    "s11": {
+      "title": "11. Contacto",
+      "bodyBeforeEmail": "Ante cualquier consulta sobre estos Términos, podés escribirnos a"
+    }
   }
 }

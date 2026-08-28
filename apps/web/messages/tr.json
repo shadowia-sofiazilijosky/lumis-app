@@ -394,5 +394,58 @@
     "p2": "Bu yüzden Lumis genellikle ayrı yaşayan iki şeyi birleştiriyor: PDF, EPUB, MOBI, CBR, CBZ ve TXT'yi aynı şekilde anlayan evrensel bir okuyucu — her formatta aynı sayfa çevirme efekti, vurgular, kenar notları ve tam olarak kaldığın yer işareti — ve evinin gerçek bir köşesi gibi kurup süsleyebileceğin görsel bir raf. Mobilyayı, arka plan duvarını, her kitabın nereye gideceğini, yanına hangi küçük bitkiyi veya ışığı koyacağını sen seçiyorsun. Bu bir liste değil. Senin alanın.",
     "p3": "İsim, ışık birimi olan “lumen”den geliyor. Bunu sevdik çünkü okumak her zaman, bir şekilde, ışık bulmakla ilgiliydi: geceleyin başucu lambasının ışığı, bir bölüm daha okumadan duramadığında ekranın ışığı, sevdiğin koltuğa penceren'den vuran ışık. Lumis, kütüphanene dönmeyi bir angarya değil bir keyif haline getiren o küçük, kişisel ışık olmak istiyor.",
     "p4": "Bu proje, okumayı sevdiği kadar okuma alanını düzenlemeyi de seven insanlar için tasarlandı — Pinterest'te “bir gün” diye kaydedilmiş bir rafı olanlar için, kenarlara alıntılar karalayanlar için, iyi saklanmış bir kitabın da bir ilgi biçimi olduğuna inananlar için. Eğer sen de bu insanlardansan, Lumis senin köşen."
+  },
+  "termsPage": {
+    "pageTitle": "Şartlar ve koşullar — Lumis",
+    "heading": "Kullanım Şartları ve Koşulları",
+    "updated": "Son güncelleme: 18 Ağustos 2026",
+    "s1": {
+      "title": "1. Amaç",
+      "body": "Bu Şartlar ve Koşullar (“Şartlar”), kullanıcıların PDF, EPUB, MOBI, CBR, CBZ ve TXT formatında dijital kitapları yüklemesine, düzenlemesine, okumasına ve not almasına, ayrıca bunları özelleştirilebilir raflarda görsel olarak düzenlemesine olanak tanıyan bir web uygulaması olan Lumis'e (“Platform” veya “Hizmet”) erişimi ve kullanımını düzenler. Hizmet, Arjantin Cumhuriyeti'nden işletilmektedir."
+    },
+    "s2": {
+      "title": "2. Şartların Kabulü",
+      "body": "Lumis'e kaydolarak ve/veya kullanarak, bu Şartları tamamen kabul edersin. Herhangi bir hükme katılmıyorsan, Hizmeti kullanmamalısın. Bölüm 7'de detaylandırıldığı üzere, bu Şartları istediğimiz zaman değiştirme hakkını saklı tutarız."
+    },
+    "s3": {
+      "title": "3. Kayıt ve hesap sorumluluğu",
+      "body": "Lumis'i kullanmak için geçerli bir e-posta ve şifreyle bir hesap oluşturman gerekir. Giriş bilgilerinin gizliliğini korumaktan ve hesabın altında gerçekleşen tüm faaliyetlerden sen sorumlusun. Hesabının izinsiz kullanımını fark edersen bizi derhal bilgilendirmelisin. Üçüncü tarafların kimlik bilgilerini kötüye kullanması sonucu oluşan kayıplar, bu kullanım bir Hizmet arızasından kaynaklanmadığı sürece Lumis'in sorumluluğunda değildir."
+    },
+    "s4": {
+      "title": "4. Kullanıcı tarafından yüklenen içerik",
+      "p1": "4.1. Lumis, kişisel kullanımın için dijital kitap dosyaları yüklemene olanak tanır. Platforma yüklediğin içerikten yalnızca sen sorumlusun.",
+      "p2": "4.2. Yüklediğin her dosya üzerinde gerekli haklara (yazar olarak, meşru bir lisans yoluyla, kamu malı bir eser olması nedeniyle veya başka herhangi bir geçerli yasal temelde) sahip olduğunu beyan ve garanti edersin.",
+      "p3": "4.3. Lumis, Hizmeti sağlamak için gerekli olanın (özel depolama ve kendi okuman için görüntüleme) ötesinde, kullanıcılar tarafından yüklenen dosyaların içeriğini barındırmaz, dağıtmaz, tanıtmaz veya doğrulamaz. Lumis, yayıncı veya içerik dağıtıcısı olarak hareket etmez ve dosyalarına üçüncü taraf erişimi sağlamaz.",
+      "p4": "4.4. Üçüncü tarafların fikri mülkiyet haklarını ihlal eden, yasa dışı, iftira niteliğinde olan veya yürürlükteki herhangi bir düzenlemeyi ihlal eden içerik yüklemek yasaktır. Lumis, gerekçeli bir telif hakkı ihlali şikayeti veya bu Şartların ihlali durumunda içeriği kaldırma ve/veya hesapları askıya alma hakkını saklı tutar.",
+      "p5": "4.5. Yüklediğin dosyalar özel olarak saklanır ve geçerli bir yasal talep dışında yalnızca sen tarafından hesabın aracılığıyla erişilebilir."
+    },
+    "s5": {
+      "title": "5. Hizmetin izin verilen kullanımı",
+      "body": "Lumis'i yalnızca yasal amaçlarla ve bu Şartlara uygun olarak kullanmayı kabul edersin. Yasaktır: (a) Platformun güvenliğini ihlal etmeye çalışmak; (b) izinsiz olarak başkalarının telif hakkına sahip içeriğini dağıtmak için Hizmeti kullanmak; (c) Hizmeti tersine mühendislik yapmak, kopyalamak veya yeniden satmak; (d) Platforma erişmek için yetkisiz botlar veya otomatik araçlar kullanmak."
+    },
+    "s6": {
+      "title": "6. Sorumluluğun sınırlandırılması",
+      "body": "Hizmet “olduğu gibi” ve “mevcut olduğu şekliyle” sunulur. Lumis, Hizmetin kesintisiz, hatasız olacağını veya kullanıcının belirli beklentilerini karşılayacağını garanti etmez. Yürürlükteki yasaların izin verdiği azami ölçüde, Lumis, dosyaların, verilerin veya yüklenen içeriğin kaybı dahil olmak üzere, Hizmetin kullanımından veya kullanılamamasından kaynaklanan dolaylı, arızi, özel veya sonuç niteliğindeki zararlardan sorumlu olmayacaktır. Orijinal dosyalarının yedek kopyalarını Platform dışında saklamanı öneririz."
+    },
+    "s7": {
+      "title": "7. Hizmette ve bu Şartlarda değişiklikler",
+      "body": "Hizmeti (tamamen veya kısmen) önceden bildirimde bulunarak veya bulunmadan, istediğimiz zaman değiştirme, askıya alma veya sonlandırma hakkını saklı tutarız. Ayrıca bu Şartları periyodik olarak güncelleyebiliriz; önemli değişiklikler, makul bulduğumuz yollarla (örneğin Platformda bir bildirim) iletilecektir. Bir değişiklikten sonra Hizmetin kullanılmaya devam edilmesi, güncellenmiş Şartların kabul edildiği anlamına gelir."
+    },
+    "s8": {
+      "title": "8. Hesap ve Hizmetin iptali",
+      "body": "Hesabının silinmesini istediğin zaman talep edebilirsin. Bu Şartları ihlal eden hesapları, makul takdirimize göre ve mümkün olduğunda önceden bildirimde bulunarak askıya alma veya iptal etme hakkını saklı tutarız."
+    },
+    "s9": {
+      "title": "9. Platformun fikri mülkiyeti",
+      "body": "Yazılım, tasarım, “Lumis” markası ve Platforma ait diğer unsurlar, geliştiricilerinin mülkiyetindedir ve yürürlükteki fikri mülkiyet mevzuatı ile korunmaktadır. Bu Şartlar, burada belirtilen şekilde Hizmetin kullanımı dışında bu unsurlar üzerinde sana herhangi bir hak vermez."
+    },
+    "s10": {
+      "title": "10. Uygulanacak hukuk ve yargı yetkisi",
+      "body": "Bu Şartlar, Arjantin Cumhuriyeti yasalarına tabidir. Bu Şartlardan veya Hizmetin kullanımından kaynaklanan herhangi bir anlaşmazlık için taraflar, uygulanabilecek başka herhangi bir yargı yetkisinden açıkça feragat ederek, Arjantin, Buenos Aires Özerk Şehri'nin yetkili adli mahkemelerinin yargı yetkisine tabi olurlar."
+    },
+    "s11": {
+      "title": "11. İletişim",
+      "bodyBeforeEmail": "Bu Şartlarla ilgili herhangi bir sorun için bize şu adresten yazabilirsin:"
+    }
   }
 }

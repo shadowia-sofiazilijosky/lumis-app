@@ -394,5 +394,58 @@
     "p2": "C'est pourquoi Lumis combine deux choses qui vivent habituellement séparément : un lecteur universel qui comprend le PDF, l'EPUB, le MOBI, le CBR, le CBZ et le TXT de la même façon — avec le même effet de page qui tourne quel que soit le format, des surlignages, des notes en marge, et le marque-page exact où tu t'étais arrêté(e) — et une étagère visuelle que tu peux construire et décorer comme un vrai coin de ta maison. Tu choisis le meuble, le mur de fond, où va chaque livre, quelle petite plante ou lumière tu mets à côté. Ce n'est pas une liste. C'est ton espace.",
     "p3": "Le nom vient de « lumen », l'unité de lumière. On a aimé ça parce que lire a toujours été, d'une certaine façon, une quête de lumière : celle de la lampe de chevet la nuit, celle de l'écran quand tu ne peux pas t'arrêter avant un chapitre de plus, celle qui entre par la fenêtre sur ton fauteuil préféré. Lumis veut être cette petite lumière personnelle qui fait que revenir à ta bibliothèque est un plaisir, pas une corvée.",
     "p4": "Ce projet est pensé pour les gens qui aiment construire leur espace de lecture autant que lire lui-même — pour celles et ceux qui ont une étagère enregistrée « pour un jour » sur Pinterest, qui griffonnent des citations dans les marges, qui croient qu'un livre bien gardé est aussi une forme d'attention. Si c'est toi, Lumis est ton coin."
+  },
+  "termsPage": {
+    "pageTitle": "Conditions générales — Lumis",
+    "heading": "Conditions Générales d'Utilisation",
+    "updated": "Dernière mise à jour : 18 août 2026",
+    "s1": {
+      "title": "1. Objet",
+      "body": "Les présentes Conditions Générales (les « Conditions ») régissent l'accès et l'utilisation de Lumis (la « Plateforme » ou le « Service »), une application web qui permet aux utilisateurs de téléverser, organiser, lire et annoter des livres numériques aux formats PDF, EPUB, MOBI, CBR, CBZ et TXT, ainsi que de les organiser visuellement sur des étagères personnalisables. Le Service est exploité depuis la République Argentine."
+    },
+    "s2": {
+      "title": "2. Acceptation des Conditions",
+      "body": "En t'inscrivant et/ou en utilisant Lumis, tu acceptes ces Conditions dans leur intégralité. Si tu n'es pas d'accord avec une disposition, tu ne dois pas utiliser le Service. Nous nous réservons le droit de modifier ces Conditions à tout moment, comme détaillé à la Section 7."
+    },
+    "s3": {
+      "title": "3. Inscription et responsabilité du compte",
+      "body": "Pour utiliser Lumis, tu dois créer un compte avec un e-mail et un mot de passe valides. Tu es responsable de la confidentialité de tes identifiants de connexion et de toutes les activités survenant sur ton compte. Tu dois nous informer immédiatement de toute utilisation non autorisée de ton compte. Lumis n'est pas responsable des pertes résultant d'une utilisation abusive de tes identifiants par des tiers lorsque cette utilisation n'est pas imputable à une défaillance du Service."
+    },
+    "s4": {
+      "title": "4. Contenu téléversé par l'utilisateur",
+      "p1": "4.1. Lumis te permet de téléverser des fichiers de livres numériques pour ton usage personnel. Tu es seul(e) responsable du contenu que tu téléverses sur la Plateforme.",
+      "p2": "4.2. Tu déclares et garantis que tu détiens les droits nécessaires (en tant qu'auteur, via une licence légitime, parce que l'œuvre est dans le domaine public, ou pour toute autre base légale valide) sur tout fichier que tu téléverses.",
+      "p3": "4.3. Lumis n'héberge, ne distribue, ne promeut ni ne vérifie le contenu des fichiers téléversés par les utilisateurs au-delà de ce qui est nécessaire pour fournir le Service (stockage privé et rendu pour ta propre lecture). Lumis n'agit ni comme éditeur ni comme distributeur de contenu et n'accorde à aucun tiers l'accès à tes fichiers.",
+      "p4": "4.4. Il est interdit de téléverser du contenu qui enfreint les droits de propriété intellectuelle de tiers, qui est illégal, diffamatoire, ou qui viole toute réglementation applicable. Lumis se réserve le droit de supprimer du contenu et/ou de suspendre des comptes en cas de réclamation fondée pour violation du droit d'auteur ou de non-respect de ces Conditions.",
+      "p5": "4.5. Les fichiers que tu téléverses sont stockés de manière privée et ne sont accessibles que par toi via ton compte, sauf exigence légale valable."
+    },
+    "s5": {
+      "title": "5. Utilisation autorisée du Service",
+      "body": "Tu t'engages à utiliser Lumis uniquement à des fins licites et conformément à ces Conditions. Il est interdit de : (a) tenter de compromettre la sécurité de la Plateforme ; (b) utiliser le Service pour distribuer du contenu protégé par le droit d'auteur d'autrui sans autorisation ; (c) faire de l'ingénierie inverse, copier ou revendre le Service ; (d) utiliser des bots ou des moyens automatisés non autorisés pour accéder à la Plateforme."
+    },
+    "s6": {
+      "title": "6. Limitation de responsabilité",
+      "body": "Le Service est fourni « tel quel » et « selon disponibilité ». Lumis ne garantit pas que le Service sera ininterrompu, exempt d'erreurs, ou qu'il répondra à des attentes spécifiques de l'utilisateur. Dans toute la mesure permise par la loi applicable, Lumis ne sera pas responsable des dommages indirects, accessoires, spéciaux ou consécutifs résultant de l'utilisation ou de l'impossibilité d'utiliser le Service, y compris la perte de fichiers, de données ou de contenu téléversé. Nous recommandons de conserver des copies de sauvegarde de tes fichiers originaux en dehors de la Plateforme."
+    },
+    "s7": {
+      "title": "7. Modifications du Service et de ces Conditions",
+      "body": "Nous nous réservons le droit de modifier, suspendre ou interrompre le Service (en tout ou en partie) à tout moment, avec ou sans préavis. Nous pouvons également mettre à jour ces Conditions périodiquement ; les changements significatifs seront communiqués par les moyens que nous jugeons raisonnables (par exemple, un avis sur la Plateforme). L'utilisation continue du Service après une modification implique l'acceptation des Conditions mises à jour."
+    },
+    "s8": {
+      "title": "8. Compte et résiliation du Service",
+      "body": "Tu peux demander la suppression de ton compte à tout moment. Nous nous réservons le droit de suspendre ou d'annuler les comptes qui ne respectent pas ces Conditions, à notre discrétion raisonnable et, lorsque cela est possible, avec préavis."
+    },
+    "s9": {
+      "title": "9. Propriété intellectuelle de la Plateforme",
+      "body": "Le logiciel, le design, la marque « Lumis » et les autres éléments propres à la Plateforme appartiennent à ses développeurs et sont protégés par la législation applicable en matière de propriété intellectuelle. Ces Conditions ne t'accordent aucun droit sur ces éléments au-delà de l'utilisation du Service telle que définie ici."
+    },
+    "s10": {
+      "title": "10. Droit applicable et juridiction",
+      "body": "Ces Conditions sont régies par les lois de la République Argentine. Pour tout litige découlant de ces Conditions ou de l'utilisation du Service, les parties se soumettent à la juridiction des tribunaux ordinaires compétents de la Ville Autonome de Buenos Aires, Argentine, avec renonciation expresse à tout autre for ou juridiction qui pourrait s'appliquer."
+    },
+    "s11": {
+      "title": "11. Contact",
+      "bodyBeforeEmail": "Pour toute question concernant ces Conditions, tu peux nous écrire à"
+    }
   }
 }
