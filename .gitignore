@@ -13,6 +13,9 @@ apps/web/out/
 apps/api/dist/
 *.tsbuildinfo
 
+# shared-types build output
+packages/shared-types/dist/
+
 # turbo
 .turbo/
 

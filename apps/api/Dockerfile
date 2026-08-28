@@ -3,22 +3,7 @@
 # and workspace:* symlinks correctly. Built from the MONOREPO ROOT as context
 # (Railway config points there), since pnpm needs the whole workspace to
 # resolve @lumis/shared-types.
-#
-# Pinned to a specific patch (not the floating `node:22-slim` tag) on
-# purpose: @lumis/shared-types ships raw .ts source as its package.json
-# "main" (no compiled JS), which only works because `node dist/main`
-# `require()`s it directly. Newer 22.x patches turned on unflagged native
-# TypeScript type-stripping, which treats any file using ESM `export`
-# syntax as an ES module and then enforces strict ESM resolution — that
-# rejects the extensionless directory imports (`export * from "./enums"`)
-# used throughout shared-types's barrel files, crashing the container on
-# boot ("ERR_UNSUPPORTED_DIR_IMPORT") the moment `node:22-slim` drifted to
-# a patch with that behavior on by default. Pinning avoids the whole class
-# of issue without rewriting shared-types's imports (which would in turn
-# break `nest build`'s own tsc, since TypeScript rejects .ts-extension
-# import specifiers unless `allowImportingTsExtensions` is set — a flag
-# that requires `noEmit`, incompatible with a build that emits real JS).
-FROM node:22.9.0-slim
+FROM node:22-slim
 
 # fonts-liberation: @napi-rs/canvas (PDF cover thumbnails) needs at least one
 # real system font available to rasterize text — node:22-slim ships none.
@@ -40,6 +25,21 @@ ENV DATABASE_URL="postgresql://placeholder:placeholder@localhost:5432/placeholde
 ENV DIRECT_URL="postgresql://placeholder:placeholder@localhost:5432/placeholder"
 
 RUN pnpm install --frozen-lockfile
+
+# @lumis/shared-types must be compiled to real CommonJS (dist/) BEFORE the
+# API is built or run. It previously shipped raw .ts source as its package
+# "main", which only "worked" because `node dist/main` require()'d that .ts
+# file directly at runtime — fragile by construction, and it broke outright
+# the moment a routine `node:22-slim` image update turned on unflagged
+# native TypeScript type-stripping: that treats a file using ESM `export`
+# syntax as an ES module and enforces strict ESM resolution, which rejects
+# the extensionless directory imports (`export * from "./enums"`) used
+# throughout shared-types's barrel files, crashing the container on boot
+# with ERR_UNSUPPORTED_DIR_IMPORT. Compiling to plain CommonJS sidesteps
+# the whole class of issue — CJS require() has always supported
+# extensionless directory imports, unlike strict ESM.
+RUN pnpm --filter @lumis/shared-types build
+
 RUN pnpm --filter api build
 RUN test -f /app/apps/api/dist/main.js || (echo "dist/main.js missing after build" && exit 1)
 
