@@ -226,5 +226,71 @@
       "list": "Lista",
       "placeholder": "Napisz swoją recenzję…"
     }
+  },
+  "reader": {
+    "loading": "Ładowanie…",
+    "loadError": "Nie udało się załadować tej książki.",
+    "mobiUnsupported": "Czytanie plików MOBI nie jest jeszcze obsługiwane.",
+    "noReadLink": "Nie udało się wygenerować linku do czytania tej książki.",
+    "pageLabel": "Strona {current}",
+    "pageLabelTotal": "Strona {current} / {total}",
+    "back": "Wstecz",
+    "openMenu": "Otwórz menu",
+    "menu": "Menu",
+    "prevPage": "Poprzednia strona",
+    "toggleControls": "Pokaż lub ukryj elementy sterujące",
+    "nextPage": "Następna strona",
+    "pageTurnMode": {
+      "horizontal": "Poziomo",
+      "vertical": "Pionowo",
+      "flip": "Prawdziwa książka",
+      "ariaLabel": "Tryb przewracania stron: {label}"
+    },
+    "viewOnePage": "Zobacz jedną stronę",
+    "viewTwoPages": "Zobacz dwie strony",
+    "brush": "Pędzel",
+    "zoomOut": "Pomniejsz",
+    "zoomIn": "Powiększ",
+    "resetZoom": "Zresetuj powiększenie",
+    "theme": {
+      "LIGHT": "Jasny",
+      "DARK": "Ciemny",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Poprzednia",
+    "next": "Następna",
+    "removeHighlightConfirm": "Usunąć to zaznaczenie?",
+    "removeHighlight": "Usuń zaznaczenie",
+    "viewNote": "Zobacz notatkę",
+    "pageAlt": "Strona {page}",
+    "selection": {
+      "note": "Notatka",
+      "close": "Zamknij"
+    },
+    "note": {
+      "placeholder": "Napisz swoją notatkę…",
+      "delete": "Usuń",
+      "cancel": "Anuluj",
+      "save": "Zapisz"
+    },
+    "drawPanel": {
+      "thickness": "Grubość ({size}px)",
+      "cancel": "Anuluj",
+      "useEraser": "Użyj gumki",
+      "useBrush": "Użyj tego pędzla",
+      "turnOffTool": "Wyłącz narzędzie"
+    },
+    "brushes": {
+      "brush": "Pędzel",
+      "calligraphy-brush": "Pędzel kaligraficzny",
+      "calligraphy-pencil": "Ołówek kaligraficzny",
+      "airbrush": "Aerograf",
+      "oil-brush": "Pędzel olejny",
+      "crayon": "Kredka",
+      "marker": "Marker",
+      "natural-pencil": "Naturalny ołówek",
+      "watercolor": "Pędzel akwarelowy",
+      "eraser": "Gumka"
+    }
   }
 }

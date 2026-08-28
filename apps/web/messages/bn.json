@@ -226,5 +226,71 @@
       "list": "তালিকা",
       "placeholder": "আপনার পর্যালোচনা লিখুন…"
     }
+  },
+  "reader": {
+    "loading": "লোড হচ্ছে…",
+    "loadError": "আমরা এই বইটি লোড করতে পারিনি।",
+    "mobiUnsupported": "MOBI ফাইল পড়া এখনও সমর্থিত নয়।",
+    "noReadLink": "আমরা এই বইয়ের জন্য পঠন লিংক তৈরি করতে পারিনি।",
+    "pageLabel": "পৃষ্ঠা {current}",
+    "pageLabelTotal": "পৃষ্ঠা {current} / {total}",
+    "back": "ফিরে যান",
+    "openMenu": "মেনু খুলুন",
+    "menu": "মেনু",
+    "prevPage": "আগের পৃষ্ঠা",
+    "toggleControls": "নিয়ন্ত্রণ দেখান বা লুকান",
+    "nextPage": "পরের পৃষ্ঠা",
+    "pageTurnMode": {
+      "horizontal": "অনুভূমিক",
+      "vertical": "উল্লম্ব",
+      "flip": "আসল বই",
+      "ariaLabel": "পৃষ্ঠা উল্টানোর মোড: {label}"
+    },
+    "viewOnePage": "একটি পৃষ্ঠা দেখুন",
+    "viewTwoPages": "দুটি পৃষ্ঠা দেখুন",
+    "brush": "ব্রাশ",
+    "zoomOut": "ছোট করুন",
+    "zoomIn": "বড় করুন",
+    "resetZoom": "জুম রিসেট করুন",
+    "theme": {
+      "LIGHT": "হালকা",
+      "DARK": "গাঢ়",
+      "SEPIA": "সেপিয়া"
+    },
+    "prev": "আগের",
+    "next": "পরের",
+    "removeHighlightConfirm": "এই হাইলাইট সরাবেন?",
+    "removeHighlight": "হাইলাইট সরান",
+    "viewNote": "নোট দেখুন",
+    "pageAlt": "পৃষ্ঠা {page}",
+    "selection": {
+      "note": "নোট",
+      "close": "বন্ধ করুন"
+    },
+    "note": {
+      "placeholder": "আপনার নোট লিখুন…",
+      "delete": "মুছুন",
+      "cancel": "বাতিল করুন",
+      "save": "সংরক্ষণ করুন"
+    },
+    "drawPanel": {
+      "thickness": "পুরুত্ব ({size}px)",
+      "cancel": "বাতিল করুন",
+      "useEraser": "রাবার ব্যবহার করুন",
+      "useBrush": "এই ব্রাশ ব্যবহার করুন",
+      "turnOffTool": "টুল বন্ধ করুন"
+    },
+    "brushes": {
+      "brush": "ব্রাশ",
+      "calligraphy-brush": "ক্যালিগ্রাফি ব্রাশ",
+      "calligraphy-pencil": "ক্যালিগ্রাফি পেন্সিল",
+      "airbrush": "এয়ারব্রাশ",
+      "oil-brush": "অয়েল ব্রাশ",
+      "crayon": "ক্রেয়ন",
+      "marker": "মার্কার",
+      "natural-pencil": "প্রাকৃতিক পেন্সিল",
+      "watercolor": "ওয়াটারকালার ব্রাশ",
+      "eraser": "রাবার"
+    }
   }
 }

@@ -226,5 +226,71 @@
       "list": "목록",
       "placeholder": "리뷰를 작성하세요…"
     }
+  },
+  "reader": {
+    "loading": "불러오는 중…",
+    "loadError": "이 책을 불러오지 못했습니다.",
+    "mobiUnsupported": "MOBI 파일 읽기는 아직 지원되지 않습니다.",
+    "noReadLink": "이 책의 읽기 링크를 생성하지 못했습니다.",
+    "pageLabel": "{current} 페이지",
+    "pageLabelTotal": "{current} / {total} 페이지",
+    "back": "뒤로",
+    "openMenu": "메뉴 열기",
+    "menu": "메뉴",
+    "prevPage": "이전 페이지",
+    "toggleControls": "컨트롤 표시/숨기기",
+    "nextPage": "다음 페이지",
+    "pageTurnMode": {
+      "horizontal": "가로",
+      "vertical": "세로",
+      "flip": "실제 책처럼",
+      "ariaLabel": "페이지 넘김 모드: {label}"
+    },
+    "viewOnePage": "한 페이지 보기",
+    "viewTwoPages": "두 페이지 보기",
+    "brush": "브러시",
+    "zoomOut": "축소",
+    "zoomIn": "확대",
+    "resetZoom": "확대/축소 재설정",
+    "theme": {
+      "LIGHT": "밝게",
+      "DARK": "어둡게",
+      "SEPIA": "세피아"
+    },
+    "prev": "이전",
+    "next": "다음",
+    "removeHighlightConfirm": "이 하이라이트를 제거할까요?",
+    "removeHighlight": "하이라이트 제거",
+    "viewNote": "메모 보기",
+    "pageAlt": "{page} 페이지",
+    "selection": {
+      "note": "메모",
+      "close": "닫기"
+    },
+    "note": {
+      "placeholder": "메모를 작성하세요…",
+      "delete": "삭제",
+      "cancel": "취소",
+      "save": "저장"
+    },
+    "drawPanel": {
+      "thickness": "두께 ({size}px)",
+      "cancel": "취소",
+      "useEraser": "지우개 사용",
+      "useBrush": "이 브러시 사용",
+      "turnOffTool": "도구 끄기"
+    },
+    "brushes": {
+      "brush": "브러시",
+      "calligraphy-brush": "캘리그라피 브러시",
+      "calligraphy-pencil": "캘리그라피 연필",
+      "airbrush": "에어브러시",
+      "oil-brush": "유화 브러시",
+      "crayon": "크레용",
+      "marker": "마커",
+      "natural-pencil": "천연 연필",
+      "watercolor": "수채화 브러시",
+      "eraser": "지우개"
+    }
   }
 }

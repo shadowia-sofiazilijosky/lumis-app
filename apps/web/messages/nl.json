@@ -226,5 +226,71 @@
       "list": "Lijst",
       "placeholder": "Schrijf je recensie…"
     }
+  },
+  "reader": {
+    "loading": "Laden…",
+    "loadError": "We konden dit boek niet laden.",
+    "mobiUnsupported": "Het lezen van MOBI-bestanden wordt nog niet ondersteund.",
+    "noReadLink": "We konden de leeslink voor dit boek niet genereren.",
+    "pageLabel": "Pagina {current}",
+    "pageLabelTotal": "Pagina {current} / {total}",
+    "back": "Terug",
+    "openMenu": "Menu openen",
+    "menu": "Menu",
+    "prevPage": "Vorige pagina",
+    "toggleControls": "Bediening tonen of verbergen",
+    "nextPage": "Volgende pagina",
+    "pageTurnMode": {
+      "horizontal": "Horizontaal",
+      "vertical": "Verticaal",
+      "flip": "Echt boek",
+      "ariaLabel": "Bladermodus: {label}"
+    },
+    "viewOnePage": "Eén pagina tonen",
+    "viewTwoPages": "Twee pagina's tonen",
+    "brush": "Penseel",
+    "zoomOut": "Uitzoomen",
+    "zoomIn": "Inzoomen",
+    "resetZoom": "Zoom resetten",
+    "theme": {
+      "LIGHT": "Licht",
+      "DARK": "Donker",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Vorige",
+    "next": "Volgende",
+    "removeHighlightConfirm": "Deze markering verwijderen?",
+    "removeHighlight": "Markering verwijderen",
+    "viewNote": "Notitie bekijken",
+    "pageAlt": "Pagina {page}",
+    "selection": {
+      "note": "Notitie",
+      "close": "Sluiten"
+    },
+    "note": {
+      "placeholder": "Schrijf je notitie…",
+      "delete": "Verwijderen",
+      "cancel": "Annuleren",
+      "save": "Opslaan"
+    },
+    "drawPanel": {
+      "thickness": "Dikte ({size}px)",
+      "cancel": "Annuleren",
+      "useEraser": "Gum gebruiken",
+      "useBrush": "Dit penseel gebruiken",
+      "turnOffTool": "Tool uitschakelen"
+    },
+    "brushes": {
+      "brush": "Borstel",
+      "calligraphy-brush": "Kalligrafiepenseel",
+      "calligraphy-pencil": "Kalligrafiepotlood",
+      "airbrush": "Airbrush",
+      "oil-brush": "Olieverfpenseel",
+      "crayon": "Krijt",
+      "marker": "Marker",
+      "natural-pencil": "Natuurlijk potlood",
+      "watercolor": "Aquarelpenseel",
+      "eraser": "Gum"
+    }
   }
 }

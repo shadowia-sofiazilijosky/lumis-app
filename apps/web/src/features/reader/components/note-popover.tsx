@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { createNote, deleteNote, updateNote } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
@@ -16,6 +17,7 @@ const NOTE_COLORS = Object.keys(NOTE_TAG_COLORS);
 
 /** Post-it editor: composes a new note from the pending selection, or edits/deletes an existing one. */
 export function NotePopover({ bookId }: { bookId: string }) {
+  const t = useTranslations("reader.note");
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
   const openNoteRect = useAnnotationsStore((state) => state.openNoteRect);
   const pendingSelection = useAnnotationsStore((state) => state.pendingSelection);
@@ -100,21 +102,21 @@ export function NotePopover({ bookId }: { bookId: string }) {
       <textarea
         value={body}
         onChange={(event) => setBody(event.target.value)}
-        placeholder="Escribí tu nota…"
+        placeholder={t("placeholder")}
         rows={4}
         autoFocus
       />
       <div className="note-popover-actions">
         {existingNote && (
           <button type="button" className="secondary" onClick={handleDelete} disabled={saving}>
-            Borrar
+            {t("delete")}
           </button>
         )}
         <button type="button" className="secondary" onClick={closeNotePopover} disabled={saving}>
-          Cancelar
+          {t("cancel")}
         </button>
         <button type="button" onClick={handleSave} disabled={saving || !body.trim()}>
-          Guardar
+          {t("save")}
         </button>
       </div>
     </div>

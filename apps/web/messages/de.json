@@ -226,5 +226,71 @@
       "list": "Liste",
       "placeholder": "Schreib deine Rezension…"
     }
+  },
+  "reader": {
+    "loading": "Wird geladen…",
+    "loadError": "Dieses Buch konnte nicht geladen werden.",
+    "mobiUnsupported": "Das Lesen von MOBI-Dateien wird noch nicht unterstützt.",
+    "noReadLink": "Der Leselink für dieses Buch konnte nicht erstellt werden.",
+    "pageLabel": "Seite {current}",
+    "pageLabelTotal": "Seite {current} / {total}",
+    "back": "Zurück",
+    "openMenu": "Menü öffnen",
+    "menu": "Menü",
+    "prevPage": "Vorherige Seite",
+    "toggleControls": "Steuerung ein-/ausblenden",
+    "nextPage": "Nächste Seite",
+    "pageTurnMode": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertikal",
+      "flip": "Echtes Buch",
+      "ariaLabel": "Seitenumblätter-Modus: {label}"
+    },
+    "viewOnePage": "Eine Seite anzeigen",
+    "viewTwoPages": "Zwei Seiten anzeigen",
+    "brush": "Pinsel",
+    "zoomOut": "Verkleinern",
+    "zoomIn": "Vergrößern",
+    "resetZoom": "Zoom zurücksetzen",
+    "theme": {
+      "LIGHT": "Hell",
+      "DARK": "Dunkel",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Zurück",
+    "next": "Weiter",
+    "removeHighlightConfirm": "Diese Markierung entfernen?",
+    "removeHighlight": "Markierung entfernen",
+    "viewNote": "Notiz ansehen",
+    "pageAlt": "Seite {page}",
+    "selection": {
+      "note": "Notiz",
+      "close": "Schließen"
+    },
+    "note": {
+      "placeholder": "Schreib deine Notiz…",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "save": "Speichern"
+    },
+    "drawPanel": {
+      "thickness": "Stärke ({size}px)",
+      "cancel": "Abbrechen",
+      "useEraser": "Radiergummi verwenden",
+      "useBrush": "Diesen Pinsel verwenden",
+      "turnOffTool": "Werkzeug ausschalten"
+    },
+    "brushes": {
+      "brush": "Bürste",
+      "calligraphy-brush": "Kalligrafiepinsel",
+      "calligraphy-pencil": "Kalligrafiestift",
+      "airbrush": "Airbrush",
+      "oil-brush": "Ölpinsel",
+      "crayon": "Wachsmalstift",
+      "marker": "Marker",
+      "natural-pencil": "Naturstift",
+      "watercolor": "Aquarellpinsel",
+      "eraser": "Radiergummi"
+    }
   }
 }

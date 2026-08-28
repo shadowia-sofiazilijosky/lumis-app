@@ -226,5 +226,71 @@
       "list": "Elenco",
       "placeholder": "Scrivi la tua recensione…"
     }
+  },
+  "reader": {
+    "loading": "Caricamento…",
+    "loadError": "Non siamo riusciti a caricare questo libro.",
+    "mobiUnsupported": "La lettura di file MOBI non è ancora supportata.",
+    "noReadLink": "Non siamo riusciti a generare il link di lettura per questo libro.",
+    "pageLabel": "Pagina {current}",
+    "pageLabelTotal": "Pagina {current} / {total}",
+    "back": "Indietro",
+    "openMenu": "Apri menu",
+    "menu": "Menu",
+    "prevPage": "Pagina precedente",
+    "toggleControls": "Mostra o nascondi i controlli",
+    "nextPage": "Pagina successiva",
+    "pageTurnMode": {
+      "horizontal": "Orizzontale",
+      "vertical": "Verticale",
+      "flip": "Libro reale",
+      "ariaLabel": "Modalità di sfogliamento: {label}"
+    },
+    "viewOnePage": "Vedi una pagina",
+    "viewTwoPages": "Vedi due pagine",
+    "brush": "Pennello",
+    "zoomOut": "Rimpicciolisci",
+    "zoomIn": "Ingrandisci",
+    "resetZoom": "Reimposta zoom",
+    "theme": {
+      "LIGHT": "Chiaro",
+      "DARK": "Scuro",
+      "SEPIA": "Seppia"
+    },
+    "prev": "Precedente",
+    "next": "Successiva",
+    "removeHighlightConfirm": "Rimuovere questa evidenziazione?",
+    "removeHighlight": "Rimuovi evidenziazione",
+    "viewNote": "Vedi nota",
+    "pageAlt": "Pagina {page}",
+    "selection": {
+      "note": "Nota",
+      "close": "Chiudi"
+    },
+    "note": {
+      "placeholder": "Scrivi la tua nota…",
+      "delete": "Elimina",
+      "cancel": "Annulla",
+      "save": "Salva"
+    },
+    "drawPanel": {
+      "thickness": "Spessore ({size}px)",
+      "cancel": "Annulla",
+      "useEraser": "Usa la gomma",
+      "useBrush": "Usa questo pennello",
+      "turnOffTool": "Disattiva strumento"
+    },
+    "brushes": {
+      "brush": "Pennello",
+      "calligraphy-brush": "Pennello calligrafico",
+      "calligraphy-pencil": "Matita calligrafica",
+      "airbrush": "Aerografo",
+      "oil-brush": "Pennello a olio",
+      "crayon": "Pastello a cera",
+      "marker": "Pennarello",
+      "natural-pencil": "Matita naturale",
+      "watercolor": "Pennello ad acquerello",
+      "eraser": "Gomma"
+    }
   }
 }

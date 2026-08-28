@@ -2,6 +2,7 @@
 
 import { ReaderTheme } from "@lumis/shared-types";
 import type { Book, Contents, Rendition } from "epubjs";
+import { useTranslations } from "next-intl";
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { deleteHighlight } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
@@ -54,6 +55,7 @@ interface EpubLocation {
 
 export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
   function EpubReader({ bookId, fileUrl, initialLocator, zoom }, ref) {
+    const t = useTranslations("reader");
     const containerRef = useRef<HTMLDivElement>(null);
     const bookRef = useRef<Book | null>(null);
     const renditionRef = useRef<Rendition | null>(null);
@@ -218,7 +220,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
           highlight.cfi,
           {},
           async () => {
-            if (!window.confirm("¿Quitar este resaltado?")) return;
+            if (!window.confirm(t("removeHighlightConfirm"))) return;
             rendition.annotations.remove(highlight.cfi!, "highlight");
             removeHighlightLocal(highlight.id);
             await deleteHighlight(bookId, highlight.id);
@@ -243,7 +245,7 @@ export const EpubReader = forwardRef<EpubReaderHandle, EpubReaderProps>(
           openExistingNote(note.id, toOuterRect(event)),
         );
       }
-    }, [highlights, notes, renditionReady, bookId, removeHighlightLocal, openExistingNote]);
+    }, [highlights, notes, renditionReady, bookId, removeHighlightLocal, openExistingNote, t]);
 
     if (pageTurnMode === "flip") {
       return <EpubFlipReader fileUrl={fileUrl} />;

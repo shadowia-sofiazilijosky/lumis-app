@@ -226,5 +226,71 @@
       "list": "リスト",
       "placeholder": "感想を書く…"
     }
+  },
+  "reader": {
+    "loading": "読み込み中…",
+    "loadError": "この本を読み込めませんでした。",
+    "mobiUnsupported": "MOBIファイルの読み込みはまだサポートされていません。",
+    "noReadLink": "この本の読書リンクを生成できませんでした。",
+    "pageLabel": "{current} ページ",
+    "pageLabelTotal": "{current} / {total} ページ",
+    "back": "戻る",
+    "openMenu": "メニューを開く",
+    "menu": "メニュー",
+    "prevPage": "前のページ",
+    "toggleControls": "コントロールの表示・非表示",
+    "nextPage": "次のページ",
+    "pageTurnMode": {
+      "horizontal": "横",
+      "vertical": "縦",
+      "flip": "本のようにめくる",
+      "ariaLabel": "ページめくりモード：{label}"
+    },
+    "viewOnePage": "1ページ表示",
+    "viewTwoPages": "見開き表示",
+    "brush": "ブラシ",
+    "zoomOut": "縮小",
+    "zoomIn": "拡大",
+    "resetZoom": "ズームをリセット",
+    "theme": {
+      "LIGHT": "ライト",
+      "DARK": "ダーク",
+      "SEPIA": "セピア"
+    },
+    "prev": "前へ",
+    "next": "次へ",
+    "removeHighlightConfirm": "このハイライトを削除しますか？",
+    "removeHighlight": "ハイライトを削除",
+    "viewNote": "メモを見る",
+    "pageAlt": "{page} ページ",
+    "selection": {
+      "note": "メモ",
+      "close": "閉じる"
+    },
+    "note": {
+      "placeholder": "メモを書く…",
+      "delete": "削除",
+      "cancel": "キャンセル",
+      "save": "保存"
+    },
+    "drawPanel": {
+      "thickness": "太さ（{size}px）",
+      "cancel": "キャンセル",
+      "useEraser": "消しゴムを使う",
+      "useBrush": "このブラシを使う",
+      "turnOffTool": "ツールをオフにする"
+    },
+    "brushes": {
+      "brush": "ブラシ",
+      "calligraphy-brush": "カリグラフィーブラシ",
+      "calligraphy-pencil": "カリグラフィー鉛筆",
+      "airbrush": "エアブラシ",
+      "oil-brush": "油絵ブラシ",
+      "crayon": "クレヨン",
+      "marker": "マーカー",
+      "natural-pencil": "自然な鉛筆",
+      "watercolor": "水彩ブラシ",
+      "eraser": "消しゴム"
+    }
   }
 }

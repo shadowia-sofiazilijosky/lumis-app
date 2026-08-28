@@ -226,5 +226,71 @@
       "list": "List",
       "placeholder": "Write your review…"
     }
+  },
+  "reader": {
+    "loading": "Loading…",
+    "loadError": "We couldn't load this book.",
+    "mobiUnsupported": "Reading MOBI files isn't supported yet.",
+    "noReadLink": "We couldn't generate the reading link for this book.",
+    "pageLabel": "Page {current}",
+    "pageLabelTotal": "Page {current} / {total}",
+    "back": "Back",
+    "openMenu": "Open menu",
+    "menu": "Menu",
+    "prevPage": "Previous page",
+    "toggleControls": "Show or hide controls",
+    "nextPage": "Next page",
+    "pageTurnMode": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "flip": "Real book",
+      "ariaLabel": "Page-turn mode: {label}"
+    },
+    "viewOnePage": "View one page",
+    "viewTwoPages": "View two pages",
+    "brush": "Brush",
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "resetZoom": "Reset zoom",
+    "theme": {
+      "LIGHT": "Light",
+      "DARK": "Dark",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Previous",
+    "next": "Next",
+    "removeHighlightConfirm": "Remove this highlight?",
+    "removeHighlight": "Remove highlight",
+    "viewNote": "View note",
+    "pageAlt": "Page {page}",
+    "selection": {
+      "note": "Note",
+      "close": "Close"
+    },
+    "note": {
+      "placeholder": "Write your note…",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "drawPanel": {
+      "thickness": "Thickness ({size}px)",
+      "cancel": "Cancel",
+      "useEraser": "Use eraser",
+      "useBrush": "Use this brush",
+      "turnOffTool": "Turn off tool"
+    },
+    "brushes": {
+      "brush": "Brush",
+      "calligraphy-brush": "Calligraphy brush",
+      "calligraphy-pencil": "Calligraphy pencil",
+      "airbrush": "Airbrush",
+      "oil-brush": "Oil brush",
+      "crayon": "Crayon",
+      "marker": "Marker",
+      "natural-pencil": "Natural pencil",
+      "watercolor": "Watercolor brush",
+      "eraser": "Eraser"
+    }
   }
 }

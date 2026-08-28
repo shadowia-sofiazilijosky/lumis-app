@@ -226,5 +226,71 @@
       "list": "Daftar",
       "placeholder": "Tulis ulasanmu…"
     }
+  },
+  "reader": {
+    "loading": "Memuat…",
+    "loadError": "Kami tidak dapat memuat buku ini.",
+    "mobiUnsupported": "Membaca berkas MOBI belum didukung.",
+    "noReadLink": "Kami tidak dapat membuat tautan baca untuk buku ini.",
+    "pageLabel": "Halaman {current}",
+    "pageLabelTotal": "Halaman {current} / {total}",
+    "back": "Kembali",
+    "openMenu": "Buka menu",
+    "menu": "Menu",
+    "prevPage": "Halaman sebelumnya",
+    "toggleControls": "Tampilkan atau sembunyikan kontrol",
+    "nextPage": "Halaman berikutnya",
+    "pageTurnMode": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertikal",
+      "flip": "Buku asli",
+      "ariaLabel": "Mode balik halaman: {label}"
+    },
+    "viewOnePage": "Lihat satu halaman",
+    "viewTwoPages": "Lihat dua halaman",
+    "brush": "Kuas",
+    "zoomOut": "Perkecil",
+    "zoomIn": "Perbesar",
+    "resetZoom": "Atur ulang zoom",
+    "theme": {
+      "LIGHT": "Terang",
+      "DARK": "Gelap",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "removeHighlightConfirm": "Hapus sorotan ini?",
+    "removeHighlight": "Hapus sorotan",
+    "viewNote": "Lihat catatan",
+    "pageAlt": "Halaman {page}",
+    "selection": {
+      "note": "Catatan",
+      "close": "Tutup"
+    },
+    "note": {
+      "placeholder": "Tulis catatanmu…",
+      "delete": "Hapus",
+      "cancel": "Batal",
+      "save": "Simpan"
+    },
+    "drawPanel": {
+      "thickness": "Ketebalan ({size}px)",
+      "cancel": "Batal",
+      "useEraser": "Gunakan penghapus",
+      "useBrush": "Gunakan kuas ini",
+      "turnOffTool": "Matikan alat"
+    },
+    "brushes": {
+      "brush": "Kuas",
+      "calligraphy-brush": "Kuas kaligrafi",
+      "calligraphy-pencil": "Pensil kaligrafi",
+      "airbrush": "Airbrush",
+      "oil-brush": "Kuas cat minyak",
+      "crayon": "Krayon",
+      "marker": "Spidol",
+      "natural-pencil": "Pensil alami",
+      "watercolor": "Kuas cat air",
+      "eraser": "Penghapus"
+    }
   }
 }

@@ -226,5 +226,71 @@
       "list": "Liste",
       "placeholder": "Écris ta critique…"
     }
+  },
+  "reader": {
+    "loading": "Chargement…",
+    "loadError": "Impossible de charger ce livre.",
+    "mobiUnsupported": "La lecture des fichiers MOBI n'est pas encore prise en charge.",
+    "noReadLink": "Impossible de générer le lien de lecture pour ce livre.",
+    "pageLabel": "Page {current}",
+    "pageLabelTotal": "Page {current} / {total}",
+    "back": "Retour",
+    "openMenu": "Ouvrir le menu",
+    "menu": "Menu",
+    "prevPage": "Page précédente",
+    "toggleControls": "Afficher ou masquer les contrôles",
+    "nextPage": "Page suivante",
+    "pageTurnMode": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "flip": "Vrai livre",
+      "ariaLabel": "Mode de tournage de page : {label}"
+    },
+    "viewOnePage": "Voir une page",
+    "viewTwoPages": "Voir deux pages",
+    "brush": "Pinceau",
+    "zoomOut": "Dézoomer",
+    "zoomIn": "Zoomer",
+    "resetZoom": "Réinitialiser le zoom",
+    "theme": {
+      "LIGHT": "Clair",
+      "DARK": "Sombre",
+      "SEPIA": "Sépia"
+    },
+    "prev": "Précédent",
+    "next": "Suivant",
+    "removeHighlightConfirm": "Retirer ce surlignage ?",
+    "removeHighlight": "Retirer le surlignage",
+    "viewNote": "Voir la note",
+    "pageAlt": "Page {page}",
+    "selection": {
+      "note": "Note",
+      "close": "Fermer"
+    },
+    "note": {
+      "placeholder": "Écris ta note…",
+      "delete": "Supprimer",
+      "cancel": "Annuler",
+      "save": "Enregistrer"
+    },
+    "drawPanel": {
+      "thickness": "Épaisseur ({size}px)",
+      "cancel": "Annuler",
+      "useEraser": "Utiliser la gomme",
+      "useBrush": "Utiliser ce pinceau",
+      "turnOffTool": "Désactiver l'outil"
+    },
+    "brushes": {
+      "brush": "Brosse",
+      "calligraphy-brush": "Pinceau calligraphique",
+      "calligraphy-pencil": "Crayon calligraphique",
+      "airbrush": "Aérographe",
+      "oil-brush": "Pinceau à huile",
+      "crayon": "Crayon de cire",
+      "marker": "Marqueur",
+      "natural-pencil": "Crayon naturel",
+      "watercolor": "Pinceau aquarelle",
+      "eraser": "Gomme"
+    }
   }
 }

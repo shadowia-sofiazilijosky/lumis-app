@@ -226,5 +226,71 @@
       "list": "Liste",
       "placeholder": "Yorumunu yaz…"
     }
+  },
+  "reader": {
+    "loading": "Yükleniyor…",
+    "loadError": "Bu kitabı yükleyemedik.",
+    "mobiUnsupported": "MOBI dosyalarını okuma henüz desteklenmiyor.",
+    "noReadLink": "Bu kitap için okuma bağlantısı oluşturamadık.",
+    "pageLabel": "Sayfa {current}",
+    "pageLabelTotal": "Sayfa {current} / {total}",
+    "back": "Geri",
+    "openMenu": "Menüyü aç",
+    "menu": "Menü",
+    "prevPage": "Önceki sayfa",
+    "toggleControls": "Kontrolleri göster/gizle",
+    "nextPage": "Sonraki sayfa",
+    "pageTurnMode": {
+      "horizontal": "Yatay",
+      "vertical": "Dikey",
+      "flip": "Gerçek kitap",
+      "ariaLabel": "Sayfa çevirme modu: {label}"
+    },
+    "viewOnePage": "Tek sayfa görüntüle",
+    "viewTwoPages": "İki sayfa görüntüle",
+    "brush": "Fırça",
+    "zoomOut": "Uzaklaştır",
+    "zoomIn": "Yakınlaştır",
+    "resetZoom": "Yakınlaştırmayı sıfırla",
+    "theme": {
+      "LIGHT": "Açık",
+      "DARK": "Koyu",
+      "SEPIA": "Sepya"
+    },
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "removeHighlightConfirm": "Bu vurgu kaldırılsın mı?",
+    "removeHighlight": "Vurguyu kaldır",
+    "viewNote": "Notu görüntüle",
+    "pageAlt": "Sayfa {page}",
+    "selection": {
+      "note": "Not",
+      "close": "Kapat"
+    },
+    "note": {
+      "placeholder": "Notunu yaz…",
+      "delete": "Sil",
+      "cancel": "İptal",
+      "save": "Kaydet"
+    },
+    "drawPanel": {
+      "thickness": "Kalınlık ({size}px)",
+      "cancel": "İptal",
+      "useEraser": "Silgiyi kullan",
+      "useBrush": "Bu fırçayı kullan",
+      "turnOffTool": "Aracı kapat"
+    },
+    "brushes": {
+      "brush": "Fırça",
+      "calligraphy-brush": "Hat fırçası",
+      "calligraphy-pencil": "Hat kalemi",
+      "airbrush": "Havalı fırça",
+      "oil-brush": "Yağlı boya fırçası",
+      "crayon": "Mum boya",
+      "marker": "Keçeli kalem",
+      "natural-pencil": "Doğal kalem",
+      "watercolor": "Sulu boya fırçası",
+      "eraser": "Silgi"
+    }
   }
 }

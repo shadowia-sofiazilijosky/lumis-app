@@ -1,5 +1,4 @@
 import type {
-  ReaderTheme,
   ReadingProgress,
   UpdateReadingProgressDto,
 } from "@lumis/shared-types";
@@ -43,9 +42,3 @@ export async function fetchTextPage(
   }
   return response.json();
 }
-
-export const READER_THEME_LABELS: Record<ReaderTheme, string> = {
-  LIGHT: "Claro",
-  DARK: "Oscuro",
-  SEPIA: "Sepia",
-};

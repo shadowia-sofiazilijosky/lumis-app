@@ -226,5 +226,71 @@
       "list": "Список",
       "placeholder": "Напишите свой отзыв…"
     }
+  },
+  "reader": {
+    "loading": "Загрузка…",
+    "loadError": "Не удалось загрузить эту книгу.",
+    "mobiUnsupported": "Чтение файлов MOBI пока не поддерживается.",
+    "noReadLink": "Не удалось создать ссылку для чтения этой книги.",
+    "pageLabel": "Страница {current}",
+    "pageLabelTotal": "Страница {current} / {total}",
+    "back": "Назад",
+    "openMenu": "Открыть меню",
+    "menu": "Меню",
+    "prevPage": "Предыдущая страница",
+    "toggleControls": "Показать или скрыть элементы управления",
+    "nextPage": "Следующая страница",
+    "pageTurnMode": {
+      "horizontal": "Горизонтально",
+      "vertical": "Вертикально",
+      "flip": "Настоящая книга",
+      "ariaLabel": "Режим перелистывания: {label}"
+    },
+    "viewOnePage": "Одна страница",
+    "viewTwoPages": "Две страницы",
+    "brush": "Кисть",
+    "zoomOut": "Уменьшить",
+    "zoomIn": "Увеличить",
+    "resetZoom": "Сбросить масштаб",
+    "theme": {
+      "LIGHT": "Светлая",
+      "DARK": "Тёмная",
+      "SEPIA": "Сепия"
+    },
+    "prev": "Назад",
+    "next": "Далее",
+    "removeHighlightConfirm": "Убрать это выделение?",
+    "removeHighlight": "Убрать выделение",
+    "viewNote": "Посмотреть заметку",
+    "pageAlt": "Страница {page}",
+    "selection": {
+      "note": "Заметка",
+      "close": "Закрыть"
+    },
+    "note": {
+      "placeholder": "Напишите заметку…",
+      "delete": "Удалить",
+      "cancel": "Отмена",
+      "save": "Сохранить"
+    },
+    "drawPanel": {
+      "thickness": "Толщина ({size}px)",
+      "cancel": "Отмена",
+      "useEraser": "Использовать ластик",
+      "useBrush": "Использовать эту кисть",
+      "turnOffTool": "Выключить инструмент"
+    },
+    "brushes": {
+      "brush": "Кисть",
+      "calligraphy-brush": "Каллиграфическая кисть",
+      "calligraphy-pencil": "Каллиграфический карандаш",
+      "airbrush": "Аэрограф",
+      "oil-brush": "Масляная кисть",
+      "crayon": "Мелок",
+      "marker": "Маркер",
+      "natural-pencil": "Натуральный карандаш",
+      "watercolor": "Акварельная кисть",
+      "eraser": "Ластик"
+    }
   }
 }

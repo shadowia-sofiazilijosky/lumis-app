@@ -226,5 +226,71 @@
       "list": "فہرست",
       "placeholder": "اپنا جائزہ لکھیں…"
     }
+  },
+  "reader": {
+    "loading": "لوڈ ہو رہا ہے…",
+    "loadError": "ہم یہ کتاب لوڈ نہیں کر سکے۔",
+    "mobiUnsupported": "MOBI فائلیں پڑھنا ابھی سپورٹ نہیں ہے۔",
+    "noReadLink": "ہم اس کتاب کے لیے پڑھنے کا لنک نہیں بنا سکے۔",
+    "pageLabel": "صفحہ {current}",
+    "pageLabelTotal": "صفحہ {current} / {total}",
+    "back": "واپس",
+    "openMenu": "مینو کھولیں",
+    "menu": "مینو",
+    "prevPage": "پچھلا صفحہ",
+    "toggleControls": "کنٹرولز دکھائیں یا چھپائیں",
+    "nextPage": "اگلا صفحہ",
+    "pageTurnMode": {
+      "horizontal": "افقی",
+      "vertical": "عمودی",
+      "flip": "اصلی کتاب",
+      "ariaLabel": "صفحہ پلٹنے کا موڈ: {label}"
+    },
+    "viewOnePage": "ایک صفحہ دیکھیں",
+    "viewTwoPages": "دو صفحات دیکھیں",
+    "brush": "برش",
+    "zoomOut": "زوم آؤٹ",
+    "zoomIn": "زوم ان",
+    "resetZoom": "زوم دوبارہ ترتیب دیں",
+    "theme": {
+      "LIGHT": "ہلکا",
+      "DARK": "گہرا",
+      "SEPIA": "سیپیا"
+    },
+    "prev": "پچھلا",
+    "next": "اگلا",
+    "removeHighlightConfirm": "یہ ہائی لائٹ ہٹائیں؟",
+    "removeHighlight": "ہائی لائٹ ہٹائیں",
+    "viewNote": "نوٹ دیکھیں",
+    "pageAlt": "صفحہ {page}",
+    "selection": {
+      "note": "نوٹ",
+      "close": "بند کریں"
+    },
+    "note": {
+      "placeholder": "اپنا نوٹ لکھیں…",
+      "delete": "حذف کریں",
+      "cancel": "منسوخ کریں",
+      "save": "محفوظ کریں"
+    },
+    "drawPanel": {
+      "thickness": "موٹائی ({size}px)",
+      "cancel": "منسوخ کریں",
+      "useEraser": "ربڑ استعمال کریں",
+      "useBrush": "یہ برش استعمال کریں",
+      "turnOffTool": "ٹول بند کریں"
+    },
+    "brushes": {
+      "brush": "برش",
+      "calligraphy-brush": "خطاطی برش",
+      "calligraphy-pencil": "خطاطی پنسل",
+      "airbrush": "ایئر برش",
+      "oil-brush": "آئل برش",
+      "crayon": "کریون",
+      "marker": "مارکر",
+      "natural-pencil": "قدرتی پنسل",
+      "watercolor": "واٹر کلر برش",
+      "eraser": "ربڑ"
+    }
   }
 }

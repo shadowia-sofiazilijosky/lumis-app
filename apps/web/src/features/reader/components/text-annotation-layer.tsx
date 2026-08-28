@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { deleteHighlight } from "../api/annotations-client";
 import {
@@ -41,6 +42,7 @@ export function TextAnnotationLayer({
   containerRef,
   refreshKey,
 }: TextAnnotationLayerProps) {
+  const t = useTranslations("reader");
   const highlights = useAnnotationsStore((state) => state.highlights);
   const notes = useAnnotationsStore((state) => state.notes);
   const removeHighlightLocal = useAnnotationsStore(
@@ -141,7 +143,7 @@ export function TextAnnotationLayer({
   }, [containerRef, pageHighlights, pageNotes, refreshKey]);
 
   async function handleDeleteHighlight(id: string) {
-    if (!window.confirm("¿Quitar este resaltado?")) return;
+    if (!window.confirm(t("removeHighlightConfirm"))) return;
     removeHighlightLocal(id);
     await deleteHighlight(bookId, id);
   }
@@ -174,7 +176,7 @@ export function TextAnnotationLayer({
             type="button"
             className="highlight-mark"
             style={{ ...style, background: color }}
-            title="Quitar resaltado"
+            title={t("removeHighlight")}
             onClick={() => handleDeleteHighlight(id)}
           />
         );
@@ -185,7 +187,7 @@ export function TextAnnotationLayer({
           type="button"
           className="note-pin"
           style={{ left: rect.x + rect.width, top: rect.y }}
-          aria-label="Ver nota"
+          aria-label={t("viewNote")}
           onClick={(event) =>
             openExistingNote(id, event.currentTarget.getBoundingClientRect())
           }

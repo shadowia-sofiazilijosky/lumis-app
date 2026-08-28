@@ -1,6 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { BRUSHES } from "../lib/brushes";
 import { useAnnotationsStore } from "../store/annotations-store";
@@ -11,6 +12,7 @@ import { ColorPicker, hsvToHex } from "./color-picker";
  * then any stroke drawn on the page paints with it directly, like a brush
  * tool in an image editor. */
 export function DrawingToolPanel() {
+  const t = useTranslations("reader");
   const drawTool = useAnnotationsStore((state) => state.drawTool);
   const setDrawTool = useAnnotationsStore((state) => state.setDrawTool);
   const setDrawToolPickerOpen = useAnnotationsStore(
@@ -49,7 +51,7 @@ export function DrawingToolPanel() {
       )}
 
       <label className="pen-panel-opacity">
-        Grosor ({Math.round(size)}px)
+        {t("drawPanel.thickness", { size: Math.round(size) })}
         <input
           type="range"
           min={2}
@@ -69,7 +71,7 @@ export function DrawingToolPanel() {
             onClick={() => setBrushKey(brush.key)}
           >
             {brush.key === brushKey && <Check size={11} />}
-            {brush.label}
+            {t(`brushes.${brush.key}`)}
           </button>
         ))}
       </div>
@@ -88,10 +90,10 @@ export function DrawingToolPanel() {
 
       <div className="pen-panel-actions">
         <button type="button" className="secondary" onClick={() => setDrawToolPickerOpen(false)}>
-          Cancelar
+          {t("drawPanel.cancel")}
         </button>
         <button type="button" onClick={applyTool}>
-          {isEraser ? "Usar goma de borrar" : "Usar este pincel"}
+          {isEraser ? t("drawPanel.useEraser") : t("drawPanel.useBrush")}
         </button>
         {drawTool && (
           <button
@@ -102,7 +104,7 @@ export function DrawingToolPanel() {
               setDrawToolPickerOpen(false);
             }}
           >
-            Apagar herramienta
+            {t("drawPanel.turnOffTool")}
           </button>
         )}
       </div>

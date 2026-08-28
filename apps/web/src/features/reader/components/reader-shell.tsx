@@ -1,6 +1,7 @@
 "use client";
 
 import { BookFormat, type BookDetail } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { fetchBookDetail } from "@/features/books/api/books-client";
 import { useKeyboardNavigation } from "../hooks/use-keyboard-navigation";
@@ -22,6 +23,7 @@ import { ReaderControls } from "./reader-controls";
 import { SelectionToolbar } from "./selection-toolbar";
 
 export function ReaderShell({ bookId }: { bookId: string }) {
+  const t = useTranslations("reader");
   const [book, setBook] = useState<BookDetail | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
     "loading",
@@ -104,19 +106,19 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   });
 
   if (status === "loading") {
-    return <p>Cargando…</p>;
+    return <p>{t("loading")}</p>;
   }
 
   if (status === "error" || !book) {
-    return <p>No pudimos cargar este libro.</p>;
+    return <p>{t("loadError")}</p>;
   }
 
   if (book.format === BookFormat.MOBI) {
-    return <p>La lectura de archivos MOBI todavía no está soportada.</p>;
+    return <p>{t("mobiUnsupported")}</p>;
   }
 
   if (!book.fileUrl && (book.format === BookFormat.PDF || book.format === BookFormat.EPUB)) {
-    return <p>No pudimos generar el enlace de lectura para este libro.</p>;
+    return <p>{t("noReadLink")}</p>;
   }
 
   const currentBook = book;
@@ -128,7 +130,9 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const pageLabel =
     isEpub && !epubUsesFlipPaging
       ? `${progressPercent}%`
-      : `Página ${currentPage}${totalPages ? ` / ${totalPages}` : ""}`;
+      : totalPages
+        ? t("pageLabelTotal", { current: currentPage, total: totalPages })
+        : t("pageLabel", { current: currentPage });
   const textSelectable =
     currentBook.format === BookFormat.PDF ||
     currentBook.format === BookFormat.EPUB ||

@@ -226,5 +226,71 @@
       "list": "قائمة",
       "placeholder": "اكتب مراجعتك…"
     }
+  },
+  "reader": {
+    "loading": "جارٍ التحميل…",
+    "loadError": "تعذر تحميل هذا الكتاب.",
+    "mobiUnsupported": "قراءة ملفات MOBI غير مدعومة بعد.",
+    "noReadLink": "تعذر إنشاء رابط القراءة لهذا الكتاب.",
+    "pageLabel": "الصفحة {current}",
+    "pageLabelTotal": "الصفحة {current} / {total}",
+    "back": "رجوع",
+    "openMenu": "فتح القائمة",
+    "menu": "القائمة",
+    "prevPage": "الصفحة السابقة",
+    "toggleControls": "إظهار أو إخفاء عناصر التحكم",
+    "nextPage": "الصفحة التالية",
+    "pageTurnMode": {
+      "horizontal": "أفقي",
+      "vertical": "عمودي",
+      "flip": "كتاب حقيقي",
+      "ariaLabel": "وضع تقليب الصفحات: {label}"
+    },
+    "viewOnePage": "عرض صفحة واحدة",
+    "viewTwoPages": "عرض صفحتين",
+    "brush": "فرشاة",
+    "zoomOut": "تصغير",
+    "zoomIn": "تكبير",
+    "resetZoom": "إعادة ضبط التكبير",
+    "theme": {
+      "LIGHT": "فاتح",
+      "DARK": "داكن",
+      "SEPIA": "بني داكن"
+    },
+    "prev": "السابق",
+    "next": "التالي",
+    "removeHighlightConfirm": "إزالة هذا التمييز؟",
+    "removeHighlight": "إزالة التمييز",
+    "viewNote": "عرض الملاحظة",
+    "pageAlt": "الصفحة {page}",
+    "selection": {
+      "note": "ملاحظة",
+      "close": "إغلاق"
+    },
+    "note": {
+      "placeholder": "اكتب ملاحظتك…",
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "save": "حفظ"
+    },
+    "drawPanel": {
+      "thickness": "السماكة ({size}px)",
+      "cancel": "إلغاء",
+      "useEraser": "استخدام الممحاة",
+      "useBrush": "استخدام هذه الفرشاة",
+      "turnOffTool": "إيقاف الأداة"
+    },
+    "brushes": {
+      "brush": "فرشاة",
+      "calligraphy-brush": "فرشاة خط",
+      "calligraphy-pencil": "قلم خط",
+      "airbrush": "مرذاذ هوائي",
+      "oil-brush": "فرشاة زيتية",
+      "crayon": "طباشير شمعي",
+      "marker": "قلم تخطيط",
+      "natural-pencil": "قلم رصاص طبيعي",
+      "watercolor": "فرشاة ألوان مائية",
+      "eraser": "ممحاة"
+    }
   }
 }

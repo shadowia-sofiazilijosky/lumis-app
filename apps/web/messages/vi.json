@@ -226,5 +226,71 @@
       "list": "Danh sách",
       "placeholder": "Viết bài đánh giá của bạn…"
     }
+  },
+  "reader": {
+    "loading": "Đang tải…",
+    "loadError": "Không thể tải cuốn sách này.",
+    "mobiUnsupported": "Chưa hỗ trợ đọc tệp MOBI.",
+    "noReadLink": "Không thể tạo liên kết đọc cho cuốn sách này.",
+    "pageLabel": "Trang {current}",
+    "pageLabelTotal": "Trang {current} / {total}",
+    "back": "Quay lại",
+    "openMenu": "Mở menu",
+    "menu": "Menu",
+    "prevPage": "Trang trước",
+    "toggleControls": "Hiện hoặc ẩn điều khiển",
+    "nextPage": "Trang tiếp theo",
+    "pageTurnMode": {
+      "horizontal": "Ngang",
+      "vertical": "Dọc",
+      "flip": "Sách thật",
+      "ariaLabel": "Chế độ lật trang: {label}"
+    },
+    "viewOnePage": "Xem một trang",
+    "viewTwoPages": "Xem hai trang",
+    "brush": "Cọ vẽ",
+    "zoomOut": "Thu nhỏ",
+    "zoomIn": "Phóng to",
+    "resetZoom": "Đặt lại thu phóng",
+    "theme": {
+      "LIGHT": "Sáng",
+      "DARK": "Tối",
+      "SEPIA": "Nâu cổ điển"
+    },
+    "prev": "Trước",
+    "next": "Tiếp theo",
+    "removeHighlightConfirm": "Xóa phần tô sáng này?",
+    "removeHighlight": "Xóa tô sáng",
+    "viewNote": "Xem ghi chú",
+    "pageAlt": "Trang {page}",
+    "selection": {
+      "note": "Ghi chú",
+      "close": "Đóng"
+    },
+    "note": {
+      "placeholder": "Viết ghi chú của bạn…",
+      "delete": "Xóa",
+      "cancel": "Hủy",
+      "save": "Lưu"
+    },
+    "drawPanel": {
+      "thickness": "Độ dày ({size}px)",
+      "cancel": "Hủy",
+      "useEraser": "Dùng tẩy",
+      "useBrush": "Dùng cọ này",
+      "turnOffTool": "Tắt công cụ"
+    },
+    "brushes": {
+      "brush": "Cọ",
+      "calligraphy-brush": "Cọ thư pháp",
+      "calligraphy-pencil": "Bút chì thư pháp",
+      "airbrush": "Súng phun sơn",
+      "oil-brush": "Cọ sơn dầu",
+      "crayon": "Bút sáp",
+      "marker": "Bút marker",
+      "natural-pencil": "Bút chì tự nhiên",
+      "watercolor": "Cọ màu nước",
+      "eraser": "Cục tẩy"
+    }
   }
 }

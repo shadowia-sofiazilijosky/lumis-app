@@ -1,6 +1,7 @@
 "use client";
 
 import { BookFormat } from "@lumis/shared-types";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { fetchTextPage, pageImageUrl, type TextPage } from "../api/reader-client";
 import { useReaderStore } from "../store/reader-store";
@@ -26,6 +27,7 @@ function TextSinglePage({
   totalPages: number | null;
   zoom: number;
 }) {
+  const t = useTranslations("reader");
   const [loadedPage, setLoadedPage] = useState<TextPage | null>(null);
   const textPageRef = useRef<HTMLDivElement>(null);
   const inRange = pageNumber >= 1 && (totalPages === null || pageNumber <= totalPages);
@@ -46,7 +48,7 @@ function TextSinglePage({
 
   return (
     <div ref={textPageRef} className="text-reader-page" style={{ fontSize: `${zoom * 100}%` }}>
-      {text ? text.split("\n\n").map((paragraph, index) => <p key={index}>{paragraph}</p>) : <p>Cargando…</p>}
+      {text ? text.split("\n\n").map((paragraph, index) => <p key={index}>{paragraph}</p>) : <p>{t("loading")}</p>}
       <TextAnnotationLayer
         bookId={bookId}
         pageIndex={pageNumber - 1}
@@ -74,6 +76,7 @@ function ComicSinglePage({
   totalPages: number | null;
   zoom: number;
 }) {
+  const t = useTranslations("reader");
   const inRange = pageNumber >= 1 && (totalPages === null || pageNumber <= totalPages);
   if (!inRange) return <div className="comic-reader-page comic-reader-page-empty" />;
 
@@ -81,7 +84,7 @@ function ComicSinglePage({
     // eslint-disable-next-line @next/next/no-img-element -- proxied page image, not a static asset
     <img
       src={pageImageUrl(bookId, pageNumber)}
-      alt={`Página ${pageNumber}`}
+      alt={t("pageAlt", { page: pageNumber })}
       className="comic-reader-page"
       style={zoom !== 1 ? { width: `${zoom * 100}%`, maxWidth: "none", height: "auto" } : undefined}
     />

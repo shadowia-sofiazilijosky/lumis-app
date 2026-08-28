@@ -14,8 +14,8 @@ import {
   Plus,
   Square,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { READER_THEME_LABELS } from "../api/reader-client";
 import { useAutoHideControls } from "../hooks/use-auto-hide-controls";
 import { useTapToToggleControls } from "../hooks/use-tap-to-toggle-controls";
 import { useAnnotationsStore } from "../store/annotations-store";
@@ -41,12 +41,6 @@ const THEME_ORDER: ReaderTheme[] = [
   ReaderTheme.SEPIA,
 ];
 
-const PAGE_TURN_MODES: { mode: PageTurnMode; label: string; Icon: typeof ArrowLeftRight }[] = [
-  { mode: "horizontal", label: "Horizontal", Icon: ArrowLeftRight },
-  { mode: "vertical", label: "Vertical", Icon: ArrowUpDown },
-  { mode: "flip", label: "Libro real", Icon: BookOpen },
-];
-
 export function ReaderControls({
   bookId,
   title,
@@ -58,6 +52,13 @@ export function ReaderControls({
   textSelectable,
   highlighterSupported,
 }: ReaderControlsProps) {
+  const t = useTranslations("reader");
+  const PAGE_TURN_MODES: { mode: PageTurnMode; label: string; Icon: typeof ArrowLeftRight }[] = [
+    { mode: "horizontal", label: t("pageTurnMode.horizontal"), Icon: ArrowLeftRight },
+    { mode: "vertical", label: t("pageTurnMode.vertical"), Icon: ArrowUpDown },
+    { mode: "flip", label: t("pageTurnMode.flip"), Icon: BookOpen },
+  ];
+
   useAutoHideControls();
   useTapToToggleControls(textSelectable);
 
@@ -86,10 +87,10 @@ export function ReaderControls({
         <button
           type="button"
           className="reader-menu-toggle"
-          aria-label="Abrir menú"
+          aria-label={t("openMenu")}
           onClick={toggleControls}
         >
-          <Menu size={16} /> Menú
+          <Menu size={16} /> {t("menu")}
         </button>
       )}
 
@@ -101,20 +102,20 @@ export function ReaderControls({
           <button
             type="button"
             className="reader-tap-zone reader-tap-zone-prev"
-            aria-label="Página anterior"
+            aria-label={t("prevPage")}
             onClick={onPrev}
             disabled={!canGoPrev}
           />
           <button
             type="button"
             className="reader-tap-zone reader-tap-zone-center"
-            aria-label="Mostrar u ocultar controles"
+            aria-label={t("toggleControls")}
             onClick={toggleControls}
           />
           <button
             type="button"
             className="reader-tap-zone reader-tap-zone-next"
-            aria-label="Página siguiente"
+            aria-label={t("nextPage")}
             onClick={onNext}
             disabled={!canGoNext}
           />
@@ -125,7 +126,7 @@ export function ReaderControls({
         className={`reader-topbar ${controlsVisible ? "reader-controls-visible" : ""}`}
       >
         <Link href={`/library/${bookId}`} className="reader-close">
-          <ChevronLeft size={16} /> Volver
+          <ChevronLeft size={16} /> {t("back")}
         </Link>
         <h1 className="reader-title">{title}</h1>
         <div className="reader-toolbar-group">
@@ -135,7 +136,7 @@ export function ReaderControls({
                 key={mode}
                 type="button"
                 className={mode === pageTurnMode ? "reader-theme-active" : "secondary"}
-                aria-label={`Modo de paso de página: ${label}`}
+                aria-label={t("pageTurnMode.ariaLabel", { label })}
                 aria-pressed={mode === pageTurnMode}
                 onClick={() => setPageTurnMode(mode)}
               >
@@ -148,7 +149,7 @@ export function ReaderControls({
             type="button"
             className="secondary"
             aria-pressed={spreadView}
-            aria-label={spreadView ? "Ver una página" : "Ver dos páginas"}
+            aria-label={spreadView ? t("viewOnePage") : t("viewTwoPages")}
             onClick={toggleSpreadView}
           >
             {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
@@ -159,7 +160,7 @@ export function ReaderControls({
               type="button"
               className={`reader-pen-toggle${drawTool ? " reader-pen-toggle-active" : ""}`}
               aria-pressed={drawToolPickerOpen}
-              aria-label="Pincel"
+              aria-label={t("brush")}
               onClick={() => setDrawToolPickerOpen(!drawToolPickerOpen)}
             >
               <Brush size={15} />
@@ -168,18 +169,18 @@ export function ReaderControls({
           )}
 
           <div className="reader-zoom-controls">
-            <button type="button" aria-label="Alejar" onClick={zoomOut}>
+            <button type="button" aria-label={t("zoomOut")} onClick={zoomOut}>
               <Minus size={14} />
             </button>
             <button
               type="button"
               className="reader-zoom-label"
               onClick={resetZoom}
-              aria-label="Restablecer zoom"
+              aria-label={t("resetZoom")}
             >
               {Math.round(zoom * 100)}%
             </button>
-            <button type="button" aria-label="Acercar" onClick={zoomIn}>
+            <button type="button" aria-label={t("zoomIn")} onClick={zoomIn}>
               <Plus size={14} />
             </button>
           </div>
@@ -192,7 +193,7 @@ export function ReaderControls({
                 className={option === theme ? "reader-theme-active" : "secondary"}
                 onClick={() => setTheme(option)}
               >
-                {READER_THEME_LABELS[option]}
+                {t(`theme.${option}`)}
               </button>
             ))}
           </div>
@@ -203,11 +204,11 @@ export function ReaderControls({
         className={`reader-bottombar ${controlsVisible ? "reader-controls-visible" : ""}`}
       >
         <button type="button" onClick={onPrev} disabled={!canGoPrev}>
-          <ChevronLeft size={16} /> Anterior
+          <ChevronLeft size={16} /> {t("prev")}
         </button>
         <span className="reader-page-label">{pageLabel}</span>
         <button type="button" onClick={onNext} disabled={!canGoNext}>
-          Siguiente <ChevronRight size={16} />
+          {t("next")} <ChevronRight size={16} />
         </button>
       </footer>
     </>

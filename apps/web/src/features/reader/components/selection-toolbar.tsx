@@ -1,12 +1,14 @@
 "use client";
 
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useAnnotationsStore } from "../store/annotations-store";
 
 /** Floating toolbar shown over a text selection made with NO highlighter pen
  * active — at that point the only thing to do with a plain selection is
  * attach a note (color/size now live in the pen panel, chosen up front). */
 export function SelectionToolbar() {
+  const t = useTranslations("reader.selection");
   const pendingSelection = useAnnotationsStore((state) => state.pendingSelection);
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
   const setPendingSelection = useAnnotationsStore(
@@ -25,12 +27,12 @@ export function SelectionToolbar() {
       style={{ top, left: rect.left + rect.width / 2 }}
     >
       <button type="button" className="selection-toolbar-note" onClick={startNewNote}>
-        Nota
+        {t("note")}
       </button>
       <button
         type="button"
         className="selection-toolbar-close"
-        aria-label="Cerrar"
+        aria-label={t("close")}
         onClick={() => setPendingSelection(null)}
       >
         <X size={14} />

@@ -226,5 +226,71 @@
       "list": "Lista",
       "placeholder": "Escribí tu reseña…"
     }
+  },
+  "reader": {
+    "loading": "Cargando…",
+    "loadError": "No pudimos cargar este libro.",
+    "mobiUnsupported": "La lectura de archivos MOBI todavía no está soportada.",
+    "noReadLink": "No pudimos generar el enlace de lectura para este libro.",
+    "pageLabel": "Página {current}",
+    "pageLabelTotal": "Página {current} / {total}",
+    "back": "Volver",
+    "openMenu": "Abrir menú",
+    "menu": "Menú",
+    "prevPage": "Página anterior",
+    "toggleControls": "Mostrar u ocultar controles",
+    "nextPage": "Página siguiente",
+    "pageTurnMode": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "flip": "Libro real",
+      "ariaLabel": "Modo de paso de página: {label}"
+    },
+    "viewOnePage": "Ver una página",
+    "viewTwoPages": "Ver dos páginas",
+    "brush": "Pincel",
+    "zoomOut": "Alejar",
+    "zoomIn": "Acercar",
+    "resetZoom": "Restablecer zoom",
+    "theme": {
+      "LIGHT": "Claro",
+      "DARK": "Oscuro",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "removeHighlightConfirm": "¿Quitar este resaltado?",
+    "removeHighlight": "Quitar resaltado",
+    "viewNote": "Ver nota",
+    "pageAlt": "Página {page}",
+    "selection": {
+      "note": "Nota",
+      "close": "Cerrar"
+    },
+    "note": {
+      "placeholder": "Escribí tu nota…",
+      "delete": "Borrar",
+      "cancel": "Cancelar",
+      "save": "Guardar"
+    },
+    "drawPanel": {
+      "thickness": "Grosor ({size}px)",
+      "cancel": "Cancelar",
+      "useEraser": "Usar goma de borrar",
+      "useBrush": "Usar este pincel",
+      "turnOffTool": "Apagar herramienta"
+    },
+    "brushes": {
+      "brush": "Cepillo",
+      "calligraphy-brush": "Pincel de caligrafía",
+      "calligraphy-pencil": "Lápiz caligráfico",
+      "airbrush": "Aerógrafo",
+      "oil-brush": "Pincel para óleo",
+      "crayon": "Crayón",
+      "marker": "Marcador",
+      "natural-pencil": "Lápiz natural",
+      "watercolor": "Pincel para acuarela",
+      "eraser": "Goma de borrar"
+    }
   }
 }

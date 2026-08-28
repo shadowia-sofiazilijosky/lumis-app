@@ -226,5 +226,71 @@
       "list": "列表",
       "placeholder": "写下你的书评…"
     }
+  },
+  "reader": {
+    "loading": "加载中…",
+    "loadError": "无法加载此书。",
+    "mobiUnsupported": "暂不支持阅读 MOBI 文件。",
+    "noReadLink": "无法生成此书的阅读链接。",
+    "pageLabel": "第 {current} 页",
+    "pageLabelTotal": "第 {current} / {total} 页",
+    "back": "返回",
+    "openMenu": "打开菜单",
+    "menu": "菜单",
+    "prevPage": "上一页",
+    "toggleControls": "显示或隐藏控件",
+    "nextPage": "下一页",
+    "pageTurnMode": {
+      "horizontal": "横向",
+      "vertical": "纵向",
+      "flip": "翻页书",
+      "ariaLabel": "翻页模式：{label}"
+    },
+    "viewOnePage": "查看单页",
+    "viewTwoPages": "查看双页",
+    "brush": "画笔",
+    "zoomOut": "缩小",
+    "zoomIn": "放大",
+    "resetZoom": "重置缩放",
+    "theme": {
+      "LIGHT": "浅色",
+      "DARK": "深色",
+      "SEPIA": "护眼色"
+    },
+    "prev": "上一页",
+    "next": "下一页",
+    "removeHighlightConfirm": "要移除此高亮吗？",
+    "removeHighlight": "移除高亮",
+    "viewNote": "查看笔记",
+    "pageAlt": "第 {page} 页",
+    "selection": {
+      "note": "笔记",
+      "close": "关闭"
+    },
+    "note": {
+      "placeholder": "写下你的笔记…",
+      "delete": "删除",
+      "cancel": "取消",
+      "save": "保存"
+    },
+    "drawPanel": {
+      "thickness": "粗细（{size}px）",
+      "cancel": "取消",
+      "useEraser": "使用橡皮擦",
+      "useBrush": "使用此画笔",
+      "turnOffTool": "关闭工具"
+    },
+    "brushes": {
+      "brush": "画刷",
+      "calligraphy-brush": "书法笔刷",
+      "calligraphy-pencil": "书法铅笔",
+      "airbrush": "喷枪",
+      "oil-brush": "油画笔",
+      "crayon": "蜡笔",
+      "marker": "记号笔",
+      "natural-pencil": "自然铅笔",
+      "watercolor": "水彩笔",
+      "eraser": "橡皮擦"
+    }
   }
 }

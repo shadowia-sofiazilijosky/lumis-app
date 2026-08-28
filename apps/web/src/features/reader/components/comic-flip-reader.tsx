@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { forwardRef, useRef, useState } from "react";
 import { pageImageUrl } from "../api/reader-client";
 import { useReaderStore } from "../store/reader-store";
@@ -12,13 +13,14 @@ const ComicFlipLeaf = forwardRef<
   HTMLDivElement,
   { bookId: string; pageNumber: number; isNear: boolean }
 >(function ComicFlipLeaf({ bookId, pageNumber, isNear }, ref) {
+  const t = useTranslations("reader");
   return (
     <FlipLeaf ref={ref}>
       {isNear && (
         // eslint-disable-next-line @next/next/no-img-element -- proxied page image, not a static asset
         <img
           src={pageImageUrl(bookId, pageNumber)}
-          alt={`Página ${pageNumber}`}
+          alt={t("pageAlt", { page: pageNumber })}
           className="flip-book-image"
         />
       )}

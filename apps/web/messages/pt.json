@@ -226,5 +226,71 @@
       "list": "Lista",
       "placeholder": "Escreva sua resenha…"
     }
+  },
+  "reader": {
+    "loading": "Carregando…",
+    "loadError": "Não conseguimos carregar este livro.",
+    "mobiUnsupported": "A leitura de arquivos MOBI ainda não é suportada.",
+    "noReadLink": "Não conseguimos gerar o link de leitura para este livro.",
+    "pageLabel": "Página {current}",
+    "pageLabelTotal": "Página {current} / {total}",
+    "back": "Voltar",
+    "openMenu": "Abrir menu",
+    "menu": "Menu",
+    "prevPage": "Página anterior",
+    "toggleControls": "Mostrar ou ocultar controles",
+    "nextPage": "Próxima página",
+    "pageTurnMode": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "flip": "Livro real",
+      "ariaLabel": "Modo de virar página: {label}"
+    },
+    "viewOnePage": "Ver uma página",
+    "viewTwoPages": "Ver duas páginas",
+    "brush": "Pincel",
+    "zoomOut": "Diminuir zoom",
+    "zoomIn": "Aumentar zoom",
+    "resetZoom": "Redefinir zoom",
+    "theme": {
+      "LIGHT": "Claro",
+      "DARK": "Escuro",
+      "SEPIA": "Sépia"
+    },
+    "prev": "Anterior",
+    "next": "Próxima",
+    "removeHighlightConfirm": "Remover este destaque?",
+    "removeHighlight": "Remover destaque",
+    "viewNote": "Ver nota",
+    "pageAlt": "Página {page}",
+    "selection": {
+      "note": "Nota",
+      "close": "Fechar"
+    },
+    "note": {
+      "placeholder": "Escreva sua nota…",
+      "delete": "Excluir",
+      "cancel": "Cancelar",
+      "save": "Salvar"
+    },
+    "drawPanel": {
+      "thickness": "Espessura ({size}px)",
+      "cancel": "Cancelar",
+      "useEraser": "Usar borracha",
+      "useBrush": "Usar este pincel",
+      "turnOffTool": "Desligar ferramenta"
+    },
+    "brushes": {
+      "brush": "Pincel",
+      "calligraphy-brush": "Pincel caligráfico",
+      "calligraphy-pencil": "Lápis caligráfico",
+      "airbrush": "Aerógrafo",
+      "oil-brush": "Pincel a óleo",
+      "crayon": "Giz de cera",
+      "marker": "Marcador",
+      "natural-pencil": "Lápis natural",
+      "watercolor": "Pincel aquarela",
+      "eraser": "Borracha"
+    }
   }
 }

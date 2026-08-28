@@ -226,5 +226,71 @@
       "list": "Orodha",
       "placeholder": "Andika maoni yako…"
     }
+  },
+  "reader": {
+    "loading": "Inapakia…",
+    "loadError": "Hatukuweza kupakia kitabu hiki.",
+    "mobiUnsupported": "Kusoma faili za MOBI hakuungwi mkono bado.",
+    "noReadLink": "Hatukuweza kutengeneza kiungo cha kusoma cha kitabu hiki.",
+    "pageLabel": "Ukurasa {current}",
+    "pageLabelTotal": "Ukurasa {current} / {total}",
+    "back": "Rudi",
+    "openMenu": "Fungua menyu",
+    "menu": "Menyu",
+    "prevPage": "Ukurasa uliopita",
+    "toggleControls": "Onyesha au ficha vidhibiti",
+    "nextPage": "Ukurasa unaofuata",
+    "pageTurnMode": {
+      "horizontal": "Mlalo",
+      "vertical": "Wima",
+      "flip": "Kitabu halisi",
+      "ariaLabel": "Hali ya kugeuza ukurasa: {label}"
+    },
+    "viewOnePage": "Ona ukurasa mmoja",
+    "viewTwoPages": "Ona kurasa mbili",
+    "brush": "Burashi",
+    "zoomOut": "Punguza",
+    "zoomIn": "Kuza",
+    "resetZoom": "Weka upya ukuzaji",
+    "theme": {
+      "LIGHT": "Nuru",
+      "DARK": "Giza",
+      "SEPIA": "Sepia"
+    },
+    "prev": "Iliyopita",
+    "next": "Inayofuata",
+    "removeHighlightConfirm": "Ondoa mwangaza huu?",
+    "removeHighlight": "Ondoa mwangaza",
+    "viewNote": "Ona dokezo",
+    "pageAlt": "Ukurasa {page}",
+    "selection": {
+      "note": "Dokezo",
+      "close": "Funga"
+    },
+    "note": {
+      "placeholder": "Andika dokezo lako…",
+      "delete": "Futa",
+      "cancel": "Ghairi",
+      "save": "Hifadhi"
+    },
+    "drawPanel": {
+      "thickness": "Unene ({size}px)",
+      "cancel": "Ghairi",
+      "useEraser": "Tumia kifutio",
+      "useBrush": "Tumia burashi hii",
+      "turnOffTool": "Zima chombo"
+    },
+    "brushes": {
+      "brush": "Burashi",
+      "calligraphy-brush": "Burashi ya calligraphy",
+      "calligraphy-pencil": "Penseli ya calligraphy",
+      "airbrush": "Airbrush",
+      "oil-brush": "Burashi ya mafuta",
+      "crayon": "Crayoni",
+      "marker": "Alama",
+      "natural-pencil": "Penseli asilia",
+      "watercolor": "Burashi ya rangi ya maji",
+      "eraser": "Kifutio"
+    }
   }
 }

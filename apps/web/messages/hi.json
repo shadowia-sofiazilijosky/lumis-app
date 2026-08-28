@@ -226,5 +226,71 @@
       "list": "सूची",
       "placeholder": "अपनी समीक्षा लिखें…"
     }
+  },
+  "reader": {
+    "loading": "लोड हो रहा है…",
+    "loadError": "हम यह किताब लोड नहीं कर सके।",
+    "mobiUnsupported": "MOBI फ़ाइलें पढ़ना अभी समर्थित नहीं है।",
+    "noReadLink": "हम इस किताब के लिए पठन लिंक नहीं बना सके।",
+    "pageLabel": "पृष्ठ {current}",
+    "pageLabelTotal": "पृष्ठ {current} / {total}",
+    "back": "वापस",
+    "openMenu": "मेनू खोलें",
+    "menu": "मेनू",
+    "prevPage": "पिछला पृष्ठ",
+    "toggleControls": "नियंत्रण दिखाएं या छिपाएं",
+    "nextPage": "अगला पृष्ठ",
+    "pageTurnMode": {
+      "horizontal": "क्षैतिज",
+      "vertical": "ऊर्ध्वाधर",
+      "flip": "असली किताब",
+      "ariaLabel": "पृष्ठ पलटने का मोड: {label}"
+    },
+    "viewOnePage": "एक पृष्ठ देखें",
+    "viewTwoPages": "दो पृष्ठ देखें",
+    "brush": "ब्रश",
+    "zoomOut": "छोटा करें",
+    "zoomIn": "बड़ा करें",
+    "resetZoom": "ज़ूम रीसेट करें",
+    "theme": {
+      "LIGHT": "हल्का",
+      "DARK": "गहरा",
+      "SEPIA": "सेपिया"
+    },
+    "prev": "पिछला",
+    "next": "अगला",
+    "removeHighlightConfirm": "यह हाइलाइट हटाएं?",
+    "removeHighlight": "हाइलाइट हटाएं",
+    "viewNote": "टिप्पणी देखें",
+    "pageAlt": "पृष्ठ {page}",
+    "selection": {
+      "note": "नोट",
+      "close": "बंद करें"
+    },
+    "note": {
+      "placeholder": "अपना नोट लिखें…",
+      "delete": "हटाएं",
+      "cancel": "रद्द करें",
+      "save": "सहेजें"
+    },
+    "drawPanel": {
+      "thickness": "मोटाई ({size}px)",
+      "cancel": "रद्द करें",
+      "useEraser": "इरेज़र का उपयोग करें",
+      "useBrush": "यह ब्रश उपयोग करें",
+      "turnOffTool": "टूल बंद करें"
+    },
+    "brushes": {
+      "brush": "ब्रश",
+      "calligraphy-brush": "सुलेख ब्रश",
+      "calligraphy-pencil": "सुलेख पेंसिल",
+      "airbrush": "एयरब्रश",
+      "oil-brush": "ऑइल ब्रश",
+      "crayon": "क्रेयॉन",
+      "marker": "मार्कर",
+      "natural-pencil": "नेचुरल पेंसिल",
+      "watercolor": "वॉटरकलर ब्रश",
+      "eraser": "इरेज़र"
+    }
   }
 }
