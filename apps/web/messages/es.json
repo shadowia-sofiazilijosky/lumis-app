@@ -132,7 +132,16 @@
         "dragon-rosa": "Dragón rosa",
         "dragon-huevo": "Huevo de dragón",
         "dragon-garra": "Garra de dragón",
-        "plant-enredadera-simple": "Enredadera simple"
+        "plant-enredadera-simple": "Enredadera simple",
+        "plant-macetita-rosas-rojas": "Macetita de rosas rojas",
+        "plant-ramo-fantasia": "Ramo de fantasía",
+        "plant-suculenta-barro": "Suculenta de barro",
+        "plant-flores-secas-oscuro": "Flores secas oscuras",
+        "plant-rosas-oscuras": "Rosas oscuras",
+        "plant-enredadera-colgante": "Enredadera colgante",
+        "plant-helecho-macetero": "Helecho en macetero",
+        "plant-peonias-rosas": "Peonías rosas",
+        "plant-enredadera-flores-blancas": "Enredadera con flores blancas"
       },
       "empty": "Todavía no hay decoraciones en esta categoría.",
       "toolbarLabel": "Decoraciones disponibles",

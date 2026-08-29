@@ -132,7 +132,16 @@
         "dragon-rosa": "粉色龙",
         "dragon-huevo": "龙蛋",
         "dragon-garra": "龙爪",
-        "plant-enredadera-simple": "简约藤蔓"
+        "plant-enredadera-simple": "简约藤蔓",
+        "plant-macetita-rosas-rojas": "红玫瑰小花盆",
+        "plant-ramo-fantasia": "梦幻花束",
+        "plant-suculenta-barro": "陶土多肉植物",
+        "plant-flores-secas-oscuro": "深色干花",
+        "plant-rosas-oscuras": "深色玫瑰",
+        "plant-enredadera-colgante": "悬垂藤蔓",
+        "plant-helecho-macetero": "盆栽蕨类",
+        "plant-peonias-rosas": "粉色牡丹",
+        "plant-enredadera-flores-blancas": "白花藤蔓"
       },
       "empty": "此类别暂无装饰。",
       "toolbarLabel": "可用装饰",

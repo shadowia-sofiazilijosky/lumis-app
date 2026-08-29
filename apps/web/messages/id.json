@@ -132,7 +132,16 @@
         "dragon-rosa": "Naga merah muda",
         "dragon-huevo": "Telur naga",
         "dragon-garra": "Cakar naga",
-        "plant-enredadera-simple": "Tanaman rambat sederhana"
+        "plant-enredadera-simple": "Tanaman rambat sederhana",
+        "plant-macetita-rosas-rojas": "Pot kecil mawar merah",
+        "plant-ramo-fantasia": "Buket fantasi",
+        "plant-suculenta-barro": "Sukulen pot tanah liat",
+        "plant-flores-secas-oscuro": "Bunga kering gelap",
+        "plant-rosas-oscuras": "Mawar gelap",
+        "plant-enredadera-colgante": "Tanaman rambat menggantung",
+        "plant-helecho-macetero": "Pakis dalam pot",
+        "plant-peonias-rosas": "Peoni merah muda",
+        "plant-enredadera-flores-blancas": "Tanaman rambat bunga putih"
       },
       "empty": "Belum ada dekorasi di kategori ini.",
       "toolbarLabel": "Dekorasi yang tersedia",

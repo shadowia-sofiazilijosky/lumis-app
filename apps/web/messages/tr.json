@@ -132,7 +132,16 @@
         "dragon-rosa": "Pembe ejderha",
         "dragon-huevo": "Ejderha yumurtası",
         "dragon-garra": "Ejderha pençesi",
-        "plant-enredadera-simple": "Basit sarmaşık"
+        "plant-enredadera-simple": "Basit sarmaşık",
+        "plant-macetita-rosas-rojas": "Kırmızı gül saksısı",
+        "plant-ramo-fantasia": "Fantastik buket",
+        "plant-suculenta-barro": "Toprak saksıda sukulent",
+        "plant-flores-secas-oscuro": "Koyu kuru çiçekler",
+        "plant-rosas-oscuras": "Koyu güller",
+        "plant-enredadera-colgante": "Sarkan sarmaşık",
+        "plant-helecho-macetero": "Saksıda eğrelti otu",
+        "plant-peonias-rosas": "Pembe şakayıklar",
+        "plant-enredadera-flores-blancas": "Beyaz çiçekli sarmaşık"
       },
       "empty": "Bu kategoride henüz dekorasyon yok.",
       "toolbarLabel": "Kullanılabilir dekorasyonlar",

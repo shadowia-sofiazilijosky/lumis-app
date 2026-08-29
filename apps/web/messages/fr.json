@@ -132,7 +132,16 @@
         "dragon-rosa": "Dragon rose",
         "dragon-huevo": "Œuf de dragon",
         "dragon-garra": "Griffe de dragon",
-        "plant-enredadera-simple": "Liane simple"
+        "plant-enredadera-simple": "Liane simple",
+        "plant-macetita-rosas-rojas": "Petit pot de roses rouges",
+        "plant-ramo-fantasia": "Bouquet fantaisie",
+        "plant-suculenta-barro": "Succulente en pot d'argile",
+        "plant-flores-secas-oscuro": "Fleurs séchées sombres",
+        "plant-rosas-oscuras": "Roses sombres",
+        "plant-enredadera-colgante": "Liane suspendue",
+        "plant-helecho-macetero": "Fougère en pot",
+        "plant-peonias-rosas": "Pivoines roses",
+        "plant-enredadera-flores-blancas": "Liane à fleurs blanches"
       },
       "empty": "Pas encore de décorations dans cette catégorie.",
       "toolbarLabel": "Décorations disponibles",

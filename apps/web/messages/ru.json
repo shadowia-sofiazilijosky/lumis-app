@@ -132,7 +132,16 @@
         "dragon-rosa": "Розовый дракон",
         "dragon-huevo": "Яйцо дракона",
         "dragon-garra": "Коготь дракона",
-        "plant-enredadera-simple": "Простая лиана"
+        "plant-enredadera-simple": "Простая лиана",
+        "plant-macetita-rosas-rojas": "Горшочек с красными розами",
+        "plant-ramo-fantasia": "Фантазийный букет",
+        "plant-suculenta-barro": "Суккулент в глиняном горшке",
+        "plant-flores-secas-oscuro": "Тёмные сухоцветы",
+        "plant-rosas-oscuras": "Тёмные розы",
+        "plant-enredadera-colgante": "Свисающая лиана",
+        "plant-helecho-macetero": "Папоротник в горшке",
+        "plant-peonias-rosas": "Розовые пионы",
+        "plant-enredadera-flores-blancas": "Лиана с белыми цветами"
       },
       "empty": "В этой категории пока нет декора.",
       "toolbarLabel": "Доступный декор",

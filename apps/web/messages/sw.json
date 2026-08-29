@@ -132,7 +132,16 @@
         "dragon-rosa": "Joka la waridi",
         "dragon-huevo": "Yai la joka",
         "dragon-garra": "Ukucha wa joka",
-        "plant-enredadera-simple": "Mzabibu rahisi"
+        "plant-enredadera-simple": "Mzabibu rahisi",
+        "plant-macetita-rosas-rojas": "Chungu kidogo cha waridi nyekundu",
+        "plant-ramo-fantasia": "Shada la kufikirika",
+        "plant-suculenta-barro": "Mmea wa succulent kwenye chungu cha udongo",
+        "plant-flores-secas-oscuro": "Maua makavu meusi",
+        "plant-rosas-oscuras": "Waridi za giza",
+        "plant-enredadera-colgante": "Mzabibu unaoning'inia",
+        "plant-helecho-macetero": "Feri kwenye chungu",
+        "plant-peonias-rosas": "Peoni za waridi",
+        "plant-enredadera-flores-blancas": "Mzabibu wenye maua meupe"
       },
       "empty": "Bado hakuna mapambo katika kundi hili.",
       "toolbarLabel": "Mapambo yanayopatikana",

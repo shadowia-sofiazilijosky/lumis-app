@@ -81,9 +81,9 @@ export const DECORATION_CATALOG: DecorationCatalogItem[] = [
     category: "Dragones",
     imageUrl: "/assets/shelves/decorations/deco-garra-dragon.png",
   },
-  // "Plantas y flores" -- starts with one piece, more get added here over
-  // time without touching anything else (category chip, translations, and
-  // this catalog are the only places a new piece needs to be registered).
+  // "Plantas y flores" -- grows over time without touching anything else
+  // (category chip, translations, and this catalog are the only places a
+  // new piece needs to be registered).
   {
     type: "plant",
     variant: "enredadera-simple",
@@ -92,6 +92,64 @@ export const DECORATION_CATALOG: DecorationCatalogItem[] = [
     // Image is 867x288 (~3:1) -- a wide, short box instead of the square
     // default so it doesn't start out looking cramped/letterboxed.
     defaultSize: { width: 180, height: 60 },
+  },
+  {
+    type: "plant",
+    variant: "enredadera-colgante",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-enredadera-colgante.png",
+    // 408x612 (~2:3) -- tall hanging vine, needs a tall default box.
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "plant",
+    variant: "enredadera-flores-blancas",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-enredadera-flores-blancas.png",
+    // 375x666 (~0.56) -- even taller/narrower hanging vine.
+    defaultSize: { width: 90, height: 160 },
+  },
+  {
+    type: "plant",
+    variant: "macetita-rosas-rojas",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-macetita-rosas-rojas.png",
+  },
+  {
+    type: "plant",
+    variant: "ramo-fantasia",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-ramo-fantasia.png",
+  },
+  {
+    type: "plant",
+    variant: "suculenta-barro",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-suculenta-barro.png",
+  },
+  {
+    type: "plant",
+    variant: "flores-secas-oscuro",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-flores-secas-oscuro.png",
+  },
+  {
+    type: "plant",
+    variant: "rosas-oscuras",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-rosas-oscuras.png",
+  },
+  {
+    type: "plant",
+    variant: "helecho-macetero",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-helecho-macetero.png",
+  },
+  {
+    type: "plant",
+    variant: "peonias-rosas",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-peonias-rosas.png",
   },
 ];
 

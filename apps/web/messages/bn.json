@@ -132,7 +132,16 @@
         "dragon-rosa": "গোলাপি ড্রাগন",
         "dragon-huevo": "ড্রাগনের ডিম",
         "dragon-garra": "ড্রাগনের নখ",
-        "plant-enredadera-simple": "সাধারণ লতা"
+        "plant-enredadera-simple": "সাধারণ লতা",
+        "plant-macetita-rosas-rojas": "লাল গোলাপের ছোট টব",
+        "plant-ramo-fantasia": "ফ্যান্টাসি তোড়া",
+        "plant-suculenta-barro": "মাটির টবে সাকুলেন্ট",
+        "plant-flores-secas-oscuro": "গাঢ় শুকনো ফুল",
+        "plant-rosas-oscuras": "গাঢ় গোলাপ",
+        "plant-enredadera-colgante": "ঝুলন্ত লতা",
+        "plant-helecho-macetero": "টবে ফার্ন",
+        "plant-peonias-rosas": "গোলাপি পিওনি",
+        "plant-enredadera-flores-blancas": "সাদা ফুলের লতা"
       },
       "empty": "এই বিভাগে এখনো কোনো সাজসজ্জা নেই।",
       "toolbarLabel": "উপলব্ধ সাজসজ্জা",

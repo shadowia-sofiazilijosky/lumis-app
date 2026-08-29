@@ -132,7 +132,16 @@
         "dragon-rosa": "분홍 드래곤",
         "dragon-huevo": "용의 알",
         "dragon-garra": "용의 발톱",
-        "plant-enredadera-simple": "심플 넝쿨"
+        "plant-enredadera-simple": "심플 넝쿨",
+        "plant-macetita-rosas-rojas": "빨간 장미 미니 화분",
+        "plant-ramo-fantasia": "판타지 부케",
+        "plant-suculenta-barro": "토분 다육식물",
+        "plant-flores-secas-oscuro": "어두운 색 드라이플라워",
+        "plant-rosas-oscuras": "어두운 색 장미",
+        "plant-enredadera-colgante": "늘어진 넝쿨",
+        "plant-helecho-macetero": "화분 고사리",
+        "plant-peonias-rosas": "핑크 작약",
+        "plant-enredadera-flores-blancas": "흰 꽃 넝쿨"
       },
       "empty": "이 카테고리에는 아직 장식이 없습니다.",
       "toolbarLabel": "사용 가능한 장식",

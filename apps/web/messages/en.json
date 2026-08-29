@@ -132,7 +132,16 @@
         "dragon-rosa": "Pink dragon",
         "dragon-huevo": "Dragon egg",
         "dragon-garra": "Dragon claw",
-        "plant-enredadera-simple": "Simple vine"
+        "plant-enredadera-simple": "Simple vine",
+        "plant-macetita-rosas-rojas": "Little pot of red roses",
+        "plant-ramo-fantasia": "Fantasy bouquet",
+        "plant-suculenta-barro": "Clay-pot succulent",
+        "plant-flores-secas-oscuro": "Dark dried flowers",
+        "plant-rosas-oscuras": "Dark roses",
+        "plant-enredadera-colgante": "Hanging vine",
+        "plant-helecho-macetero": "Potted fern",
+        "plant-peonias-rosas": "Pink peonies",
+        "plant-enredadera-flores-blancas": "Vine with white flowers"
       },
       "empty": "No decorations in this category yet.",
       "toolbarLabel": "Available decorations",

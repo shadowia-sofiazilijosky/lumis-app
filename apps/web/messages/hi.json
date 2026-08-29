@@ -132,7 +132,16 @@
         "dragon-rosa": "गुलाबी ड्रैगन",
         "dragon-huevo": "ड्रैगन का अंडा",
         "dragon-garra": "ड्रैगन का पंजा",
-        "plant-enredadera-simple": "सादा बेल"
+        "plant-enredadera-simple": "सादा बेल",
+        "plant-macetita-rosas-rojas": "लाल गुलाब का छोटा गमला",
+        "plant-ramo-fantasia": "फैंटेसी गुलदस्ता",
+        "plant-suculenta-barro": "मिट्टी के गमले में सक्युलेंट",
+        "plant-flores-secas-oscuro": "गहरे रंग के सूखे फूल",
+        "plant-rosas-oscuras": "गहरे रंग के गुलाब",
+        "plant-enredadera-colgante": "लटकती बेल",
+        "plant-helecho-macetero": "गमले में फ़र्न",
+        "plant-peonias-rosas": "गुलाबी पियोनी",
+        "plant-enredadera-flores-blancas": "सफेद फूलों वाली बेल"
       },
       "empty": "इस श्रेणी में अभी कोई सजावट नहीं है।",
       "toolbarLabel": "उपलब्ध सजावट",

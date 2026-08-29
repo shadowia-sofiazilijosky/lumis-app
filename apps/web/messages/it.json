@@ -132,7 +132,16 @@
         "dragon-rosa": "Drago rosa",
         "dragon-huevo": "Uovo di drago",
         "dragon-garra": "Artiglio di drago",
-        "plant-enredadera-simple": "Rampicante semplice"
+        "plant-enredadera-simple": "Rampicante semplice",
+        "plant-macetita-rosas-rojas": "Vasetto di rose rosse",
+        "plant-ramo-fantasia": "Bouquet fantasia",
+        "plant-suculenta-barro": "Succulenta in vaso di terracotta",
+        "plant-flores-secas-oscuro": "Fiori secchi scuri",
+        "plant-rosas-oscuras": "Rose scure",
+        "plant-enredadera-colgante": "Rampicante pendente",
+        "plant-helecho-macetero": "Felce in vaso",
+        "plant-peonias-rosas": "Peonie rosa",
+        "plant-enredadera-flores-blancas": "Rampicante con fiori bianchi"
       },
       "empty": "Non ci sono ancora decorazioni in questa categoria.",
       "toolbarLabel": "Decorazioni disponibili",
