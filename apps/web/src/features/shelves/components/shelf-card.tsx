@@ -10,7 +10,7 @@ import {
   DEFAULT_SHELF_FRAME_SIZE,
 } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
-import { findDecorationImage } from "../lib/decoration-catalog";
+import { findDecorationDefaultSize, findDecorationImage } from "../lib/decoration-catalog";
 import { getGenreStyle } from "../lib/genre-catalog";
 
 const PREVIEW_ASPECT = CANVAS_WIDTH / CANVAS_HEIGHT;
@@ -108,8 +108,14 @@ export function ShelfCard({
                 decoration.variant ?? null,
               );
               if (!decorationImage) return null;
-              const width = decoration.width ?? DEFAULT_DECORATION_SIZE.width;
-              const height = decoration.height ?? DEFAULT_DECORATION_SIZE.height;
+              const catalogDefaultSize = findDecorationDefaultSize(
+                decoration.type,
+                decoration.variant ?? null,
+              );
+              const width =
+                decoration.width ?? catalogDefaultSize?.width ?? DEFAULT_DECORATION_SIZE.width;
+              const height =
+                decoration.height ?? catalogDefaultSize?.height ?? DEFAULT_DECORATION_SIZE.height;
               return (
                 <span
                   key={decoration.id}

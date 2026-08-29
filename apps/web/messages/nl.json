@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Alles",
-        "Dragones": "Draken"
+        "Dragones": "Draken",
+        "PlantasFlores": "Planten en bloemen"
       },
       "items": {
         "dragon-vitral": "Glas-in-lood draak",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Gouden draak",
         "dragon-rosa": "Roze draak",
         "dragon-huevo": "Drakenei",
-        "dragon-garra": "Drakenklauw"
+        "dragon-garra": "Drakenklauw",
+        "plant-enredadera-simple": "Eenvoudige klimplant"
       },
       "empty": "Nog geen decoraties in deze categorie.",
       "toolbarLabel": "Beschikbare decoraties",

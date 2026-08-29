@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Alle",
-        "Dragones": "Drachen"
+        "Dragones": "Drachen",
+        "PlantasFlores": "Pflanzen und Blumen"
       },
       "items": {
         "dragon-vitral": "Glasfenster-Drache",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Goldener Drache",
         "dragon-rosa": "Rosa Drache",
         "dragon-huevo": "Drachenei",
-        "dragon-garra": "Drachenkralle"
+        "dragon-garra": "Drachenkralle",
+        "plant-enredadera-simple": "Einfache Ranke"
       },
       "empty": "In dieser Kategorie gibt es noch keine Dekorationen.",
       "toolbarLabel": "Verfügbare Dekorationen",

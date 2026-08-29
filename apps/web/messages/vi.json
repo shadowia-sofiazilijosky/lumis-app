@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Tất cả",
-        "Dragones": "Rồng"
+        "Dragones": "Rồng",
+        "PlantasFlores": "Cây và hoa"
       },
       "items": {
         "dragon-vitral": "Rồng kính màu",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Rồng vàng",
         "dragon-rosa": "Rồng hồng",
         "dragon-huevo": "Trứng rồng",
-        "dragon-garra": "Móng vuốt rồng"
+        "dragon-garra": "Móng vuốt rồng",
+        "plant-enredadera-simple": "Dây leo đơn giản"
       },
       "empty": "Chưa có đồ trang trí nào trong danh mục này.",
       "toolbarLabel": "Đồ trang trí có sẵn",

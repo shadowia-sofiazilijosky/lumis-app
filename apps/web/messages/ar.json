@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "الكل",
-        "Dragones": "تنانين"
+        "Dragones": "تنانين",
+        "PlantasFlores": "نباتات وزهور"
       },
       "items": {
         "dragon-vitral": "تنين الزجاج المعشق",
@@ -130,7 +131,8 @@
         "dragon-dorado": "تنين ذهبي",
         "dragon-rosa": "تنين وردي",
         "dragon-huevo": "بيضة تنين",
-        "dragon-garra": "مخلب تنين"
+        "dragon-garra": "مخلب تنين",
+        "plant-enredadera-simple": "كرمة بسيطة"
       },
       "empty": "لا توجد ديكورات في هذه الفئة بعد.",
       "toolbarLabel": "الديكورات المتاحة",

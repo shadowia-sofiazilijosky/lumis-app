@@ -17,7 +17,7 @@ import { useMemo, useState } from "react";
 import { removeBookFromShelf, updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
-import { findDecorationImage } from "../lib/decoration-catalog";
+import { findDecorationDefaultSize, findDecorationImage } from "../lib/decoration-catalog";
 import { useObservedSize } from "../hooks/use-observed-size";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { ResizableCanvasBox } from "./resizable-canvas-box";
@@ -225,7 +225,9 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         variant: data.variant,
         x: Math.max(0, draggedRect.left - canvasRect.left),
         y: Math.max(0, draggedRect.top - canvasRect.top),
-        ...(data.type === "shelf" ? DEFAULT_SHELF_FRAME_SIZE : {}),
+        ...(data.type === "shelf"
+          ? DEFAULT_SHELF_FRAME_SIZE
+          : (findDecorationDefaultSize(data.type, data.variant) ?? {})),
       });
     }
   }

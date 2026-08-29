@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "सभी",
-        "Dragones": "ड्रैगन"
+        "Dragones": "ड्रैगन",
+        "PlantasFlores": "पौधे और फूल"
       },
       "items": {
         "dragon-vitral": "रंगीन शीशे वाला ड्रैगन",
@@ -130,7 +131,8 @@
         "dragon-dorado": "सुनहरा ड्रैगन",
         "dragon-rosa": "गुलाबी ड्रैगन",
         "dragon-huevo": "ड्रैगन का अंडा",
-        "dragon-garra": "ड्रैगन का पंजा"
+        "dragon-garra": "ड्रैगन का पंजा",
+        "plant-enredadera-simple": "सादा बेल"
       },
       "empty": "इस श्रेणी में अभी कोई सजावट नहीं है।",
       "toolbarLabel": "उपलब्ध सजावट",

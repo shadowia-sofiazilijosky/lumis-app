@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Tutto",
-        "Dragones": "Draghi"
+        "Dragones": "Draghi",
+        "PlantasFlores": "Piante e fiori"
       },
       "items": {
         "dragon-vitral": "Drago vetrata",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Drago dorato",
         "dragon-rosa": "Drago rosa",
         "dragon-huevo": "Uovo di drago",
-        "dragon-garra": "Artiglio di drago"
+        "dragon-garra": "Artiglio di drago",
+        "plant-enredadera-simple": "Rampicante semplice"
       },
       "empty": "Non ci sono ancora decorazioni in questa categoria.",
       "toolbarLabel": "Decorazioni disponibili",

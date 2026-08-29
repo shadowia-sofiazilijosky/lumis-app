@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "سب",
-        "Dragones": "ڈریگن"
+        "Dragones": "ڈریگن",
+        "PlantasFlores": "پودے اور پھول"
       },
       "items": {
         "dragon-vitral": "رنگین شیشے کا ڈریگن",
@@ -130,7 +131,8 @@
         "dragon-dorado": "سنہری ڈریگن",
         "dragon-rosa": "گلابی ڈریگن",
         "dragon-huevo": "ڈریگن کا انڈا",
-        "dragon-garra": "ڈریگن کا پنجہ"
+        "dragon-garra": "ڈریگن کا پنجہ",
+        "plant-enredadera-simple": "سادہ بیل"
       },
       "empty": "اس زمرے میں ابھی کوئی سجاوٹ نہیں ہے۔",
       "toolbarLabel": "دستیاب سجاوٹ",

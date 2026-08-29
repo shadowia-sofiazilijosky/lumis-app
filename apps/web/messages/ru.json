@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Все",
-        "Dragones": "Драконы"
+        "Dragones": "Драконы",
+        "PlantasFlores": "Растения и цветы"
       },
       "items": {
         "dragon-vitral": "Витражный дракон",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Золотой дракон",
         "dragon-rosa": "Розовый дракон",
         "dragon-huevo": "Яйцо дракона",
-        "dragon-garra": "Коготь дракона"
+        "dragon-garra": "Коготь дракона",
+        "plant-enredadera-simple": "Простая лиана"
       },
       "empty": "В этой категории пока нет декора.",
       "toolbarLabel": "Доступный декор",

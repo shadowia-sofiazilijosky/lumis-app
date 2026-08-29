@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "すべて",
-        "Dragones": "ドラゴン"
+        "Dragones": "ドラゴン",
+        "PlantasFlores": "植物と花"
       },
       "items": {
         "dragon-vitral": "ステンドグラスのドラゴン",
@@ -130,7 +131,8 @@
         "dragon-dorado": "金色のドラゴン",
         "dragon-rosa": "ピンクのドラゴン",
         "dragon-huevo": "ドラゴンの卵",
-        "dragon-garra": "ドラゴンの爪"
+        "dragon-garra": "ドラゴンの爪",
+        "plant-enredadera-simple": "シンプルなつる植物"
       },
       "empty": "このカテゴリにはまだ装飾がありません。",
       "toolbarLabel": "利用可能な装飾",

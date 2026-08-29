@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "All",
-        "Dragones": "Dragons"
+        "Dragones": "Dragons",
+        "PlantasFlores": "Plants and flowers"
       },
       "items": {
         "dragon-vitral": "Stained-glass dragon",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Golden dragon",
         "dragon-rosa": "Pink dragon",
         "dragon-huevo": "Dragon egg",
-        "dragon-garra": "Dragon claw"
+        "dragon-garra": "Dragon claw",
+        "plant-enredadera-simple": "Simple vine"
       },
       "empty": "No decorations in this category yet.",
       "toolbarLabel": "Available decorations",

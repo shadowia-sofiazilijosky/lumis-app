@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "全部",
-        "Dragones": "龙"
+        "Dragones": "龙",
+        "PlantasFlores": "植物与花卉"
       },
       "items": {
         "dragon-vitral": "彩绘玻璃龙",
@@ -130,7 +131,8 @@
         "dragon-dorado": "金龙",
         "dragon-rosa": "粉色龙",
         "dragon-huevo": "龙蛋",
-        "dragon-garra": "龙爪"
+        "dragon-garra": "龙爪",
+        "plant-enredadera-simple": "简约藤蔓"
       },
       "empty": "此类别暂无装饰。",
       "toolbarLabel": "可用装饰",

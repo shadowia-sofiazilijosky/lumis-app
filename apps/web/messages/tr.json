@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Tümü",
-        "Dragones": "Ejderhalar"
+        "Dragones": "Ejderhalar",
+        "PlantasFlores": "Bitkiler ve çiçekler"
       },
       "items": {
         "dragon-vitral": "Vitray ejderha",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Altın ejderha",
         "dragon-rosa": "Pembe ejderha",
         "dragon-huevo": "Ejderha yumurtası",
-        "dragon-garra": "Ejderha pençesi"
+        "dragon-garra": "Ejderha pençesi",
+        "plant-enredadera-simple": "Basit sarmaşık"
       },
       "empty": "Bu kategoride henüz dekorasyon yok.",
       "toolbarLabel": "Kullanılabilir dekorasyonlar",

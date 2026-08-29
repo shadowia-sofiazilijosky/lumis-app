@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "সব",
-        "Dragones": "ড্রাগন"
+        "Dragones": "ড্রাগন",
+        "PlantasFlores": "গাছপালা ও ফুল"
       },
       "items": {
         "dragon-vitral": "স্টেইনড-গ্লাস ড্রাগন",
@@ -130,7 +131,8 @@
         "dragon-dorado": "সোনালি ড্রাগন",
         "dragon-rosa": "গোলাপি ড্রাগন",
         "dragon-huevo": "ড্রাগনের ডিম",
-        "dragon-garra": "ড্রাগনের নখ"
+        "dragon-garra": "ড্রাগনের নখ",
+        "plant-enredadera-simple": "সাধারণ লতা"
       },
       "empty": "এই বিভাগে এখনো কোনো সাজসজ্জা নেই।",
       "toolbarLabel": "উপলব্ধ সাজসজ্জা",

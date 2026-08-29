@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Wszystko",
-        "Dragones": "Smoki"
+        "Dragones": "Smoki",
+        "PlantasFlores": "Rośliny i kwiaty"
       },
       "items": {
         "dragon-vitral": "Smok witrażowy",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Złoty smok",
         "dragon-rosa": "Różowy smok",
         "dragon-huevo": "Jajo smoka",
-        "dragon-garra": "Pazur smoka"
+        "dragon-garra": "Pazur smoka",
+        "plant-enredadera-simple": "Proste pnącze"
       },
       "empty": "W tej kategorii nie ma jeszcze dekoracji.",
       "toolbarLabel": "Dostępne dekoracje",

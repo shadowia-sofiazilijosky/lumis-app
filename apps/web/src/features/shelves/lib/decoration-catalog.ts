@@ -1,4 +1,4 @@
-export const DECORATION_CATEGORIES = ["Todo", "Dragones"] as const;
+export const DECORATION_CATEGORIES = ["Todo", "Dragones", "PlantasFlores"] as const;
 
 export type DecorationCategory = (typeof DECORATION_CATEGORIES)[number];
 
@@ -7,6 +7,12 @@ export interface DecorationCatalogItem {
   variant: string;
   category: DecorationCategory;
   imageUrl: string;
+  /** Placement size when dragged onto the canvas, for pieces whose aspect
+   * ratio would look wrong in the generic square DEFAULT_DECORATION_SIZE
+   * (e.g. a long horizontal vine). Omitted items fall back to that default.
+   * object-fit: contain on the rendered <img> means the artwork itself
+   * never distorts either way -- this only affects the starting box shape. */
+  defaultSize?: { width: number; height: number };
 }
 
 // The fire-breath pair (fuego-izq/fuego-der) and the black dragon pair
@@ -75,11 +81,33 @@ export const DECORATION_CATALOG: DecorationCatalogItem[] = [
     category: "Dragones",
     imageUrl: "/assets/shelves/decorations/deco-garra-dragon.png",
   },
+  // "Plantas y flores" -- starts with one piece, more get added here over
+  // time without touching anything else (category chip, translations, and
+  // this catalog are the only places a new piece needs to be registered).
+  {
+    type: "plant",
+    variant: "enredadera-simple",
+    category: "PlantasFlores",
+    imageUrl: "/assets/shelves/decorations/deco-enredadera-simple.png",
+    // Image is 867x288 (~3:1) -- a wide, short box instead of the square
+    // default so it doesn't start out looking cramped/letterboxed.
+    defaultSize: { width: 180, height: 60 },
+  },
 ];
 
 export function findDecorationImage(type: string, variant: string | null): string | null {
   return (
     DECORATION_CATALOG.find((item) => item.type === type && item.variant === variant)
       ?.imageUrl ?? null
+  );
+}
+
+export function findDecorationDefaultSize(
+  type: string,
+  variant: string | null,
+): { width: number; height: number } | null {
+  return (
+    DECORATION_CATALOG.find((item) => item.type === type && item.variant === variant)
+      ?.defaultSize ?? null
   );
 }

@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "Yote",
-        "Dragones": "Joka"
+        "Dragones": "Joka",
+        "PlantasFlores": "Mimea na maua"
       },
       "items": {
         "dragon-vitral": "Joka la kioo cha rangi",
@@ -130,7 +131,8 @@
         "dragon-dorado": "Joka la dhahabu",
         "dragon-rosa": "Joka la waridi",
         "dragon-huevo": "Yai la joka",
-        "dragon-garra": "Ukucha wa joka"
+        "dragon-garra": "Ukucha wa joka",
+        "plant-enredadera-simple": "Mzabibu rahisi"
       },
       "empty": "Bado hakuna mapambo katika kundi hili.",
       "toolbarLabel": "Mapambo yanayopatikana",

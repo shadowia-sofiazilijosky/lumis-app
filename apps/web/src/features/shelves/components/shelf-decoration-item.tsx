@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { DEFAULT_DECORATION_SIZE, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
-import { findDecorationImage } from "../lib/decoration-catalog";
+import { findDecorationDefaultSize, findDecorationImage } from "../lib/decoration-catalog";
 import { useResizableBox } from "../hooks/use-resizable-box";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
 import { ResizeHandles } from "./resize-handles";
@@ -47,7 +47,10 @@ export function ShelfDecorationItem({
   );
 
   const isShelfFrame = decoration.type === "shelf";
-  const defaultSize = isShelfFrame ? DEFAULT_SHELF_FRAME_SIZE : DEFAULT_DECORATION_SIZE;
+  const defaultSize = isShelfFrame
+    ? DEFAULT_SHELF_FRAME_SIZE
+    : (findDecorationDefaultSize(decoration.type, decoration.variant ?? null) ??
+      DEFAULT_DECORATION_SIZE);
   const width = decoration.width ?? defaultSize.width;
   const height = decoration.height ?? defaultSize.height;
   const isSelected = selectedDecorationId === decoration.id;

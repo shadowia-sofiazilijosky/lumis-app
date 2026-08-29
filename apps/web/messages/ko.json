@@ -118,7 +118,8 @@
     "decoration": {
       "categories": {
         "Todo": "전체",
-        "Dragones": "드래곤"
+        "Dragones": "드래곤",
+        "PlantasFlores": "식물과 꽃"
       },
       "items": {
         "dragon-vitral": "스테인드글라스 드래곤",
@@ -130,7 +131,8 @@
         "dragon-dorado": "황금 드래곤",
         "dragon-rosa": "분홍 드래곤",
         "dragon-huevo": "용의 알",
-        "dragon-garra": "용의 발톱"
+        "dragon-garra": "용의 발톱",
+        "plant-enredadera-simple": "심플 넝쿨"
       },
       "empty": "이 카테고리에는 아직 장식이 없습니다.",
       "toolbarLabel": "사용 가능한 장식",
