@@ -5,23 +5,14 @@ import { ArrowRight, Pin, Star } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { updateHighlight, updateNote } from "@/features/reader/api/annotations-client";
+import { buildEntries, pickFeatured } from "../lib/entries";
 import { formatRelativeTime } from "../lib/format-relative-time";
-import { colorForTag } from "../lib/note-tag-colors";
-
-interface Entry {
-  kind: "note" | "highlight";
-  id: string;
-  text: string;
-  color: string;
-  pageIndex: number;
-  pinned: boolean;
-}
+import { NotePostit } from "./note-postit";
 
 /** One card per book: a featured quote -- pinned by the user, or (while
  * nothing is pinned) its most recent highlight, falling back to its most
  * recent note -- plus every other note/highlight as a colored post-it.
- * `notes`/`highlights` arrive already sorted most-recent first from the
- * API. */
+ * "Ver todas" opens the full per-book list (BookNotesView), not the reader. */
 export function NoteBookCard({
   group,
   onChanged,
@@ -33,38 +24,17 @@ export function NoteBookCard({
   const locale = useLocale();
   const { book, notes, highlights, lastActivityAt } = group;
 
-  const entries: Entry[] = [
-    ...notes.map((note) => ({
-      kind: "note" as const,
-      id: note.id,
-      text: note.body,
-      color: colorForTag(note.colorTag),
-      pageIndex: note.pageIndex,
-      pinned: note.pinned,
-    })),
-    ...highlights.map((highlight) => ({
-      kind: "highlight" as const,
-      id: highlight.id,
-      text: highlight.selectedText,
-      color: highlight.color,
-      pageIndex: highlight.pageIndex,
-      pinned: highlight.pinned,
-    })),
-  ];
-
-  const featured =
-    entries.find((entry) => entry.pinned) ??
-    entries.find((entry) => entry.kind === "highlight") ??
-    entries[0] ??
-    null;
+  const entries = buildEntries(notes, highlights);
+  const featured = pickFeatured(entries);
   const postits = entries.filter((entry) => entry !== featured);
 
-  async function togglePin(entry: Entry) {
-    const pinned = !entry.pinned;
-    if (entry.kind === "note") {
-      await updateNote(book.id, entry.id, { pinned });
+  async function toggleFeaturedPin() {
+    if (!featured) return;
+    const pinned = !featured.pinned;
+    if (featured.kind === "note") {
+      await updateNote(book.id, featured.id, { pinned });
     } else {
-      await updateHighlight(book.id, entry.id, { pinned });
+      await updateHighlight(book.id, featured.id, { pinned });
     }
     onChanged();
   }
@@ -96,7 +66,7 @@ export function NoteBookCard({
                 className={`note-pin-toggle${featured.pinned ? " note-pin-toggle-active" : ""}`}
                 aria-label={featured.pinned ? t("unpin") : t("pin")}
                 aria-pressed={featured.pinned}
-                onClick={() => togglePin(featured)}
+                onClick={toggleFeaturedPin}
               >
                 <Pin size={12} fill={featured.pinned ? "currentColor" : "none"} />
               </button>
@@ -110,19 +80,7 @@ export function NoteBookCard({
       {postits.length > 0 && (
         <div className="note-book-card-postits">
           {postits.map((entry) => (
-            <div key={entry.id} className="note-postit" style={{ background: entry.color }}>
-              <button
-                type="button"
-                className="note-pin-toggle note-postit-pin"
-                aria-label={entry.pinned ? t("unpin") : t("pin")}
-                aria-pressed={entry.pinned}
-                onClick={() => togglePin(entry)}
-              >
-                <Pin size={12} fill={entry.pinned ? "currentColor" : "none"} />
-              </button>
-              <p className="note-postit-body">{entry.text}</p>
-              <p className="note-book-card-meta">{t("pageLabel", { page: entry.pageIndex + 1 })}</p>
-            </div>
+            <NotePostit key={entry.id} entry={entry} bookId={book.id} onChanged={onChanged} />
           ))}
         </div>
       )}
@@ -132,7 +90,7 @@ export function NoteBookCard({
         <p className="note-book-card-last-activity">
           {t("lastActivity", { time: formatRelativeTime(lastActivityAt, locale) })}
         </p>
-        <Link href={`/read/${book.id}`} className="note-book-card-viewall">
+        <Link href={`/notes/${book.id}`} className="note-book-card-viewall">
           {t("viewAll")}
           <ArrowRight size={14} />
         </Link>

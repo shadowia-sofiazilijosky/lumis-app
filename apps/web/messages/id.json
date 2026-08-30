@@ -339,6 +339,10 @@
       "totalNotes": "Total catatan",
       "booksWithNotes": "Buku dengan catatan",
       "highlights": "Sorotan"
+    },
+    "bookDetail": {
+      "back": "Kembali ke Catatan",
+      "empty": "Belum ada catatan untuk buku ini."
     }
   },
   "auth": {

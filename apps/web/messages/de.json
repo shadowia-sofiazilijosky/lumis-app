@@ -339,6 +339,10 @@
       "totalNotes": "Notizen insgesamt",
       "booksWithNotes": "Bücher mit Notizen",
       "highlights": "Markierungen"
+    },
+    "bookDetail": {
+      "back": "Zurück zu Notizen",
+      "empty": "Für dieses Buch gibt es noch keine Notizen."
     }
   },
   "auth": {

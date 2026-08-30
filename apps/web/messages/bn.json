@@ -339,6 +339,10 @@
       "totalNotes": "মোট নোট",
       "booksWithNotes": "নোটসহ বই",
       "highlights": "হাইলাইট"
+    },
+    "bookDetail": {
+      "back": "নোটে ফিরে যাও",
+      "empty": "এই বইয়ের জন্য এখনও কোনো নোট নেই।"
     }
   },
   "auth": {

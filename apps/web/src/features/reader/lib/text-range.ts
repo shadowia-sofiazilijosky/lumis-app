@@ -84,34 +84,69 @@ export function isPlausibleDragSelection(
 }
 
 /**
- * Infers the text spanned by a freehand pen stroke from its start/end screen
- * points via `caretRangeFromPoint` -- the same idea as a normal click-drag
- * selection, just driven by the drawing tool's pointer path instead of a
- * native browser selection (which the drawing canvas, sitting on top to
- * capture the stroke, never lets happen). Returns null wherever there's no
- * text under the stroke (a margin, an image-only page) so the caller can
- * fall back to a plain ink mark.
+ * Infers the text spanned by a freehand pen stroke from the area it actually
+ * covers, not just its start/end points -- a straight "Marcador" drag and a
+ * loose, wobbly "Aerógrafo"/"Pincel para acuarela" scribble need to resolve
+ * the same way, since every brush is meant to work identically as a
+ * highlighter over text. Walks the container's text nodes and keeps
+ * whichever ones actually intersect the stroke's bounding box (with a
+ * little padding — a stroke rarely lands pixel-perfect on the text),
+ * spanning from the first to the last matching node in document order.
+ * Returns null wherever there's no text under the stroke at all (a margin,
+ * an image-only page) so the caller can fall back to a plain ink mark.
  */
-export function rangeFromStrokePoints(
-  start: { x: number; y: number },
-  end: { x: number; y: number },
+export function rangeFromStrokeBoundingBox(
+  container: Element,
+  points: { x: number; y: number }[],
 ): Range | null {
-  if (typeof document.caretRangeFromPoint !== "function") return null;
+  if (points.length === 0) return null;
 
-  const startRange = document.caretRangeFromPoint(start.x, start.y);
-  const endRange = document.caretRangeFromPoint(end.x, end.y);
-  if (!startRange || !endRange) return null;
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  for (const point of points) {
+    if (point.x < minX) minX = point.x;
+    if (point.x > maxX) maxX = point.x;
+    if (point.y < minY) minY = point.y;
+    if (point.y > maxY) maxY = point.y;
+  }
+  const pad = 4;
+  minX -= pad;
+  minY -= pad;
+  maxX += pad;
+  maxY += pad;
+
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+  let firstNode: Text | null = null;
+  let lastNode: Text | null = null;
+  let node: Text | null;
+
+  while ((node = walker.nextNode() as Text | null)) {
+    if (!node.data.trim()) continue;
+
+    const nodeRange = document.createRange();
+    nodeRange.selectNodeContents(node);
+    const intersects = Array.from(nodeRange.getClientRects()).some(
+      (rect) =>
+        rect.width > 0 &&
+        rect.height > 0 &&
+        rect.left < maxX &&
+        rect.right > minX &&
+        rect.top < maxY &&
+        rect.bottom > minY,
+    );
+    if (!intersects) continue;
+
+    if (!firstNode) firstNode = node;
+    lastNode = node;
+  }
+
+  if (!firstNode || !lastNode) return null;
 
   const range = document.createRange();
-  // The stroke can be drawn in either direction, so the two boundaries
-  // aren't guaranteed to already be in DOM order.
-  if (startRange.compareBoundaryPoints(Range.START_TO_START, endRange) <= 0) {
-    range.setStart(startRange.startContainer, startRange.startOffset);
-    range.setEnd(endRange.startContainer, endRange.startOffset);
-  } else {
-    range.setStart(endRange.startContainer, endRange.startOffset);
-    range.setEnd(startRange.startContainer, startRange.startOffset);
-  }
+  range.setStart(firstNode, 0);
+  range.setEnd(lastNode, lastNode.data.length);
   return range;
 }
 

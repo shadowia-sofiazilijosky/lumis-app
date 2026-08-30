@@ -339,6 +339,10 @@
       "totalNotes": "メモの総数",
       "booksWithNotes": "メモのある本",
       "highlights": "ハイライト"
+    },
+    "bookDetail": {
+      "back": "メモに戻る",
+      "empty": "この本にはまだメモがありません。"
     }
   },
   "auth": {

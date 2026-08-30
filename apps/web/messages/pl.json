@@ -339,6 +339,10 @@
       "totalNotes": "Notatki łącznie",
       "booksWithNotes": "Książki z notatkami",
       "highlights": "Zaznaczenia"
+    },
+    "bookDetail": {
+      "back": "Wróć do Notatek",
+      "empty": "Nie ma jeszcze notatek dla tej książki."
     }
   },
   "auth": {

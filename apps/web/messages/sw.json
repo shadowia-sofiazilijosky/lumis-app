@@ -339,6 +339,10 @@
       "totalNotes": "Jumla ya maelezo",
       "booksWithNotes": "Vitabu vyenye maelezo",
       "highlights": "Alama"
+    },
+    "bookDetail": {
+      "back": "Rudi kwa Maelezo",
+      "empty": "Bado hakuna maelezo kwa kitabu hiki."
     }
   },
   "auth": {

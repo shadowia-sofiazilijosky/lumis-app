@@ -339,6 +339,10 @@
       "totalNotes": "전체 노트",
       "booksWithNotes": "노트가 있는 책",
       "highlights": "하이라이트"
+    },
+    "bookDetail": {
+      "back": "노트로 돌아가기",
+      "empty": "아직 이 책에 대한 노트가 없어요."
     }
   },
   "auth": {

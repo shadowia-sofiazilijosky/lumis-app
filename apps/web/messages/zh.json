@@ -339,6 +339,10 @@
       "totalNotes": "笔记总数",
       "booksWithNotes": "有笔记的书籍",
       "highlights": "标注"
+    },
+    "bookDetail": {
+      "back": "返回笔记",
+      "empty": "这本书还没有笔记。"
     }
   },
   "auth": {

@@ -339,6 +339,10 @@
       "totalNotes": "Toplam not",
       "booksWithNotes": "Notlu kitaplar",
       "highlights": "Vurgular"
+    },
+    "bookDetail": {
+      "back": "Notlara dön",
+      "empty": "Bu kitap için henüz not yok."
     }
   },
   "auth": {

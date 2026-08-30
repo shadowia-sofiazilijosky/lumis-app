@@ -339,6 +339,10 @@
       "totalNotes": "Total notes",
       "booksWithNotes": "Books with notes",
       "highlights": "Highlights"
+    },
+    "bookDetail": {
+      "back": "Back to Notes",
+      "empty": "There are no notes for this book yet."
     }
   },
   "auth": {

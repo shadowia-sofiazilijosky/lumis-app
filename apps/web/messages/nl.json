@@ -339,6 +339,10 @@
       "totalNotes": "Totaal aantal notities",
       "booksWithNotes": "Boeken met notities",
       "highlights": "Markeringen"
+    },
+    "bookDetail": {
+      "back": "Terug naar Notities",
+      "empty": "Er zijn nog geen notities voor dit boek."
     }
   },
   "auth": {

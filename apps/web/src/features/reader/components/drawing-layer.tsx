@@ -4,11 +4,7 @@ import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { createHighlight, createStroke } from "../api/annotations-client";
 import { renderStroke } from "../lib/brush-renderer";
 import { getBrush } from "../lib/brushes";
-import {
-  getOffsetsFromRange,
-  isPlausibleDragSelection,
-  rangeFromStrokePoints,
-} from "../lib/text-range";
+import { getOffsetsFromRange, rangeFromStrokeBoundingBox } from "../lib/text-range";
 import { useAnnotationsStore } from "../store/annotations-store";
 
 interface DrawingLayerProps {
@@ -62,12 +58,11 @@ export function DrawingLayer({
     null,
   );
   const drawing = useRef(false);
-  // Real screen coordinates of the stroke's start/end -- separate from the
-  // normalized points above (which are relative to the drawing canvas and
-  // used for the stroke's own rendering/persistence), needed to ask the DOM
-  // what text, if any, sits under this stroke.
-  const clientStart = useRef<{ x: number; y: number } | null>(null);
-  const clientEnd = useRef<{ x: number; y: number } | null>(null);
+  // Real screen coordinates of every point in the stroke -- separate from
+  // the normalized points above (which are relative to the drawing canvas
+  // and used for the stroke's own rendering/persistence), needed to ask the
+  // DOM what text, if any, sits under this stroke.
+  const clientPoints = useRef<{ x: number; y: number }[]>([]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -124,8 +119,7 @@ export function DrawingLayer({
     drawing.current = true;
     canvasRef.current?.setPointerCapture(event.pointerId);
     setLiveNormalizedPoints([point]);
-    clientStart.current = { x: event.clientX, y: event.clientY };
-    clientEnd.current = clientStart.current;
+    clientPoints.current = [{ x: event.clientX, y: event.clientY }];
   }
 
   function handlePointerMove(event: React.PointerEvent<HTMLCanvasElement>) {
@@ -133,37 +127,37 @@ export function DrawingLayer({
     const point = toNormalized(event.clientX, event.clientY);
     if (!point) return;
     setLiveNormalizedPoints((prev) => (prev ? [...prev, point] : [point]));
-    clientEnd.current = { x: event.clientX, y: event.clientY };
+    clientPoints.current.push({ x: event.clientX, y: event.clientY });
   }
 
   /** If the pen was dragged over real text, save it as a proper anchored
    * Highlight (the pen's color/thickness) instead of a freehand Stroke, so
    * it renders as an actual highlighter bar and counts correctly on the
-   * Notas page. Returns false wherever there's no text under the stroke (a
-   * margin, an image-only page, the eraser) -- the caller then falls back
-   * to the plain ink mark, same as before this existed. */
+   * Notas page. Works the same for every brush -- a straight "Marcador"
+   * drag or a loose "Aerógrafo" scribble both resolve from the area the
+   * stroke actually covers, not its exact path. Returns false wherever
+   * there's no text under the stroke (a margin, an image-only page, the
+   * eraser) -- the caller then falls back to the plain ink mark, same as
+   * before this existed. */
   async function tryCreateHighlight(): Promise<boolean> {
     if (!drawTool || drawTool.brush === "eraser") return false;
-    if (!clientStart.current || !clientEnd.current) return false;
+    if (clientPoints.current.length === 0) return false;
 
-    // caretRangeFromPoint hit-tests the real top-most element at that screen
-    // point, exactly like elementFromPoint -- with this canvas sitting on
-    // top to capture the drag, it would always resolve to the canvas itself
-    // (which has no text) instead of the text layer underneath it. Step out
-    // of the way just for this one synchronous lookup.
+    const container = (textContainerRef ?? containerRef).current;
+    if (!container) return false;
+
+    // caretRangeFromPoint/getClientRects hit-test the real top-most element
+    // at each screen point, exactly like elementFromPoint -- with this
+    // canvas sitting on top to capture the drag, it would always resolve to
+    // the canvas itself (which has no text) instead of the text layer
+    // underneath it. Step out of the way just for this synchronous lookup.
     const canvas = canvasRef.current;
     const previousPointerEvents = canvas?.style.pointerEvents ?? "";
     if (canvas) canvas.style.pointerEvents = "none";
-    const range = rangeFromStrokePoints(clientStart.current, clientEnd.current);
+    const range = rangeFromStrokeBoundingBox(container, clientPoints.current);
     if (canvas) canvas.style.pointerEvents = previousPointerEvents;
 
     if (!range) return false;
-
-    const container = (textContainerRef ?? containerRef).current;
-    if (!container || !container.contains(range.commonAncestorContainer)) return false;
-    if (!isPlausibleDragSelection(range, clientStart.current.y, clientEnd.current.y)) {
-      return false;
-    }
 
     const { start, end, text } = getOffsetsFromRange(container, range);
     if (!text.trim()) return false;

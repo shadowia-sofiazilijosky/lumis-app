@@ -339,6 +339,10 @@
       "totalNotes": "Tổng số ghi chú",
       "booksWithNotes": "Sách có ghi chú",
       "highlights": "Đánh dấu"
+    },
+    "bookDetail": {
+      "back": "Quay lại Ghi chú",
+      "empty": "Chưa có ghi chú nào cho cuốn sách này."
     }
   },
   "auth": {
