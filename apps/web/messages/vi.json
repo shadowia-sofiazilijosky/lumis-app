@@ -340,7 +340,9 @@
     "nav": {
       "about": "Về Lumis",
       "login": "Đăng nhập",
-      "register": "Tạo tài khoản"
+      "register": "Tạo tài khoản",
+      "openMenu": "Mở menu",
+      "closeMenu": "Đóng menu"
     },
     "footer": {
       "tagline": "Góc đọc sách của riêng bạn.",

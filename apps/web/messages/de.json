@@ -340,7 +340,9 @@
     "nav": {
       "about": "Über Lumis",
       "login": "Anmelden",
-      "register": "Konto erstellen"
+      "register": "Konto erstellen",
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen"
     },
     "footer": {
       "tagline": "Deine Leseecke, ganz nach dir.",

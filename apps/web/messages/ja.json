@@ -340,7 +340,9 @@
     "nav": {
       "about": "Lumisについて",
       "login": "ログイン",
-      "register": "アカウント作成"
+      "register": "アカウント作成",
+      "openMenu": "メニューを開く",
+      "closeMenu": "メニューを閉じる"
     },
     "footer": {
       "tagline": "あなただけの読書スペース。",

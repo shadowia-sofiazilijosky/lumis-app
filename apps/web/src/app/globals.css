@@ -535,6 +535,23 @@ header nav a {
   .app-topbar {
     padding-left: 4rem;
   }
+
+  /* The mobile sidebar trigger floats fixed over the top-left corner of
+     every (app) screen, regardless of scroll position — give the shelf
+     editor's own header (it doesn't use .app-topbar) the same clearance so
+     nothing renders underneath it. */
+  .shelf-editor-page {
+    padding-top: 3.5rem;
+  }
+
+  .shelf-customization-panel {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .shelf-canvas-outer {
+    flex-basis: 100%;
+  }
 }
 
 .theme-toggle {
@@ -1999,6 +2016,14 @@ html[data-theme="light"] {
   max-width: 100%;
   overflow: auto;
   padding: 0.25rem;
+}
+
+/* Wraps the (possibly fixed-pixel-size) canvas box and CSS-scales it down
+   to whatever width is actually available, instead of letting it overflow
+   into a horizontal scrollbar -- see the canvasScale calc in shelf-canvas.tsx. */
+.shelf-canvas-scale-wrapper {
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .resizable-canvas-box {
@@ -4019,6 +4044,24 @@ html[data-theme="light"] {
   flex-wrap: wrap;
 }
 
+.site-header-menu-toggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+.site-header-menu-toggle:hover {
+  opacity: 1;
+}
+
 .site-header-link {
   font-size: 1.05rem;
   color: inherit;
@@ -4134,20 +4177,46 @@ html[data-theme="light"] {
 
   .site-header {
     padding: 1rem 1.25rem;
-  }
-
-  .site-header-nav {
-    gap: 0.7rem;
-    justify-content: center;
-  }
-
-  .site-header {
-    justify-content: center;
-    text-align: center;
+    flex-wrap: nowrap;
   }
 
   .site-header-logo-image {
     height: 6rem;
+  }
+
+  .site-header-menu-toggle {
+    display: flex;
+  }
+
+  .site-header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    padding: 1rem 1.25rem 1.25rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .site-header-overlay .site-header-nav {
+    background: var(--landing-bg-dark, #1f1611);
+    border-bottom: 1px solid rgba(212, 164, 76, 0.3);
+  }
+
+  .site-header-nav-open {
+    display: flex;
+  }
+
+  .site-header-nav .site-header-link,
+  .site-header-nav .site-header-btn-primary,
+  .site-header-nav .site-header-btn-secondary {
+    width: 100%;
+    text-align: center;
   }
 }
 

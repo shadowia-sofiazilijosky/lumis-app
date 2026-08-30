@@ -135,6 +135,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     height: shelf.canvasHeight ?? CANVAS_HEIGHT,
   });
   const { ref: boxRef, size: observedSize } = useObservedSize<HTMLDivElement>();
+  const { ref: outerRef, size: outerSize } = useObservedSize<HTMLDivElement>();
 
   // Until the user resizes it manually, the canvas is CSS-driven (fills its
   // container responsively — grows when the sidebar collapses, etc.), so we
@@ -145,6 +146,17 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
   // whatever's already on it out of shape.
   const effectiveWidth = hasManualSize ? canvasSize.width : observedSize.width || CANVAS_WIDTH;
   const effectiveHeight = hasManualSize ? canvasSize.height : observedSize.height || CANVAS_HEIGHT;
+
+  // A manually-resized canvas keeps its saved pixel size regardless of
+  // viewport (books/decorations are positioned in real canvas pixels, so
+  // shrinking the box's own width/height would leave them hanging off the
+  // edge). On a narrow screen that saved size can easily exceed the
+  // available width, so instead of letting it overflow into a horizontal
+  // scrollbar, scale the whole box down visually to fit -- never up.
+  const canvasScale =
+    hasManualSize && outerSize.width > 0
+      ? Math.min(1, outerSize.width / effectiveWidth)
+      : 1;
 
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null);
 
@@ -268,26 +280,43 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         </div>
 
         <div className="shelf-editor-layout">
-          <div className="shelf-canvas-outer">
-            <ResizableCanvasBox
-              width={effectiveWidth}
-              height={effectiveHeight}
-              auto={!hasManualSize}
-              aspectRatio={CANVAS_WIDTH / CANVAS_HEIGHT}
-              boxRef={boxRef}
-              onResize={setCanvasSize}
-              onResizeEnd={persistCanvasSize}
-              showHandles={editMode}
+          <div className="shelf-canvas-outer" ref={outerRef}>
+            <div
+              className="shelf-canvas-scale-wrapper"
+              style={
+                canvasScale < 1
+                  ? { width: effectiveWidth * canvasScale, height: effectiveHeight * canvasScale }
+                  : undefined
+              }
             >
-              <DroppableCanvas
-                shelf={shelf}
-                bookPositions={bookPositions}
-                decorations={decorations}
-                onRemoveDecoration={removeDecoration}
-                onRemoveBook={handleRemoveBook}
-                editMode={editMode}
-              />
-            </ResizableCanvasBox>
+              <div
+                style={
+                  canvasScale < 1
+                    ? { width: effectiveWidth, height: effectiveHeight, transform: `scale(${canvasScale})`, transformOrigin: "top left" }
+                    : undefined
+                }
+              >
+                <ResizableCanvasBox
+                  width={effectiveWidth}
+                  height={effectiveHeight}
+                  auto={!hasManualSize}
+                  aspectRatio={CANVAS_WIDTH / CANVAS_HEIGHT}
+                  boxRef={boxRef}
+                  onResize={setCanvasSize}
+                  onResizeEnd={persistCanvasSize}
+                  showHandles={editMode}
+                >
+                  <DroppableCanvas
+                    shelf={shelf}
+                    bookPositions={bookPositions}
+                    decorations={decorations}
+                    onRemoveDecoration={removeDecoration}
+                    onRemoveBook={handleRemoveBook}
+                    editMode={editMode}
+                  />
+                </ResizableCanvasBox>
+              </div>
+            </div>
           </div>
           {editMode && <ShelfCustomizationPanel shelf={shelf} />}
         </div>

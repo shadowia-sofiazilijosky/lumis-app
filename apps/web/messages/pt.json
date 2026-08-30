@@ -340,7 +340,9 @@
     "nav": {
       "about": "Sobre a Lumis",
       "login": "Entrar",
-      "register": "Criar conta"
+      "register": "Criar conta",
+      "openMenu": "Abrir menu",
+      "closeMenu": "Fechar menu"
     },
     "footer": {
       "tagline": "Seu cantinho de leitura, do seu jeito.",

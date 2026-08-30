@@ -340,7 +340,9 @@
     "nav": {
       "about": "Kuhusu Lumis",
       "login": "Ingia",
-      "register": "Unda akaunti"
+      "register": "Unda akaunti",
+      "openMenu": "Fungua menyu",
+      "closeMenu": "Funga menyu"
     },
     "footer": {
       "tagline": "Kona yako ya kusoma, kwa mtindo wako.",

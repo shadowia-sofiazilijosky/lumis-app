@@ -340,7 +340,9 @@
     "nav": {
       "about": "Lumis 소개",
       "login": "로그인",
-      "register": "계정 만들기"
+      "register": "계정 만들기",
+      "openMenu": "메뉴 열기",
+      "closeMenu": "메뉴 닫기"
     },
     "footer": {
       "tagline": "당신만의 독서 공간, 당신 방식대로.",

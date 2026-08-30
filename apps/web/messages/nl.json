@@ -340,7 +340,9 @@
     "nav": {
       "about": "Over Lumis",
       "login": "Inloggen",
-      "register": "Account aanmaken"
+      "register": "Account aanmaken",
+      "openMenu": "Menu openen",
+      "closeMenu": "Menu sluiten"
     },
     "footer": {
       "tagline": "Jouw leeshoekje, op jouw manier.",

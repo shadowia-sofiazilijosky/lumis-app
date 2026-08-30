@@ -340,7 +340,9 @@
     "nav": {
       "about": "Tentang Lumis",
       "login": "Masuk",
-      "register": "Buat akun"
+      "register": "Buat akun",
+      "openMenu": "Buka menu",
+      "closeMenu": "Tutup menu"
     },
     "footer": {
       "tagline": "Sudut bacaanmu, dengan caramu.",

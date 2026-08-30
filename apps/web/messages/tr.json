@@ -340,7 +340,9 @@
     "nav": {
       "about": "Lumis Hakkında",
       "login": "Giriş yap",
-      "register": "Hesap oluştur"
+      "register": "Hesap oluştur",
+      "openMenu": "Menüyü aç",
+      "closeMenu": "Menüyü kapat"
     },
     "footer": {
       "tagline": "Kendi tarzında okuma köşen.",

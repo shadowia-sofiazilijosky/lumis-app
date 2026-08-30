@@ -340,7 +340,9 @@
     "nav": {
       "about": "关于 Lumis",
       "login": "登录",
-      "register": "创建账户"
+      "register": "创建账户",
+      "openMenu": "打开菜单",
+      "closeMenu": "关闭菜单"
     },
     "footer": {
       "tagline": "属于你的阅读角落，随你心意。",

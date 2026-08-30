@@ -340,7 +340,9 @@
     "nav": {
       "about": "À propos de Lumis",
       "login": "Connexion",
-      "register": "Créer un compte"
+      "register": "Créer un compte",
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu"
     },
     "footer": {
       "tagline": "Ton coin lecture, à ta façon.",

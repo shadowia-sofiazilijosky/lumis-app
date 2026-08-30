@@ -340,7 +340,9 @@
     "nav": {
       "about": "عن Lumis",
       "login": "تسجيل الدخول",
-      "register": "إنشاء حساب"
+      "register": "إنشاء حساب",
+      "openMenu": "فتح القائمة",
+      "closeMenu": "إغلاق القائمة"
     },
     "footer": {
       "tagline": "ركن قراءتك، على طريقتك.",
