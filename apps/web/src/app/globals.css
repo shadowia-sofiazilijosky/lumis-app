@@ -4411,18 +4411,6 @@ html[data-theme="light"] {
   margin-bottom: 0;
 }
 
-.notes-page-intro {
-  max-width: 480px;
-  margin-top: 0.6rem;
-  color: var(--foreground);
-  opacity: 0.85;
-  line-height: 1.55;
-}
-
-.notes-page-intro a {
-  font-weight: 600;
-}
-
 .notes-controls-bar {
   display: flex;
   align-items: center;
@@ -4500,28 +4488,6 @@ html[data-theme="light"] {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-}
-
-.note-book-card-menu {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: var(--foreground);
-  opacity: 0.5;
-  border: none;
-}
-
-.note-book-card-menu:hover {
-  opacity: 0.9;
-  box-shadow: none;
-  transform: none;
 }
 
 .note-book-card-cover {
@@ -4782,10 +4748,5 @@ html[data-theme="light"] {
 
   .note-book-card-cover {
     width: 76px;
-  }
-
-  .note-book-card-menu {
-    top: 0.6rem;
-    right: 0.6rem;
   }
 }

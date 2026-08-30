@@ -1,7 +1,7 @@
 "use client";
 
 import type { NotesOverviewBook } from "@lumis/shared-types";
-import { ArrowRight, MoreVertical, Pin, Star } from "lucide-react";
+import { ArrowRight, Pin, Star } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { formatRelativeTime } from "../lib/format-relative-time";
@@ -24,10 +24,6 @@ export function NoteBookCard({ group }: { group: NotesOverviewBook }) {
 
   return (
     <article className="note-book-card">
-      <button type="button" className="note-book-card-menu" aria-label={t("cardMenu")}>
-        <MoreVertical size={18} />
-      </button>
-
       <Link href={`/read/${book.id}`} className="note-book-card-cover">
         {book.coverUrl ? (
           // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL

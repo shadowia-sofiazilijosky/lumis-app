@@ -3,7 +3,6 @@
 import type { BookSummary } from "@lumis/shared-types";
 import { Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { fetchBooks } from "@/features/books/api/books-client";
 import { useNotesOverview } from "../hooks/use-notes-overview";
@@ -95,11 +94,6 @@ export function NotesView() {
             <span className="notes-divider-line" />
             <Sparkles size={14} className="notes-divider-icon" />
           </div>
-          <p className="notes-page-intro">
-            {t.rich("intro", {
-              link: (chunks) => <Link href="/library">{chunks}</Link>,
-            })}
-          </p>
         </div>
 
         <NotesControlsBar
