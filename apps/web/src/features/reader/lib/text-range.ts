@@ -83,6 +83,38 @@ export function isPlausibleDragSelection(
   return rect.height <= allowedHeight;
 }
 
+/**
+ * Infers the text spanned by a freehand pen stroke from its start/end screen
+ * points via `caretRangeFromPoint` -- the same idea as a normal click-drag
+ * selection, just driven by the drawing tool's pointer path instead of a
+ * native browser selection (which the drawing canvas, sitting on top to
+ * capture the stroke, never lets happen). Returns null wherever there's no
+ * text under the stroke (a margin, an image-only page) so the caller can
+ * fall back to a plain ink mark.
+ */
+export function rangeFromStrokePoints(
+  start: { x: number; y: number },
+  end: { x: number; y: number },
+): Range | null {
+  if (typeof document.caretRangeFromPoint !== "function") return null;
+
+  const startRange = document.caretRangeFromPoint(start.x, start.y);
+  const endRange = document.caretRangeFromPoint(end.x, end.y);
+  if (!startRange || !endRange) return null;
+
+  const range = document.createRange();
+  // The stroke can be drawn in either direction, so the two boundaries
+  // aren't guaranteed to already be in DOM order.
+  if (startRange.compareBoundaryPoints(Range.START_TO_START, endRange) <= 0) {
+    range.setStart(startRange.startContainer, startRange.startOffset);
+    range.setEnd(endRange.startContainer, endRange.startOffset);
+  } else {
+    range.setStart(endRange.startContainer, endRange.startOffset);
+    range.setEnd(startRange.startContainer, startRange.startOffset);
+  }
+  return range;
+}
+
 export function rectsForOffsets(
   container: Element,
   start: number,

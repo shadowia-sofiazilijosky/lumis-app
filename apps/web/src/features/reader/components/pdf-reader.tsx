@@ -105,6 +105,7 @@ function PdfSinglePage({ bookId, doc, pageNumber, zoom }: PdfSinglePageProps) {
         bookId={bookId}
         pageIndex={pageNumber - 1}
         containerRef={frameRef}
+        textContainerRef={textLayerRef}
         refreshKey={`${pageNumber}-${renderTick}`}
       />
     </div>
