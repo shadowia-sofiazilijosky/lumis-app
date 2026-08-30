@@ -30,6 +30,10 @@ function clamp(value: number, min: number, max: number) {
 interface UseResizableBoxOptions {
   width: number;
   height: number;
+  /** Screen-to-logical pixel ratio -- pointer deltas arrive in real screen
+   * pixels, but this box may render inside a CSS `zoom`-scaled ancestor, so
+   * they need dividing by this before being applied to width/height. */
+  scale: number;
   minWidth: number;
   maxWidth: number;
   minHeight: number;
@@ -48,6 +52,7 @@ interface UseResizableBoxOptions {
 export function useResizableBox({
   width,
   height,
+  scale,
   minWidth,
   maxWidth,
   minHeight,
@@ -87,8 +92,8 @@ export function useResizableBox({
     const start = startRef.current;
     if (!start || event.pointerId !== start.pointerId) return;
 
-    const deltaX = event.clientX - start.startX;
-    const deltaY = event.clientY - start.startY;
+    const deltaX = (event.clientX - start.startX) / scale;
+    const deltaY = (event.clientY - start.startY) / scale;
     const { direction } = start;
 
     let nextWidth = start.startWidth;

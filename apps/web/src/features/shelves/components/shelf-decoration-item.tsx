@@ -20,12 +20,17 @@ interface ShelfDecorationItemProps {
   decoration: ShelfDecoration;
   onRemove: (id: string) => void;
   editMode: boolean;
+  /** Screen-to-logical pixel ratio -- this item may render inside a
+   * `zoom`-scaled canvas (see shelf-canvas.tsx), so its own resize-handle
+   * drag needs converting back to logical pixels too. */
+  canvasScale: number;
 }
 
 export function ShelfDecorationItem({
   decoration,
   onRemove,
   editMode,
+  canvasScale,
 }: ShelfDecorationItemProps) {
   const t = useTranslations("shelfEditor.item");
   const isLocked = decoration.locked ?? false;
@@ -58,6 +63,7 @@ export function ShelfDecorationItem({
   const { onPointerDown, onPointerMove, onPointerUp, liveOffset } = useResizableBox({
     width,
     height,
+    scale: canvasScale,
     minWidth: MIN_SIZE,
     maxWidth: MAX_SIZE,
     minHeight: MIN_SIZE,

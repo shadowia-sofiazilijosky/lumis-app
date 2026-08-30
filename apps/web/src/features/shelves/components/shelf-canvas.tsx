@@ -13,7 +13,7 @@ import {
   type DragStartEvent,
 } from "@dnd-kit/core";
 import { Pencil } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { removeBookFromShelf, updateShelf } from "../api/shelves-client";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, DEFAULT_SHELF_FRAME_SIZE } from "../lib/canvas";
 import { findShelfFrameImage } from "../lib/appearance-catalog";
@@ -37,6 +37,7 @@ interface DroppableCanvasProps {
   onRemoveDecoration: (id: string) => void;
   onRemoveBook: (bookId: string) => void;
   editMode: boolean;
+  canvasScale: number;
 }
 
 function DroppableCanvas({
@@ -46,6 +47,7 @@ function DroppableCanvas({
   onRemoveDecoration,
   onRemoveBook,
   editMode,
+  canvasScale,
 }: DroppableCanvasProps) {
   const { setNodeRef } = useDroppable({ id: "shelf-canvas" });
   const selectBook = useShelfEditorStore((state) => state.selectBook);
@@ -85,6 +87,7 @@ function DroppableCanvas({
             decoration={decoration}
             onRemove={onRemoveDecoration}
             editMode={editMode}
+            canvasScale={canvasScale}
           />
         ))}
 
@@ -107,6 +110,7 @@ function DroppableCanvas({
             decoration={decoration}
             onRemove={onRemoveDecoration}
             editMode={editMode}
+            canvasScale={canvasScale}
           />
         ))}
     </div>
@@ -129,34 +133,41 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
   const editMode = useShelfEditorStore((state) => state.editMode);
   const setEditMode = useShelfEditorStore((state) => state.setEditMode);
 
-  const hasManualSize = shelf.canvasWidth != null && shelf.canvasHeight != null;
+  // The canvas is always a fixed logical pixel size (the shelf's saved
+  // canvasWidth/canvasHeight, or the 1000x600 default) -- every book,
+  // decoration and frame is positioned as a plain offset in that same fixed
+  // space. That's what makes the shelves-list card preview able to mirror
+  // this exactly via percentages: it uses this identical reference size.
+  // Older code let the canvas visually fill its container before it had
+  // ever been manually resized (canvasWidth/Height still null), which felt
+  // nice but meant items got positioned relative to whatever width the
+  // container happened to be at the time -- not reproducible anywhere else.
+  // Any leftover fit-to-screen need is handled purely visually below, via
+  // `zoom`, without touching this logical coordinate system at all.
   const [canvasSize, setCanvasSize] = useState({
     width: shelf.canvasWidth ?? CANVAS_WIDTH,
     height: shelf.canvasHeight ?? CANVAS_HEIGHT,
   });
-  const { ref: boxRef, size: observedSize } = useObservedSize<HTMLDivElement>();
+  const effectiveWidth = canvasSize.width;
+  const effectiveHeight = canvasSize.height;
+
+  const boxRef = useRef<HTMLDivElement>(null);
   const { ref: outerRef, size: outerSize } = useObservedSize<HTMLDivElement>();
 
-  // Until the user resizes it manually, the canvas is CSS-driven (fills its
-  // container responsively — grows when the sidebar collapses, etc.), so we
-  // read its actual rendered size back via ResizeObserver — used only to size
-  // the container box itself. Placed items (books/decorations/frames) are
-  // positioned and sized in real canvas pixels and never scale with it: when
-  // the box grows, it just reveals more empty space instead of stretching
-  // whatever's already on it out of shape.
-  const effectiveWidth = hasManualSize ? canvasSize.width : observedSize.width || CANVAS_WIDTH;
-  const effectiveHeight = hasManualSize ? canvasSize.height : observedSize.height || CANVAS_HEIGHT;
-
-  // A manually-resized canvas keeps its saved pixel size regardless of
-  // viewport (books/decorations are positioned in real canvas pixels, so
-  // shrinking the box's own width/height would leave them hanging off the
-  // edge). On a narrow screen that saved size can easily exceed the
-  // available width, so instead of letting it overflow into a horizontal
-  // scrollbar, scale the whole box down visually to fit -- never up.
+  // Scales the whole canvas down (never up) to fit whatever width is
+  // actually available, instead of overflowing into a scrollbar -- see the
+  // `zoom` usage below for why this is a CSS zoom factor, not a transform.
   const canvasScale =
-    hasManualSize && outerSize.width > 0
-      ? Math.min(1, outerSize.width / effectiveWidth)
-      : 1;
+    outerSize.width > 0 ? Math.min(1, outerSize.width / effectiveWidth) : 1;
+
+  // Pointer deltas (drag movement, resize-handle drag) arrive in real screen
+  // pixels, but everything they move lives inside the `zoom`-scaled wrapper
+  // above -- convert back to this canvas's own logical pixels before storing
+  // any position/size, or every drag would move faster/slower than the
+  // cursor whenever the canvas is scaled down.
+  function toLogical(screenDelta: number) {
+    return screenDelta / canvasScale;
+  }
 
   const [activeDrag, setActiveDrag] = useState<DragData | null>(null);
 
@@ -208,8 +219,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
     if (data.kind === "book") {
       const current = bookPositions[data.bookId] ?? { x: 0, y: 0 };
       moveBook(data.bookId, {
-        x: current.x + delta.x,
-        y: current.y + delta.y,
+        x: current.x + toLogical(delta.x),
+        y: current.y + toLogical(delta.y),
         rotation: current.rotation,
       });
       return;
@@ -219,8 +230,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
       const current = decorations.find((d) => d.id === data.decorationId);
       if (!current) return;
       moveDecoration(data.decorationId, {
-        x: current.x + delta.x,
-        y: current.y + delta.y,
+        x: current.x + toLogical(delta.x),
+        y: current.y + toLogical(delta.y),
         rotation: current.rotation,
       });
       return;
@@ -235,8 +246,8 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
         id: crypto.randomUUID(),
         type: data.type,
         variant: data.variant,
-        x: Math.max(0, draggedRect.left - canvasRect.left),
-        y: Math.max(0, draggedRect.top - canvasRect.top),
+        x: Math.max(0, toLogical(draggedRect.left - canvasRect.left)),
+        y: Math.max(0, toLogical(draggedRect.top - canvasRect.top)),
         ...(data.type === "shelf"
           ? DEFAULT_SHELF_FRAME_SIZE
           : (findDecorationDefaultSize(data.type, data.variant) ?? {})),
@@ -294,8 +305,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
               <ResizableCanvasBox
                 width={effectiveWidth}
                 height={effectiveHeight}
-                auto={!hasManualSize}
-                aspectRatio={CANVAS_WIDTH / CANVAS_HEIGHT}
+                scale={canvasScale}
                 boxRef={boxRef}
                 onResize={setCanvasSize}
                 onResizeEnd={persistCanvasSize}
@@ -308,6 +318,7 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
                   onRemoveDecoration={removeDecoration}
                   onRemoveBook={handleRemoveBook}
                   editMode={editMode}
+                  canvasScale={canvasScale}
                 />
               </ResizableCanvasBox>
             </div>
