@@ -4271,13 +4271,9 @@ html[data-theme="light"] {
 .notes-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 640px;
-  margin: 0 auto;
 }
 
 .notes-page-header {
-  align-self: flex-start;
   text-align: left;
   margin-bottom: 2.5rem;
 }
@@ -4324,7 +4320,9 @@ html[data-theme="light"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: center;
   text-align: center;
+  max-width: 640px;
   padding: 1.5rem 1rem 0;
 }
 
