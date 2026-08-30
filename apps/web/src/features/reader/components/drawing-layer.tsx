@@ -146,7 +146,17 @@ export function DrawingLayer({
     if (!drawTool || drawTool.brush === "eraser") return false;
     if (!clientStart.current || !clientEnd.current) return false;
 
+    // caretRangeFromPoint hit-tests the real top-most element at that screen
+    // point, exactly like elementFromPoint -- with this canvas sitting on
+    // top to capture the drag, it would always resolve to the canvas itself
+    // (which has no text) instead of the text layer underneath it. Step out
+    // of the way just for this one synchronous lookup.
+    const canvas = canvasRef.current;
+    const previousPointerEvents = canvas?.style.pointerEvents ?? "";
+    if (canvas) canvas.style.pointerEvents = "none";
     const range = rangeFromStrokePoints(clientStart.current, clientEnd.current);
+    if (canvas) canvas.style.pointerEvents = previousPointerEvents;
+
     if (!range) return false;
 
     const container = (textContainerRef ?? containerRef).current;
