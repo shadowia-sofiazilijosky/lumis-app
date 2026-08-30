@@ -331,7 +331,9 @@
       "pageLabel": "পাতা {page}",
       "noteCount": "{count, plural, other {# টি নোট}}",
       "lastActivity": "শেষ নোট {time}",
-      "viewAll": "সব দেখুন"
+      "viewAll": "সব দেখুন",
+      "pin": "বিশেষ হিসেবে পিন করো",
+      "unpin": "পিন সরাও"
     },
     "stats": {
       "totalNotes": "মোট নোট",

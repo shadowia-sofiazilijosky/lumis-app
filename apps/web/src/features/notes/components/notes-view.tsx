@@ -13,7 +13,7 @@ import { NotesStatsFooter } from "./notes-stats-footer";
 
 export function NotesView() {
   const t = useTranslations("notesPage");
-  const { overview, status } = useNotesOverview();
+  const { overview, status, refetch } = useNotesOverview();
   const [books, setBooks] = useState<BookSummary[]>([]);
   const [query, setQuery] = useState("");
   const [selectedBookId, setSelectedBookId] = useState("all");
@@ -111,7 +111,9 @@ export function NotesView() {
         {filteredGroups.length === 0 ? (
           <p className="notes-no-results">{t("noResults")}</p>
         ) : (
-          filteredGroups.map((group) => <NoteBookCard key={group.book.id} group={group} />)
+          filteredGroups.map((group) => (
+            <NoteBookCard key={group.book.id} group={group} onChanged={refetch} />
+          ))
         )}
       </div>
 

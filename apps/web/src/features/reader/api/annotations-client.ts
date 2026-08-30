@@ -5,6 +5,7 @@ import type {
   Highlight,
   Note,
   Stroke,
+  UpdateHighlightDto,
   UpdateNoteDto,
 } from "@lumis/shared-types";
 
@@ -20,6 +21,20 @@ export async function createHighlight(
 ): Promise<Highlight | null> {
   const response = await fetch(`/api/books/${bookId}/highlights`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dto),
+  });
+  if (!response.ok) return null;
+  return response.json();
+}
+
+export async function updateHighlight(
+  bookId: string,
+  highlightId: string,
+  dto: UpdateHighlightDto,
+): Promise<Highlight | null> {
+  const response = await fetch(`/api/books/${bookId}/highlights/${highlightId}`, {
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(dto),
   });

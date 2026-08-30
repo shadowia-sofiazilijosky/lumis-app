@@ -331,7 +331,9 @@
       "pageLabel": "Página {page}",
       "noteCount": "{count, plural, one {# nota} other {# notas}}",
       "lastActivity": "Última nota {time}",
-      "viewAll": "Ver todas"
+      "viewAll": "Ver todas",
+      "pin": "Fijar como destacada",
+      "unpin": "Quitar de destacada"
     },
     "stats": {
       "totalNotes": "Total de notas",

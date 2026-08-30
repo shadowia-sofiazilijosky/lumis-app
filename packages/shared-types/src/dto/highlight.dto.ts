@@ -9,3 +9,8 @@ export interface CreateHighlightDto {
   selectedText: string;
   cfi?: string;
 }
+
+export interface UpdateHighlightDto {
+  /** Setting this true unpins every other note/highlight on the same book. */
+  pinned?: boolean;
+}

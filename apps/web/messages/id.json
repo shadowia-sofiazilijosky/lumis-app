@@ -331,7 +331,9 @@
       "pageLabel": "Halaman {page}",
       "noteCount": "{count, plural, other {# catatan}}",
       "lastActivity": "Catatan terakhir {time}",
-      "viewAll": "Lihat semua"
+      "viewAll": "Lihat semua",
+      "pin": "Sematkan sebagai unggulan",
+      "unpin": "Lepas sematan"
     },
     "stats": {
       "totalNotes": "Total catatan",

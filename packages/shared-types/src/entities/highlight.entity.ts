@@ -12,5 +12,8 @@ export interface Highlight {
   selectedText: string;
   /** EPUB only — authoritative anchor for reflowable content. */
   cfi: string | null;
+  /** At most one pinned note/highlight per book — the Notas page's
+   * "featured quote" for that book. */
+  pinned: boolean;
   createdAt: string;
 }

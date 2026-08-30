@@ -331,7 +331,9 @@
       "pageLabel": "صفحة {page}",
       "noteCount": "{count, plural, other {# ملاحظة}}",
       "lastActivity": "آخر ملاحظة {time}",
-      "viewAll": "عرض الكل"
+      "viewAll": "عرض الكل",
+      "pin": "تثبيت كمميزة",
+      "unpin": "إلغاء التثبيت"
     },
     "stats": {
       "totalNotes": "إجمالي الملاحظات",

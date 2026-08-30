@@ -331,7 +331,9 @@
       "pageLabel": "Seite {page}",
       "noteCount": "{count, plural, one {# Notiz} other {# Notizen}}",
       "lastActivity": "Letzte Notiz {time}",
-      "viewAll": "Alle ansehen"
+      "viewAll": "Alle ansehen",
+      "pin": "Als hervorgehoben anheften",
+      "unpin": "Hervorhebung entfernen"
     },
     "stats": {
       "totalNotes": "Notizen insgesamt",

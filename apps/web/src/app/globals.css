@@ -4555,6 +4555,30 @@ html[data-theme="light"] {
   color: var(--primary);
 }
 
+/* Shared by the featured quote's pin toggle and each post-it's own -- fill
+   vs. outline on the Pin icon itself already signals pinned/unpinned, so
+   this only needs to handle opacity/hover, not a color swap. */
+.note-pin-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.note-pin-toggle:hover {
+  opacity: 0.9;
+  box-shadow: none;
+  transform: none;
+}
+
+.note-pin-toggle-active {
+  opacity: 1;
+}
+
 .note-book-card-featured-quote {
   margin: 0.35rem 0 0;
   font-family: var(--font-heading);
@@ -4596,8 +4620,6 @@ html[data-theme="light"] {
   position: absolute;
   top: 0.4rem;
   right: 0.4rem;
-  opacity: 0.55;
-  color: inherit;
 }
 
 .note-postit-body {

@@ -10,4 +10,6 @@ export interface CreateNoteDto {
 export interface UpdateNoteDto {
   body?: string;
   colorTag?: string;
+  /** Setting this true unpins every other note/highlight on the same book. */
+  pinned?: boolean;
 }

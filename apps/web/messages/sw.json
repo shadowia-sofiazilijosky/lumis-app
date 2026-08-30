@@ -331,7 +331,9 @@
       "pageLabel": "Ukurasa {page}",
       "noteCount": "{count, plural, other {maelezo #}}",
       "lastActivity": "Maelezo ya mwisho {time}",
-      "viewAll": "Ona yote"
+      "viewAll": "Ona yote",
+      "pin": "Bandika kama maalum",
+      "unpin": "Ondoa kubandikwa"
     },
     "stats": {
       "totalNotes": "Jumla ya maelezo",

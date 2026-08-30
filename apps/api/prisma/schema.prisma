@@ -286,6 +286,9 @@ model Highlight {
   // EPUB-only: authoritative anchor for reflowable content (pageIndex/startOffset/
   // endOffset are non-authoritative placeholders there — see epub-reader.tsx).
   cfi          String?
+  // At most one note/highlight pinned per book at a time (see Note.pinned
+  // too) — the Notas page's "featured quote" for that book.
+  pinned       Boolean  @default(false)
   createdAt    DateTime @default(now()) @map("created_at")
 
   notes Note[]
@@ -309,6 +312,9 @@ model Note {
   colorTag    String?    @map("color_tag") // post-it variant
   // EPUB-only: authoritative anchor for reflowable content — see Highlight.cfi.
   cfi         String?
+  // At most one note/highlight pinned per book at a time (see Highlight.pinned
+  // too) — the Notas page's "featured quote" for that book.
+  pinned      Boolean    @default(false)
   createdAt   DateTime   @default(now()) @map("created_at")
   updatedAt   DateTime   @updatedAt @map("updated_at")
 

@@ -331,7 +331,9 @@
       "pageLabel": "{page} ページ",
       "noteCount": "{count, plural, other {メモ # 件}}",
       "lastActivity": "最新のメモ {time}",
-      "viewAll": "すべて見る"
+      "viewAll": "すべて見る",
+      "pin": "注目として固定",
+      "unpin": "固定を解除"
     },
     "stats": {
       "totalNotes": "メモの総数",

@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Book, Highlight } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateHighlightDto } from './dto/create-highlight.dto';
+import { UpdateHighlightDto } from './dto/update-highlight.dto';
 
 @Injectable()
 export class HighlightsService {
@@ -34,6 +35,37 @@ export class HighlightsService {
         endOffset: dto.endOffset,
         selectedText: dto.selectedText,
         cfi: dto.cfi,
+      },
+    });
+  }
+
+  async update(
+    ownerId: string,
+    bookId: string,
+    highlightId: string,
+    dto: UpdateHighlightDto,
+  ): Promise<Highlight> {
+    await this.getOwnedHighlightOrThrow(ownerId, bookId, highlightId);
+
+    // At most one pinned note/highlight per book -- pinning this one unpins
+    // every other note *and* highlight on the same book first.
+    if (dto.pinned === true) {
+      await this.prisma.$transaction([
+        this.prisma.note.updateMany({
+          where: { bookId, userId: ownerId, pinned: true },
+          data: { pinned: false },
+        }),
+        this.prisma.highlight.updateMany({
+          where: { bookId, userId: ownerId, pinned: true },
+          data: { pinned: false },
+        }),
+      ]);
+    }
+
+    return this.prisma.highlight.update({
+      where: { id: highlightId },
+      data: {
+        ...(dto.pinned !== undefined && { pinned: dto.pinned }),
       },
     });
   }

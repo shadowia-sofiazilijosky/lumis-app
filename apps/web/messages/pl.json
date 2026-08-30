@@ -331,7 +331,9 @@
       "pageLabel": "Strona {page}",
       "noteCount": "{count, plural, one {# notatka} few {# notatki} many {# notatek} other {# notatki}}",
       "lastActivity": "Ostatnia notatka {time}",
-      "viewAll": "Zobacz wszystkie"
+      "viewAll": "Zobacz wszystkie",
+      "pin": "Przypnij jako wyróżnioną",
+      "unpin": "Odepnij"
     },
     "stats": {
       "totalNotes": "Notatki łącznie",

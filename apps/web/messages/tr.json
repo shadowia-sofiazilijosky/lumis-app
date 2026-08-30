@@ -331,7 +331,9 @@
       "pageLabel": "Sayfa {page}",
       "noteCount": "{count, plural, other {# not}}",
       "lastActivity": "Son not {time}",
-      "viewAll": "Tümünü gör"
+      "viewAll": "Tümünü gör",
+      "pin": "Öne çıkan olarak sabitle",
+      "unpin": "Sabitlemeyi kaldır"
     },
     "stats": {
       "totalNotes": "Toplam not",

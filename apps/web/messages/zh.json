@@ -331,7 +331,9 @@
       "pageLabel": "第 {page} 页",
       "noteCount": "{count, plural, other {# 条笔记}}",
       "lastActivity": "最近一条笔记 {time}",
-      "viewAll": "查看全部"
+      "viewAll": "查看全部",
+      "pin": "设为精选",
+      "unpin": "取消精选"
     },
     "stats": {
       "totalNotes": "笔记总数",

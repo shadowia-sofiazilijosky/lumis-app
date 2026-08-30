@@ -331,7 +331,9 @@
       "pageLabel": "صفحہ {page}",
       "noteCount": "{count, plural, other {# نوٹس}}",
       "lastActivity": "آخری نوٹ {time}",
-      "viewAll": "سب دیکھیں"
+      "viewAll": "سب دیکھیں",
+      "pin": "نمایاں کے طور پر پن کریں",
+      "unpin": "پن ہٹائیں"
     },
     "stats": {
       "totalNotes": "کل نوٹس",

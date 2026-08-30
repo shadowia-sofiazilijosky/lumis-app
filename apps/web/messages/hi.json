@@ -331,7 +331,9 @@
       "pageLabel": "पृष्ठ {page}",
       "noteCount": "{count, plural, one {# नोट} other {# नोट्स}}",
       "lastActivity": "आखिरी नोट {time}",
-      "viewAll": "सभी देखें"
+      "viewAll": "सभी देखें",
+      "pin": "विशेष के रूप में पिन करें",
+      "unpin": "पिन हटाएं"
     },
     "stats": {
       "totalNotes": "कुल नोट्स",

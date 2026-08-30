@@ -4,23 +4,70 @@ import type { NotesOverviewBook } from "@lumis/shared-types";
 import { ArrowRight, Pin, Star } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { updateHighlight, updateNote } from "@/features/reader/api/annotations-client";
 import { formatRelativeTime } from "../lib/format-relative-time";
 import { colorForTag } from "../lib/note-tag-colors";
 
-/** One card per book: a featured quote (its most recent highlight, or --
- * failing that -- its most recent note body) plus every individual note as
- * a colored post-it. `notes`/`highlights` arrive already sorted most-recent
- * first from the API. */
-export function NoteBookCard({ group }: { group: NotesOverviewBook }) {
+interface Entry {
+  kind: "note" | "highlight";
+  id: string;
+  text: string;
+  color: string;
+  pageIndex: number;
+  pinned: boolean;
+}
+
+/** One card per book: a featured quote -- pinned by the user, or (while
+ * nothing is pinned) its most recent highlight, falling back to its most
+ * recent note -- plus every other note/highlight as a colored post-it.
+ * `notes`/`highlights` arrive already sorted most-recent first from the
+ * API. */
+export function NoteBookCard({
+  group,
+  onChanged,
+}: {
+  group: NotesOverviewBook;
+  onChanged: () => void;
+}) {
   const t = useTranslations("notesPage.card");
   const locale = useLocale();
   const { book, notes, highlights, lastActivityAt } = group;
 
-  const featured = highlights[0]
-    ? { text: highlights[0].selectedText, pageIndex: highlights[0].pageIndex }
-    : notes[0]
-      ? { text: notes[0].body, pageIndex: notes[0].pageIndex }
-      : null;
+  const entries: Entry[] = [
+    ...notes.map((note) => ({
+      kind: "note" as const,
+      id: note.id,
+      text: note.body,
+      color: colorForTag(note.colorTag),
+      pageIndex: note.pageIndex,
+      pinned: note.pinned,
+    })),
+    ...highlights.map((highlight) => ({
+      kind: "highlight" as const,
+      id: highlight.id,
+      text: highlight.selectedText,
+      color: highlight.color,
+      pageIndex: highlight.pageIndex,
+      pinned: highlight.pinned,
+    })),
+  ];
+
+  const featured =
+    entries.find((entry) => entry.pinned) ??
+    entries.find((entry) => entry.kind === "highlight") ??
+    entries[0] ??
+    null;
+  const postits = entries.filter((entry) => entry !== featured);
+
+  async function togglePin(entry: Entry) {
+    const pinned = !entry.pinned;
+    if (entry.kind === "note") {
+      await updateNote(book.id, entry.id, { pinned });
+    } else {
+      await updateHighlight(book.id, entry.id, { pinned });
+    }
+    onChanged();
+  }
 
   return (
     <article className="note-book-card">
@@ -41,34 +88,47 @@ export function NoteBookCard({ group }: { group: NotesOverviewBook }) {
 
         {featured && (
           <>
-            <span className="note-book-card-featured-tag">
+            <div className="note-book-card-featured-tag">
               <Star size={12} fill="currentColor" />
               {t("featuredTag")}
-            </span>
+              <button
+                type="button"
+                className={`note-pin-toggle${featured.pinned ? " note-pin-toggle-active" : ""}`}
+                aria-label={featured.pinned ? t("unpin") : t("pin")}
+                aria-pressed={featured.pinned}
+                onClick={() => togglePin(featured)}
+              >
+                <Pin size={12} fill={featured.pinned ? "currentColor" : "none"} />
+              </button>
+            </div>
             <p className="note-book-card-featured-quote">&ldquo;{featured.text}&rdquo;</p>
             <p className="note-book-card-meta">{t("pageLabel", { page: featured.pageIndex + 1 })}</p>
           </>
         )}
       </div>
 
-      {notes.length > 0 && (
+      {postits.length > 0 && (
         <div className="note-book-card-postits">
-          {notes.map((note) => (
-            <div
-              key={note.id}
-              className="note-postit"
-              style={{ background: colorForTag(note.colorTag) }}
-            >
-              <Pin size={12} className="note-postit-pin" />
-              <p className="note-postit-body">{note.body}</p>
-              <p className="note-book-card-meta">{t("pageLabel", { page: note.pageIndex + 1 })}</p>
+          {postits.map((entry) => (
+            <div key={entry.id} className="note-postit" style={{ background: entry.color }}>
+              <button
+                type="button"
+                className="note-pin-toggle note-postit-pin"
+                aria-label={entry.pinned ? t("unpin") : t("pin")}
+                aria-pressed={entry.pinned}
+                onClick={() => togglePin(entry)}
+              >
+                <Pin size={12} fill={entry.pinned ? "currentColor" : "none"} />
+              </button>
+              <p className="note-postit-body">{entry.text}</p>
+              <p className="note-book-card-meta">{t("pageLabel", { page: entry.pageIndex + 1 })}</p>
             </div>
           ))}
         </div>
       )}
 
       <div className="note-book-card-stats">
-        <p className="note-book-card-count">{t("noteCount", { count: notes.length })}</p>
+        <p className="note-book-card-count">{t("noteCount", { count: entries.length })}</p>
         <p className="note-book-card-last-activity">
           {t("lastActivity", { time: formatRelativeTime(lastActivityAt, locale) })}
         </p>

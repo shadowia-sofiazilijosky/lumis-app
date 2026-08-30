@@ -82,11 +82,28 @@ export class NotesService {
   ): Promise<Note> {
     await this.getOwnedNoteOrThrow(ownerId, bookId, noteId);
 
+    // At most one pinned note/highlight per book -- pinning this one unpins
+    // every other note *and* highlight on the same book first (mirrored in
+    // HighlightsService.update for the other direction).
+    if (dto.pinned === true) {
+      await this.prisma.$transaction([
+        this.prisma.note.updateMany({
+          where: { bookId, userId: ownerId, pinned: true },
+          data: { pinned: false },
+        }),
+        this.prisma.highlight.updateMany({
+          where: { bookId, userId: ownerId, pinned: true },
+          data: { pinned: false },
+        }),
+      ]);
+    }
+
     return this.prisma.note.update({
       where: { id: noteId },
       data: {
         ...(dto.body !== undefined && { body: dto.body }),
         ...(dto.colorTag !== undefined && { colorTag: dto.colorTag }),
+        ...(dto.pinned !== undefined && { pinned: dto.pinned }),
       },
     });
   }

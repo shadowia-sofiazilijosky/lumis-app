@@ -331,7 +331,9 @@
       "pageLabel": "{page} 페이지",
       "noteCount": "{count, plural, other {노트 #개}}",
       "lastActivity": "최근 노트 {time}",
-      "viewAll": "전체 보기"
+      "viewAll": "전체 보기",
+      "pin": "대표로 고정",
+      "unpin": "고정 해제"
     },
     "stats": {
       "totalNotes": "전체 노트",

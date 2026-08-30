@@ -331,7 +331,9 @@
       "pageLabel": "Pagina {page}",
       "noteCount": "{count, plural, one {# notitie} other {# notities}}",
       "lastActivity": "Laatste notitie {time}",
-      "viewAll": "Alles bekijken"
+      "viewAll": "Alles bekijken",
+      "pin": "Vastzetten als uitgelicht",
+      "unpin": "Losmaken"
     },
     "stats": {
       "totalNotes": "Totaal aantal notities",

@@ -331,7 +331,9 @@
       "pageLabel": "Trang {page}",
       "noteCount": "{count, plural, other {# ghi chú}}",
       "lastActivity": "Ghi chú gần nhất {time}",
-      "viewAll": "Xem tất cả"
+      "viewAll": "Xem tất cả",
+      "pin": "Ghim làm nổi bật",
+      "unpin": "Bỏ ghim"
     },
     "stats": {
       "totalNotes": "Tổng số ghi chú",

@@ -6,6 +6,24 @@ interface RouteParams {
   params: Promise<{ bookId: string; highlightId: string }>;
 }
 
+export async function PATCH(request: Request, { params }: RouteParams) {
+  const { bookId, highlightId } = await params;
+  const body = await request.text();
+
+  try {
+    const highlight = await authenticatedApiFetch(
+      `/books/${bookId}/highlights/${highlightId}`,
+      { method: "PATCH", body },
+    );
+    return NextResponse.json(highlight);
+  } catch (error) {
+    if (error instanceof ApiError) {
+      return NextResponse.json(error.body, { status: error.status });
+    }
+    throw error;
+  }
+}
+
 export async function DELETE(_request: Request, { params }: RouteParams) {
   const { bookId, highlightId } = await params;
 

@@ -1,4 +1,4 @@
-import { IsOptional, IsString, MaxLength, MinLength } from 'class-validator';
+import { IsBoolean, IsOptional, IsString, MaxLength, MinLength } from 'class-validator';
 
 export class UpdateNoteDto {
   @IsOptional()
@@ -10,4 +10,10 @@ export class UpdateNoteDto {
   @IsOptional()
   @IsString()
   colorTag?: string;
+
+  // Setting this true unpins every other note/highlight on the same book
+  // (at most one pinned "featured" item per book) — see NotesService.update.
+  @IsOptional()
+  @IsBoolean()
+  pinned?: boolean;
 }
