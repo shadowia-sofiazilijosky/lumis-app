@@ -5,6 +5,7 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Lock, Unlock } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import type { CSSProperties } from "react";
 import { DEFAULT_BOOK_COVER_SIZE } from "../lib/canvas";
 import { useShelfEditorStore } from "../store/shelf-editor-store";
@@ -25,6 +26,7 @@ export function ShelfBookItem({
   editMode,
 }: ShelfBookItemProps) {
   const t = useTranslations("shelfEditor.item");
+  const router = useRouter();
   const isLocked = position.locked ?? false;
 
   const { attributes, listeners, setNodeRef, transform, isDragging } =
@@ -59,16 +61,20 @@ export function ShelfBookItem({
       style={wrapperStyle}
       onClick={(event) => {
         event.stopPropagation();
-        if (editMode) selectBook(isSelected ? null : bookId);
+        if (editMode) {
+          selectBook(isSelected ? null : bookId);
+        } else {
+          router.push(`/read/${bookId}`);
+        }
       }}
     >
       <button
         type="button"
         {...listeners}
         {...attributes}
-        className="shelf-book-cover"
-        aria-label={t("selectOrMoveBook", { title: book.title })}
-        aria-pressed={isSelected}
+        className={`shelf-book-cover ${!editMode ? "shelf-book-cover-view" : ""}`}
+        aria-label={editMode ? t("selectOrMoveBook", { title: book.title }) : t("openBook", { title: book.title })}
+        aria-pressed={editMode ? isSelected : undefined}
       >
         {book.coverUrl ? (
           // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL

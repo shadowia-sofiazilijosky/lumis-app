@@ -154,7 +154,8 @@
       "unpin": "إلغاء التثبيت",
       "remove": "إزالة",
       "selectOrMoveBook": "تحديد أو تحريك \"{title}\"",
-      "removeFromShelf": "إزالة من الرف"
+      "removeFromShelf": "إزالة من الرف",
+      "openBook": "فتح \"{title}\""
     }
   },
   "library": {

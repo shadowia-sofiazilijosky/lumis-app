@@ -154,7 +154,8 @@
       "unpin": "Unpin",
       "remove": "Remove",
       "selectOrMoveBook": "Select or move \"{title}\"",
-      "removeFromShelf": "Remove from shelf"
+      "removeFromShelf": "Remove from shelf",
+      "openBook": "Open \"{title}\""
     }
   },
   "library": {

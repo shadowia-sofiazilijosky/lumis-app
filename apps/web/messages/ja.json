@@ -154,7 +154,8 @@
       "unpin": "固定解除",
       "remove": "削除",
       "selectOrMoveBook": "「{title}」を選択・移動",
-      "removeFromShelf": "本棚から削除"
+      "removeFromShelf": "本棚から削除",
+      "openBook": "「{title}」を開く"
     }
   },
   "library": {

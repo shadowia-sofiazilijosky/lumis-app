@@ -154,7 +154,8 @@
       "unpin": "Lepas sematan",
       "remove": "Hapus",
       "selectOrMoveBook": "Pilih atau pindahkan \"{title}\"",
-      "removeFromShelf": "Hapus dari rak"
+      "removeFromShelf": "Hapus dari rak",
+      "openBook": "Buka \"{title}\""
     }
   },
   "library": {

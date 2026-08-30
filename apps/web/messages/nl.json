@@ -154,7 +154,8 @@
       "unpin": "Losmaken",
       "remove": "Verwijderen",
       "selectOrMoveBook": "\"{title}\" selecteren of verplaatsen",
-      "removeFromShelf": "Van plank verwijderen"
+      "removeFromShelf": "Van plank verwijderen",
+      "openBook": "\"{title}\" openen"
     }
   },
   "library": {

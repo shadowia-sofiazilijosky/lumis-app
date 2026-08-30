@@ -154,7 +154,8 @@
       "unpin": "अनपिन करें",
       "remove": "हटाएं",
       "selectOrMoveBook": "\"{title}\" चुनें या ले जाएं",
-      "removeFromShelf": "शेल्फ़ से हटाएं"
+      "removeFromShelf": "शेल्फ़ से हटाएं",
+      "openBook": "\"{title}\" खोलें"
     }
   },
   "library": {

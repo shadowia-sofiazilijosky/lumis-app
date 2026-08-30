@@ -154,7 +154,8 @@
       "unpin": "고정 해제",
       "remove": "제거",
       "selectOrMoveBook": "\"{title}\" 선택 또는 이동",
-      "removeFromShelf": "책장에서 제거"
+      "removeFromShelf": "책장에서 제거",
+      "openBook": "\"{title}\" 열기"
     }
   },
   "library": {

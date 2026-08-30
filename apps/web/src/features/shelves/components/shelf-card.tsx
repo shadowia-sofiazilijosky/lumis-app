@@ -13,8 +13,6 @@ import { findShelfFrameImage } from "../lib/appearance-catalog";
 import { findDecorationDefaultSize, findDecorationImage } from "../lib/decoration-catalog";
 import { getGenreStyle } from "../lib/genre-catalog";
 
-const PREVIEW_ASPECT = CANVAS_WIDTH / CANVAS_HEIGHT;
-
 export function ShelfCard({
   shelf,
   index = 0,
@@ -32,6 +30,12 @@ export function ShelfCard({
   // card mirror the actual editor layout instead of a generic stand-in.
   const refWidth = shelf.canvasWidth ?? CANVAS_WIDTH;
   const refHeight = shelf.canvasHeight ?? CANVAS_HEIGHT;
+  // Match the card's own aspect ratio to this shelf's real canvas shape --
+  // items are positioned as a % of refWidth/refHeight, so forcing a fixed
+  // 1000:600 box here (regardless of how the shelf was actually resized)
+  // would stretch/compress every position relative to how it really looks
+  // in the editor.
+  const previewAspect = refWidth / refHeight;
 
   return (
     <div className="shelf-card">
@@ -46,7 +50,7 @@ export function ShelfCard({
           </div>
         </div>
 
-        <div className="shelf-card-preview" style={{ aspectRatio: PREVIEW_ASPECT }}>
+        <div className="shelf-card-preview" style={{ aspectRatio: previewAspect }}>
           <div
             className="shelf-card-preview-background"
             style={{

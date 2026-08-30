@@ -16,7 +16,7 @@ type BookSummary = Pick<
   'id' | 'title' | 'author' | 'format' | 'pageCount' | 'coverImageKey'
 >;
 
-const PREVIEW_COVER_LIMIT = 6;
+const PREVIEW_COVER_LIMIT = 12;
 
 export interface ShelfPreviewBook {
   coverUrl: string | null;

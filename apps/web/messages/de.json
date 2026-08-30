@@ -154,7 +154,8 @@
       "unpin": "Lösen",
       "remove": "Entfernen",
       "selectOrMoveBook": "\"{title}\" auswählen oder bewegen",
-      "removeFromShelf": "Vom Regal entfernen"
+      "removeFromShelf": "Vom Regal entfernen",
+      "openBook": "\"{title}\" öffnen"
     }
   },
   "library": {

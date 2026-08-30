@@ -154,7 +154,8 @@
       "unpin": "Sabitlemeyi kaldır",
       "remove": "Kaldır",
       "selectOrMoveBook": "\"{title}\" seç veya taşı",
-      "removeFromShelf": "Raftan kaldır"
+      "removeFromShelf": "Raftan kaldır",
+      "openBook": "\"{title}\" başlığını aç"
     }
   },
   "library": {

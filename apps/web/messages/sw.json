@@ -154,7 +154,8 @@
       "unpin": "Ondoa bandiko",
       "remove": "Ondoa",
       "selectOrMoveBook": "Chagua au sogeza \"{title}\"",
-      "removeFromShelf": "Ondoa kwenye rafu"
+      "removeFromShelf": "Ondoa kwenye rafu",
+      "openBook": "Fungua \"{title}\""
     }
   },
   "library": {

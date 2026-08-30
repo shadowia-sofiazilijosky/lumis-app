@@ -154,7 +154,8 @@
       "unpin": "Désépingler",
       "remove": "Retirer",
       "selectOrMoveBook": "Sélectionner ou déplacer « {title} »",
-      "removeFromShelf": "Retirer de l'étagère"
+      "removeFromShelf": "Retirer de l'étagère",
+      "openBook": "Ouvrir « {title} »"
     }
   },
   "library": {

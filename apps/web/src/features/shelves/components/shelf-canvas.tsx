@@ -283,39 +283,33 @@ export function ShelfCanvas({ shelf }: { shelf: ShelfWithBooks }) {
           <div className="shelf-canvas-outer" ref={outerRef}>
             <div
               className="shelf-canvas-scale-wrapper"
-              style={
-                canvasScale < 1
-                  ? { width: effectiveWidth * canvasScale, height: effectiveHeight * canvasScale }
-                  : undefined
-              }
+              // `zoom` (not `transform: scale`) on purpose: transform only
+              // rescales an already-rasterized layer, which softened every
+              // book cover and decoration image on any manually-resized
+              // shelf that didn't fit the viewport. `zoom` reflows the
+              // subtree at its true final size instead, so everything
+              // (including <img> decode resolution) stays crisp.
+              style={canvasScale < 1 ? { zoom: canvasScale } : undefined}
             >
-              <div
-                style={
-                  canvasScale < 1
-                    ? { width: effectiveWidth, height: effectiveHeight, transform: `scale(${canvasScale})`, transformOrigin: "top left" }
-                    : undefined
-                }
+              <ResizableCanvasBox
+                width={effectiveWidth}
+                height={effectiveHeight}
+                auto={!hasManualSize}
+                aspectRatio={CANVAS_WIDTH / CANVAS_HEIGHT}
+                boxRef={boxRef}
+                onResize={setCanvasSize}
+                onResizeEnd={persistCanvasSize}
+                showHandles={editMode}
               >
-                <ResizableCanvasBox
-                  width={effectiveWidth}
-                  height={effectiveHeight}
-                  auto={!hasManualSize}
-                  aspectRatio={CANVAS_WIDTH / CANVAS_HEIGHT}
-                  boxRef={boxRef}
-                  onResize={setCanvasSize}
-                  onResizeEnd={persistCanvasSize}
-                  showHandles={editMode}
-                >
-                  <DroppableCanvas
-                    shelf={shelf}
-                    bookPositions={bookPositions}
-                    decorations={decorations}
-                    onRemoveDecoration={removeDecoration}
-                    onRemoveBook={handleRemoveBook}
-                    editMode={editMode}
-                  />
-                </ResizableCanvasBox>
-              </div>
+                <DroppableCanvas
+                  shelf={shelf}
+                  bookPositions={bookPositions}
+                  decorations={decorations}
+                  onRemoveDecoration={removeDecoration}
+                  onRemoveBook={handleRemoveBook}
+                  editMode={editMode}
+                />
+              </ResizableCanvasBox>
             </div>
           </div>
           {editMode && <ShelfCustomizationPanel shelf={shelf} />}

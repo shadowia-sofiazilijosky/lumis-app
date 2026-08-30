@@ -154,7 +154,8 @@
       "unpin": "আনপিন করুন",
       "remove": "সরান",
       "selectOrMoveBook": "\"{title}\" নির্বাচন বা সরান",
-      "removeFromShelf": "শেলফ থেকে সরান"
+      "removeFromShelf": "শেলফ থেকে সরান",
+      "openBook": "\"{title}\" খুলুন"
     }
   },
   "library": {

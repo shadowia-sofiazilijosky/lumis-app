@@ -154,7 +154,8 @@
       "unpin": "Bỏ ghim",
       "remove": "Xóa",
       "selectOrMoveBook": "Chọn hoặc di chuyển \"{title}\"",
-      "removeFromShelf": "Xóa khỏi kệ sách"
+      "removeFromShelf": "Xóa khỏi kệ sách",
+      "openBook": "Mở \"{title}\""
     }
   },
   "library": {

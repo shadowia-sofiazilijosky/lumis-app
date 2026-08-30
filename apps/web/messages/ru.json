@@ -154,7 +154,8 @@
       "unpin": "Открепить",
       "remove": "Удалить",
       "selectOrMoveBook": "Выбрать или переместить «{title}»",
-      "removeFromShelf": "Убрать с полки"
+      "removeFromShelf": "Убрать с полки",
+      "openBook": "Открыть «{title}»"
     }
   },
   "library": {
