@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Catatan — Lumis",
     "heading": "Catatan",
-    "body": "Di sini kamu akan bisa melihat semua ulasan, sorotan, dan catatanmu di satu tempat. Kami masih membangun tampilan ini — untuk saat ini, lihat catatan dan sorotanmu langsung dari setiap buku di <link>perpustakaanmu</link>."
+    "emptyTitle": "Kamu belum punya catatan",
+    "emptyDescription": "Saat kamu menulis catatan, membuat sorotan, atau menuliskan ide sambil membaca, semuanya akan muncul di sini. Ruang pribadimu untuk pikiran dan bacaan <em>siap untuk diisi.</em>",
+    "ctaButton": "Ke perpustakaanku"
   },
   "auth": {
     "login": {

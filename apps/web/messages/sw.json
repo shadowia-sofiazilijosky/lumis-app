@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Vidokezo — Lumis",
     "heading": "Vidokezo",
-    "body": "Hapa utaweza kuona maoni yako yote, miangaza na vidokezo mahali pamoja. Bado tunajenga mwonekano huu — kwa sasa, angalia vidokezo na miangaza yako moja kwa moja kutoka kwa kila kitabu katika <link>maktaba yako</link>."
+    "emptyTitle": "Bado huna maelezo yoyote",
+    "emptyDescription": "Utakapoandika maelezo, kuweka alama, au kuacha mawazo unaposoma, utavipata vyote hapa. Nafasi yako binafsi ya mawazo na masomo <em>iko tayari kujazwa.</em>",
+    "ctaButton": "Nenda kwenye maktaba yangu"
   },
   "auth": {
     "login": {

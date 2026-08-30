@@ -4265,3 +4265,135 @@ html[data-theme="light"] {
   font-size: 0.88rem;
   margin-bottom: 2rem !important;
 }
+
+/* --- Notes page (empty state) --- */
+
+.notes-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.notes-page-header {
+  align-self: flex-start;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.notes-page-header h1 {
+  margin-bottom: 0.6rem;
+}
+
+.notes-title-divider,
+.notes-empty-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.notes-empty-divider {
+  margin: 0.5rem 0 1.25rem;
+}
+
+.notes-divider-line {
+  display: block;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    color-mix(in srgb, var(--primary) 15%, transparent) 100%
+  );
+}
+
+.notes-title-divider .notes-divider-line {
+  width: 230px;
+}
+
+.notes-empty-divider .notes-divider-line {
+  width: 150px;
+}
+
+.notes-divider-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.notes-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem 0;
+}
+
+.notes-empty-illustration {
+  width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.notes-empty-state h2 {
+  margin-bottom: 0;
+}
+
+.notes-empty-description {
+  max-width: 460px;
+  color: var(--foreground);
+  opacity: 0.85;
+  line-height: 1.65;
+  margin: 0 0 1.75rem;
+}
+
+.notes-empty-description em {
+  font-style: italic;
+  color: var(--primary);
+  opacity: 1;
+}
+
+.notes-empty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.35rem 1.6rem 0.35rem 0.35rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.notes-empty-cta:hover {
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.notes-empty-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  color: inherit;
+}
+
+@media (max-width: 480px) {
+  .notes-title-divider .notes-divider-line {
+    width: 150px;
+  }
+
+  .notes-empty-divider .notes-divider-line {
+    width: 100px;
+  }
+
+  .notes-empty-illustration {
+    width: 220px;
+  }
+}

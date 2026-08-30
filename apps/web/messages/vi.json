@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Ghi chú — Lumis",
     "heading": "Ghi chú",
-    "body": "Tại đây bạn sẽ có thể xem tất cả bài đánh giá, phần tô sáng và ghi chú ở một nơi. Chúng tôi vẫn đang xây dựng giao diện này — hiện tại, hãy xem ghi chú và phần tô sáng trực tiếp từ mỗi cuốn sách trong <link>thư viện của bạn</link>."
+    "emptyTitle": "Bạn chưa có ghi chú nào",
+    "emptyDescription": "Khi bạn viết ghi chú, đánh dấu hoặc lưu lại ý tưởng trong lúc đọc, bạn sẽ tìm thấy tất cả ở đây. Không gian riêng cho suy nghĩ và việc đọc của bạn <em>đang sẵn sàng để lấp đầy.</em>",
+    "ctaButton": "Đến thư viện của tôi"
   },
   "auth": {
     "login": {

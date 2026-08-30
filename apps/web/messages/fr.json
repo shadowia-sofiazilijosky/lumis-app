@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Notes — Lumis",
     "heading": "Notes",
-    "body": "Ici, tu pourras voir toutes tes critiques, surlignages et notes au même endroit. Nous sommes encore en train de construire cette vue — pour l'instant, consulte tes notes et surlignages directement depuis chaque livre dans <link>ta bibliothèque</link>."
+    "emptyTitle": "Tu n'as pas encore de notes",
+    "emptyDescription": "Quand tu écriras des notes, feras des surlignages ou noteras des idées en lisant, tu les retrouveras toutes ici. Ton espace personnel de pensées et de lectures <em>est prêt à se remplir.</em>",
+    "ctaButton": "Aller à ma bibliothèque"
   },
   "auth": {
     "login": {

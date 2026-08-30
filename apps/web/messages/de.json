@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Notizen — Lumis",
     "heading": "Notizen",
-    "body": "Hier kannst du bald alle deine Rezensionen, Markierungen und Notizen an einem Ort sehen. Wir arbeiten noch an dieser Ansicht — schau dir deine Notizen und Markierungen vorerst direkt bei jedem Buch in <link>deiner Bibliothek</link> an."
+    "emptyTitle": "Du hast noch keine Notizen",
+    "emptyDescription": "Wenn du Notizen schreibst, Markierungen setzt oder beim Lesen Gedanken festhältst, findest du hier alles wieder. Dein persönlicher Raum für Gedanken und Lektüren <em>ist bereit, sich zu füllen.</em>",
+    "ctaButton": "Zu meiner Bibliothek"
   },
   "auth": {
     "login": {

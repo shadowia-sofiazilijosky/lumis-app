@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Note — Lumis",
     "heading": "Note",
-    "body": "Qui potrai vedere tutte le tue recensioni, evidenziazioni e note in un unico posto. Stiamo ancora costruendo questa vista — per ora, controlla le tue note ed evidenziazioni direttamente da ogni libro nella <link>tua libreria</link>."
+    "emptyTitle": "Ancora non hai note",
+    "emptyDescription": "Quando scriverai note, farai evidenziazioni o lascerai idee mentre leggi, le troverai tutte qui. Il tuo spazio personale di pensieri e letture <em>è pronto per riempirsi.</em>",
+    "ctaButton": "Vai alla mia libreria"
   },
   "auth": {
     "login": {

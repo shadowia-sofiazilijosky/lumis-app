@@ -310,7 +310,9 @@
   "notesPage": {
     "pageTitle": "Notatki — Lumis",
     "heading": "Notatki",
-    "body": "Tutaj będziesz mógł/mogła zobaczyć wszystkie swoje recenzje, zaznaczenia i notatki w jednym miejscu. Wciąż budujemy ten widok — na razie sprawdzaj swoje notatki i zaznaczenia bezpośrednio przy każdej książce w <link>swojej bibliotece</link>."
+    "emptyTitle": "Nie masz jeszcze żadnych notatek",
+    "emptyDescription": "Kiedy zaczniesz pisać notatki, zaznaczać fragmenty albo zapisywać myśli podczas czytania, znajdziesz je wszystkie tutaj. Twoja osobista przestrzeń na myśli i lektury <em>czeka, aż ją wypełnisz.</em>",
+    "ctaButton": "Przejdź do mojej biblioteki"
   },
   "auth": {
     "login": {
