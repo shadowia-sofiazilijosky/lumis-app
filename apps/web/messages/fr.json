@@ -312,7 +312,32 @@
     "heading": "Notes",
     "emptyTitle": "Tu n'as pas encore de notes",
     "emptyDescription": "Quand tu écriras des notes, feras des surlignages ou noteras des idées en lisant, tu les retrouveras toutes ici. Ton espace personnel de pensées et de lectures <em>est prêt à se remplir.</em>",
-    "ctaButton": "Aller à ma bibliothèque"
+    "ctaButton": "Aller à ma bibliothèque",
+    "intro": "Ici, tu retrouveras tous tes avis, surlignages et notes au même endroit. Organise tes pensées et lectures depuis chaque livre dans <link>ta bibliothèque</link>.",
+    "loading": "Chargement de tes notes…",
+    "loadError": "Impossible de charger tes notes.",
+    "noResults": "Aucune note ne correspond à la recherche.",
+    "controls": {
+      "searchPlaceholder": "Rechercher dans mes notes...",
+      "filterAllBooks": "Tous les livres",
+      "sortLabel": "Trier",
+      "sortRecent": "Plus récentes",
+      "sortOldest": "Plus anciennes",
+      "newNote": "Nouvelle note"
+    },
+    "card": {
+      "cardMenu": "Plus d'options",
+      "featuredTag": "Note à la une",
+      "pageLabel": "Page {page}",
+      "noteCount": "{count, plural, one {# note} other {# notes}}",
+      "lastActivity": "Dernière note {time}",
+      "viewAll": "Tout voir"
+    },
+    "stats": {
+      "totalNotes": "Total des notes",
+      "booksWithNotes": "Livres avec notes",
+      "highlights": "Surlignages"
+    }
   },
   "auth": {
     "login": {

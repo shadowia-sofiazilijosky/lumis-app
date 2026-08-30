@@ -312,7 +312,32 @@
     "heading": "Notlar",
     "emptyTitle": "Henüz notun yok",
     "emptyDescription": "Notlar yazdıkça, vurgular yaptıkça ya da okurken fikirler bıraktıkça hepsini burada bulacaksın. Düşüncelerin ve okumaların için kişisel alanın <em>dolmaya hazır.</em>",
-    "ctaButton": "Kitaplığıma git"
+    "ctaButton": "Kitaplığıma git",
+    "intro": "Burada tüm incelemelerini, vurgularını ve notlarını tek yerde görebilirsin. Her kitaptaki düşüncelerini ve okumalarını <link>kitaplığından</link> düzenle.",
+    "loading": "Notların yükleniyor…",
+    "loadError": "Notlarını yükleyemedik.",
+    "noResults": "Aramayla eşleşen not bulunamadı.",
+    "controls": {
+      "searchPlaceholder": "Notlarımda ara...",
+      "filterAllBooks": "Tüm kitaplar",
+      "sortLabel": "Sırala",
+      "sortRecent": "En yeni",
+      "sortOldest": "En eski",
+      "newNote": "Yeni not"
+    },
+    "card": {
+      "cardMenu": "Diğer seçenekler",
+      "featuredTag": "Öne çıkan not",
+      "pageLabel": "Sayfa {page}",
+      "noteCount": "{count, plural, other {# not}}",
+      "lastActivity": "Son not {time}",
+      "viewAll": "Tümünü gör"
+    },
+    "stats": {
+      "totalNotes": "Toplam not",
+      "booksWithNotes": "Notlu kitaplar",
+      "highlights": "Vurgular"
+    }
   },
   "auth": {
     "login": {

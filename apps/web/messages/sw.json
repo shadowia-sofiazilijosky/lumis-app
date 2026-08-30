@@ -312,7 +312,32 @@
     "heading": "Vidokezo",
     "emptyTitle": "Bado huna maelezo yoyote",
     "emptyDescription": "Utakapoandika maelezo, kuweka alama, au kuacha mawazo unaposoma, utavipata vyote hapa. Nafasi yako binafsi ya mawazo na masomo <em>iko tayari kujazwa.</em>",
-    "ctaButton": "Nenda kwenye maktaba yangu"
+    "ctaButton": "Nenda kwenye maktaba yangu",
+    "intro": "Hapa unaweza kuona maoni, alama, na maelezo yako yote mahali pamoja. Panga mawazo na masomo yako kutoka kila kitabu katika <link>maktaba yako</link>.",
+    "loading": "Inapakia maelezo yako…",
+    "loadError": "Hatukuweza kupakia maelezo yako.",
+    "noResults": "Hakuna maelezo yanayolingana na utafutaji.",
+    "controls": {
+      "searchPlaceholder": "Tafuta katika maelezo yangu...",
+      "filterAllBooks": "Vitabu vyote",
+      "sortLabel": "Panga",
+      "sortRecent": "Mapya zaidi",
+      "sortOldest": "Ya zamani zaidi",
+      "newNote": "Maelezo mapya"
+    },
+    "card": {
+      "cardMenu": "Chaguo zaidi",
+      "featuredTag": "Maelezo maalum",
+      "pageLabel": "Ukurasa {page}",
+      "noteCount": "{count, plural, other {maelezo #}}",
+      "lastActivity": "Maelezo ya mwisho {time}",
+      "viewAll": "Ona yote"
+    },
+    "stats": {
+      "totalNotes": "Jumla ya maelezo",
+      "booksWithNotes": "Vitabu vyenye maelezo",
+      "highlights": "Alama"
+    }
   },
   "auth": {
     "login": {

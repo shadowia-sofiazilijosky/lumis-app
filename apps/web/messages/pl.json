@@ -312,7 +312,32 @@
     "heading": "Notatki",
     "emptyTitle": "Nie masz jeszcze żadnych notatek",
     "emptyDescription": "Kiedy zaczniesz pisać notatki, zaznaczać fragmenty albo zapisywać myśli podczas czytania, znajdziesz je wszystkie tutaj. Twoja osobista przestrzeń na myśli i lektury <em>czeka, aż ją wypełnisz.</em>",
-    "ctaButton": "Przejdź do mojej biblioteki"
+    "ctaButton": "Przejdź do mojej biblioteki",
+    "intro": "Tutaj zobaczysz wszystkie swoje recenzje, zaznaczenia i notatki w jednym miejscu. Uporządkuj swoje myśli i lektury z każdej książki w <link>swojej bibliotece</link>.",
+    "loading": "Wczytywanie notatek…",
+    "loadError": "Nie udało się wczytać notatek.",
+    "noResults": "Brak notatek pasujących do wyszukiwania.",
+    "controls": {
+      "searchPlaceholder": "Szukaj w moich notatkach...",
+      "filterAllBooks": "Wszystkie książki",
+      "sortLabel": "Sortuj",
+      "sortRecent": "Najnowsze",
+      "sortOldest": "Najstarsze",
+      "newNote": "Nowa notatka"
+    },
+    "card": {
+      "cardMenu": "Więcej opcji",
+      "featuredTag": "Wyróżniona notatka",
+      "pageLabel": "Strona {page}",
+      "noteCount": "{count, plural, one {# notatka} few {# notatki} many {# notatek} other {# notatki}}",
+      "lastActivity": "Ostatnia notatka {time}",
+      "viewAll": "Zobacz wszystkie"
+    },
+    "stats": {
+      "totalNotes": "Notatki łącznie",
+      "booksWithNotes": "Książki z notatkami",
+      "highlights": "Zaznaczenia"
+    }
   },
   "auth": {
     "login": {

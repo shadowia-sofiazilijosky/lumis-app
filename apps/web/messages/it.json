@@ -312,7 +312,32 @@
     "heading": "Note",
     "emptyTitle": "Ancora non hai note",
     "emptyDescription": "Quando scriverai note, farai evidenziazioni o lascerai idee mentre leggi, le troverai tutte qui. Il tuo spazio personale di pensieri e letture <em>è pronto per riempirsi.</em>",
-    "ctaButton": "Vai alla mia libreria"
+    "ctaButton": "Vai alla mia libreria",
+    "intro": "Qui potrai vedere tutte le tue recensioni, evidenziazioni e note in un unico posto. Organizza i tuoi pensieri e le tue letture da ogni libro nella <link>tua libreria</link>.",
+    "loading": "Caricamento delle tue note…",
+    "loadError": "Non siamo riusciti a caricare le tue note.",
+    "noResults": "Nessuna nota corrisponde alla ricerca.",
+    "controls": {
+      "searchPlaceholder": "Cerca nelle mie note...",
+      "filterAllBooks": "Tutti i libri",
+      "sortLabel": "Ordina",
+      "sortRecent": "Più recenti",
+      "sortOldest": "Meno recenti",
+      "newNote": "Nuova nota"
+    },
+    "card": {
+      "cardMenu": "Altre opzioni",
+      "featuredTag": "Nota in evidenza",
+      "pageLabel": "Pagina {page}",
+      "noteCount": "{count, plural, one {# nota} other {# note}}",
+      "lastActivity": "Ultima nota {time}",
+      "viewAll": "Vedi tutte"
+    },
+    "stats": {
+      "totalNotes": "Totale note",
+      "booksWithNotes": "Libri con note",
+      "highlights": "Evidenziazioni"
+    }
   },
   "auth": {
     "login": {

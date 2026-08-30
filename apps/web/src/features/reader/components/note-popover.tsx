@@ -2,17 +2,10 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { NOTE_TAG_COLORS } from "@/features/notes/lib/note-tag-colors";
 import { createNote, deleteNote, updateNote } from "../api/annotations-client";
 import { useAnnotationsStore } from "../store/annotations-store";
 
-// Small, fixed tag palette for notes — separate from the highlight color
-// spectrum, this is just a quick visual category for a post-it.
-const NOTE_TAG_COLORS: Record<string, string> = {
-  YELLOW: "#f5d76e",
-  PINK: "#e8a0bf",
-  GREEN: "#a3d9a5",
-  BLUE: "#9ec5e8",
-};
 const NOTE_COLORS = Object.keys(NOTE_TAG_COLORS);
 
 /** Post-it editor: composes a new note from the pending selection, or edits/deletes an existing one. */

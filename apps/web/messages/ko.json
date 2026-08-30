@@ -312,7 +312,32 @@
     "heading": "메모",
     "emptyTitle": "아직 작성한 노트가 없어요",
     "emptyDescription": "책을 읽으며 노트를 쓰거나 하이라이트를 하거나 생각을 남기면 모두 여기서 볼 수 있어요. 당신만의 생각과 독서 공간이 <em>채워지길 기다리고 있어요.</em>",
-    "ctaButton": "내 서재로 가기"
+    "ctaButton": "내 서재로 가기",
+    "intro": "여기서 리뷰, 하이라이트, 노트를 한곳에서 볼 수 있어요. <link>내 서재</link>의 각 책에서 생각과 독서 기록을 정리해 보세요.",
+    "loading": "노트를 불러오는 중…",
+    "loadError": "노트를 불러오지 못했어요.",
+    "noResults": "검색과 일치하는 노트가 없어요.",
+    "controls": {
+      "searchPlaceholder": "내 노트 검색...",
+      "filterAllBooks": "모든 책",
+      "sortLabel": "정렬",
+      "sortRecent": "최신순",
+      "sortOldest": "오래된순",
+      "newNote": "새 노트"
+    },
+    "card": {
+      "cardMenu": "더보기",
+      "featuredTag": "대표 노트",
+      "pageLabel": "{page} 페이지",
+      "noteCount": "{count, plural, other {노트 #개}}",
+      "lastActivity": "최근 노트 {time}",
+      "viewAll": "전체 보기"
+    },
+    "stats": {
+      "totalNotes": "전체 노트",
+      "booksWithNotes": "노트가 있는 책",
+      "highlights": "하이라이트"
+    }
   },
   "auth": {
     "login": {

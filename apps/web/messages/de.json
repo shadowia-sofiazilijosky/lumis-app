@@ -312,7 +312,32 @@
     "heading": "Notizen",
     "emptyTitle": "Du hast noch keine Notizen",
     "emptyDescription": "Wenn du Notizen schreibst, Markierungen setzt oder beim Lesen Gedanken festhältst, findest du hier alles wieder. Dein persönlicher Raum für Gedanken und Lektüren <em>ist bereit, sich zu füllen.</em>",
-    "ctaButton": "Zu meiner Bibliothek"
+    "ctaButton": "Zu meiner Bibliothek",
+    "intro": "Hier findest du all deine Rezensionen, Markierungen und Notizen an einem Ort. Ordne deine Gedanken und Lektüren aus jedem Buch in <link>deiner Bibliothek</link>.",
+    "loading": "Notizen werden geladen…",
+    "loadError": "Wir konnten deine Notizen nicht laden.",
+    "noResults": "Keine Notizen entsprechen der Suche.",
+    "controls": {
+      "searchPlaceholder": "In meinen Notizen suchen...",
+      "filterAllBooks": "Alle Bücher",
+      "sortLabel": "Sortieren",
+      "sortRecent": "Neueste",
+      "sortOldest": "Älteste",
+      "newNote": "Neue Notiz"
+    },
+    "card": {
+      "cardMenu": "Weitere Optionen",
+      "featuredTag": "Hervorgehobene Notiz",
+      "pageLabel": "Seite {page}",
+      "noteCount": "{count, plural, one {# Notiz} other {# Notizen}}",
+      "lastActivity": "Letzte Notiz {time}",
+      "viewAll": "Alle ansehen"
+    },
+    "stats": {
+      "totalNotes": "Notizen insgesamt",
+      "booksWithNotes": "Bücher mit Notizen",
+      "highlights": "Markierungen"
+    }
   },
   "auth": {
     "login": {

@@ -312,7 +312,32 @@
     "heading": "Notes",
     "emptyTitle": "You don't have any notes yet",
     "emptyDescription": "When you write notes, make highlights, or jot down ideas as you read, you'll find them all here. Your personal space for thoughts and readings <em>is ready to fill up.</em>",
-    "ctaButton": "Go to my library"
+    "ctaButton": "Go to my library",
+    "intro": "Here you can see all your reviews, highlights, and notes in one place. Organize your thoughts and readings from every book in <link>your library</link>.",
+    "loading": "Loading your notes…",
+    "loadError": "We couldn't load your notes.",
+    "noResults": "No notes match your search.",
+    "controls": {
+      "searchPlaceholder": "Search my notes...",
+      "filterAllBooks": "All books",
+      "sortLabel": "Sort",
+      "sortRecent": "Most recent",
+      "sortOldest": "Oldest",
+      "newNote": "New note"
+    },
+    "card": {
+      "cardMenu": "More options",
+      "featuredTag": "Featured note",
+      "pageLabel": "Page {page}",
+      "noteCount": "{count, plural, one {# note} other {# notes}}",
+      "lastActivity": "Last note {time}",
+      "viewAll": "View all"
+    },
+    "stats": {
+      "totalNotes": "Total notes",
+      "booksWithNotes": "Books with notes",
+      "highlights": "Highlights"
+    }
   },
   "auth": {
     "login": {

@@ -312,7 +312,32 @@
     "heading": "Catatan",
     "emptyTitle": "Kamu belum punya catatan",
     "emptyDescription": "Saat kamu menulis catatan, membuat sorotan, atau menuliskan ide sambil membaca, semuanya akan muncul di sini. Ruang pribadimu untuk pikiran dan bacaan <em>siap untuk diisi.</em>",
-    "ctaButton": "Ke perpustakaanku"
+    "ctaButton": "Ke perpustakaanku",
+    "intro": "Di sini kamu bisa melihat semua ulasan, sorotan, dan catatanmu di satu tempat. Susun pikiran dan bacaanmu dari setiap buku di <link>perpustakaanmu</link>.",
+    "loading": "Memuat catatanmu…",
+    "loadError": "Kami tidak bisa memuat catatanmu.",
+    "noResults": "Tidak ada catatan yang cocok dengan pencarian.",
+    "controls": {
+      "searchPlaceholder": "Cari di catatanku...",
+      "filterAllBooks": "Semua buku",
+      "sortLabel": "Urutkan",
+      "sortRecent": "Terbaru",
+      "sortOldest": "Terlama",
+      "newNote": "Catatan baru"
+    },
+    "card": {
+      "cardMenu": "Opsi lainnya",
+      "featuredTag": "Catatan unggulan",
+      "pageLabel": "Halaman {page}",
+      "noteCount": "{count, plural, other {# catatan}}",
+      "lastActivity": "Catatan terakhir {time}",
+      "viewAll": "Lihat semua"
+    },
+    "stats": {
+      "totalNotes": "Total catatan",
+      "booksWithNotes": "Buku dengan catatan",
+      "highlights": "Sorotan"
+    }
   },
   "auth": {
     "login": {

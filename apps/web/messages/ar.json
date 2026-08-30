@@ -312,7 +312,32 @@
     "heading": "الملاحظات",
     "emptyTitle": "ليس لديك ملاحظات بعد",
     "emptyDescription": "عندما تكتب ملاحظات، أو تضيف تظليلًا، أو تدوّن أفكارًا أثناء القراءة، ستجدها كلها هنا. مساحتك الشخصية للأفكار والقراءات <em>جاهزة لتمتلئ.</em>",
-    "ctaButton": "الذهاب إلى مكتبتي"
+    "ctaButton": "الذهاب إلى مكتبتي",
+    "intro": "هنا يمكنك رؤية كل مراجعاتك وتظليلاتك وملاحظاتك في مكان واحد. نظّم أفكارك وقراءاتك من كل كتاب في <link>مكتبتك</link>.",
+    "loading": "جارٍ تحميل ملاحظاتك…",
+    "loadError": "لم نتمكن من تحميل ملاحظاتك.",
+    "noResults": "لا توجد ملاحظات مطابقة للبحث.",
+    "controls": {
+      "searchPlaceholder": "ابحث في ملاحظاتي...",
+      "filterAllBooks": "كل الكتب",
+      "sortLabel": "ترتيب",
+      "sortRecent": "الأحدث",
+      "sortOldest": "الأقدم",
+      "newNote": "ملاحظة جديدة"
+    },
+    "card": {
+      "cardMenu": "خيارات إضافية",
+      "featuredTag": "ملاحظة مميزة",
+      "pageLabel": "صفحة {page}",
+      "noteCount": "{count, plural, other {# ملاحظة}}",
+      "lastActivity": "آخر ملاحظة {time}",
+      "viewAll": "عرض الكل"
+    },
+    "stats": {
+      "totalNotes": "إجمالي الملاحظات",
+      "booksWithNotes": "كتب بها ملاحظات",
+      "highlights": "التظليلات"
+    }
   },
   "auth": {
     "login": {

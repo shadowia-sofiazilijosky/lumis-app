@@ -9,3 +9,4 @@ export * from "./review.entity";
 export * from "./stroke.entity";
 export * from "./profile-stats.entity";
 export * from "./locale.entity";
+export * from "./notes-overview.entity";

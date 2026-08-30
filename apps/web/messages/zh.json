@@ -312,7 +312,32 @@
     "heading": "笔记",
     "emptyTitle": "你还没有任何笔记",
     "emptyDescription": "当你写下笔记、做出标注或在阅读时记录想法时，都会出现在这里。你专属的思考与阅读空间，<em>正等待被填满。</em>",
-    "ctaButton": "前往我的书库"
+    "ctaButton": "前往我的书库",
+    "intro": "在这里你可以在一个地方看到所有的书评、标注和笔记。从<link>你的书库</link>中的每本书整理你的想法与阅读记录。",
+    "loading": "正在加载你的笔记…",
+    "loadError": "无法加载你的笔记。",
+    "noResults": "没有符合搜索条件的笔记。",
+    "controls": {
+      "searchPlaceholder": "搜索我的笔记…",
+      "filterAllBooks": "所有书籍",
+      "sortLabel": "排序",
+      "sortRecent": "最新",
+      "sortOldest": "最早",
+      "newNote": "新建笔记"
+    },
+    "card": {
+      "cardMenu": "更多选项",
+      "featuredTag": "精选笔记",
+      "pageLabel": "第 {page} 页",
+      "noteCount": "{count, plural, other {# 条笔记}}",
+      "lastActivity": "最近一条笔记 {time}",
+      "viewAll": "查看全部"
+    },
+    "stats": {
+      "totalNotes": "笔记总数",
+      "booksWithNotes": "有笔记的书籍",
+      "highlights": "标注"
+    }
   },
   "auth": {
     "login": {

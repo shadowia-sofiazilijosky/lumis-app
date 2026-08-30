@@ -1,12 +1,35 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Book, Note } from '@prisma/client';
+import { Book, Highlight, Note } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
+import { SupabaseStorageService } from '../../storage/supabase-storage.service';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 
+export interface NotesOverviewBook {
+  book: {
+    id: string;
+    title: string;
+    author: string | null;
+    coverUrl: string | null;
+  };
+  notes: Note[];
+  highlights: Highlight[];
+  lastActivityAt: Date;
+}
+
+export interface NotesOverview {
+  books: NotesOverviewBook[];
+  totalNotes: number;
+  totalHighlights: number;
+  booksWithNotes: number;
+}
+
 @Injectable()
 export class NotesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly storage: SupabaseStorageService,
+  ) {}
 
   async findAllForBook(ownerId: string, bookId: string): Promise<Note[]> {
     await this.getOwnedBookOrThrow(ownerId, bookId);
@@ -71,6 +94,75 @@ export class NotesService {
   async remove(ownerId: string, bookId: string, noteId: string): Promise<void> {
     await this.getOwnedNoteOrThrow(ownerId, bookId, noteId);
     await this.prisma.note.delete({ where: { id: noteId } });
+  }
+
+  /** Aggregates every note/highlight the user has, grouped by book, for the
+   * top-level Notas list page -- one query pass instead of the reader's
+   * usual per-book fetches. */
+  async findOverviewForOwner(ownerId: string): Promise<NotesOverview> {
+    const [notes, highlights] = await Promise.all([
+      this.prisma.note.findMany({
+        where: { userId: ownerId },
+        orderBy: { createdAt: 'desc' },
+      }),
+      this.prisma.highlight.findMany({
+        where: { userId: ownerId },
+        orderBy: { createdAt: 'desc' },
+      }),
+    ]);
+
+    const bookIds = Array.from(
+      new Set([...notes.map((n) => n.bookId), ...highlights.map((h) => h.bookId)]),
+    );
+
+    if (bookIds.length === 0) {
+      return { books: [], totalNotes: 0, totalHighlights: 0, booksWithNotes: 0 };
+    }
+
+    const books = await this.prisma.book.findMany({
+      where: { id: { in: bookIds } },
+      select: { id: true, title: true, author: true, coverImageKey: true },
+    });
+    const bookById = new Map(books.map((book) => [book.id, book]));
+
+    const groups = await Promise.all(
+      bookIds
+        .map((bookId) => {
+          const book = bookById.get(bookId);
+          if (!book) return null;
+
+          const bookNotes = notes.filter((n) => n.bookId === bookId);
+          const bookHighlights = highlights.filter((h) => h.bookId === bookId);
+          const lastActivityMs = Math.max(
+            ...bookNotes.map((n) => n.updatedAt.getTime()),
+            ...bookHighlights.map((h) => h.createdAt.getTime()),
+          );
+
+          return { book, bookNotes, bookHighlights, lastActivityMs };
+        })
+        .filter((group): group is NonNullable<typeof group> => group !== null)
+        .sort((a, b) => b.lastActivityMs - a.lastActivityMs)
+        .map(async ({ book, bookNotes, bookHighlights, lastActivityMs }) => ({
+          book: {
+            id: book.id,
+            title: book.title,
+            author: book.author,
+            coverUrl: book.coverImageKey
+              ? await this.storage.createSignedUrl(book.coverImageKey)
+              : null,
+          },
+          notes: bookNotes,
+          highlights: bookHighlights,
+          lastActivityAt: new Date(lastActivityMs),
+        })),
+    );
+
+    return {
+      books: groups,
+      totalNotes: notes.length,
+      totalHighlights: highlights.length,
+      booksWithNotes: bookIds.length,
+    };
   }
 
   private async getOwnedBookOrThrow(

@@ -312,7 +312,32 @@
     "heading": "Notas",
     "emptyTitle": "Aún no tienes notas",
     "emptyDescription": "Cuando escribas notas, hagas resaltados o dejes ideas mientras lees, las vas a encontrar todas aquí. Tu espacio personal de pensamientos y lecturas <em>está listo para llenarse.</em>",
-    "ctaButton": "Ir a mi biblioteca"
+    "ctaButton": "Ir a mi biblioteca",
+    "intro": "Acá vas a poder ver todas tus reseñas, resaltados y notas en un solo lugar. Organizá tus pensamientos y lecturas desde cada libro en <link>tu biblioteca</link>.",
+    "loading": "Cargando tus notas…",
+    "loadError": "No pudimos cargar tus notas.",
+    "noResults": "No encontramos notas que coincidan con la búsqueda.",
+    "controls": {
+      "searchPlaceholder": "Buscar en mis notas...",
+      "filterAllBooks": "Todos los libros",
+      "sortLabel": "Ordenar",
+      "sortRecent": "Más recientes",
+      "sortOldest": "Más antiguas",
+      "newNote": "Nueva nota"
+    },
+    "card": {
+      "cardMenu": "Más opciones",
+      "featuredTag": "Nota destacada",
+      "pageLabel": "Página {page}",
+      "noteCount": "{count, plural, one {# nota} other {# notas}}",
+      "lastActivity": "Última nota {time}",
+      "viewAll": "Ver todas"
+    },
+    "stats": {
+      "totalNotes": "Total de notas",
+      "booksWithNotes": "Libros con notas",
+      "highlights": "Resaltados"
+    }
   },
   "auth": {
     "login": {

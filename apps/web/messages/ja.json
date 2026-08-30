@@ -312,7 +312,32 @@
     "heading": "メモ",
     "emptyTitle": "まだメモがありません",
     "emptyDescription": "メモを書いたり、ハイライトをしたり、読みながら思いついたことを残したりすると、ここにすべて表示されます。あなただけの思考と読書の空間は、<em>これから満たされていきます。</em>",
-    "ctaButton": "ライブラリへ"
+    "ctaButton": "ライブラリへ",
+    "intro": "ここでは、あなたのレビュー、ハイライト、メモをすべて一か所で確認できます。<link>あなたのライブラリ</link>の各本から、考えや読書の記録を整理しましょう。",
+    "loading": "メモを読み込み中…",
+    "loadError": "メモを読み込めませんでした。",
+    "noResults": "検索に一致するメモがありません。",
+    "controls": {
+      "searchPlaceholder": "メモを検索...",
+      "filterAllBooks": "すべての本",
+      "sortLabel": "並び替え",
+      "sortRecent": "新しい順",
+      "sortOldest": "古い順",
+      "newNote": "新しいメモ"
+    },
+    "card": {
+      "cardMenu": "その他のオプション",
+      "featuredTag": "注目のメモ",
+      "pageLabel": "{page} ページ",
+      "noteCount": "{count, plural, other {メモ # 件}}",
+      "lastActivity": "最新のメモ {time}",
+      "viewAll": "すべて見る"
+    },
+    "stats": {
+      "totalNotes": "メモの総数",
+      "booksWithNotes": "メモのある本",
+      "highlights": "ハイライト"
+    }
   },
   "auth": {
     "login": {

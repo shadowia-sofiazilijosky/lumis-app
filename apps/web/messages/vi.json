@@ -312,7 +312,32 @@
     "heading": "Ghi chú",
     "emptyTitle": "Bạn chưa có ghi chú nào",
     "emptyDescription": "Khi bạn viết ghi chú, đánh dấu hoặc lưu lại ý tưởng trong lúc đọc, bạn sẽ tìm thấy tất cả ở đây. Không gian riêng cho suy nghĩ và việc đọc của bạn <em>đang sẵn sàng để lấp đầy.</em>",
-    "ctaButton": "Đến thư viện của tôi"
+    "ctaButton": "Đến thư viện của tôi",
+    "intro": "Tại đây bạn có thể xem tất cả bài đánh giá, đánh dấu và ghi chú ở một nơi. Sắp xếp suy nghĩ và việc đọc của bạn từ mỗi cuốn sách trong <link>thư viện của bạn</link>.",
+    "loading": "Đang tải ghi chú của bạn…",
+    "loadError": "Không thể tải ghi chú của bạn.",
+    "noResults": "Không có ghi chú nào khớp với tìm kiếm.",
+    "controls": {
+      "searchPlaceholder": "Tìm trong ghi chú của tôi...",
+      "filterAllBooks": "Tất cả sách",
+      "sortLabel": "Sắp xếp",
+      "sortRecent": "Mới nhất",
+      "sortOldest": "Cũ nhất",
+      "newNote": "Ghi chú mới"
+    },
+    "card": {
+      "cardMenu": "Thêm tùy chọn",
+      "featuredTag": "Ghi chú nổi bật",
+      "pageLabel": "Trang {page}",
+      "noteCount": "{count, plural, other {# ghi chú}}",
+      "lastActivity": "Ghi chú gần nhất {time}",
+      "viewAll": "Xem tất cả"
+    },
+    "stats": {
+      "totalNotes": "Tổng số ghi chú",
+      "booksWithNotes": "Sách có ghi chú",
+      "highlights": "Đánh dấu"
+    }
   },
   "auth": {
     "login": {

@@ -312,7 +312,32 @@
     "heading": "Notities",
     "emptyTitle": "Je hebt nog geen notities",
     "emptyDescription": "Zodra je notities schrijft, markeringen maakt of gedachten vastlegt tijdens het lezen, vind je ze allemaal hier terug. Jouw persoonlijke ruimte voor gedachten en lectuur <em>staat klaar om gevuld te worden.</em>",
-    "ctaButton": "Naar mijn bibliotheek"
+    "ctaButton": "Naar mijn bibliotheek",
+    "intro": "Hier zie je al je recensies, markeringen en notities op één plek. Organiseer je gedachten en lectuur vanuit elk boek in <link>jouw bibliotheek</link>.",
+    "loading": "Je notities worden geladen…",
+    "loadError": "We konden je notities niet laden.",
+    "noResults": "Geen notities komen overeen met de zoekopdracht.",
+    "controls": {
+      "searchPlaceholder": "Zoeken in mijn notities...",
+      "filterAllBooks": "Alle boeken",
+      "sortLabel": "Sorteren",
+      "sortRecent": "Meest recent",
+      "sortOldest": "Oudste",
+      "newNote": "Nieuwe notitie"
+    },
+    "card": {
+      "cardMenu": "Meer opties",
+      "featuredTag": "Uitgelichte notitie",
+      "pageLabel": "Pagina {page}",
+      "noteCount": "{count, plural, one {# notitie} other {# notities}}",
+      "lastActivity": "Laatste notitie {time}",
+      "viewAll": "Alles bekijken"
+    },
+    "stats": {
+      "totalNotes": "Totaal aantal notities",
+      "booksWithNotes": "Boeken met notities",
+      "highlights": "Markeringen"
+    }
   },
   "auth": {
     "login": {
