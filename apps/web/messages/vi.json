@@ -173,7 +173,8 @@
       "genericError": "Không thể tải sách lên.",
       "progressAria": "Tiến trình tải lên",
       "uploading": "Đang tải lên…",
-      "submit": "Tải sách lên"
+      "submit": "Tải sách lên",
+      "addBookButton": "Tải sách lên"
     }
   },
   "bookDetail": {

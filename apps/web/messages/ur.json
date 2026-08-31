@@ -173,7 +173,8 @@
       "genericError": "ہم کتاب اپ لوڈ نہیں کر سکے۔",
       "progressAria": "اپ لوڈ کی پیشرفت",
       "uploading": "اپ لوڈ ہو رہا ہے…",
-      "submit": "کتاب اپ لوڈ کریں"
+      "submit": "کتاب اپ لوڈ کریں",
+      "addBookButton": "کتاب اپ لوڈ کریں"
     }
   },
   "bookDetail": {

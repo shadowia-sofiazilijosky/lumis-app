@@ -173,7 +173,8 @@
       "genericError": "Nie udało się przesłać książki.",
       "progressAria": "Postęp przesyłania",
       "uploading": "Przesyłanie…",
-      "submit": "Prześlij książkę"
+      "submit": "Prześlij książkę",
+      "addBookButton": "Prześlij książkę"
     }
   },
   "bookDetail": {

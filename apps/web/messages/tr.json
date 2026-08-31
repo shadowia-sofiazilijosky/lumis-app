@@ -173,7 +173,8 @@
       "genericError": "Kitabı yükleyemedik.",
       "progressAria": "Yükleme ilerlemesi",
       "uploading": "Yükleniyor…",
-      "submit": "Kitabı yükle"
+      "submit": "Kitabı yükle",
+      "addBookButton": "Kitabı yükle"
     }
   },
   "bookDetail": {

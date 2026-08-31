@@ -173,7 +173,8 @@
       "genericError": "Das Buch konnte nicht hochgeladen werden.",
       "progressAria": "Uploadfortschritt",
       "uploading": "Wird hochgeladen…",
-      "submit": "Buch hochladen"
+      "submit": "Buch hochladen",
+      "addBookButton": "Buch hochladen"
     }
   },
   "bookDetail": {

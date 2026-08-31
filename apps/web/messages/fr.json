@@ -173,7 +173,8 @@
       "genericError": "Impossible de téléverser le livre.",
       "progressAria": "Progression du téléversement",
       "uploading": "Téléversement…",
-      "submit": "Téléverser le livre"
+      "submit": "Téléverser le livre",
+      "addBookButton": "Téléverser le livre"
     }
   },
   "bookDetail": {

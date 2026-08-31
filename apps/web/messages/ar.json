@@ -173,7 +173,8 @@
       "genericError": "تعذر رفع الكتاب.",
       "progressAria": "تقدم الرفع",
       "uploading": "جارٍ الرفع…",
-      "submit": "رفع الكتاب"
+      "submit": "رفع الكتاب",
+      "addBookButton": "رفع الكتاب"
     }
   },
   "bookDetail": {

@@ -173,7 +173,8 @@
       "genericError": "हम किताब अपलोड नहीं कर सके।",
       "progressAria": "अपलोड प्रगति",
       "uploading": "अपलोड हो रहा है…",
-      "submit": "किताब अपलोड करें"
+      "submit": "किताब अपलोड करें",
+      "addBookButton": "किताब अपलोड करें"
     }
   },
   "bookDetail": {

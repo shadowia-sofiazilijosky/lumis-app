@@ -173,7 +173,8 @@
       "genericError": "无法上传该书籍。",
       "progressAria": "上传进度",
       "uploading": "正在上传…",
-      "submit": "上传书籍"
+      "submit": "上传书籍",
+      "addBookButton": "上传书籍"
     }
   },
   "bookDetail": {

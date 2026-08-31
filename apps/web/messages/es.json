@@ -173,7 +173,8 @@
       "genericError": "No pudimos subir el libro.",
       "progressAria": "Progreso de subida",
       "uploading": "Subiendo…",
-      "submit": "Subir libro"
+      "submit": "Subir libro",
+      "addBookButton": "Subir libro"
     }
   },
   "bookDetail": {

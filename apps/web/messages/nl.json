@@ -173,7 +173,8 @@
       "genericError": "We konden het boek niet uploaden.",
       "progressAria": "Voortgang uploaden",
       "uploading": "Uploaden…",
-      "submit": "Boek uploaden"
+      "submit": "Boek uploaden",
+      "addBookButton": "Boek uploaden"
     }
   },
   "bookDetail": {

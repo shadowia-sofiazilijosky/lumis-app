@@ -173,7 +173,8 @@
       "genericError": "Non siamo riusciti a caricare il libro.",
       "progressAria": "Avanzamento caricamento",
       "uploading": "Caricamento…",
-      "submit": "Carica libro"
+      "submit": "Carica libro",
+      "addBookButton": "Carica libro"
     }
   },
   "bookDetail": {

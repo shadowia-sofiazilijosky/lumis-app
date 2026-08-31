@@ -173,7 +173,8 @@
       "genericError": "Kami tidak dapat mengunggah buku ini.",
       "progressAria": "Progres unggahan",
       "uploading": "Mengunggah…",
-      "submit": "Unggah buku"
+      "submit": "Unggah buku",
+      "addBookButton": "Unggah buku"
     }
   },
   "bookDetail": {

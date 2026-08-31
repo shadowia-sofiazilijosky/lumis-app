@@ -173,7 +173,8 @@
       "genericError": "本をアップロードできませんでした。",
       "progressAria": "アップロードの進捗",
       "uploading": "アップロード中…",
-      "submit": "本をアップロード"
+      "submit": "本をアップロード",
+      "addBookButton": "本をアップロード"
     }
   },
   "bookDetail": {

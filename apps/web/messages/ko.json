@@ -173,7 +173,8 @@
       "genericError": "책을 업로드하지 못했습니다.",
       "progressAria": "업로드 진행률",
       "uploading": "업로드 중…",
-      "submit": "책 업로드"
+      "submit": "책 업로드",
+      "addBookButton": "책 업로드"
     }
   },
   "bookDetail": {

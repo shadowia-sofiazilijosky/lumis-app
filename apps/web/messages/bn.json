@@ -173,7 +173,8 @@
       "genericError": "আমরা বইটি আপলোড করতে পারিনি।",
       "progressAria": "আপলোড অগ্রগতি",
       "uploading": "আপলোড হচ্ছে…",
-      "submit": "বই আপলোড করুন"
+      "submit": "বই আপলোড করুন",
+      "addBookButton": "বই আপলোড করুন"
     }
   },
   "bookDetail": {

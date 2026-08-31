@@ -536,14 +536,9 @@ header nav a {
     padding-left: 4rem;
   }
 
-  /* The mobile sidebar trigger floats fixed over the top-left corner of
-     every (app) screen, regardless of scroll position — give the shelf
-     editor's own header (it doesn't use .app-topbar) the same clearance so
-     nothing renders underneath it. */
-  .shelf-editor-page {
-    padding-top: 3.5rem;
-  }
-
+  /* Its own top clearance from the mobile sidebar trigger used to live only
+     here -- now `main` gets it generally (see the end of this file), so
+     .shelf-editor-page doesn't need a second helping of the same padding. */
   .shelf-customization-panel {
     flex: 1 1 100%;
     width: 100%;
@@ -1319,12 +1314,72 @@ main.auth-page [role="alert"] {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  max-width: 100%;
 }
 
 .book-upload-form div {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  min-width: 0;
+}
+
+/* The native file-picker widget ("Choose file / No file chosen") has its
+   own intrinsic width that doesn't shrink on its own -- without this it
+   overflows a narrow phone screen instead of wrapping. */
+.book-upload-form input[type="file"] {
+  max-width: 100%;
+}
+
+/* --- Mobile: collapse the upload form behind a "Subir libro" toggle ---
+   A real checkbox (see book-upload-form.tsx) so this works with pure CSS:
+   unchecked = collapsed, :checked = expanded. Desktop (the default, no
+   media query needed) hides the toggle entirely and keeps the form always
+   visible, exactly as it was before this existed. */
+.book-upload-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.book-upload-toggle-label {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .book-upload-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .book-upload-form {
+    display: none;
+  }
+
+  .book-upload-toggle-checkbox:checked ~ .book-upload-form {
+    display: flex;
+    /* Stacked full-width fields once expanded here -- the row layout's
+       field groups are only as wide as their own content, which is what
+       let the native file-picker widget overflow a narrow screen instead
+       of actually shrinking to fit it. */
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .book-upload-toggle-checkbox:checked ~ .book-upload-form div,
+  .book-upload-toggle-checkbox:checked ~ .book-upload-form input[type="file"] {
+    width: 100%;
+  }
 }
 
 .upload-progress {
@@ -4892,5 +4947,19 @@ html[data-theme="light"] {
 
   .note-book-detail-cover {
     width: 130px;
+  }
+}
+
+/* Every (app) page's content starts flush under the mobile sidebar
+   trigger (position: fixed, see .sidebar-mobile-trigger) unless it has its
+   own top clearance -- .shelf-editor-page already got this treatment;
+   applying it to `main` generally covers every other (app) page (library,
+   notes, profile, shelves list) the same way, instead of handling each one
+   as it comes up. Applied last (after every other max-width override
+   above, several of which also touch `main`) so it wins regardless of
+   source order within those. */
+@media (max-width: 768px) {
+  main {
+    padding-top: 3.5rem;
   }
 }

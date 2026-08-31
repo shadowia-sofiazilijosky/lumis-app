@@ -173,7 +173,8 @@
       "genericError": "Não conseguimos enviar o livro.",
       "progressAria": "Progresso do envio",
       "uploading": "Enviando…",
-      "submit": "Enviar livro"
+      "submit": "Enviar livro",
+      "addBookButton": "Enviar livro"
     }
   },
   "bookDetail": {

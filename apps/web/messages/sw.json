@@ -173,7 +173,8 @@
       "genericError": "Hatukuweza kupakia kitabu.",
       "progressAria": "Maendeleo ya upakiaji",
       "uploading": "Inapakia…",
-      "submit": "Pakia kitabu"
+      "submit": "Pakia kitabu",
+      "addBookButton": "Pakia kitabu"
     }
   },
   "bookDetail": {

@@ -173,7 +173,8 @@
       "genericError": "Не удалось загрузить книгу.",
       "progressAria": "Прогресс загрузки",
       "uploading": "Загрузка…",
-      "submit": "Загрузить книгу"
+      "submit": "Загрузить книгу",
+      "addBookButton": "Загрузить книгу"
     }
   },
   "bookDetail": {
