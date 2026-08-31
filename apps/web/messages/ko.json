@@ -307,7 +307,11 @@
       "eraser": "지우개"
     },
     "rulerOn": "읽기 자 켜기",
-    "rulerOff": "읽기 자 끄기"
+    "rulerOff": "읽기 자 끄기",
+    "orientation": {
+      "setPortrait": "페이지를 세로로 설정",
+      "setLandscape": "페이지를 가로로 회전"
+    }
   },
   "notesPage": {
     "pageTitle": "메모 — Lumis",

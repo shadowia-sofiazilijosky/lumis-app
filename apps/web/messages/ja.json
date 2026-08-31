@@ -307,7 +307,11 @@
       "eraser": "消しゴム"
     },
     "rulerOn": "リーディングルーラーをオンにする",
-    "rulerOff": "リーディングルーラーをオフにする"
+    "rulerOff": "リーディングルーラーをオフにする",
+    "orientation": {
+      "setPortrait": "ページを縦向きにする",
+      "setLandscape": "ページを横向きに回転する"
+    }
   },
   "notesPage": {
     "pageTitle": "メモ — Lumis",

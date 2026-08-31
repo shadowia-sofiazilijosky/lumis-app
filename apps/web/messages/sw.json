@@ -307,7 +307,11 @@
       "eraser": "Kifutio"
     },
     "rulerOn": "Washa rula ya kusoma",
-    "rulerOff": "Zima rula ya kusoma"
+    "rulerOff": "Zima rula ya kusoma",
+    "orientation": {
+      "setPortrait": "Weka ukurasa wima",
+      "setLandscape": "Zungusha ukurasa mlalo"
+    }
   },
   "notesPage": {
     "pageTitle": "Vidokezo — Lumis",

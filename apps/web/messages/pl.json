@@ -307,7 +307,11 @@
       "eraser": "Gumka"
     },
     "rulerOn": "Włącz linijkę do czytania",
-    "rulerOff": "Wyłącz linijkę do czytania"
+    "rulerOff": "Wyłącz linijkę do czytania",
+    "orientation": {
+      "setPortrait": "Ustaw stronę pionowo",
+      "setLandscape": "Obróć stronę poziomo"
+    }
   },
   "notesPage": {
     "pageTitle": "Notatki — Lumis",

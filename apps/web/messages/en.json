@@ -307,7 +307,11 @@
       "eraser": "Eraser"
     },
     "rulerOn": "Turn on reading ruler",
-    "rulerOff": "Turn off reading ruler"
+    "rulerOff": "Turn off reading ruler",
+    "orientation": {
+      "setPortrait": "Set page to portrait",
+      "setLandscape": "Rotate page to landscape"
+    }
   },
   "notesPage": {
     "pageTitle": "Notes — Lumis",

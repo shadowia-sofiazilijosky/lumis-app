@@ -307,7 +307,11 @@
       "eraser": "ربڑ"
     },
     "rulerOn": "ریڈنگ رولر آن کریں",
-    "rulerOff": "ریڈنگ رولر آف کریں"
+    "rulerOff": "ریڈنگ رولر آف کریں",
+    "orientation": {
+      "setPortrait": "صفحہ عمودی کریں",
+      "setLandscape": "صفحہ افقی گھمائیں"
+    }
   },
   "notesPage": {
     "pageTitle": "نوٹس — Lumis",

@@ -307,7 +307,11 @@
       "eraser": "Gomme"
     },
     "rulerOn": "Activer la règle de lecture",
-    "rulerOff": "Désactiver la règle de lecture"
+    "rulerOff": "Désactiver la règle de lecture",
+    "orientation": {
+      "setPortrait": "Mettre la page en vertical",
+      "setLandscape": "Faire pivoter la page en horizontal"
+    }
   },
   "notesPage": {
     "pageTitle": "Notes — Lumis",

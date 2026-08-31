@@ -11,5 +11,7 @@ export interface ReadingProgress {
   /** "horizontal" | "vertical" | "flip". */
   pageTurnMode: string;
   readingRulerEnabled: boolean;
+  /** "portrait" | "landscape". */
+  pageOrientation: string;
   updatedAt: string;
 }

@@ -3,7 +3,7 @@
 import { useEffect, useState, type RefObject } from "react";
 import { useReaderStore } from "../store/reader-store";
 
-const RULER_HEIGHT_PX = 68;
+const RULER_HEIGHT_PX = 32;
 
 interface ViewportRect {
   left: number;
@@ -15,7 +15,7 @@ interface ViewportRect {
 /**
  * A soft "line focus" guide that follows the pointer/touch vertically over
  * the reading area, dimming everything else so the eye locks onto roughly
- * 1.5-2 lines at a time — purely visual, never intercepts a click meant for
+ * one line at a time — purely visual, never intercepts a click meant for
  * text selection or a page-turn tap (the whole overlay is
  * pointer-events: none, and its own mousemove/touchmove listeners are
  * attached straight to the reading container, not the page).

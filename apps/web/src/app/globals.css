@@ -2345,6 +2345,21 @@ html[data-theme="light"] {
   touch-action: pan-x pan-y;
 }
 
+/* Invisible in the default (portrait) case -- its children become direct
+   .reader-viewport flex items, same as before this wrapper existed, so it
+   doesn't disturb the page's normal centered layout. Only becomes a real,
+   rotated box once landscape is chosen. */
+.reader-page-content {
+  display: contents;
+}
+
+.reader-page-content-landscape {
+  display: block;
+  margin: auto;
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+
 .reader-tap-zones {
   position: absolute;
   inset: 0;
@@ -3166,7 +3181,7 @@ html[data-theme="light"] {
   position: absolute;
   left: 0;
   right: 0;
-  height: 68px;
+  height: 32px;
   border-top: 1px solid var(--reading-ruler-edge, #c9a08a);
   border-bottom: 1px solid var(--reading-ruler-edge, #c9a08a);
   /* The classic "spotlight" trick: a giant box-shadow above and below this

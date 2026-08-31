@@ -307,7 +307,11 @@
       "eraser": "橡皮擦"
     },
     "rulerOn": "开启阅读尺",
-    "rulerOff": "关闭阅读尺"
+    "rulerOff": "关闭阅读尺",
+    "orientation": {
+      "setPortrait": "设为竖屏页面",
+      "setLandscape": "旋转为横屏页面"
+    }
   },
   "notesPage": {
     "pageTitle": "笔记 — Lumis",

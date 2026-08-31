@@ -307,7 +307,11 @@
       "eraser": "Borracha"
     },
     "rulerOn": "Ativar régua de leitura",
-    "rulerOff": "Desativar régua de leitura"
+    "rulerOff": "Desativar régua de leitura",
+    "orientation": {
+      "setPortrait": "Colocar a página em vertical",
+      "setLandscape": "Girar a página para horizontal"
+    }
   },
   "notesPage": {
     "pageTitle": "Notas — Lumis",
