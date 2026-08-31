@@ -3822,23 +3822,6 @@ html[data-theme="light"] {
     );
   }
 
-  .landing-ritmo-content {
-    padding: 4rem 1.5rem;
-  }
-
-  .landing-ritmo-inner {
-    max-width: none;
-    text-align: center;
-  }
-
-  .landing-spark {
-    justify-content: center;
-  }
-
-  .landing-ritmo-checklist {
-    margin: 0 auto;
-  }
-
   .landing-ritmo-bg-overlay {
     background: linear-gradient(
       180deg,
@@ -3937,9 +3920,12 @@ html[data-theme="light"] {
 .landing-ritmo-content {
   position: relative;
   z-index: 2;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 6rem clamp(1.25rem, 3vw, 2.5rem);
+  width: 100%;
+  /* Edge-anchored padding, matching .landing-hero-v2-content above it --
+     the previous max-width: 1280px + margin: 0 auto centered this row
+     instead, landing its text well to the right of the hero's on any
+     screen wider than 1280px. */
+  padding: 6rem clamp(1.5rem, 6vw, 5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3952,9 +3938,9 @@ html[data-theme="light"] {
 }
 
 .landing-ritmo-mockup {
-  flex: 1 1 480px;
+  flex: 1 1 560px;
   width: 100%;
-  max-width: 560px;
+  max-width: 720px;
   height: auto;
 }
 
@@ -3963,6 +3949,7 @@ html[data-theme="light"] {
     flex-direction: column;
     align-items: stretch;
     gap: 2.5rem;
+    padding: 4rem clamp(1.5rem, 6vw, 5rem);
   }
 
   .landing-ritmo-inner {
@@ -3970,21 +3957,9 @@ html[data-theme="light"] {
   }
 
   .landing-ritmo-mockup {
-    max-width: min(480px, 100%);
+    max-width: min(560px, 100%);
     margin: 0 auto;
   }
-}
-
-.landing-spark {
-  color: var(--landing-gold);
-  margin: 0 0 0.5rem;
-  display: inline-flex;
-  animation: landing-twinkle 2.4s ease-in-out infinite;
-}
-
-@keyframes landing-twinkle {
-  0%, 100% { opacity: 0.5; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.1); }
 }
 
 .landing-ritmo-title {
@@ -4109,6 +4084,11 @@ html[data-theme="light"] {
   opacity: 0.7;
   pointer-events: none;
   animation: landing-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes landing-twinkle {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
 }
 
 .landing-final-cta-icon {

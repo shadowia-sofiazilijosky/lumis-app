@@ -1,4 +1,4 @@
-import { BookOpen, Check, Moon, Sparkles, Star } from "lucide-react";
+import { BookOpen, Check, Moon, Star } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
@@ -100,9 +100,6 @@ export async function LandingPage() {
 
         <div className="landing-ritmo-content">
           <div className="landing-ritmo-inner">
-            <p className="landing-spark" aria-hidden="true">
-              <Sparkles size={22} />
-            </p>
             <h2 className="landing-ritmo-title">
               {t("ritmo.titleLine1")}
               <br />
@@ -126,7 +123,7 @@ export async function LandingPage() {
             alt=""
             width={612}
             height={408}
-            sizes="(max-width: 900px) 480px, 560px"
+            sizes="(max-width: 900px) 560px, 720px"
             className="landing-ritmo-mockup"
           />
         </div>
