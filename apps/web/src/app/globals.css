@@ -3928,8 +3928,13 @@ html[data-theme="light"] {
   padding: 6rem clamp(1.5rem, 6vw, 5rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
+  /* Not space-between -- that pinned the mockup flush against the section's
+     far right edge, which is exactly where lee-tu-ritmo-bg.jpg's candle
+     sits, so a wider mockup just covered more of it. Placing the mockup
+     right after the text instead keeps it closer to center and only
+     grazing the candle rather than sitting on top of it. */
+  justify-content: flex-start;
+  gap: 3.5rem;
 }
 
 .landing-ritmo-inner {
@@ -3938,9 +3943,9 @@ html[data-theme="light"] {
 }
 
 .landing-ritmo-mockup {
-  flex: 1 1 560px;
+  flex: 1 1 480px;
   width: 100%;
-  max-width: 720px;
+  max-width: 640px;
   height: auto;
 }
 

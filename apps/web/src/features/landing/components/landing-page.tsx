@@ -123,7 +123,7 @@ export async function LandingPage() {
             alt=""
             width={612}
             height={408}
-            sizes="(max-width: 900px) 560px, 720px"
+            sizes="(max-width: 900px) 560px, 640px"
             className="landing-ritmo-mockup"
           />
         </div>
