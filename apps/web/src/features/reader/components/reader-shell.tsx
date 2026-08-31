@@ -46,7 +46,6 @@ export function ReaderShell({ bookId }: { bookId: string }) {
   const zoom = useReaderStore((state) => state.zoom);
   const setZoom = useReaderStore((state) => state.setZoom);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
-  const pageOrientation = useReaderStore((state) => state.pageOrientation);
   const toggleControls = useReaderStore((state) => state.toggleControls);
   const openNoteId = useAnnotationsStore((state) => state.openNoteId);
   const drawTool = useAnnotationsStore((state) => state.drawTool);
@@ -170,33 +169,27 @@ export function ReaderShell({ bookId }: { bookId: string }) {
           if (event.target === event.currentTarget) toggleControls();
         }}
       >
-        <div
-          className={`reader-page-content${
-            pageOrientation === "landscape" ? " reader-page-content-landscape" : ""
-          }`}
-        >
-          {currentBook.format === BookFormat.PDF && fileUrl && (
-            <PdfReader bookId={bookId} fileUrl={fileUrl} />
-          )}
-          {isEpub && fileUrl && (
-            <EpubReader
-              ref={epubRef}
-              bookId={bookId}
-              fileUrl={fileUrl}
-              initialLocator={locator}
-              zoom={zoom}
-            />
-          )}
-          {(currentBook.format === BookFormat.CBR ||
-            currentBook.format === BookFormat.CBZ ||
-            currentBook.format === BookFormat.TXT) && (
-            <PaginatedReader
-              bookId={bookId}
-              format={currentBook.format}
-              zoom={zoom}
-            />
-          )}
-        </div>
+        {currentBook.format === BookFormat.PDF && fileUrl && (
+          <PdfReader bookId={bookId} fileUrl={fileUrl} />
+        )}
+        {isEpub && fileUrl && (
+          <EpubReader
+            ref={epubRef}
+            bookId={bookId}
+            fileUrl={fileUrl}
+            initialLocator={locator}
+            zoom={zoom}
+          />
+        )}
+        {(currentBook.format === BookFormat.CBR ||
+          currentBook.format === BookFormat.CBZ ||
+          currentBook.format === BookFormat.TXT) && (
+          <PaginatedReader
+            bookId={bookId}
+            format={currentBook.format}
+            zoom={zoom}
+          />
+        )}
 
         <ReadingRuler containerRef={viewportRef} />
       </div>

@@ -42,7 +42,6 @@ export class ReadingProgressService {
         ...(dto.readingRulerEnabled !== undefined && {
           readingRulerEnabled: dto.readingRulerEnabled,
         }),
-        ...(dto.pageOrientation !== undefined && { pageOrientation: dto.pageOrientation }),
       },
       update: {
         ...(dto.currentPage !== undefined && { currentPage: dto.currentPage }),
@@ -55,7 +54,6 @@ export class ReadingProgressService {
         ...(dto.readingRulerEnabled !== undefined && {
           readingRulerEnabled: dto.readingRulerEnabled,
         }),
-        ...(dto.pageOrientation !== undefined && { pageOrientation: dto.pageOrientation }),
       },
     });
 

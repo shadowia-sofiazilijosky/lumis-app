@@ -307,11 +307,7 @@
       "eraser": "Silgi"
     },
     "rulerOn": "Okuma cetvelini aç",
-    "rulerOff": "Okuma cetvelini kapat",
-    "orientation": {
-      "setPortrait": "Sayfayı dikey yap",
-      "setLandscape": "Sayfayı yatay çevir"
-    }
+    "rulerOff": "Okuma cetvelini kapat"
   },
   "notesPage": {
     "pageTitle": "Notlar — Lumis",

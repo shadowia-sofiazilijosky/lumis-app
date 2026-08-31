@@ -307,11 +307,7 @@
       "eraser": "Cục tẩy"
     },
     "rulerOn": "Bật thước kẻ đọc",
-    "rulerOff": "Tắt thước kẻ đọc",
-    "orientation": {
-      "setPortrait": "Đặt trang theo chiều dọc",
-      "setLandscape": "Xoay trang sang chiều ngang"
-    }
+    "rulerOff": "Tắt thước kẻ đọc"
   },
   "notesPage": {
     "pageTitle": "Ghi chú — Lumis",

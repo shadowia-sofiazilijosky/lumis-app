@@ -12,7 +12,6 @@ import {
   Menu,
   Minus,
   Plus,
-  RotateCw,
   Ruler,
   Square,
 } from "lucide-react";
@@ -84,8 +83,6 @@ export function ReaderControls({
   const toggleSpreadView = useReaderStore((state) => state.toggleSpreadView);
   const readingRulerEnabled = useReaderStore((state) => state.readingRulerEnabled);
   const toggleReadingRuler = useReaderStore((state) => state.toggleReadingRuler);
-  const pageOrientation = useReaderStore((state) => state.pageOrientation);
-  const togglePageOrientation = useReaderStore((state) => state.togglePageOrientation);
 
   return (
     <>
@@ -159,20 +156,6 @@ export function ReaderControls({
             onClick={toggleSpreadView}
           >
             {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
-          </button>
-
-          <button
-            type="button"
-            className={pageOrientation === "landscape" ? "reader-theme-active" : "secondary"}
-            aria-pressed={pageOrientation === "landscape"}
-            aria-label={
-              pageOrientation === "landscape"
-                ? t("orientation.setPortrait")
-                : t("orientation.setLandscape")
-            }
-            onClick={togglePageOrientation}
-          >
-            <RotateCw size={15} />
           </button>
 
           <button

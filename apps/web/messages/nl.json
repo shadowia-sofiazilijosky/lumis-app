@@ -307,11 +307,7 @@
       "eraser": "Gum"
     },
     "rulerOn": "Leeslineaal inschakelen",
-    "rulerOff": "Leeslineaal uitschakelen",
-    "orientation": {
-      "setPortrait": "Pagina rechtop zetten",
-      "setLandscape": "Pagina liggend draaien"
-    }
+    "rulerOff": "Leeslineaal uitschakelen"
   },
   "notesPage": {
     "pageTitle": "Notities — Lumis",

@@ -267,9 +267,6 @@ model ReadingProgress {
   pageTurnMode        String      @default("flip") @map("page_turn_mode")
   // "Line focus" reading-ruler overlay toggle.
   readingRulerEnabled Boolean     @default(false) @map("reading_ruler_enabled")
-  // "portrait" | "landscape" -- the page's own layout orientation (rotated
-  // 90° or not), distinct from pageTurnMode's turn direction.
-  pageOrientation     String      @default("portrait") @map("page_orientation")
   updatedAt           DateTime    @updatedAt @map("updated_at")
 
   @@unique([userId, bookId])

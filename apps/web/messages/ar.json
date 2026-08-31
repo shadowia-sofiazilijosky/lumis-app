@@ -307,11 +307,7 @@
       "eraser": "ممحاة"
     },
     "rulerOn": "تشغيل مسطرة القراءة",
-    "rulerOff": "إيقاف مسطرة القراءة",
-    "orientation": {
-      "setPortrait": "ضبط الصفحة على الوضع الرأسي",
-      "setLandscape": "تدوير الصفحة إلى الوضع الأفقي"
-    }
+    "rulerOff": "إيقاف مسطرة القراءة"
   },
   "notesPage": {
     "pageTitle": "الملاحظات — Lumis",

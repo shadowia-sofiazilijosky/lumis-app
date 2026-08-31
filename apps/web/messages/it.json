@@ -307,11 +307,7 @@
       "eraser": "Gomma"
     },
     "rulerOn": "Attiva righello di lettura",
-    "rulerOff": "Disattiva righello di lettura",
-    "orientation": {
-      "setPortrait": "Metti la pagina in verticale",
-      "setLandscape": "Ruota la pagina in orizzontale"
-    }
+    "rulerOff": "Disattiva righello di lettura"
   },
   "notesPage": {
     "pageTitle": "Note — Lumis",

@@ -307,11 +307,7 @@
       "eraser": "इरेज़र"
     },
     "rulerOn": "रीडिंग रूलर चालू करें",
-    "rulerOff": "रीडिंग रूलर बंद करें",
-    "orientation": {
-      "setPortrait": "पेज को वर्टिकल करें",
-      "setLandscape": "पेज को हॉरिजॉन्टल घुमाएं"
-    }
+    "rulerOff": "रीडिंग रूलर बंद करें"
   },
   "notesPage": {
     "pageTitle": "टिप्पणियाँ — Lumis",

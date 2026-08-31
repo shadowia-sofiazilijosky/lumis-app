@@ -3,7 +3,7 @@
 import { ReaderTheme } from "@lumis/shared-types";
 import { useEffect, useRef } from "react";
 import { fetchReadingProgress, saveReadingProgress } from "../api/reader-client";
-import { useReaderStore, type PageOrientation, type PageTurnMode } from "../store/reader-store";
+import { useReaderStore, type PageTurnMode } from "../store/reader-store";
 
 const AUTOSAVE_DELAY_MS = 800;
 
@@ -22,7 +22,6 @@ export function useLoadReadingProgress(bookId: string) {
       const readerTheme = progress?.readerTheme ?? ReaderTheme.LIGHT;
       const pageTurnMode = (progress?.pageTurnMode ?? "flip") as PageTurnMode;
       const readingRulerEnabled = progress?.readingRulerEnabled ?? false;
-      const pageOrientation = (progress?.pageOrientation ?? "portrait") as PageOrientation;
 
       loadProgress(bookId, {
         currentPage,
@@ -31,7 +30,6 @@ export function useLoadReadingProgress(bookId: string) {
         readerTheme,
         pageTurnMode,
         readingRulerEnabled,
-        pageOrientation,
       });
 
       // Re-save the just-loaded (unchanged) values so simply opening a book
@@ -45,7 +43,6 @@ export function useLoadReadingProgress(bookId: string) {
         readerTheme,
         pageTurnMode,
         readingRulerEnabled,
-        pageOrientation,
       });
     });
 
@@ -63,7 +60,6 @@ export function useAutosaveReadingProgress(bookId: string) {
   const theme = useReaderStore((state) => state.theme);
   const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
   const readingRulerEnabled = useReaderStore((state) => state.readingRulerEnabled);
-  const pageOrientation = useReaderStore((state) => state.pageOrientation);
   const hasUnsavedChanges = useReaderStore((state) => state.hasUnsavedChanges);
   const markSaved = useReaderStore((state) => state.markSaved);
 
@@ -81,7 +77,6 @@ export function useAutosaveReadingProgress(bookId: string) {
         readerTheme: theme,
         pageTurnMode,
         readingRulerEnabled,
-        pageOrientation,
       }).then(markSaved);
     }, AUTOSAVE_DELAY_MS);
 
@@ -96,7 +91,6 @@ export function useAutosaveReadingProgress(bookId: string) {
     theme,
     pageTurnMode,
     readingRulerEnabled,
-    pageOrientation,
     hasUnsavedChanges,
     markSaved,
   ]);

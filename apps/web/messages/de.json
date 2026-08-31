@@ -307,11 +307,7 @@
       "eraser": "Radiergummi"
     },
     "rulerOn": "Leselineal einschalten",
-    "rulerOff": "Leselineal ausschalten",
-    "orientation": {
-      "setPortrait": "Seite auf Hochformat stellen",
-      "setLandscape": "Seite ins Querformat drehen"
-    }
+    "rulerOff": "Leselineal ausschalten"
   },
   "notesPage": {
     "pageTitle": "Notizen — Lumis",

@@ -307,11 +307,7 @@
       "eraser": "Penghapus"
     },
     "rulerOn": "Aktifkan penggaris baca",
-    "rulerOff": "Matikan penggaris baca",
-    "orientation": {
-      "setPortrait": "Atur halaman ke potret",
-      "setLandscape": "Putar halaman ke lanskap"
-    }
+    "rulerOff": "Matikan penggaris baca"
   },
   "notesPage": {
     "pageTitle": "Catatan — Lumis",

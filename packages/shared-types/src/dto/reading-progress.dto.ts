@@ -8,6 +8,4 @@ export interface UpdateReadingProgressDto {
   /** "horizontal" | "vertical" | "flip". */
   pageTurnMode?: string;
   readingRulerEnabled?: boolean;
-  /** "portrait" | "landscape". */
-  pageOrientation?: string;
 }

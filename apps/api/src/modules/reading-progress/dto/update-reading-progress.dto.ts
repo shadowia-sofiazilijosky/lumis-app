@@ -37,8 +37,4 @@ export class UpdateReadingProgressDto {
   @IsOptional()
   @IsBoolean()
   readingRulerEnabled?: boolean;
-
-  @IsOptional()
-  @IsIn(['portrait', 'landscape'])
-  pageOrientation?: string;
 }

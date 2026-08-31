@@ -5,12 +5,6 @@ import { create } from "zustand";
 
 export type FlipDirection = "forward" | "backward";
 export type PageTurnMode = "horizontal" | "vertical" | "flip";
-/** The page's own layout orientation -- distinct from PageTurnMode, which
- * is about which direction pages *turn*, not which way the page itself is
- * laid out. "landscape" rotates the rendered page 90°, useful for a
- * wide/landscape-shaped page (a comic spread, a wide PDF) on a portrait
- * phone or tablet. */
-export type PageOrientation = "portrait" | "landscape";
 
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 3;
@@ -38,7 +32,6 @@ interface ReaderState {
   /** "Line focus" guide that follows the pointer/touch over the reading
    * area -- persisted per book alongside readerTheme/pageTurnMode. */
   readingRulerEnabled: boolean;
-  pageOrientation: PageOrientation;
 
   loadProgress: (bookId: string, progress: {
     currentPage: number;
@@ -47,7 +40,6 @@ interface ReaderState {
     readerTheme: ReaderTheme;
     pageTurnMode: PageTurnMode;
     readingRulerEnabled: boolean;
-    pageOrientation: PageOrientation;
   }) => void;
   setTotalPages: (totalPages: number | null) => void;
   goToPage: (page: number) => void;
@@ -64,7 +56,6 @@ interface ReaderState {
   setPageTurnMode: (mode: PageTurnMode) => void;
   toggleSpreadView: () => void;
   toggleReadingRuler: () => void;
-  togglePageOrientation: () => void;
 }
 
 export const useReaderStore = create<ReaderState>((set) => ({
@@ -81,7 +72,6 @@ export const useReaderStore = create<ReaderState>((set) => ({
   pageTurnMode: "flip",
   spreadView: true,
   readingRulerEnabled: false,
-  pageOrientation: "portrait",
 
   loadProgress: (bookId, progress) =>
     set({
@@ -92,7 +82,6 @@ export const useReaderStore = create<ReaderState>((set) => ({
       theme: progress.readerTheme,
       pageTurnMode: progress.pageTurnMode,
       readingRulerEnabled: progress.readingRulerEnabled,
-      pageOrientation: progress.pageOrientation,
       hasUnsavedChanges: false,
     }),
 
@@ -137,11 +126,6 @@ export const useReaderStore = create<ReaderState>((set) => ({
   toggleReadingRuler: () =>
     set((state) => ({
       readingRulerEnabled: !state.readingRulerEnabled,
-      hasUnsavedChanges: true,
-    })),
-  togglePageOrientation: () =>
-    set((state) => ({
-      pageOrientation: state.pageOrientation === "portrait" ? "landscape" : "portrait",
       hasUnsavedChanges: true,
     })),
 }));

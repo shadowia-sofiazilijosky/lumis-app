@@ -307,11 +307,7 @@
       "eraser": "রাবার"
     },
     "rulerOn": "রিডিং রুলার চালু করো",
-    "rulerOff": "রিডিং রুলার বন্ধ করো",
-    "orientation": {
-      "setPortrait": "পাতা উল্লম্বভাবে সেট করো",
-      "setLandscape": "পাতা অনুভূমিকভাবে ঘোরাও"
-    }
+    "rulerOff": "রিডিং রুলার বন্ধ করো"
   },
   "notesPage": {
     "pageTitle": "নোট — Lumis",
