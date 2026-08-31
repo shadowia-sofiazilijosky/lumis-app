@@ -3940,11 +3940,39 @@ html[data-theme="light"] {
   max-width: 1280px;
   margin: 0 auto;
   padding: 6rem clamp(1.25rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .landing-ritmo-inner {
   max-width: 620px;
   text-align: left;
+}
+
+.landing-ritmo-mockup {
+  flex: 1 1 480px;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .landing-ritmo-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.5rem;
+  }
+
+  .landing-ritmo-inner {
+    max-width: none;
+  }
+
+  .landing-ritmo-mockup {
+    max-width: min(480px, 100%);
+    margin: 0 auto;
+  }
 }
 
 .landing-spark {

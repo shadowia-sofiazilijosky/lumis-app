@@ -120,6 +120,15 @@ export async function LandingPage() {
               ))}
             </ul>
           </div>
+
+          <Image
+            src="/assets/landing/landing-mockup-lector-devices.png"
+            alt=""
+            width={612}
+            height={408}
+            sizes="(max-width: 900px) 480px, 560px"
+            className="landing-ritmo-mockup"
+          />
         </div>
 
         <div className="landing-final-cta">
