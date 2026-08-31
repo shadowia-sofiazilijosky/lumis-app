@@ -305,7 +305,9 @@
       "natural-pencil": "Naturalny ołówek",
       "watercolor": "Pędzel akwarelowy",
       "eraser": "Gumka"
-    }
+    },
+    "rulerOn": "Włącz linijkę do czytania",
+    "rulerOff": "Wyłącz linijkę do czytania"
   },
   "notesPage": {
     "pageTitle": "Notatki — Lumis",

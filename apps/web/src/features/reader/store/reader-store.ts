@@ -29,12 +29,17 @@ interface ReaderState {
   /** Two-page spread vs. one page at a time -- applies uniformly across
    * all three page-turn modes (horizontal, vertical, flip). */
   spreadView: boolean;
+  /** "Line focus" guide that follows the pointer/touch over the reading
+   * area -- persisted per book alongside readerTheme/pageTurnMode. */
+  readingRulerEnabled: boolean;
 
   loadProgress: (bookId: string, progress: {
     currentPage: number;
     currentLocator: unknown;
     progressPercent: number;
     readerTheme: ReaderTheme;
+    pageTurnMode: PageTurnMode;
+    readingRulerEnabled: boolean;
   }) => void;
   setTotalPages: (totalPages: number | null) => void;
   goToPage: (page: number) => void;
@@ -50,6 +55,7 @@ interface ReaderState {
   resetZoom: () => void;
   setPageTurnMode: (mode: PageTurnMode) => void;
   toggleSpreadView: () => void;
+  toggleReadingRuler: () => void;
 }
 
 export const useReaderStore = create<ReaderState>((set) => ({
@@ -65,6 +71,7 @@ export const useReaderStore = create<ReaderState>((set) => ({
   zoom: 1,
   pageTurnMode: "flip",
   spreadView: true,
+  readingRulerEnabled: false,
 
   loadProgress: (bookId, progress) =>
     set({
@@ -73,6 +80,8 @@ export const useReaderStore = create<ReaderState>((set) => ({
       locator: progress.currentLocator,
       progressPercent: progress.progressPercent,
       theme: progress.readerTheme,
+      pageTurnMode: progress.pageTurnMode,
+      readingRulerEnabled: progress.readingRulerEnabled,
       hasUnsavedChanges: false,
     }),
 
@@ -112,6 +121,11 @@ export const useReaderStore = create<ReaderState>((set) => ({
   zoomOut: () => set((state) => ({ zoom: clampZoom(state.zoom - ZOOM_STEP) })),
   resetZoom: () => set({ zoom: 1 }),
 
-  setPageTurnMode: (mode) => set({ pageTurnMode: mode }),
+  setPageTurnMode: (mode) => set({ pageTurnMode: mode, hasUnsavedChanges: true }),
   toggleSpreadView: () => set((state) => ({ spreadView: !state.spreadView })),
+  toggleReadingRuler: () =>
+    set((state) => ({
+      readingRulerEnabled: !state.readingRulerEnabled,
+      hasUnsavedChanges: true,
+    })),
 }));

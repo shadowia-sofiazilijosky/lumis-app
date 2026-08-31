@@ -305,7 +305,9 @@
       "natural-pencil": "Matita naturale",
       "watercolor": "Pennello ad acquerello",
       "eraser": "Gomma"
-    }
+    },
+    "rulerOn": "Attiva righello di lettura",
+    "rulerOff": "Disattiva righello di lettura"
   },
   "notesPage": {
     "pageTitle": "Note — Lumis",

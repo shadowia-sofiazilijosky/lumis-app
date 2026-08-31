@@ -1,5 +1,14 @@
 import { ReaderTheme } from '@prisma/client';
-import { IsEnum, IsInt, IsNumber, IsOptional, Max, Min } from 'class-validator';
+import {
+  IsBoolean,
+  IsEnum,
+  IsIn,
+  IsInt,
+  IsNumber,
+  IsOptional,
+  Max,
+  Min,
+} from 'class-validator';
 
 export class UpdateReadingProgressDto {
   @IsOptional()
@@ -20,4 +29,12 @@ export class UpdateReadingProgressDto {
   @IsOptional()
   @IsEnum(ReaderTheme)
   readerTheme?: ReaderTheme;
+
+  @IsOptional()
+  @IsIn(['horizontal', 'vertical', 'flip'])
+  pageTurnMode?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  readingRulerEnabled?: boolean;
 }

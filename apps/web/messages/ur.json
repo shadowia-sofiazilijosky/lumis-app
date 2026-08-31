@@ -305,7 +305,9 @@
       "natural-pencil": "قدرتی پنسل",
       "watercolor": "واٹر کلر برش",
       "eraser": "ربڑ"
-    }
+    },
+    "rulerOn": "ریڈنگ رولر آن کریں",
+    "rulerOff": "ریڈنگ رولر آف کریں"
   },
   "notesPage": {
     "pageTitle": "نوٹس — Lumis",

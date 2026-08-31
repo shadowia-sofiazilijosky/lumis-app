@@ -305,7 +305,9 @@
       "natural-pencil": "自然铅笔",
       "watercolor": "水彩笔",
       "eraser": "橡皮擦"
-    }
+    },
+    "rulerOn": "开启阅读尺",
+    "rulerOff": "关闭阅读尺"
   },
   "notesPage": {
     "pageTitle": "笔记 — Lumis",

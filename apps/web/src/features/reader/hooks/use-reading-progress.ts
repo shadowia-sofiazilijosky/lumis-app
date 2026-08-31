@@ -3,7 +3,7 @@
 import { ReaderTheme } from "@lumis/shared-types";
 import { useEffect, useRef } from "react";
 import { fetchReadingProgress, saveReadingProgress } from "../api/reader-client";
-import { useReaderStore } from "../store/reader-store";
+import { useReaderStore, type PageTurnMode } from "../store/reader-store";
 
 const AUTOSAVE_DELAY_MS = 800;
 
@@ -20,8 +20,17 @@ export function useLoadReadingProgress(bookId: string) {
       const currentLocator = progress?.currentLocator ?? null;
       const progressPercent = progress?.progressPercent ?? 0;
       const readerTheme = progress?.readerTheme ?? ReaderTheme.LIGHT;
+      const pageTurnMode = (progress?.pageTurnMode ?? "flip") as PageTurnMode;
+      const readingRulerEnabled = progress?.readingRulerEnabled ?? false;
 
-      loadProgress(bookId, { currentPage, currentLocator, progressPercent, readerTheme });
+      loadProgress(bookId, {
+        currentPage,
+        currentLocator,
+        progressPercent,
+        readerTheme,
+        pageTurnMode,
+        readingRulerEnabled,
+      });
 
       // Re-save the just-loaded (unchanged) values so simply opening a book
       // counts as today's reading activity -- otherwise a session that
@@ -32,6 +41,8 @@ export function useLoadReadingProgress(bookId: string) {
         currentLocator,
         progressPercent,
         readerTheme,
+        pageTurnMode,
+        readingRulerEnabled,
       });
     });
 
@@ -47,6 +58,8 @@ export function useAutosaveReadingProgress(bookId: string) {
   const locator = useReaderStore((state) => state.locator);
   const progressPercent = useReaderStore((state) => state.progressPercent);
   const theme = useReaderStore((state) => state.theme);
+  const pageTurnMode = useReaderStore((state) => state.pageTurnMode);
+  const readingRulerEnabled = useReaderStore((state) => state.readingRulerEnabled);
   const hasUnsavedChanges = useReaderStore((state) => state.hasUnsavedChanges);
   const markSaved = useReaderStore((state) => state.markSaved);
 
@@ -62,11 +75,23 @@ export function useAutosaveReadingProgress(bookId: string) {
         currentLocator: locator,
         progressPercent,
         readerTheme: theme,
+        pageTurnMode,
+        readingRulerEnabled,
       }).then(markSaved);
     }, AUTOSAVE_DELAY_MS);
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [bookId, currentPage, locator, progressPercent, theme, hasUnsavedChanges, markSaved]);
+  }, [
+    bookId,
+    currentPage,
+    locator,
+    progressPercent,
+    theme,
+    pageTurnMode,
+    readingRulerEnabled,
+    hasUnsavedChanges,
+    markSaved,
+  ]);
 }

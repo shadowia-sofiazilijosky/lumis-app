@@ -305,7 +305,9 @@
       "natural-pencil": "قلم رصاص طبيعي",
       "watercolor": "فرشاة ألوان مائية",
       "eraser": "ممحاة"
-    }
+    },
+    "rulerOn": "تشغيل مسطرة القراءة",
+    "rulerOff": "إيقاف مسطرة القراءة"
   },
   "notesPage": {
     "pageTitle": "الملاحظات — Lumis",

@@ -305,7 +305,9 @@
       "natural-pencil": "Penseli asilia",
       "watercolor": "Burashi ya rangi ya maji",
       "eraser": "Kifutio"
-    }
+    },
+    "rulerOn": "Washa rula ya kusoma",
+    "rulerOff": "Zima rula ya kusoma"
   },
   "notesPage": {
     "pageTitle": "Vidokezo — Lumis",

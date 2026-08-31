@@ -305,7 +305,9 @@
       "natural-pencil": "Natuurlijk potlood",
       "watercolor": "Aquarelpenseel",
       "eraser": "Gum"
-    }
+    },
+    "rulerOn": "Leeslineaal inschakelen",
+    "rulerOff": "Leeslineaal uitschakelen"
   },
   "notesPage": {
     "pageTitle": "Notities — Lumis",

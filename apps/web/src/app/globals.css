@@ -2483,6 +2483,34 @@ html[data-theme="light"] {
   color: var(--primary-foreground);
 }
 
+@media (max-width: 640px) {
+  .reader-topbar {
+    padding: 0.6rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  /* Already ellipsis-truncated at any width -- on a phone-narrow toolbar
+     the title just eats space the controls need more; the back link alone
+     is enough context there. */
+  .reader-title {
+    display: none;
+  }
+
+  .reader-toolbar-group {
+    gap: 0.4rem;
+  }
+
+  .reader-page-turn-switch button,
+  .reader-zoom-controls button,
+  .reader-theme-switch button {
+    padding: 0.3rem 0.4rem;
+  }
+
+  .reader-zoom-label {
+    min-width: 2.4rem;
+  }
+}
+
 .reader-bottombar button {
   display: inline-flex;
   align-items: center;
@@ -3123,6 +3151,47 @@ html[data-theme="light"] {
 .pen-cursor-eraser {
   border: 2px dashed rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+
+/* --- Reading ruler ("line focus" guide) --- */
+
+.reading-ruler {
+  position: fixed;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.reading-ruler-window {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 68px;
+  border-top: 1px solid var(--reading-ruler-edge, #c9a08a);
+  border-bottom: 1px solid var(--reading-ruler-edge, #c9a08a);
+  /* The classic "spotlight" trick: a giant box-shadow above and below this
+     thin band shades everything else, leaving just the band itself clear --
+     one element, and smoothly animatable via transform alone. */
+  box-shadow:
+    0 -100vh 0 100vh var(--reading-ruler-shade, rgba(43, 27, 17, 0.32)),
+    0 100vh 0 100vh var(--reading-ruler-shade, rgba(43, 27, 17, 0.32));
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+
+.reader-theme-dark .reading-ruler-window {
+  --reading-ruler-shade: rgba(0, 0, 0, 0.55);
+  --reading-ruler-edge: #b8925a;
+}
+
+.reader-theme-sepia .reading-ruler-window {
+  --reading-ruler-shade: rgba(59, 34, 17, 0.3);
+  --reading-ruler-edge: #c9a08a;
+}
+
+.reader-theme-light .reading-ruler-window {
+  --reading-ruler-shade: rgba(43, 27, 17, 0.32);
+  --reading-ruler-edge: #c9a08a;
 }
 
 .note-popover-colors {

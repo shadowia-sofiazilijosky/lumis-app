@@ -305,7 +305,9 @@
       "natural-pencil": "প্রাকৃতিক পেন্সিল",
       "watercolor": "ওয়াটারকালার ব্রাশ",
       "eraser": "রাবার"
-    }
+    },
+    "rulerOn": "রিডিং রুলার চালু করো",
+    "rulerOff": "রিডিং রুলার বন্ধ করো"
   },
   "notesPage": {
     "pageTitle": "নোট — Lumis",

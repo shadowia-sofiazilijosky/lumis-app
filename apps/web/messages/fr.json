@@ -305,7 +305,9 @@
       "natural-pencil": "Crayon naturel",
       "watercolor": "Pinceau aquarelle",
       "eraser": "Gomme"
-    }
+    },
+    "rulerOn": "Activer la règle de lecture",
+    "rulerOff": "Désactiver la règle de lecture"
   },
   "notesPage": {
     "pageTitle": "Notes — Lumis",

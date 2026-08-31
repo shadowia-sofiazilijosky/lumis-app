@@ -305,7 +305,9 @@
       "natural-pencil": "Bút chì tự nhiên",
       "watercolor": "Cọ màu nước",
       "eraser": "Cục tẩy"
-    }
+    },
+    "rulerOn": "Bật thước kẻ đọc",
+    "rulerOff": "Tắt thước kẻ đọc"
   },
   "notesPage": {
     "pageTitle": "Ghi chú — Lumis",

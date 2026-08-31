@@ -305,7 +305,9 @@
       "natural-pencil": "自然な鉛筆",
       "watercolor": "水彩ブラシ",
       "eraser": "消しゴム"
-    }
+    },
+    "rulerOn": "リーディングルーラーをオンにする",
+    "rulerOff": "リーディングルーラーをオフにする"
   },
   "notesPage": {
     "pageTitle": "メモ — Lumis",

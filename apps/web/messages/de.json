@@ -305,7 +305,9 @@
       "natural-pencil": "Naturstift",
       "watercolor": "Aquarellpinsel",
       "eraser": "Radiergummi"
-    }
+    },
+    "rulerOn": "Leselineal einschalten",
+    "rulerOff": "Leselineal ausschalten"
   },
   "notesPage": {
     "pageTitle": "Notizen — Lumis",

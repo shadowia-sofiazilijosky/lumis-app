@@ -253,16 +253,21 @@ model Review {
 
 // The exact resume position ("bookmark"), separate from Review's opinion/status data.
 model ReadingProgress {
-  id              String      @id @default(cuid())
-  userId          String      @map("user_id")
-  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bookId          String      @map("book_id")
-  book            Book        @relation(fields: [bookId], references: [id], onDelete: Cascade)
-  currentPage     Int         @default(0) @map("current_page")
-  currentLocator  Json?       @map("current_locator") // fine-grained position within the page (e.g. EPUB CFI-like offset)
-  progressPercent Float       @default(0) @map("progress_percent")
-  readerTheme     ReaderTheme @default(LIGHT) @map("reader_theme")
-  updatedAt       DateTime    @updatedAt @map("updated_at")
+  id                  String      @id @default(cuid())
+  userId              String      @map("user_id")
+  user                User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookId              String      @map("book_id")
+  book                Book        @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  currentPage         Int         @default(0) @map("current_page")
+  currentLocator      Json?       @map("current_locator") // fine-grained position within the page (e.g. EPUB CFI-like offset)
+  progressPercent     Float       @default(0) @map("progress_percent")
+  readerTheme         ReaderTheme @default(LIGHT) @map("reader_theme")
+  // "horizontal" | "vertical" | "flip" -- freeform like Note.colorTag, not
+  // worth its own enum for three fixed values.
+  pageTurnMode        String      @default("flip") @map("page_turn_mode")
+  // "Line focus" reading-ruler overlay toggle.
+  readingRulerEnabled Boolean     @default(false) @map("reading_ruler_enabled")
+  updatedAt           DateTime    @updatedAt @map("updated_at")
 
   @@unique([userId, bookId])
   @@map("reading_progress")

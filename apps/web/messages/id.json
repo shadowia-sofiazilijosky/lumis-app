@@ -305,7 +305,9 @@
       "natural-pencil": "Pensil alami",
       "watercolor": "Kuas cat air",
       "eraser": "Penghapus"
-    }
+    },
+    "rulerOn": "Aktifkan penggaris baca",
+    "rulerOff": "Matikan penggaris baca"
   },
   "notesPage": {
     "pageTitle": "Catatan — Lumis",

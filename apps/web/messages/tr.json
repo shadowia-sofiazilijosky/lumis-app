@@ -305,7 +305,9 @@
       "natural-pencil": "Doğal kalem",
       "watercolor": "Sulu boya fırçası",
       "eraser": "Silgi"
-    }
+    },
+    "rulerOn": "Okuma cetvelini aç",
+    "rulerOff": "Okuma cetvelini kapat"
   },
   "notesPage": {
     "pageTitle": "Notlar — Lumis",

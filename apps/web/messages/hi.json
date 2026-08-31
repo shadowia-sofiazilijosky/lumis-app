@@ -305,7 +305,9 @@
       "natural-pencil": "नेचुरल पेंसिल",
       "watercolor": "वॉटरकलर ब्रश",
       "eraser": "इरेज़र"
-    }
+    },
+    "rulerOn": "रीडिंग रूलर चालू करें",
+    "rulerOff": "रीडिंग रूलर बंद करें"
   },
   "notesPage": {
     "pageTitle": "टिप्पणियाँ — Lumis",

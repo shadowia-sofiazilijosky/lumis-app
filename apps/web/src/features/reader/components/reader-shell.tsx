@@ -20,6 +20,7 @@ import { PaginatedReader } from "./paginated-reader";
 import { PdfReader } from "./pdf-reader";
 import { PenCursor } from "./pen-cursor";
 import { ReaderControls } from "./reader-controls";
+import { ReadingRuler } from "./reading-ruler";
 import { SelectionToolbar } from "./selection-toolbar";
 
 export function ReaderShell({ bookId }: { bookId: string }) {
@@ -189,6 +190,8 @@ export function ReaderShell({ bookId }: { bookId: string }) {
             zoom={zoom}
           />
         )}
+
+        <ReadingRuler containerRef={viewportRef} />
       </div>
 
       {drawTool && <PenCursor containerRef={viewportRef} tool={drawTool} />}

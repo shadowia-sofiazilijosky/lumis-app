@@ -305,7 +305,9 @@
       "natural-pencil": "Lápis natural",
       "watercolor": "Pincel aquarela",
       "eraser": "Borracha"
-    }
+    },
+    "rulerOn": "Ativar régua de leitura",
+    "rulerOff": "Desativar régua de leitura"
   },
   "notesPage": {
     "pageTitle": "Notas — Lumis",

@@ -38,6 +38,10 @@ export class ReadingProgressService {
         currentLocator: locator,
         progressPercent: dto.progressPercent ?? 0,
         readerTheme: dto.readerTheme,
+        ...(dto.pageTurnMode !== undefined && { pageTurnMode: dto.pageTurnMode }),
+        ...(dto.readingRulerEnabled !== undefined && {
+          readingRulerEnabled: dto.readingRulerEnabled,
+        }),
       },
       update: {
         ...(dto.currentPage !== undefined && { currentPage: dto.currentPage }),
@@ -46,6 +50,10 @@ export class ReadingProgressService {
           progressPercent: dto.progressPercent,
         }),
         ...(dto.readerTheme !== undefined && { readerTheme: dto.readerTheme }),
+        ...(dto.pageTurnMode !== undefined && { pageTurnMode: dto.pageTurnMode }),
+        ...(dto.readingRulerEnabled !== undefined && {
+          readingRulerEnabled: dto.readingRulerEnabled,
+        }),
       },
     });
 

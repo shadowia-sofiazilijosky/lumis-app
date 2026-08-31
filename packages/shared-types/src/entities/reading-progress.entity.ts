@@ -8,5 +8,8 @@ export interface ReadingProgress {
   currentLocator: unknown;
   progressPercent: number;
   readerTheme: ReaderTheme;
+  /** "horizontal" | "vertical" | "flip". */
+  pageTurnMode: string;
+  readingRulerEnabled: boolean;
   updatedAt: string;
 }

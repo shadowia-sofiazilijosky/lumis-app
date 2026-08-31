@@ -12,6 +12,7 @@ import {
   Menu,
   Minus,
   Plus,
+  Ruler,
   Square,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -80,6 +81,8 @@ export function ReaderControls({
   const setPageTurnMode = useReaderStore((state) => state.setPageTurnMode);
   const spreadView = useReaderStore((state) => state.spreadView);
   const toggleSpreadView = useReaderStore((state) => state.toggleSpreadView);
+  const readingRulerEnabled = useReaderStore((state) => state.readingRulerEnabled);
+  const toggleReadingRuler = useReaderStore((state) => state.toggleReadingRuler);
 
   return (
     <>
@@ -153,6 +156,16 @@ export function ReaderControls({
             onClick={toggleSpreadView}
           >
             {spreadView ? <Columns2 size={15} /> : <Square size={15} />}
+          </button>
+
+          <button
+            type="button"
+            className={readingRulerEnabled ? "reader-theme-active" : "secondary"}
+            aria-pressed={readingRulerEnabled}
+            aria-label={readingRulerEnabled ? t("rulerOff") : t("rulerOn")}
+            onClick={toggleReadingRuler}
+          >
+            <Ruler size={15} />
           </button>
 
           {highlighterSupported && (

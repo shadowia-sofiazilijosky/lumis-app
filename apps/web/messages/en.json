@@ -305,7 +305,9 @@
       "natural-pencil": "Natural pencil",
       "watercolor": "Watercolor brush",
       "eraser": "Eraser"
-    }
+    },
+    "rulerOn": "Turn on reading ruler",
+    "rulerOff": "Turn off reading ruler"
   },
   "notesPage": {
     "pageTitle": "Notes — Lumis",
