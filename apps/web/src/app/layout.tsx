@@ -45,8 +45,11 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Lumis",
+  title: "Lumis — Your library, your way",
   description: "Tu biblioteca virtual personalizable.",
+  icons: {
+    icon: "/favicon-lumis.png",
+  },
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
