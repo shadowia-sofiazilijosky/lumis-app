@@ -45,7 +45,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Lumis — Your library, your way",
+  title: "Lumis: Your Reading Nook",
   description: "Tu biblioteca virtual personalizable.",
   icons: {
     icon: "/favicon-lumis.png",
