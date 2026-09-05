@@ -92,7 +92,6 @@ Entidades principales del `schema.prisma`, todas asociadas al usuario dueño:
 - **Stroke** — trazos de dibujo/anotación manuscrita sobre una página.
 - **Review** — reseña y puntaje del usuario para un libro.
 - **ReadingActivityLog** — registro de actividad usado para las estadísticas de perfil.
-- **SpotifyAccount** — vinculación opcional con Spotify (ambiente de lectura).
 
 ## Autenticación y seguridad
 
@@ -127,7 +126,6 @@ Ver [`\.env.example`](./.env.example) para el listado completo. Resumen:
 | `CORS_ORIGIN` | Origen permitido para CORS (URL del frontend) |
 | `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` / `SUPABASE_STORAGE_BUCKET` | Acceso al storage de archivos |
 | `MAX_UPLOAD_SIZE_MB` | Límite de tamaño de archivo al subir un libro |
-| `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET` / `SPOTIFY_REDIRECT_URI` | OAuth opcional de Spotify |
 | `PORT` | Puerto en el que escucha la API |
 
 Ninguna de estas variables se commitea con valores reales: en producción se configuran

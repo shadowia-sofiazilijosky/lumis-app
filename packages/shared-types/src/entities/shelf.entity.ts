@@ -28,8 +28,6 @@ export interface Shelf {
   canvasWidth: number | null;
   canvasHeight: number | null;
   decorations: ShelfDecoration[];
-  spotifyPlaylistId: string | null;
-  spotifyPlaylistUrl: string | null;
   sortOrder: number;
   createdAt: string;
   updatedAt: string;

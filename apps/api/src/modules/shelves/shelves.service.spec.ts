@@ -18,8 +18,6 @@ const mockShelf: Shelf = {
   canvasWidth: null,
   canvasHeight: null,
   decorations: [],
-  spotifyPlaylistId: null,
-  spotifyPlaylistUrl: null,
   sortOrder: 0,
   createdAt: new Date(),
   updatedAt: new Date(),

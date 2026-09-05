@@ -108,7 +108,6 @@ model User {
   highlights          Highlight[]
   notes               Note[]
   strokes             Stroke[]
-  spotifyAccount      SpotifyAccount?
 
   @@map("users")
 }
@@ -188,8 +187,6 @@ model Shelf {
   canvasWidth        Int?             @map("canvas_width") // user-resized canvas box, in px (design space is 1000x600)
   canvasHeight       Int?             @map("canvas_height")
   decorations        Json             @default("[]") // [{ type: "plant" | "light" | ..., variant, x, y, rotation }]
-  spotifyPlaylistId  String?          @map("spotify_playlist_id")
-  spotifyPlaylistUrl String?          @map("spotify_playlist_url")
   sortOrder          Int              @default(0) @map("sort_order")
   createdAt          DateTime         @default(now()) @map("created_at")
   updatedAt          DateTime         @updatedAt @map("updated_at")
@@ -348,19 +345,4 @@ model Stroke {
 
   @@index([bookId, userId])
   @@map("strokes")
-}
-
-model SpotifyAccount {
-  id            String   @id @default(cuid())
-  userId        String   @unique @map("user_id")
-  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  spotifyUserId String   @map("spotify_user_id")
-  accessToken   String   @map("access_token")
-  refreshToken  String   @map("refresh_token")
-  expiresAt     DateTime @map("expires_at")
-  scope         String
-  createdAt     DateTime @default(now()) @map("created_at")
-  updatedAt     DateTime @updatedAt @map("updated_at")
-
-  @@map("spotify_accounts")
 }
