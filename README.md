@@ -6,6 +6,9 @@ propio y llevás tus notas, subrayados y reseñas — todo persistido en una bas
 con autenticación de usuarios.
 
 - **Autora:** Sofía A. Zilijosky
+- **Repositorio:** https://github.com/shadowia-sofiazilijosky/lumis-app
+- **Deploy de la API:** https://api-production-72d6.up.railway.app
+- **Deploy del frontend:** https://lumis-web-sandy.vercel.app
 
 ## 📦 Este repositorio
 

@@ -42,6 +42,7 @@ Este repositorio corresponde al **Cuarto Proyecto Integrador — Backend con Nes
 | Hasheo de contraseñas y refresh tokens | `bcrypt` |
 | Validación | `class-validator` + `class-transformer` (DTOs + `ValidationPipe` global) |
 | Rate limiting | `@nestjs/throttler` |
+| Cabeceras HTTP de seguridad | `helmet` |
 | Configuración y validación de env | `@nestjs/config` + `zod` |
 | Almacenamiento de archivos | Supabase Storage (libros, portadas, avatares) |
 | Parsing de libros | `pdf-lib`, `pdfjs-dist`, `fast-xml-parser`, `node-unrar-js`, `adm-zip` |
@@ -109,6 +110,8 @@ Entidades principales del `schema.prisma`, todas asociadas al usuario dueño:
 - `ValidationPipe` global con `whitelist: true` y `forbidNonWhitelisted: true`: cualquier
   campo no declarado en el DTO correspondiente es rechazado.
 - CORS configurado explícitamente contra el origen del frontend (`CORS_ORIGIN`), no abierto.
+- `helmet` aplicado globalmente en el bootstrap: agrega las cabeceras HTTP de seguridad
+  recomendadas (`X-Content-Type-Options`, `X-Frame-Options`, HSTS, etc.) a toda respuesta.
 - Todo endpoint de escritura/lectura de datos propios del usuario valida la pertenencia del
   recurso (`ownerId`) contra el usuario autenticado antes de operar.
 
