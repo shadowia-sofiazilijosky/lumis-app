@@ -841,10 +841,25 @@ header nav a {
 
 /* Stat card + achievement icons: recolor the line art to solid white
    (brightness(0) flattens every opaque pixel to black while keeping the
-   PNG's alpha edges, invert(1) flips that to white) so they read clearly
-   against their colored glow circle instead of blending into it. */
+   PNG's alpha edges) so they read clearly against their colored glow
+   circle instead of blending into it -- dark brown in light mode (near-
+   black already, matching --foreground), flipped to solid white in dark
+   mode via invert(1), same three-state pattern as the rest of the app's
+   theming (prefers-color-scheme default, [data-theme] override wins). */
 .profile-stat-icon img,
 .profile-achievement-icon img {
+  filter: brightness(0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .profile-stat-icon img,
+  :root:not([data-theme="light"]) .profile-achievement-icon img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+:root[data-theme="dark"] .profile-stat-icon img,
+:root[data-theme="dark"] .profile-achievement-icon img {
   filter: brightness(0) invert(1);
 }
 
