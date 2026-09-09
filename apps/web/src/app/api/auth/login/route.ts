@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       { method: "POST", body: JSON.stringify(body) },
     );
 
-    await setAuthCookies(accessToken, refreshToken);
+    await setAuthCookies(accessToken, refreshToken, body.rememberMe === true);
     return NextResponse.json({ user });
   } catch (error) {
     if (error instanceof ApiError) {

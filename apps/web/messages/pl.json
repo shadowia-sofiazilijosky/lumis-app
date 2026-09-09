@@ -433,7 +433,8 @@
       "password": "Hasło",
       "genericError": "Nie udało się zalogować. Spróbuj ponownie.",
       "submitting": "Logowanie…",
-      "submit": "Zaloguj się"
+      "submit": "Zaloguj się",
+      "rememberMe": "Nie wylogowuj mnie"
     },
     "register": {
       "pageTitle": "Utwórz konto — Lumis",

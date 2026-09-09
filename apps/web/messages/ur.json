@@ -433,7 +433,8 @@
       "password": "پاس ورڈ",
       "genericError": "ہم لاگ ان نہیں کر سکے۔ دوبارہ کوشش کریں۔",
       "submitting": "لاگ ان ہو رہا ہے…",
-      "submit": "لاگ ان کریں"
+      "submit": "لاگ ان کریں",
+      "rememberMe": "مجھے سائن ان رکھیں"
     },
     "register": {
       "pageTitle": "اکاؤنٹ بنائیں — Lumis",

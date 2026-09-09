@@ -433,7 +433,8 @@
       "password": "Пароль",
       "genericError": "Не удалось войти. Попробуйте снова.",
       "submitting": "Вход…",
-      "submit": "Войти"
+      "submit": "Войти",
+      "rememberMe": "Запомнить меня"
     },
     "register": {
       "pageTitle": "Создать аккаунт — Lumis",

@@ -433,7 +433,8 @@
       "password": "Mật khẩu",
       "genericError": "Không thể đăng nhập. Vui lòng thử lại.",
       "submitting": "Đang đăng nhập…",
-      "submit": "Đăng nhập"
+      "submit": "Đăng nhập",
+      "rememberMe": "Duy trì đăng nhập"
     },
     "register": {
       "pageTitle": "Tạo tài khoản — Lumis",

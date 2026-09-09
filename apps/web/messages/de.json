@@ -433,7 +433,8 @@
       "password": "Passwort",
       "genericError": "Anmeldung fehlgeschlagen. Bitte erneut versuchen.",
       "submitting": "Wird angemeldet…",
-      "submit": "Anmelden"
+      "submit": "Anmelden",
+      "rememberMe": "Angemeldet bleiben"
     },
     "register": {
       "pageTitle": "Konto erstellen — Lumis",

@@ -4,6 +4,7 @@ import {
   clearAuthCookies,
   getAccessToken,
   getRefreshToken,
+  getRememberMe,
   setAuthCookies,
 } from "./auth-cookies";
 
@@ -23,7 +24,7 @@ async function refreshAccessToken(): Promise<string | undefined> {
       method: "POST",
       body: JSON.stringify({ refreshToken }),
     });
-    await setAuthCookies(tokenPair.accessToken, tokenPair.refreshToken);
+    await setAuthCookies(tokenPair.accessToken, tokenPair.refreshToken, await getRememberMe());
     return tokenPair.accessToken;
   } catch {
     await clearAuthCookies();

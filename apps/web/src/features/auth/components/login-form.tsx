@@ -13,6 +13,7 @@ export function LoginForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -22,7 +23,7 @@ export function LoginForm() {
     setIsSubmitting(true);
 
     try {
-      const { user } = await login({ email, password });
+      const { user } = await login({ email, password, rememberMe });
       setUser(user);
       router.push("/library");
       router.refresh();
@@ -61,6 +62,17 @@ export function LoginForm() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
+      </div>
+
+      <div className="auth-form-row">
+        <label className="auth-remember-me">
+          <input
+            type="checkbox"
+            checked={rememberMe}
+            onChange={(event) => setRememberMe(event.target.checked)}
+          />
+          {t("rememberMe")}
+        </label>
       </div>
 
       {error && (

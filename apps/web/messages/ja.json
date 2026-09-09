@@ -433,7 +433,8 @@
       "password": "パスワード",
       "genericError": "ログインできませんでした。もう一度お試しください。",
       "submitting": "ログイン中…",
-      "submit": "ログイン"
+      "submit": "ログイン",
+      "rememberMe": "ログイン状態を保持"
     },
     "register": {
       "pageTitle": "アカウント作成 — Lumis",

@@ -1341,6 +1341,23 @@ main.auth-page [role="alert"] {
   font-size: 0.9rem;
 }
 
+main.auth-page .auth-form-row {
+  flex-direction: row;
+}
+
+.auth-remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.auth-remember-me input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--primary);
+}
+
 /* --- Library --- */
 
 .book-upload-form {

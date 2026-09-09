@@ -12,7 +12,10 @@ export async function POST(request: Request) {
       { method: "POST", body: JSON.stringify(body) },
     );
 
-    await setAuthCookies(accessToken, refreshToken);
+    // Registering doesn't offer a "remember me" choice -- session cookie by
+    // default, same as an un-checked login, so a freshly created account
+    // isn't silently more persistent than an explicit login would be.
+    await setAuthCookies(accessToken, refreshToken, false);
     return NextResponse.json({ user });
   } catch (error) {
     if (error instanceof ApiError) {

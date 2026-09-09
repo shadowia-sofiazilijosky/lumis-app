@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { RegisterForm } from "@/features/auth/components/register-form";
-import { PageTitle } from "@/shared/components/page-title";
 
 export async function generateMetadata() {
   const t = await getTranslations("auth.register");
@@ -12,7 +11,7 @@ export default async function RegisterPage() {
   const t = await getTranslations("auth.register");
   return (
     <main className="auth-page">
-      <PageTitle>{t("heading")}</PageTitle>
+      <h1>{t("heading")}</h1>
       <RegisterForm />
       <p>
         {t("hasAccount")} <Link href="/login">{t("login")}</Link>

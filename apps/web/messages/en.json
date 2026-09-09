@@ -433,7 +433,8 @@
       "password": "Password",
       "genericError": "We couldn't log you in. Please try again.",
       "submitting": "Logging in…",
-      "submit": "Log in"
+      "submit": "Log in",
+      "rememberMe": "Keep me signed in"
     },
     "register": {
       "pageTitle": "Create account — Lumis",

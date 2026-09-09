@@ -433,7 +433,8 @@
       "password": "Password",
       "genericError": "Non siamo riusciti ad accedere. Riprova.",
       "submitting": "Accesso…",
-      "submit": "Accedi"
+      "submit": "Accedi",
+      "rememberMe": "Resta connesso/a"
     },
     "register": {
       "pageTitle": "Crea account — Lumis",

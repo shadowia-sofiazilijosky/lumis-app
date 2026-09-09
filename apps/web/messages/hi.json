@@ -433,7 +433,8 @@
       "password": "पासवर्ड",
       "genericError": "हम लॉग इन नहीं कर सके। फिर से कोशिश करें।",
       "submitting": "लॉग इन हो रहा है…",
-      "submit": "लॉग इन करें"
+      "submit": "लॉग इन करें",
+      "rememberMe": "मुझे साइन इन रखें"
     },
     "register": {
       "pageTitle": "खाता बनाएं — Lumis",

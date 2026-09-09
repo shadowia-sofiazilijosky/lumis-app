@@ -433,7 +433,8 @@
       "password": "密码",
       "genericError": "无法登录，请重试。",
       "submitting": "登录中…",
-      "submit": "登录"
+      "submit": "登录",
+      "rememberMe": "保持登录状态"
     },
     "register": {
       "pageTitle": "创建账户 — Lumis",

@@ -433,7 +433,8 @@
       "password": "Wachtwoord",
       "genericError": "We konden je niet inloggen. Probeer het opnieuw.",
       "submitting": "Inloggen…",
-      "submit": "Inloggen"
+      "submit": "Inloggen",
+      "rememberMe": "Aangemeld blijven"
     },
     "register": {
       "pageTitle": "Account aanmaken — Lumis",

@@ -433,7 +433,8 @@
       "password": "كلمة المرور",
       "genericError": "تعذر تسجيل الدخول. حاول مرة أخرى.",
       "submitting": "جارٍ الدخول…",
-      "submit": "دخول"
+      "submit": "دخول",
+      "rememberMe": "إبقني مسجلاً الدخول"
     },
     "register": {
       "pageTitle": "إنشاء حساب — Lumis",

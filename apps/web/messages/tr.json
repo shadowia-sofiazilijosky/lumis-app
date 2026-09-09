@@ -433,7 +433,8 @@
       "password": "Şifre",
       "genericError": "Giriş yapamadık. Tekrar dene.",
       "submitting": "Giriş yapılıyor…",
-      "submit": "Giriş yap"
+      "submit": "Giriş yap",
+      "rememberMe": "Oturumu açık tut"
     },
     "register": {
       "pageTitle": "Hesap oluştur — Lumis",

@@ -433,7 +433,8 @@
       "password": "Mot de passe",
       "genericError": "Impossible de te connecter. Réessaie.",
       "submitting": "Connexion…",
-      "submit": "Se connecter"
+      "submit": "Se connecter",
+      "rememberMe": "Rester connecté(e)"
     },
     "register": {
       "pageTitle": "Créer un compte — Lumis",

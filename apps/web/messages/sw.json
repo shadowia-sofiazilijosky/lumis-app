@@ -433,7 +433,8 @@
       "password": "Nenosiri",
       "genericError": "Hatukuweza kukuingiza. Jaribu tena.",
       "submitting": "Inaingia…",
-      "submit": "Ingia"
+      "submit": "Ingia",
+      "rememberMe": "Nibaki nikiwa nimeingia"
     },
     "register": {
       "pageTitle": "Unda akaunti — Lumis",

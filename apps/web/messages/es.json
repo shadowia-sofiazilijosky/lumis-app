@@ -433,7 +433,8 @@
       "password": "Contraseña",
       "genericError": "No pudimos iniciar sesión. Probá de nuevo.",
       "submitting": "Entrando…",
-      "submit": "Entrar"
+      "submit": "Entrar",
+      "rememberMe": "Mantener sesión iniciada"
     },
     "register": {
       "pageTitle": "Crear cuenta — Lumis",

@@ -433,7 +433,8 @@
       "password": "비밀번호",
       "genericError": "로그인하지 못했습니다. 다시 시도해 주세요.",
       "submitting": "로그인 중…",
-      "submit": "로그인"
+      "submit": "로그인",
+      "rememberMe": "로그인 상태 유지"
     },
     "register": {
       "pageTitle": "계정 만들기 — Lumis",

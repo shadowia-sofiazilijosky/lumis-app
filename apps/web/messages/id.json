@@ -433,7 +433,8 @@
       "password": "Kata sandi",
       "genericError": "Kami tidak dapat memproses masuk. Coba lagi.",
       "submitting": "Sedang masuk…",
-      "submit": "Masuk"
+      "submit": "Masuk",
+      "rememberMe": "Ingat saya"
     },
     "register": {
       "pageTitle": "Buat akun — Lumis",
