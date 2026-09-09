@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { PageTitle } from "@/shared/components/page-title";
 import { SiteFooter } from "@/shared/components/site-footer";
 import { SiteHeader } from "@/shared/components/site-header";
 
@@ -15,7 +16,7 @@ export default async function TermsPage() {
     <>
       <SiteHeader variant="solid" />
       <main className="prose-page">
-        <h1>{t("heading")}</h1>
+        <PageTitle>{t("heading")}</PageTitle>
         <p className="prose-updated">{t("updated")}</p>
 
         <h2>{t("s1.title")}</h2>

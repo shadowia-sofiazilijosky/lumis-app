@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { LibraryView } from "@/features/books/components/library-view";
+import { PageTitle } from "@/shared/components/page-title";
 
 export async function generateMetadata() {
   const t = await getTranslations("library");
@@ -10,7 +11,7 @@ export default async function LibraryPage() {
   const t = await getTranslations("library");
   return (
     <section>
-      <h1>{t("heading")}</h1>
+      <PageTitle>{t("heading")}</PageTitle>
       <LibraryView />
     </section>
   );

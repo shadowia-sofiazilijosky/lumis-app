@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import type { ShelfListItem } from "@lumis/shared-types";
 import { Plus } from "lucide-react";
+import { PageTitle } from "@/shared/components/page-title";
 import { createShelf, fetchShelves } from "../api/shelves-client";
 import { ShelfCard } from "./shelf-card";
 
@@ -47,7 +48,7 @@ export function ShelfList() {
   return (
     <div>
       <div className="shelf-list-header">
-        <h1>{t("title")}</h1>
+        <PageTitle>{t("title")}</PageTitle>
       </div>
 
       <div className="shelf-grid">

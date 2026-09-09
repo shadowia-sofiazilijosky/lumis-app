@@ -4,6 +4,7 @@ import type { ProfileStats, PublicUser } from "@lumis/shared-types";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { PageTitle } from "@/shared/components/page-title";
 import { fetchProfileStats } from "../api/profile-client";
 import { AchievementsGrid } from "./achievements-grid";
 import { ActivityList } from "./activity-list";
@@ -45,7 +46,7 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
   return (
     <section className="profile-page">
       <div className="profile-page-header">
-        <h1>{t("title")}</h1>
+        <PageTitle>{t("title")}</PageTitle>
         <div className="profile-tabs">
           <button
             type="button"
