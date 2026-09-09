@@ -103,7 +103,7 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
                   iconTone="olive"
                   value={stats.counts.totalReviews}
                   label={t("stats.reviewCount")}
-                  href="/library"
+                  href="/notes"
                   linkLabel={t("stats.viewAllFem")}
                 />
                 <StatCard
