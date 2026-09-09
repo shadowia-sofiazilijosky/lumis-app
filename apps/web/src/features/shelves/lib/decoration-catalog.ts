@@ -1,4 +1,10 @@
-export const DECORATION_CATEGORIES = ["Todo", "Dragones", "PlantasFlores", "DarkRomance"] as const;
+export const DECORATION_CATEGORIES = [
+  "Todo",
+  "Dragones",
+  "PlantasFlores",
+  "DarkRomance",
+  "ACOTAR",
+] as const;
 
 export type DecorationCategory = (typeof DECORATION_CATEGORIES)[number];
 
@@ -476,6 +482,189 @@ export const DECORATION_CATALOG: DecorationCatalogItem[] = [
     category: "DarkRomance",
     imageUrl: "/assets/shelves/decorations/deco-globo-terraqueo-vintage-oscuro.png",
     defaultSize: { width: 100, height: 150 },
+  },
+  // "ACOTAR" -- fan-art pieces (character portraits, statues, artifacts, the
+  // Prythian map) for A Court of Thorns and Roses. Most portraits are the
+  // same tall 408x612 (~2:3) PNG as the rest of the catalog; a handful sit
+  // at other ratios (measured per-file) and get a proportional defaultSize
+  // so they don't start out squeezed into a square, same convention as
+  // Dark Romance and the plant vines above.
+  {
+    type: "acotar",
+    variant: "tamlin-bestia",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-tamlin-bestia.png",
+  },
+  {
+    type: "acotar",
+    variant: "amarantha",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-amarantha.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "rhysand",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-rhysand.png",
+    // 423x590 (~0.72) -- narrower portrait than the standard 2:3.
+    defaultSize: { width: 108, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "feyre-pintura",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-feyre-pintura.png",
+    // 548x456 (~1.2) -- landscape painting, wider than tall.
+    defaultSize: { width: 150, height: 125 },
+  },
+  {
+    type: "acotar",
+    variant: "lucien",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-lucien.png",
+    // 436x572 (~0.76) -- narrower portrait than the standard 2:3.
+    defaultSize: { width: 114, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "tamlin",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-tamlin.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "suriel",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-suriel.png",
+  },
+  {
+    type: "acotar",
+    variant: "feyre-archeron",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-feyre-archeron.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "feyre-bajo-la-montana",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-feyre-bajo-la-montana.png",
+  },
+  {
+    type: "acotar",
+    variant: "feyre-mobiliario",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-feyre-mobiliario.png",
+  },
+  {
+    type: "acotar",
+    variant: "estatua-feyre-y-rhysand-1",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-estatua-feyre-y-rhysand-1.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "estatua-feyre-y-rhysand-2",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-estatua-feyre-y-rhysand-2.png",
+  },
+  {
+    type: "acotar",
+    variant: "estatua-feyre-y-rhysand-3",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-estatua-feyre-y-rhysand-3.png",
+  },
+  {
+    type: "acotar",
+    variant: "cassian",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-cassian.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "rhys",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-rhys.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "feyre",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-feyre.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "nesta-y-cassian",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-nesta-y-cassian.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "feyre-y-rhys",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-feyre-y-rhys.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "elain-y-azriel",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-elain-y-azriel.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "velaris",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-velaris.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "reliquia-1",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-reliquia-1.png",
+  },
+  {
+    type: "acotar",
+    variant: "reliquia-2",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-reliquia-2.png",
+  },
+  {
+    type: "acotar",
+    variant: "reliquia-3",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-reliquia-3.png",
+    // 707x353 (~2:1) -- wide artifact shot, same care as the Dark Romance
+    // firearm pieces.
+    defaultSize: { width: 150, height: 75 },
+  },
+  {
+    type: "acotar",
+    variant: "nesta-caldero",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-nesta-caldero.png",
+  },
+  {
+    type: "acotar",
+    variant: "cortes",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-cortes.png",
+    defaultSize: { width: 100, height: 150 },
+  },
+  {
+    type: "acotar",
+    variant: "prythian-mapa",
+    category: "ACOTAR",
+    imageUrl: "/assets/shelves/decorations/deco-ACOTAR-prythian-mapa.png",
   },
 ];
 
