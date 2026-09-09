@@ -823,8 +823,9 @@ header nav a {
 }
 
 .profile-stat-icon {
-  width: 64px;
-  height: 64px;
+  position: relative;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -845,6 +846,15 @@ header nav a {
 .profile-stat-icon img,
 .profile-achievement-icon img {
   filter: brightness(0) invert(1);
+}
+
+/* The stat icon PNGs aren't square (three are 612x408 landscape, the
+   streak one is 408x612 portrait) -- object-fit: contain on the `fill`
+   image scales each to fit its real aspect ratio inside the circle
+   instead of stretching it into a square. */
+.profile-stat-icon img {
+  object-fit: contain;
+  padding: 14px;
 }
 
 .profile-stat-icon-gold {
