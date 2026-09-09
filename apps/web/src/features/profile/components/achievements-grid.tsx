@@ -17,7 +17,7 @@ export function AchievementsGrid({ achievements }: { achievements: AchievementSt
               className={`profile-achievement${achievement.unlocked ? "" : " profile-achievement-locked"}`}
             >
               <span className="profile-achievement-icon">
-                <Image src={meta.icon} alt="" width={40} height={40} />
+                <Image src={meta.icon} alt="" width={64} height={64} />
               </span>
               <span className="profile-achievement-title">{meta.title}</span>
               <span className="profile-achievement-description">{meta.description}</span>
