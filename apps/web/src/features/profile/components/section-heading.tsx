@@ -8,7 +8,7 @@ export function SectionHeading({ icon, title }: { icon: string; title: string })
           inside a fixed box instead of the old fixed 22x22, which
           stretched every one of them. */}
       <span className="profile-section-heading-icon">
-        <Image src={icon} alt="" fill sizes="34px" />
+        <Image src={icon} alt="" fill sizes="56px" />
       </span>
       {title}
     </h2>
