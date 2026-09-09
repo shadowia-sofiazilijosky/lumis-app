@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Book, BookFormat, Prisma } from '@prisma/client';
+import { Book, BookFormat, Prisma, ReadingStatus } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
 import { extname } from 'node:path';
 import { PrismaService } from '../../database/prisma.service';
@@ -45,6 +45,14 @@ const ORIGINAL_CONTENT_TYPE: Record<BookFormat, string> = {
   CBZ: 'application/x-cbz',
   TXT: 'text/plain',
 };
+
+// Kept in sync with stats.service.ts's own READ_STATUSES -- "finished" for
+// the purposes of a book list means the same thing it means for the
+// "Libros leídos" profile count: a review marked FINISHED or REREAD.
+const READ_STATUSES: ReadingStatus[] = [
+  ReadingStatus.FINISHED,
+  ReadingStatus.REREAD,
+];
 
 const EXTENSION_BY_CONTENT_TYPE: Record<string, string> = {
   'image/jpeg': '.jpg',
@@ -136,6 +144,27 @@ export class BooksService {
       orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
       skip,
       take,
+    });
+
+    const progressByBookId = await this.getProgressByBookId(
+      ownerId,
+      books.map((book) => book.id),
+    );
+
+    return Promise.all(
+      books.map((book) =>
+        this.withSignedUrls(book, progressByBookId.get(book.id) ?? 0),
+      ),
+    );
+  }
+
+  async findFinishedForOwner(ownerId: string): Promise<BookWithSignedUrls[]> {
+    const books = await this.prisma.book.findMany({
+      where: {
+        ownerId,
+        reviews: { some: { userId: ownerId, status: { in: READ_STATUSES } } },
+      },
+      orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
     });
 
     const progressByBookId = await this.getProgressByBookId(

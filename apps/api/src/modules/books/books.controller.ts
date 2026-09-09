@@ -94,6 +94,15 @@ export class BooksController {
     );
   }
 
+  // Must come before @Get(':id') -- otherwise "finished" would be parsed
+  // as a book id and 404.
+  @Get('finished')
+  findFinished(
+    @CurrentUser() user: AuthenticatedUser,
+  ): Promise<BookWithSignedUrls[]> {
+    return this.booksService.findFinishedForOwner(user.userId);
+  }
+
   @Put('reorder')
   @HttpCode(HttpStatus.NO_CONTENT)
   async reorder(

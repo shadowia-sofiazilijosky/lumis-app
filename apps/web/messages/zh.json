@@ -673,5 +673,12 @@
       "title": "11. 联系方式",
       "bodyBeforeEmail": "如对本隐私政策有任何疑问，或希望行使你的权利，请写信联系我们："
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "已读书籍 — Lumis",
+    "heading": "已读书籍",
+    "loading": "加载中…",
+    "loadError": "无法加载你的已读书籍。",
+    "empty": "你还没有把任何一本书标记为已读。"
   }
 }

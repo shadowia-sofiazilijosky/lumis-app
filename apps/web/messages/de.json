@@ -673,5 +673,12 @@
       "title": "11. Kontakt",
       "bodyBeforeEmail": "Bei Fragen zu dieser Datenschutzrichtlinie oder zur Ausübung deiner Rechte schreibe uns an"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Gelesene Bücher — Lumis",
+    "heading": "Gelesene Bücher",
+    "loading": "Wird geladen…",
+    "loadError": "Wir konnten deine gelesenen Bücher nicht laden.",
+    "empty": "Du hast noch kein Buch als gelesen markiert."
   }
 }

@@ -673,5 +673,12 @@
       "title": "11. İletişim",
       "bodyBeforeEmail": "Bu Gizlilik Politikası hakkında herhangi bir soru için veya haklarını kullanmak için bize şu adresten yazabilirsin:"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Okunan kitaplar — Lumis",
+    "heading": "Okunan kitaplar",
+    "loading": "Yükleniyor…",
+    "loadError": "Okunan kitaplarını yükleyemedik.",
+    "empty": "Henüz hiçbir kitabı okundu olarak işaretlemedin."
   }
 }

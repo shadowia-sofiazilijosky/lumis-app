@@ -95,7 +95,7 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
                   iconTone="wine"
                   value={stats.counts.totalRead}
                   label={t("stats.readCount")}
-                  href="/library"
+                  href="/library/read"
                   linkLabel={t("stats.viewAll")}
                 />
                 <StatCard

@@ -673,5 +673,12 @@
       "title": "11. Contato",
       "bodyBeforeEmail": "Para dúvidas sobre esta Política de Privacidade ou para exercer seus direitos, escreva-nos em"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Livros lidos — Lumis",
+    "heading": "Livros lidos",
+    "loading": "Carregando…",
+    "loadError": "Não conseguimos carregar seus livros lidos.",
+    "empty": "Você ainda não marcou nenhum livro como lido."
   }
 }

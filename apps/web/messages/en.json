@@ -673,5 +673,12 @@
       "title": "11. Contact",
       "bodyBeforeEmail": "For questions about this Privacy Policy or to exercise your rights, write to us at"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Books you've read — Lumis",
+    "heading": "Books you've read",
+    "loading": "Loading…",
+    "loadError": "We couldn't load your read books.",
+    "empty": "You haven't marked any book as read yet."
   }
 }

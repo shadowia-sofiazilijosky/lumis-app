@@ -673,5 +673,12 @@
       "title": "11. Liên hệ",
       "bodyBeforeEmail": "Nếu có bất kỳ thắc mắc nào về Chính Sách Bảo Mật này hoặc để thực hiện quyền của bạn, hãy viết thư cho chúng tôi tại"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Sách đã đọc — Lumis",
+    "heading": "Sách đã đọc",
+    "loading": "Đang tải…",
+    "loadError": "Không thể tải sách đã đọc của bạn.",
+    "empty": "Bạn chưa đánh dấu cuốn sách nào là đã đọc."
   }
 }

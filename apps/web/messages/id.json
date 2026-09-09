@@ -673,5 +673,12 @@
       "title": "11. Kontak",
       "bodyBeforeEmail": "Untuk pertanyaan tentang Kebijakan Privasi ini atau untuk menggunakan hakmu, tulis kepada kami di"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Buku yang sudah dibaca — Lumis",
+    "heading": "Buku yang sudah dibaca",
+    "loading": "Memuat…",
+    "loadError": "Kami tidak bisa memuat buku yang sudah kamu baca.",
+    "empty": "Kamu belum menandai buku apa pun sebagai sudah dibaca."
   }
 }

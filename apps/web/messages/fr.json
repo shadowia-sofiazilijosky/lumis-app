@@ -673,5 +673,12 @@
       "title": "11. Contact",
       "bodyBeforeEmail": "Pour toute question sur cette Politique de Confidentialité ou pour exercer tes droits, écris-nous à"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Livres lus — Lumis",
+    "heading": "Livres lus",
+    "loading": "Chargement…",
+    "loadError": "Nous n'avons pas pu charger tes livres lus.",
+    "empty": "Tu n'as encore marqué aucun livre comme lu."
   }
 }

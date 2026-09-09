@@ -673,5 +673,12 @@
       "title": "11. 연락처",
       "bodyBeforeEmail": "본 개인정보 처리방침에 관한 문의나 권리 행사를 원하시면 아래로 연락해 주세요:"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "다 읽은 책 — Lumis",
+    "heading": "다 읽은 책",
+    "loading": "불러오는 중…",
+    "loadError": "다 읽은 책을 불러오지 못했습니다.",
+    "empty": "아직 읽음으로 표시한 책이 없어요."
   }
 }

@@ -673,5 +673,12 @@
       "title": "11. Contact",
       "bodyBeforeEmail": "Voor vragen over dit Privacybeleid of om je rechten uit te oefenen, schrijf ons op"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Gelezen boeken — Lumis",
+    "heading": "Gelezen boeken",
+    "loading": "Laden…",
+    "loadError": "We konden je gelezen boeken niet laden.",
+    "empty": "Je hebt nog geen boek als gelezen gemarkeerd."
   }
 }

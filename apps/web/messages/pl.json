@@ -673,5 +673,12 @@
       "title": "11. Kontakt",
       "bodyBeforeEmail": "W przypadku pytań dotyczących niniejszej Polityki Prywatności lub w celu skorzystania ze swoich praw, napisz do nas na adres"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Przeczytane książki — Lumis",
+    "heading": "Przeczytane książki",
+    "loading": "Ładowanie…",
+    "loadError": "Nie mogliśmy załadować przeczytanych książek.",
+    "empty": "Nie oznaczyłeś jeszcze żadnej książki jako przeczytanej."
   }
 }

@@ -15,6 +15,12 @@ export async function fetchBooks(): Promise<BookSummary[]> {
   return response.json();
 }
 
+export async function fetchFinishedBooks(): Promise<BookSummary[]> {
+  const response = await fetch("/api/books/finished");
+  if (!response.ok) return [];
+  return response.json();
+}
+
 export async function fetchBookDetail(bookId: string): Promise<BookDetail> {
   const response = await fetch(`/api/books/${bookId}`);
   const data = (await response.json().catch(() => null)) as

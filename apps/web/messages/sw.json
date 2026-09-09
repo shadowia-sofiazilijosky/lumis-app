@@ -673,5 +673,12 @@
       "title": "11. Mawasiliano",
       "bodyBeforeEmail": "Kwa swali lolote kuhusu Sera hii ya Faragha au kutumia haki zako, tuandikie kupitia"
     }
+  },
+  "finishedBooks": {
+    "pageTitle": "Vitabu ulivyosoma — Lumis",
+    "heading": "Vitabu ulivyosoma",
+    "loading": "Inapakia…",
+    "loadError": "Hatukuweza kupakia vitabu ulivyosoma.",
+    "empty": "Bado hujaweka alama kitabu chochote kama kimesomwa."
   }
 }
