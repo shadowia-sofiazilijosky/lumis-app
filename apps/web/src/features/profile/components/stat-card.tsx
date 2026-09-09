@@ -14,7 +14,7 @@ export function StatCard({ icon, iconTone, value, label, href, linkLabel }: Stat
   return (
     <div className="profile-stat-card">
       <span className={`profile-stat-icon profile-stat-icon-${iconTone}`}>
-        <Image src={icon} alt="" width={28} height={28} />
+        <Image src={icon} alt="" width={40} height={40} />
       </span>
       <span className="profile-stat-value">{value}</span>
       <span className="profile-stat-label">{label}</span>
