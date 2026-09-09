@@ -834,10 +834,17 @@ header nav a {
 /* Boost only the icon artwork's own color -- never the circle behind it
    (that's a separate, deliberately soft/pastel background) -- the plain
    PNGs read as washed out and near-invisible at this size otherwise. */
-.profile-stat-icon img,
 .profile-section-heading img,
 .profile-achievement-icon img {
   filter: saturate(4.5) contrast(1.5) brightness(0.85);
+}
+
+/* Stat card icons: recolor the line art to solid white (brightness(0)
+   flattens every opaque pixel to black while keeping the PNG's alpha
+   edges, invert(1) flips that to white) so they read clearly against
+   their colored glow circle instead of blending into it. */
+.profile-stat-icon img {
+  filter: brightness(0) invert(1);
 }
 
 .profile-stat-icon-gold {
