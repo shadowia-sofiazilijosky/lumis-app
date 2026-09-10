@@ -153,87 +153,38 @@ export class StatsService {
 
     const startUtc = new Date(Date.UTC(year, month - 1, 1));
     const endUtc = new Date(Date.UTC(year, month, 1));
-    const monthLength = new Date(Date.UTC(year, month, 0)).getUTCDate();
 
-    const [logs, reviews] = await Promise.all([
-      this.prisma.readingActivityLog.findMany({
-        where: { userId, date: { gte: startUtc, lt: endUtc } },
-        orderBy: { date: 'asc' },
-        include: {
-          books: {
-            include: {
-              book: { select: { id: true, title: true, coverImageKey: true } },
-            },
+    // Real activity only -- ReadingActivityLog + its ReadingActivityBook
+    // join is written live every time reading progress is actually saved
+    // (see ReadingProgressService.upsert), so this reflects genuine
+    // day-by-day reading, not an assumption of continuous reading between
+    // a review's start/finish dates.
+    const logs = await this.prisma.readingActivityLog.findMany({
+      where: { userId, date: { gte: startUtc, lt: endUtc } },
+      orderBy: { date: 'asc' },
+      include: {
+        books: {
+          include: {
+            book: { select: { id: true, title: true, coverImageKey: true } },
           },
         },
-      }),
-      // "Ficha de lectura" start/finish dates fill in every day a book was
-      // being read, not just the days an explicit activity log entry
-      // exists for -- a much more complete history than the log alone,
-      // especially for books read before this join table existed.
-      this.prisma.review.findMany({
-        where: { userId, startedAt: { not: null } },
-        select: {
-          startedAt: true,
-          finishedAt: true,
-          book: { select: { id: true, title: true, coverImageKey: true } },
-        },
-      }),
-    ]);
+      },
+    });
 
-    type BookRef = { id: string; title: string; coverImageKey: string | null };
-    const dayMap = new Map<string, { isNight: boolean; books: Map<string, BookRef> }>();
-
-    function dayEntry(dateKey: string) {
-      let entry = dayMap.get(dateKey);
-      if (!entry) {
-        entry = { isNight: false, books: new Map() };
-        dayMap.set(dateKey, entry);
-      }
-      return entry;
-    }
-
-    for (const log of logs) {
-      const key = log.date.toISOString().slice(0, 10);
-      const entry = dayEntry(key);
-      entry.isNight = entry.isNight || log.isNight;
-      for (const item of log.books) {
-        entry.books.set(item.book.id, item.book);
-      }
-    }
-
-    const now = new Date();
-    for (const review of reviews) {
-      if (!review.startedAt) continue;
-      const startKey = localDateKey(review.startedAt, user.timezone);
-      // Still-reading books (no finishedAt yet) count through today.
-      const endKey = localDateKey(review.finishedAt ?? now, user.timezone);
-
-      for (let day = 1; day <= monthLength; day++) {
-        const dateKey = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-        if (dateKey < startKey || dateKey > endKey) continue;
-        dayEntry(dateKey).books.set(review.book.id, review.book);
-      }
-    }
-
-    const sortedDates = [...dayMap.keys()].sort();
     const days = await Promise.all(
-      sortedDates.map(async (date) => {
-        const entry = dayMap.get(date)!;
-        return {
-          date,
-          isNight: entry.isNight,
-          books: await Promise.all(
-            [...entry.books.values()].map(async (book) => ({
-              id: book.id,
-              title: book.title,
-              coverUrl: book.coverImageKey
-                ? await this.storage.createSignedUrl(book.coverImageKey)
-                : null,
-            })),
-          ),
-        };
-      }),
+      logs.map(async (log) => ({
+        date: log.date.toISOString().slice(0, 10),
+        isNight: log.isNight,
+        books: await Promise.all(
+          log.books.map(async (item) => ({
+            id: item.book.id,
+            title: item.book.title,
+            coverUrl: item.book.coverImageKey
+              ? await this.storage.createSignedUrl(item.book.coverImageKey)
+              : null,
+          })),
+        ),
+      })),
     );
 
     return {

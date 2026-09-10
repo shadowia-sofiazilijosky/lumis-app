@@ -21,15 +21,18 @@ function daysInMonth(year: number, month: number): number {
   return new Date(Date.UTC(year, month, 0)).getUTCDate();
 }
 
-const YEAR_RANGE_BACK = 15;
+const MAX_COVERS_SHOWN = 2;
 
 export function StreakCalendarView() {
   const t = useTranslations("streakCalendar");
   const locale = useLocale();
 
   const now = useMemo(() => new Date(), []);
-  const [viewYear, setViewYear] = useState(now.getUTCFullYear());
-  const [viewMonth, setViewMonth] = useState(now.getUTCMonth() + 1); // 1-12
+  const currentYear = now.getUTCFullYear();
+  const currentMonth = now.getUTCMonth() + 1;
+
+  const [viewYear, setViewYear] = useState(currentYear);
+  const [viewMonth, setViewMonth] = useState(currentMonth); // 1-12
   const [data, setData] = useState<StreakCalendarMonth | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
@@ -56,7 +59,7 @@ export function StreakCalendarView() {
     };
   }, [viewYear, viewMonth]);
 
-  const isCurrentMonth = viewYear === now.getUTCFullYear() && viewMonth === now.getUTCMonth() + 1;
+  const isCurrentMonth = viewYear === currentYear && viewMonth === currentMonth;
 
   function goToPreviousMonth() {
     if (viewMonth === 1) {
@@ -78,38 +81,23 @@ export function StreakCalendarView() {
   }
 
   function goToToday() {
-    setViewYear(now.getUTCFullYear());
-    setViewMonth(now.getUTCMonth() + 1);
+    setViewYear(currentYear);
+    setViewMonth(currentMonth);
   }
 
-  // Picking a month/year that would land in the future clamps back to the
-  // current real month, same rule as the ">" arrow.
-  function handleMonthSelect(month: number) {
-    const currentYear = now.getUTCFullYear();
-    const currentMonth = now.getUTCMonth() + 1;
-    setViewMonth(viewYear === currentYear && month > currentMonth ? currentMonth : month);
+  // Native <input type="month"> -- a single, reliable, OS-native
+  // month+year picker (its own popup calendar of months/years), so there's
+  // no custom dropdown wiring that can silently misbehave. `max` makes the
+  // browser itself refuse anything past the current real month.
+  function handleMonthInputChange(value: string) {
+    if (!value) return;
+    const [yearStr, monthStr] = value.split("-");
+    setViewYear(Number(yearStr));
+    setViewMonth(Number(monthStr));
   }
 
-  function handleYearSelect(year: number) {
-    const currentYear = now.getUTCFullYear();
-    const currentMonth = now.getUTCMonth() + 1;
-    setViewYear(year);
-    setViewMonth((month) => (year === currentYear && month > currentMonth ? currentMonth : month));
-  }
-
-  // Full month names, locale-aware, for the month <select>.
-  const monthOptions = useMemo(() => {
-    const formatter = new Intl.DateTimeFormat(locale, { month: "long" });
-    return Array.from({ length: 12 }, (_, i) => ({
-      value: i + 1,
-      label: formatter.format(new Date(Date.UTC(2024, i, 1))),
-    }));
-  }, [locale]);
-
-  const yearOptions = useMemo(() => {
-    const currentYear = now.getUTCFullYear();
-    return Array.from({ length: YEAR_RANGE_BACK + 1 }, (_, i) => currentYear - i);
-  }, [now]);
+  const monthInputValue = `${viewYear}-${pad2(viewMonth)}`;
+  const monthInputMax = `${currentYear}-${pad2(currentMonth)}`;
 
   // Monday-first short weekday labels, locale-aware.
   const weekdayLabels = useMemo(() => {
@@ -145,30 +133,14 @@ export function StreakCalendarView() {
         </button>
 
         <div className="streak-calendar-month-label">
-          <div className="streak-calendar-selects">
-            <select
-              value={viewMonth}
-              onChange={(event) => handleMonthSelect(Number(event.target.value))}
-              aria-label={t("selectMonth")}
-            >
-              {monthOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <select
-              value={viewYear}
-              onChange={(event) => handleYearSelect(Number(event.target.value))}
-              aria-label={t("selectYear")}
-            >
-              {yearOptions.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
+          <input
+            type="month"
+            className="streak-calendar-month-input"
+            value={monthInputValue}
+            max={monthInputMax}
+            onChange={(event) => handleMonthInputChange(event.target.value)}
+            aria-label={t("selectMonth")}
+          />
           {!isCurrentMonth && (
             <button type="button" className="streak-calendar-today-button" onClick={goToToday}>
               {t("today")}
@@ -223,7 +195,7 @@ export function StreakCalendarView() {
 
                   {day && day.books.length > 0 && (
                     <div className="streak-calendar-covers">
-                      {day.books.slice(0, 3).map((book) =>
+                      {day.books.slice(0, MAX_COVERS_SHOWN).map((book) =>
                         book.coverUrl ? (
                           // eslint-disable-next-line @next/next/no-img-element -- signed, short-lived Supabase URL
                           <img
@@ -243,8 +215,10 @@ export function StreakCalendarView() {
                           </span>
                         ),
                       )}
-                      {day.books.length > 3 && (
-                        <span className="streak-calendar-covers-more">+{day.books.length - 3}</span>
+                      {day.books.length > MAX_COVERS_SHOWN && (
+                        <span className="streak-calendar-covers-more">
+                          +{day.books.length - MAX_COVERS_SHOWN}
+                        </span>
                       )}
                     </div>
                   )}
