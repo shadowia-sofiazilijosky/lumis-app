@@ -159,7 +159,7 @@ export function rectsForOffsets(
   if (!range) return [];
 
   const containerRect = container.getBoundingClientRect();
-  return Array.from(range.getClientRects())
+  const raw = Array.from(range.getClientRects())
     .filter((rect) => rect.width > 0 && rect.height > 0)
     .map(
       (rect) =>
@@ -170,4 +170,51 @@ export function rectsForOffsets(
           rect.height,
         ),
     );
+
+  return mergeRectsByLine(raw);
+}
+
+/**
+ * `Range.getClientRects()` can hand back one rect per word/text-run rather
+ * than one per line (browser- and justification-dependent). Drawn as-is,
+ * that reads as a broken mosaic with unpainted gaps at every space. This
+ * collapses rects that share a line into a single continuous band
+ * (leftmost edge to rightmost edge), so a highlight overlay looks like a
+ * real marker stroke instead of scattered boxes -- purely a rendering
+ * cleanup, the underlying offsets are untouched.
+ */
+function mergeRectsByLine(rects: DOMRect[]): DOMRect[] {
+  if (rects.length <= 1) return rects;
+
+  const sorted = [...rects].sort((a, b) => a.top - b.top || a.left - b.left);
+  const lines: { top: number; bottom: number; left: number; right: number }[] = [];
+
+  for (const rect of sorted) {
+    const current = lines[lines.length - 1];
+    // Same line if this rect's vertical span overlaps the current line's by
+    // more than half its own height -- tolerant of sub-pixel baseline drift
+    // between runs without merging genuinely different lines.
+    const overlap = current
+      ? Math.min(current.bottom, rect.bottom) - Math.max(current.top, rect.top)
+      : 0;
+
+    if (current && overlap > rect.height * 0.5) {
+      current.top = Math.min(current.top, rect.top);
+      current.bottom = Math.max(current.bottom, rect.bottom);
+      current.left = Math.min(current.left, rect.left);
+      current.right = Math.max(current.right, rect.right);
+    } else {
+      lines.push({
+        top: rect.top,
+        bottom: rect.bottom,
+        left: rect.left,
+        right: rect.right,
+      });
+    }
+  }
+
+  return lines.map(
+    (line) =>
+      new DOMRect(line.left, line.top, line.right - line.left, line.bottom - line.top),
+  );
 }
