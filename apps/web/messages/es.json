@@ -681,5 +681,14 @@
     "loading": "Cargando…",
     "loadError": "No pudimos cargar tus libros leídos.",
     "empty": "Todavía no marcaste ningún libro como leído."
+  },
+  "streakCalendar": {
+    "pageTitle": "Tu racha de lectura — Lumis",
+    "heading": "Tu racha de lectura",
+    "loading": "Cargando…",
+    "loadError": "No pudimos cargar tu calendario de lectura.",
+    "previousMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente",
+    "today": "Hoy"
   }
 }

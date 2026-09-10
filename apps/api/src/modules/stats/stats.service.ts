@@ -9,6 +9,7 @@ import type {
   LibraryDistributionEntry,
   ProfileStats,
   ReadingGoalStats,
+  StreakCalendarMonth,
 } from '@lumis/shared-types';
 import { localDateKey, safeTimezone } from '../../common/timezone.util';
 import { PrismaService } from '../../database/prisma.service';
@@ -135,6 +136,58 @@ export class StatsService {
       cursor.setUTCDate(cursor.getUTCDate() - 1);
     }
     return streak;
+  }
+
+  // Powers the streak calendar page — one month at a time (year, 1-12
+  // month), so browsing back through years stays a small, cheap query
+  // instead of ever loading a user's whole history at once.
+  async getStreakCalendarMonth(
+    userId: string,
+    year: number,
+    month: number,
+  ): Promise<StreakCalendarMonth> {
+    const user = await this.prisma.user.findUniqueOrThrow({
+      where: { id: userId },
+      select: { timezone: true },
+    });
+
+    const startUtc = new Date(Date.UTC(year, month - 1, 1));
+    const endUtc = new Date(Date.UTC(year, month, 1));
+
+    const logs = await this.prisma.readingActivityLog.findMany({
+      where: { userId, date: { gte: startUtc, lt: endUtc } },
+      orderBy: { date: 'asc' },
+      include: {
+        books: {
+          include: {
+            book: { select: { id: true, title: true, coverImageKey: true } },
+          },
+        },
+      },
+    });
+
+    const days = await Promise.all(
+      logs.map(async (log) => ({
+        date: log.date.toISOString().slice(0, 10),
+        isNight: log.isNight,
+        books: await Promise.all(
+          log.books.map(async (entry) => ({
+            id: entry.book.id,
+            title: entry.book.title,
+            coverUrl: entry.book.coverImageKey
+              ? await this.storage.createSignedUrl(entry.book.coverImageKey)
+              : null,
+          })),
+        ),
+      })),
+    );
+
+    return {
+      year,
+      month,
+      days,
+      today: localDateKey(new Date(), user.timezone),
+    };
   }
 
   private async getLibraryDistribution(

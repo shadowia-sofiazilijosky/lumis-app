@@ -126,9 +126,27 @@ model ReadingActivityLog {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
+  books ReadingActivityBook[]
+
   @@unique([userId, date])
   @@index([userId])
   @@map("reading_activity_log")
+}
+
+// Which book(s) a user read on a given logged day -- a separate join so a
+// day with more than one book read still shows every cover on the streak
+// calendar, instead of only the last book to trigger that day's log entry.
+model ReadingActivityBook {
+  id         String             @id @default(cuid())
+  activityId String             @map("activity_id")
+  activity   ReadingActivityLog @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  bookId     String             @map("book_id")
+  book       Book               @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  createdAt  DateTime           @default(now()) @map("created_at")
+
+  @@unique([activityId, bookId])
+  @@index([bookId])
+  @@map("reading_activity_books")
 }
 
 // Hashed refresh tokens, so rotation/revocation doesn't depend on trusting the JWT alone.
@@ -162,12 +180,13 @@ model Book {
   createdAt            DateTime   @default(now()) @map("created_at")
   updatedAt            DateTime   @updatedAt @map("updated_at")
 
-  shelves         BookShelf[]
-  reviews         Review[]
-  readingProgress ReadingProgress[]
-  highlights      Highlight[]
-  notes           Note[]
-  strokes         Stroke[]
+  shelves              BookShelf[]
+  reviews              Review[]
+  readingProgress      ReadingProgress[]
+  highlights           Highlight[]
+  notes                Note[]
+  strokes              Stroke[]
+  readingActivityBooks ReadingActivityBook[]
 
   @@index([ownerId])
   @@map("books")

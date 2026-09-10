@@ -56,3 +56,29 @@ export interface ProfileStats {
   recentActivity: ActivityEvent[];
   achievements: AchievementStat[];
 }
+
+export interface StreakCalendarBook {
+  id: string;
+  title: string;
+  coverUrl: string | null;
+}
+
+export interface StreakCalendarDay {
+  /** YYYY-MM-DD, the user's own local calendar day. */
+  date: string;
+  isNight: boolean;
+  /** Every book read that day — usually one, can be more. */
+  books: StreakCalendarBook[];
+}
+
+export interface StreakCalendarMonth {
+  year: number;
+  /** 1-12. */
+  month: number;
+  /** Only days with at least one reading session — days without an entry
+   * simply weren't read. */
+  days: StreakCalendarDay[];
+  /** YYYY-MM-DD, today in the user's own timezone — for highlighting
+   * "today" consistently with how the streak itself is computed. */
+  today: string;
+}

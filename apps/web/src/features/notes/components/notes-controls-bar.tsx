@@ -1,9 +1,8 @@
 "use client";
 
 import type { BookSummary } from "@lumis/shared-types";
-import { Plus, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 
 export type NotesSortMode = "recent" | "oldest";
 
@@ -66,11 +65,6 @@ export function NotesControlsBar({
           <option value="oldest">{t("sortOldest")}</option>
         </select>
       </div>
-
-      <Link href="/library" className="notes-new-button">
-        <Plus size={16} />
-        {t("newNote")}
-      </Link>
     </div>
   );
 }

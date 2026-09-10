@@ -681,5 +681,14 @@
     "loading": "Ładowanie…",
     "loadError": "Nie mogliśmy załadować przeczytanych książek.",
     "empty": "Nie oznaczyłeś jeszcze żadnej książki jako przeczytanej."
+  },
+  "streakCalendar": {
+    "pageTitle": "Twoja seria czytelnicza — Lumis",
+    "heading": "Twoja seria czytelnicza",
+    "loading": "Ładowanie…",
+    "loadError": "Nie mogliśmy załadować twojego kalendarza czytania.",
+    "previousMonth": "Poprzedni miesiąc",
+    "nextMonth": "Następny miesiąc",
+    "today": "Dziś"
   }
 }

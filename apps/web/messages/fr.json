@@ -681,5 +681,14 @@
     "loading": "Chargement…",
     "loadError": "Nous n'avons pas pu charger tes livres lus.",
     "empty": "Tu n'as encore marqué aucun livre comme lu."
+  },
+  "streakCalendar": {
+    "pageTitle": "Ta série de lecture — Lumis",
+    "heading": "Ta série de lecture",
+    "loading": "Chargement…",
+    "loadError": "Nous n'avons pas pu charger ton calendrier de lecture.",
+    "previousMonth": "Mois précédent",
+    "nextMonth": "Mois suivant",
+    "today": "Aujourd'hui"
   }
 }

@@ -681,5 +681,14 @@
     "loading": "Laden…",
     "loadError": "We konden je gelezen boeken niet laden.",
     "empty": "Je hebt nog geen boek als gelezen gemarkeerd."
+  },
+  "streakCalendar": {
+    "pageTitle": "Jouw leesreeks — Lumis",
+    "heading": "Jouw leesreeks",
+    "loading": "Laden…",
+    "loadError": "We konden je leeskalender niet laden.",
+    "previousMonth": "Vorige maand",
+    "nextMonth": "Volgende maand",
+    "today": "Vandaag"
   }
 }

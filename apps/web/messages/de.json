@@ -681,5 +681,14 @@
     "loading": "Wird geladen…",
     "loadError": "Wir konnten deine gelesenen Bücher nicht laden.",
     "empty": "Du hast noch kein Buch als gelesen markiert."
+  },
+  "streakCalendar": {
+    "pageTitle": "Deine Lesesträhne — Lumis",
+    "heading": "Deine Lesesträhne",
+    "loading": "Wird geladen…",
+    "loadError": "Wir konnten deinen Lesekalender nicht laden.",
+    "previousMonth": "Vorheriger Monat",
+    "nextMonth": "Nächster Monat",
+    "today": "Heute"
   }
 }

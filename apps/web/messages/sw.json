@@ -681,5 +681,14 @@
     "loading": "Inapakia…",
     "loadError": "Hatukuweza kupakia vitabu ulivyosoma.",
     "empty": "Bado hujaweka alama kitabu chochote kama kimesomwa."
+  },
+  "streakCalendar": {
+    "pageTitle": "Mfululizo wako wa kusoma — Lumis",
+    "heading": "Mfululizo wako wa kusoma",
+    "loading": "Inapakia…",
+    "loadError": "Hatukuweza kupakia kalenda yako ya kusoma.",
+    "previousMonth": "Mwezi uliopita",
+    "nextMonth": "Mwezi ujao",
+    "today": "Leo"
   }
 }

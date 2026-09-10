@@ -681,5 +681,14 @@
     "loading": "Carregando…",
     "loadError": "Não conseguimos carregar seus livros lidos.",
     "empty": "Você ainda não marcou nenhum livro como lido."
+  },
+  "streakCalendar": {
+    "pageTitle": "Sua sequência de leitura — Lumis",
+    "heading": "Sua sequência de leitura",
+    "loading": "Carregando…",
+    "loadError": "Não conseguimos carregar seu calendário de leitura.",
+    "previousMonth": "Mês anterior",
+    "nextMonth": "Próximo mês",
+    "today": "Hoje"
   }
 }

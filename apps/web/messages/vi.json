@@ -681,5 +681,14 @@
     "loading": "Đang tải…",
     "loadError": "Không thể tải sách đã đọc của bạn.",
     "empty": "Bạn chưa đánh dấu cuốn sách nào là đã đọc."
+  },
+  "streakCalendar": {
+    "pageTitle": "Chuỗi đọc sách của bạn — Lumis",
+    "heading": "Chuỗi đọc sách của bạn",
+    "loading": "Đang tải…",
+    "loadError": "Không thể tải lịch đọc sách của bạn.",
+    "previousMonth": "Tháng trước",
+    "nextMonth": "Tháng sau",
+    "today": "Hôm nay"
   }
 }

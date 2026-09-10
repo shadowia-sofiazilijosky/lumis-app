@@ -1,4 +1,9 @@
-import type { ProfileStats, PublicUser, UpdateUserDto } from "@lumis/shared-types";
+import type {
+  ProfileStats,
+  PublicUser,
+  StreakCalendarMonth,
+  UpdateUserDto,
+} from "@lumis/shared-types";
 
 export class ProfileRequestError extends Error {
   constructor(
@@ -17,6 +22,15 @@ async function parseErrorMessage(response: Response, fallback: string): Promise<
 
 export async function fetchProfileStats(): Promise<ProfileStats | null> {
   const response = await fetch("/api/stats/profile");
+  if (!response.ok) return null;
+  return response.json();
+}
+
+export async function fetchStreakCalendar(
+  year: number,
+  month: number,
+): Promise<StreakCalendarMonth | null> {
+  const response = await fetch(`/api/stats/streak-calendar?year=${year}&month=${month}`);
   if (!response.ok) return null;
   return response.json();
 }

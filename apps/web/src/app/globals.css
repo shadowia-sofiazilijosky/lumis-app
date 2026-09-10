@@ -4646,25 +4646,6 @@ html[data-theme="light"] {
   padding-right: 1.75rem;
 }
 
-.notes-new-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1.2rem;
-  border-radius: 999px;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.notes-new-button:hover {
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-1px);
-}
-
 .notes-book-list {
   display: flex;
   flex-direction: column;
@@ -5038,5 +5019,185 @@ html[data-theme="light"] {
 @media (max-width: 768px) {
   main {
     padding-top: 3.5rem;
+  }
+}
+
+/* --- Streak calendar (profile "Días de racha" -> "Ver racha") ---
+   Same glass-card recipe as .ficha-lectura (blurred translucent surface,
+   primary-tinted border/glow), but tinted with the profile page's own
+   gold tokens instead of --primary, so it reads as part of the profile
+   rather than a generic panel. */
+
+.streak-calendar {
+  position: relative;
+  margin-top: 1rem;
+  padding: 1.75rem 1.5rem;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in srgb, var(--profile-gold) 30%, var(--border));
+  border-radius: var(--radius-lg);
+  box-shadow:
+    var(--shadow-md),
+    0 0 46px color-mix(in srgb, var(--profile-gold) 14%, transparent);
+}
+
+.streak-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.streak-calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+}
+
+.streak-calendar-nav:hover:not(:disabled) {
+  box-shadow: none;
+  transform: none;
+  background: color-mix(in srgb, var(--profile-gold) 15%, transparent);
+}
+
+.streak-calendar-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.streak-calendar-month-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  text-transform: capitalize;
+}
+
+.streak-calendar-today-button {
+  font-size: 0.75rem;
+  color: var(--profile-gold);
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.streak-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-transform: capitalize;
+}
+
+.streak-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.streak-calendar-cell {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.35rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  gap: 0.2rem;
+  overflow: hidden;
+}
+
+.streak-calendar-cell-empty {
+  visibility: hidden;
+}
+
+.streak-calendar-cell-read {
+  border-color: color-mix(in srgb, var(--profile-gold) 45%, transparent);
+  background: color-mix(in srgb, var(--profile-gold-bg) 40%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--profile-gold) 25%, transparent);
+}
+
+.streak-calendar-cell-today {
+  border-color: var(--profile-gold);
+  border-width: 2px;
+}
+
+.streak-calendar-day-number {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+.streak-calendar-night-icon {
+  color: var(--profile-gold);
+}
+
+.streak-calendar-covers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.streak-calendar-cover {
+  width: 22px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: var(--shadow-sm);
+}
+
+.streak-calendar-cover-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--surface);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 0.65rem;
+}
+
+.streak-calendar-covers-more {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .streak-calendar {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .streak-calendar-grid,
+  .streak-calendar-weekdays {
+    gap: 0.25rem;
+  }
+
+  .streak-calendar-cover {
+    width: 16px;
+    height: 22px;
+  }
+
+  .streak-calendar-day-number {
+    font-size: 0.62rem;
   }
 }

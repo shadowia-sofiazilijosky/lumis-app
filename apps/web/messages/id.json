@@ -681,5 +681,14 @@
     "loading": "Memuat…",
     "loadError": "Kami tidak bisa memuat buku yang sudah kamu baca.",
     "empty": "Kamu belum menandai buku apa pun sebagai sudah dibaca."
+  },
+  "streakCalendar": {
+    "pageTitle": "Streak membacamu — Lumis",
+    "heading": "Streak membacamu",
+    "loading": "Memuat…",
+    "loadError": "Kami tidak bisa memuat kalender membacamu.",
+    "previousMonth": "Bulan sebelumnya",
+    "nextMonth": "Bulan berikutnya",
+    "today": "Hari ini"
   }
 }

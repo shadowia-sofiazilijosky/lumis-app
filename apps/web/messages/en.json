@@ -681,5 +681,14 @@
     "loading": "Loading…",
     "loadError": "We couldn't load your read books.",
     "empty": "You haven't marked any book as read yet."
+  },
+  "streakCalendar": {
+    "pageTitle": "Your reading streak — Lumis",
+    "heading": "Your reading streak",
+    "loading": "Loading…",
+    "loadError": "We couldn't load your reading calendar.",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "today": "Today"
   }
 }

@@ -681,5 +681,14 @@
     "loading": "加载中…",
     "loadError": "无法加载你的已读书籍。",
     "empty": "你还没有把任何一本书标记为已读。"
+  },
+  "streakCalendar": {
+    "pageTitle": "你的阅读连胜 — Lumis",
+    "heading": "你的阅读连胜",
+    "loading": "加载中…",
+    "loadError": "无法加载你的阅读日历。",
+    "previousMonth": "上个月",
+    "nextMonth": "下个月",
+    "today": "今天"
   }
 }

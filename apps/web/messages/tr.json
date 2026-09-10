@@ -681,5 +681,14 @@
     "loading": "Yükleniyor…",
     "loadError": "Okunan kitaplarını yükleyemedik.",
     "empty": "Henüz hiçbir kitabı okundu olarak işaretlemedin."
+  },
+  "streakCalendar": {
+    "pageTitle": "Okuma serin — Lumis",
+    "heading": "Okuma serin",
+    "loading": "Yükleniyor…",
+    "loadError": "Okuma takvimini yükleyemedik.",
+    "previousMonth": "Önceki ay",
+    "nextMonth": "Sonraki ay",
+    "today": "Bugün"
   }
 }

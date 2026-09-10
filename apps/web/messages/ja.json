@@ -681,5 +681,14 @@
     "loading": "読み込み中…",
     "loadError": "読み終えた本を読み込めませんでした。",
     "empty": "まだ「読み終えた」にした本がありません。"
+  },
+  "streakCalendar": {
+    "pageTitle": "あなたの読書ストリーク — Lumis",
+    "heading": "あなたの読書ストリーク",
+    "loading": "読み込み中…",
+    "loadError": "読書カレンダーを読み込めませんでした。",
+    "previousMonth": "前の月",
+    "nextMonth": "次の月",
+    "today": "今日"
   }
 }

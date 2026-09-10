@@ -112,7 +112,7 @@ export function ProfilePage({ initialUser }: { initialUser: PublicUser }) {
                   iconTone="gold"
                   value={stats.counts.currentStreak}
                   label={t("stats.streakCount")}
-                  href="/library"
+                  href="/profile/streak"
                   linkLabel={t("stats.viewStreak")}
                 />
               </div>

@@ -681,5 +681,14 @@
     "loading": "불러오는 중…",
     "loadError": "다 읽은 책을 불러오지 못했습니다.",
     "empty": "아직 읽음으로 표시한 책이 없어요."
+  },
+  "streakCalendar": {
+    "pageTitle": "독서 스트릭 — Lumis",
+    "heading": "독서 스트릭",
+    "loading": "불러오는 중…",
+    "loadError": "독서 캘린더를 불러오지 못했습니다.",
+    "previousMonth": "이전 달",
+    "nextMonth": "다음 달",
+    "today": "오늘"
   }
 }
