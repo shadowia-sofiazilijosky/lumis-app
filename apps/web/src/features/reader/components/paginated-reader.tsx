@@ -53,7 +53,10 @@ function TextSinglePage({
         bookId={bookId}
         pageIndex={pageNumber - 1}
         containerRef={textPageRef}
-        refreshKey={`${pageNumber}-${text ? "loaded" : "loading"}`}
+        // zoom must be in here (same as DrawingLayer below): changing it
+        // reflows the text, so the overlay rects have to be recomputed or
+        // the highlights stay stuck at the previous zoom's positions.
+        refreshKey={`${pageNumber}-${text ? "loaded" : "loading"}-${zoom}`}
       />
       <DrawingLayer
         bookId={bookId}
