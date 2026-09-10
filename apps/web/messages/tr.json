@@ -689,6 +689,8 @@
     "loadError": "Okuma takvimini yükleyemedik.",
     "previousMonth": "Önceki ay",
     "nextMonth": "Sonraki ay",
-    "today": "Bugün"
+    "today": "Bugün",
+    "selectMonth": "Ay seç",
+    "selectYear": "Yıl seç"
   }
 }

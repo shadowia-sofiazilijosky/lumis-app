@@ -689,6 +689,8 @@
     "loadError": "Không thể tải lịch đọc sách của bạn.",
     "previousMonth": "Tháng trước",
     "nextMonth": "Tháng sau",
-    "today": "Hôm nay"
+    "today": "Hôm nay",
+    "selectMonth": "Chọn tháng",
+    "selectYear": "Chọn năm"
   }
 }

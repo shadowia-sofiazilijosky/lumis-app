@@ -689,6 +689,8 @@
     "loadError": "تعذّر تحميل تقويم قراءتك.",
     "previousMonth": "الشهر السابق",
     "nextMonth": "الشهر التالي",
-    "today": "اليوم"
+    "today": "اليوم",
+    "selectMonth": "اختر الشهر",
+    "selectYear": "اختر السنة"
   }
 }

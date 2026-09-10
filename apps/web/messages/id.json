@@ -689,6 +689,8 @@
     "loadError": "Kami tidak bisa memuat kalender membacamu.",
     "previousMonth": "Bulan sebelumnya",
     "nextMonth": "Bulan berikutnya",
-    "today": "Hari ini"
+    "today": "Hari ini",
+    "selectMonth": "Pilih bulan",
+    "selectYear": "Pilih tahun"
   }
 }

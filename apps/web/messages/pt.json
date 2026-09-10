@@ -689,6 +689,8 @@
     "loadError": "Não conseguimos carregar seu calendário de leitura.",
     "previousMonth": "Mês anterior",
     "nextMonth": "Próximo mês",
-    "today": "Hoje"
+    "today": "Hoje",
+    "selectMonth": "Escolher mês",
+    "selectYear": "Escolher ano"
   }
 }

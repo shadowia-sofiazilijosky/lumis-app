@@ -689,6 +689,8 @@
     "loadError": "We konden je leeskalender niet laden.",
     "previousMonth": "Vorige maand",
     "nextMonth": "Volgende maand",
-    "today": "Vandaag"
+    "today": "Vandaag",
+    "selectMonth": "Maand kiezen",
+    "selectYear": "Jaar kiezen"
   }
 }

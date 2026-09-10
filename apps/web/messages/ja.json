@@ -689,6 +689,8 @@
     "loadError": "読書カレンダーを読み込めませんでした。",
     "previousMonth": "前の月",
     "nextMonth": "次の月",
-    "today": "今日"
+    "today": "今日",
+    "selectMonth": "月を選択",
+    "selectYear": "年を選択"
   }
 }

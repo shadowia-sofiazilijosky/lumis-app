@@ -689,6 +689,8 @@
     "loadError": "আমরা আপনার পঠন ক্যালেন্ডার লোড করতে পারিনি।",
     "previousMonth": "আগের মাস",
     "nextMonth": "পরের মাস",
-    "today": "আজ"
+    "today": "আজ",
+    "selectMonth": "মাস বেছে নিন",
+    "selectYear": "বছর বেছে নিন"
   }
 }

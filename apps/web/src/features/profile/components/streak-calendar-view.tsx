@@ -21,6 +21,8 @@ function daysInMonth(year: number, month: number): number {
   return new Date(Date.UTC(year, month, 0)).getUTCDate();
 }
 
+const YEAR_RANGE_BACK = 15;
+
 export function StreakCalendarView() {
   const t = useTranslations("streakCalendar");
   const locale = useLocale();
@@ -80,10 +82,34 @@ export function StreakCalendarView() {
     setViewMonth(now.getUTCMonth() + 1);
   }
 
-  const monthLabel = new Intl.DateTimeFormat(locale, {
-    month: "long",
-    year: "numeric",
-  }).format(new Date(Date.UTC(viewYear, viewMonth - 1, 1)));
+  // Picking a month/year that would land in the future clamps back to the
+  // current real month, same rule as the ">" arrow.
+  function handleMonthSelect(month: number) {
+    const currentYear = now.getUTCFullYear();
+    const currentMonth = now.getUTCMonth() + 1;
+    setViewMonth(viewYear === currentYear && month > currentMonth ? currentMonth : month);
+  }
+
+  function handleYearSelect(year: number) {
+    const currentYear = now.getUTCFullYear();
+    const currentMonth = now.getUTCMonth() + 1;
+    setViewYear(year);
+    setViewMonth((month) => (year === currentYear && month > currentMonth ? currentMonth : month));
+  }
+
+  // Full month names, locale-aware, for the month <select>.
+  const monthOptions = useMemo(() => {
+    const formatter = new Intl.DateTimeFormat(locale, { month: "long" });
+    return Array.from({ length: 12 }, (_, i) => ({
+      value: i + 1,
+      label: formatter.format(new Date(Date.UTC(2024, i, 1))),
+    }));
+  }, [locale]);
+
+  const yearOptions = useMemo(() => {
+    const currentYear = now.getUTCFullYear();
+    return Array.from({ length: YEAR_RANGE_BACK + 1 }, (_, i) => currentYear - i);
+  }, [now]);
 
   // Monday-first short weekday labels, locale-aware.
   const weekdayLabels = useMemo(() => {
@@ -119,7 +145,30 @@ export function StreakCalendarView() {
         </button>
 
         <div className="streak-calendar-month-label">
-          <span>{monthLabel}</span>
+          <div className="streak-calendar-selects">
+            <select
+              value={viewMonth}
+              onChange={(event) => handleMonthSelect(Number(event.target.value))}
+              aria-label={t("selectMonth")}
+            >
+              {monthOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={viewYear}
+              onChange={(event) => handleYearSelect(Number(event.target.value))}
+              aria-label={t("selectYear")}
+            >
+              {yearOptions.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
           {!isCurrentMonth && (
             <button type="button" className="streak-calendar-today-button" onClick={goToToday}>
               {t("today")}

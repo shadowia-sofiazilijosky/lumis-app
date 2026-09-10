@@ -689,6 +689,8 @@
     "loadError": "ہم آپ کا ریڈنگ کیلنڈر لوڈ نہیں کر سکے۔",
     "previousMonth": "پچھلا مہینہ",
     "nextMonth": "اگلا مہینہ",
-    "today": "آج"
+    "today": "آج",
+    "selectMonth": "مہینہ منتخب کریں",
+    "selectYear": "سال منتخب کریں"
   }
 }

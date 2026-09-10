@@ -5082,6 +5082,23 @@ html[data-theme="light"] {
   text-transform: capitalize;
 }
 
+.streak-calendar-selects {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.streak-calendar-selects select {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  text-transform: capitalize;
+  background: var(--surface);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
 .streak-calendar-today-button {
   font-size: 0.75rem;
   color: var(--profile-gold);
@@ -5110,15 +5127,15 @@ html[data-theme="light"] {
 
 .streak-calendar-cell {
   position: relative;
-  aspect-ratio: 1;
+  min-height: 104px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0.35rem;
+  padding: 0.4rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
-  gap: 0.2rem;
+  gap: 0.3rem;
   overflow: hidden;
 }
 
@@ -5159,10 +5176,10 @@ html[data-theme="light"] {
 }
 
 .streak-calendar-cover {
-  width: 22px;
-  height: 30px;
+  width: 34px;
+  height: 48px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -5192,9 +5209,13 @@ html[data-theme="light"] {
     gap: 0.25rem;
   }
 
+  .streak-calendar-cell {
+    min-height: 68px;
+  }
+
   .streak-calendar-cover {
-    width: 16px;
-    height: 22px;
+    width: 20px;
+    height: 28px;
   }
 
   .streak-calendar-day-number {

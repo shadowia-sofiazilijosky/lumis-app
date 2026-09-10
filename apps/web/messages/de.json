@@ -689,6 +689,8 @@
     "loadError": "Wir konnten deinen Lesekalender nicht laden.",
     "previousMonth": "Vorheriger Monat",
     "nextMonth": "Nächster Monat",
-    "today": "Heute"
+    "today": "Heute",
+    "selectMonth": "Monat wählen",
+    "selectYear": "Jahr wählen"
   }
 }

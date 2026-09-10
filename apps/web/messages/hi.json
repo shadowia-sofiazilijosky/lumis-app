@@ -689,6 +689,8 @@
     "loadError": "हम आपका रीडिंग कैलेंडर लोड नहीं कर पाए।",
     "previousMonth": "पिछला महीना",
     "nextMonth": "अगला महीना",
-    "today": "आज"
+    "today": "आज",
+    "selectMonth": "महीना चुनें",
+    "selectYear": "साल चुनें"
   }
 }

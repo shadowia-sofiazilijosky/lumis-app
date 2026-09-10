@@ -689,6 +689,8 @@
     "loadError": "Hatukuweza kupakia kalenda yako ya kusoma.",
     "previousMonth": "Mwezi uliopita",
     "nextMonth": "Mwezi ujao",
-    "today": "Leo"
+    "today": "Leo",
+    "selectMonth": "Chagua mwezi",
+    "selectYear": "Chagua mwaka"
   }
 }
