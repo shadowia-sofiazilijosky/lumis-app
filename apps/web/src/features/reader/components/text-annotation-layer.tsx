@@ -117,6 +117,8 @@ export function TextAnnotationLayer({
     };
   }, [containerRef, pageIndex, setPendingSelection]);
 
+  const drawTool = useAnnotationsStore((state) => state.drawTool);
+
   const pageHighlights = useMemo(
     () => highlights.filter((h) => h.pageIndex === pageIndex && !h.cfi),
     [highlights, pageIndex],
@@ -220,6 +222,49 @@ export function TextAnnotationLayer({
     removeHighlightLocal(id);
     await deleteHighlight(bookId, id);
   }
+
+  // In native mode there's no per-highlight <button> to click, so tapping a
+  // highlight to remove it is done by hit-testing the stored ranges against
+  // the click point -- which works at any zoom / page-turn transform,
+  // because getClientRects() and the click coords are both in the same
+  // (transformed) viewport space. Only wired up in native mode; the
+  // fallback path keeps its own clickable marks.
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || !getHighlightApi()) return;
+
+    function handleClick(event: MouseEvent) {
+      if (drawTool) return; // pen mode -- let the drawing layer have the tap
+      const selection = window.getSelection();
+      if (selection && !selection.isCollapsed) return; // mid text-selection
+
+      for (const highlight of pageHighlights) {
+        const range = rangeFromOffsets(
+          container!,
+          highlight.startOffset,
+          highlight.endOffset,
+        );
+        if (!range) continue;
+        const hit = Array.from(range.getClientRects()).some(
+          (r) =>
+            event.clientX >= r.left &&
+            event.clientX <= r.right &&
+            event.clientY >= r.top &&
+            event.clientY <= r.bottom,
+        );
+        if (hit) {
+          event.stopPropagation(); // don't also toggle the reader controls
+          void handleDeleteHighlight(highlight.id);
+          return;
+        }
+      }
+    }
+
+    // Capture phase so we can stop the tap before the reader's own
+    // tap-to-toggle-controls handler sees it.
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
+  }, [containerRef, pageHighlights, drawTool, refreshKey]);
 
   return (
     <div className="annotation-overlay">
